@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>VideoMitra | Edit, Create & Share | Kopersay Technologies</title>
+
+<meta name="description"
+content="VideoMitra is a modern video editing and creation application by Kopersay Technologies, currently under development.">
+
+<meta name="keywords"
+content="VideoMitra, video editor, video editing app, video creator, Kopersay Technologies">
+
+<meta name="author"
+content="Kopersay Technologies">
+
+<meta name="robots"
+content="index, follow">
+
+<link rel="canonical"
+href="https://kopersay.in/videomitra.html">
+
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#fff;
+    color:#151827;
+    line-height:1.6;
+}
+
+a{
+    text-decoration:none;
+}
+
+
+/* ================= NAVBAR ================= */
+
+.navbar{
+    position:sticky;
+    top:0;
+    z-index:1000;
+
+    min-height:74px;
+    padding:0 7%;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    background:rgba(255,255,255,.97);
+
+    border-bottom:1px solid #e9eaf0;
+
+    backdrop-filter:blur(14px);
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:11px;
+
+    color:#151827;
+
+    font-size:22px;
+    font-weight:800;
+}
+
+.brand-logo{
+    width:42px;
+    height:42px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:12px;
+
+    color:#fff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #673de6,
+            #477ff5
+        );
+
+    font-size:21px;
+    font-weight:900;
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:25px;
+}
+
+.nav-links a{
+    color:#555b6d;
+    font-size:14px;
+    font-weight:600;
+}
+
+.nav-links a:hover{
+    color:#633de3;
+}
+
+.contact-btn{
+    padding:10px 17px;
+
+    border-radius:10px;
+
+    color:#fff !important;
+
+    background:
+        linear-gradient(
+            135deg,
+            #6539df,
+            #4f7bef
+        );
+}
+
+
+/* ================= HERO ================= */
+
+.hero{
+    padding:80px 7% 85px;
+
+    text-align:center;
+
+    color:#fff;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(255,65,190,.30),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #090d29,
+            #151052,
+            #35115f
+        );
+}
+
+.app-logo{
+    width:170px;
+    height:170px;
+
+    margin:0 auto 27px;
+
+    display:block;
+
+    object-fit:cover;
+
+    border-radius:38px;
+
+    box-shadow:
+        0 25px 65px rgba(0,0,0,.35);
+}
+
+.status{
+    display:inline-block;
+
+    padding:8px 16px;
+
+    border-radius:50px;
+
+    color:#ffd76b;
+
+    background:rgba(255,215,100,.13);
+
+    border:1px solid rgba(255,215,100,.25);
+
+    font-size:11px;
+    font-weight:900;
+
+    letter-spacing:.7px;
+}
+
+.hero h1{
+    margin-top:20px;
+
+    font-size:
+        clamp(45px,7vw,76px);
+
+    line-height:1.03;
+
+    font-weight:900;
+}
+
+.hero h1 span{
+    background:
+        linear-gradient(
+            90deg,
+            #fff,
+            #ff3fae,
+            #ffb42e
+        );
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.hero p{
+    max-width:760px;
+
+    margin:22px auto 0;
+
+    color:#d4d5e5;
+
+    font-size:18px;
+}
+
+.dev-date{
+    display:inline-block;
+
+    margin-top:25px;
+
+    padding:11px 18px;
+
+    border-radius:11px;
+
+    color:#fff;
+
+    background:rgba(255,255,255,.10);
+
+    border:1px solid rgba(255,255,255,.15);
+
+    font-size:13px;
+
+    font-weight:800;
+}
+
+
+/* ================= BUTTONS ================= */
+
+.buttons{
+    margin-top:28px;
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:12px;
+
+    flex-wrap:wrap;
+}
+
+.primary-btn{
+    display:inline-block;
+
+    padding:13px 22px;
+
+    border-radius:11px;
+
+    color:#fff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff2d9b,
+            #ff8b27
+        );
+
+    font-size:14px;
+    font-weight:800;
+
+    box-shadow:
+        0 10px 25px rgba(255,45,155,.25);
+}
+
+.secondary-btn{
+    display:inline-block;
+
+    padding:13px 22px;
+
+    border-radius:11px;
+
+    color:#fff;
+
+    background:rgba(255,255,255,.12);
+
+    border:1px solid rgba(255,255,255,.2);
+
+    font-size:14px;
+
+    font-weight:800;
+}
+
+
+/* ================= SECTION ================= */
+
+.section{
+    padding:80px 7%;
+}
+
+.section-title{
+    max-width:720px;
+
+    margin:0 auto 45px;
+
+    text-align:center;
+}
+
+.section-title h2{
+    font-size:39px;
+
+    margin-bottom:10px;
+}
+
+.section-title p{
+    color:#74798b;
+}
+
+
+/* ================= ABOUT ================= */
+
+.about{
+    background:#f8f8fc;
+}
+
+.about-grid{
+    max-width:1100px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:55px;
+
+    align-items:center;
+}
+
+.about h2{
+    font-size:39px;
+
+    margin-bottom:18px;
+}
+
+.about p{
+    color:#6e7385;
+
+    margin-bottom:15px;
+}
+
+.check-list{
+    list-style:none;
+
+    margin-top:22px;
+}
+
+.check-list li{
+    margin:12px 0;
+
+    font-weight:700;
+}
+
+.check-list li::before{
+    content:"✓";
+
+    color:#ed2998;
+
+    margin-right:10px;
+
+    font-weight:900;
+}
+
+
+/* ================= VIDEO VISUAL ================= */
+
+.video-visual{
+    min-height:390px;
+
+    padding:35px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:28px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #efeaff,
+            #fff0fa
+        );
+
+    border:1px solid #e3dff0;
+}
+
+.video-screen{
+    width:330px;
+    max-width:100%;
+
+    height:225px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    border-radius:22px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #171044,
+            #66208c,
+            #ed268f
+        );
+
+    box-shadow:
+        0 22px 50px rgba(70,35,100,.20);
+}
+
+.play-button{
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+    width:72px;
+    height:72px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    color:#fff;
+
+    background:rgba(255,255,255,.20);
+
+    border:2px solid rgba(255,255,255,.55);
+
+    font-size:29px;
+}
+
+.timeline{
+    position:absolute;
+
+    left:18px;
+    right:18px;
+    bottom:18px;
+
+    height:7px;
+
+    border-radius:20px;
+
+    background:rgba(255,255,255,.25);
+}
+
+.timeline::after{
+    content:"";
+
+    display:block;
+
+    width:48%;
+    height:100%;
+
+    border-radius:20px;
+
+    background:#fff;
+}
+
+
+/* ================= FEATURES ================= */
+
+.features{
+    background:#fff;
+}
+
+.feature-grid{
+    max-width:1150px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:22px;
+}
+
+.feature-card{
+    padding:28px;
+
+    background:#fff;
+
+    border:1px solid #e7e8ef;
+
+    border-radius:20px;
+
+    box-shadow:
+        0 12px 35px rgba(20,20,50,.055);
+
+    transition:.25s;
+}
+
+.feature-card:hover{
+    transform:translateY(-5px);
+}
+
+.feature-icon{
+    width:55px;
+    height:55px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:15px;
+
+    color:#e9289c;
+
+    background:#fff0f9;
+
+    font-size:25px;
+
+    margin-bottom:18px;
+}
+
+.feature-card h3{
+    font-size:20px;
+
+    margin-bottom:8px;
+}
+
+.feature-card p{
+    color:#727789;
+
+    font-size:14px;
+}
+
+
+/* ================= DEVELOPMENT ================= */
+
+.development-box{
+    max-width:950px;
+
+    margin:auto;
+
+    padding:35px;
+
+    text-align:center;
+
+    border-radius:22px;
+
+    border:1px solid #eadfee;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff8fc,
+            #faf9ff
+        );
+}
+
+.development-box h2{
+    font-size:31px;
+
+    margin-bottom:12px;
+}
+
+.development-box p{
+    max-width:720px;
+
+    margin:auto;
+
+    color:#707589;
+}
+
+
+/* ================= CTA ================= */
+
+.cta{
+    padding:80px 7%;
+
+    text-align:center;
+
+    color:#fff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #21144e,
+            #70165e
+        );
+}
+
+.cta h2{
+    font-size:40px;
+
+    margin-bottom:12px;
+}
+
+.cta p{
+    opacity:.86;
+
+    margin-bottom:25px;
+}
+
+.back-btn{
+    display:inline-block;
+
+    padding:13px 22px;
+
+    border-radius:10px;
+
+    color:#5a2fc9;
+
+    background:#fff;
+
+    font-weight:800;
+}
+
+
+/* ================= FOOTER ================= */
+
+footer{
+    padding:45px 7% 30px;
+
+    text-align:center;
+
+    background:#101322;
+
+    color:#fff;
+}
+
+.footer-logo{
+    font-size:21px;
+
+    font-weight:800;
+
+    margin-bottom:10px;
+}
+
+footer p{
+    color:#9298aa;
+
+    font-size:13px;
+}
+
+.footer-links{
+    margin:18px 0;
+}
+
+.footer-links a{
+    color:#b8aaff;
+
+    margin:0 9px;
+
+    font-size:13px;
+}
+
+
+/* ================= MOBILE ================= */
+
+@media(max-width:850px){
+
+    .navbar{
+        padding:12px 18px;
+    }
+
+    .nav-links{
+        gap:9px;
+    }
+
+    .nav-links a:not(.contact-btn){
+        display:none;
+    }
+
+    .hero{
+        padding:65px 5%;
+    }
+
+    .hero p{
+        font-size:16px;
+    }
+
+    .section{
+        padding:65px 5%;
+    }
+
+    .about-grid{
+        grid-template-columns:1fr;
+    }
+
+    .feature-grid{
+        grid-template-columns:1fr;
+    }
+
+    .section-title h2{
+        font-size:32px;
+    }
+
+    .about h2{
+        font-size:32px;
+    }
+
+    .cta h2{
+        font-size:32px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- ================= NAVBAR ================= -->
+
+<nav class="navbar">
+
+<a href="index.html" class="brand">
+
+<div class="brand-logo">
+K
+</div>
+
+Kopersay
+
+</a>
+
+
+<div class="nav-links">
+
+<a href="index.html">
+Home
+</a>
+
+<a href="products.html">
+Products
+</a>
+
+<a href="apps.html">
+Apps
+</a>
+
+<a href="about.html">
+About
+</a>
+
+<a href="vision.html">
+Vision
+</a>
+
+<a href="contact.html" class="contact-btn">
+Contact
+</a>
+
+</div>
+
+</nav>
+
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+
+<img
+src="assets/videomitra.png.png"
+alt="VideoMitra App Logo"
+class="app-logo">
+
+
+<div class="status">
+UNDER DEVELOPMENT
+</div>
+
+
+<h1>
+
+Video
+<span>Mitra</span>
+
+</h1>
+
+
+<p>
+
+A modern video editing and creation
+application designed to help users
+edit, create and share videos with
+a simple and powerful experience.
+
+</p>
+
+
+<div class="dev-date">
+
+🛠️ Currently Under Development
+
+</div>
+
+
+<div class="buttons">
+
+<a
+href="apps.html"
+class="secondary-btn">
+
+← Back to Apps
+
+</a>
+
+</div>
+
+</section>
+
+
+
+<!-- ================= ABOUT ================= -->
+
+<section class="section about">
+
+<div class="about-grid">
+
+
+<div>
+
+<h2>
+Edit. Create. Share.
+</h2>
+
+<p>
+VideoMitra is being developed as a modern
+video editing platform for creating and
+editing videos directly on mobile devices.
+</p>
+
+<p>
+The goal is to provide useful editing tools,
+creative controls and an easy-to-use
+experience for everyday creators.
+</p>
+
+
+<ul class="check-list">
+
+<li>
+Video Editing
+</li>
+
+<li>
+Creative Tools
+</li>
+
+<li>
+Fast Editing Workflow
+</li>
+
+<li>
+Create & Share
+</li>
+
+</ul>
+
+</div>
+
+
+<div class="video-visual">
+
+<div class="video-screen">
+
+<div class="play-button">
+▶
+</div>
+
+<div class="timeline">
+</div>
+
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- ================= FEATURES ================= -->
+
+<section class="section features">
+
+
+<div class="section-title">
+
+<h2>
+Built for video creators.
+</h2>
+
+<p>
+VideoMitra is being designed around
+simple editing and creative possibilities.
+</p>
+
+</div>
+
+
+<div class="feature-grid">
+
+
+<div class="feature-card">
+
+<div class="feature-icon">
+✂
+</div>
+
+<h3>
+Video Editing
+</h3>
+
+<p>
+Tools designed to help users trim,
+edit and arrange video content.
+</p>
+
+</div>
+
+
+<div class="feature-card">
+
+<div class="feature-icon">
+🎵
+</div>
+
+<h3>
+Audio & Music
+</h3>
+
+<p>
+A planned editing experience for
+working with audio and music.
+</p>
+
+</div>
+
+
+<div class="feature-card">
+
+<div class="feature-icon">
+✨
+</div>
+
+<h3>
+Creative Effects
+</h3>
+
+<p>
+Creative tools and effects designed
+to make videos more engaging.
+</p>
+
+</div>
+
+
+<div class="feature-card">
+
+<div class="feature-icon">
+📝
+</div>
+
+<h3>
+Text & Titles
+</h3>
+
+<p>
+Add useful text and title elements
+to your video projects.
+</p>
+
+</div>
+
+
+<div class="feature-card">
+
+<div class="feature-icon">
+📱
+</div>
+
+<h3>
+Mobile First
+</h3>
+
+<p>
+Designed around a convenient
+mobile video editing experience.
+</p>
+
+</div>
+
+
+<div class="feature-card">
+
+<div class="feature-icon">
+🚀
+</div>
+
+<h3>
+Create & Share
+</h3>
+
+<p>
+A complete workflow focused on
+creating and sharing video content.
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- ================= DEVELOPMENT ================= -->
+
+<section class="section">
+
+
+<div class="development-box">
+
+<h2>
+VideoMitra is under development.
+</h2>
+
+<p>
+The application is currently being developed
+and improved. Features, tools and the overall
+editing experience may continue to evolve
+before the final release.
+</p>
+
+</div>
+
+</section>
+
+
+
+<!-- ================= CTA ================= -->
+
+<section class="cta">
+
+<h2>
+Explore Kopersay Apps
+</h2>
+
+<p>
+Discover VideoMitra and other applications
+being developed by Kopersay Technologies.
+</p>
+
+<a
+href="apps.html"
+class="back-btn">
+
+← Explore All Apps
+
+</a>
+
+</section>
+
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+<div class="footer-logo">
+Kopersay Technologies
+</div>
+
+<p>
+Building smart applications and digital solutions
+for the future.
+</p>
+
+
+<div class="footer-links">
+
+<a href="index.html">
+Home
+</a>
+
+<a href="products.html">
+Products
+</a>
+
+<a href="apps.html">
+Apps
+</a>
+
+<a href="about.html">
+About
+</a>
+
+<a href="contact.html">
+Contact
+</a>
+
+</div>
+
+
+<p>
+© 2026 Kopersay Technologies.
+All rights reserved.
+</p>
+
+</footer>
+
+
+</body>
+</html>
