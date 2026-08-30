@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Kopersay Technologies | Apps & Software</title>
+
+<meta name="description"
+content="Kopersay Technologies builds modern applications and software for better digital experiences.">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Inter,Arial,sans-serif;
+    background:#f7f8fc;
+    color:#111827;
+    line-height:1.6;
+}
+
+a{
+    text-decoration:none;
+}
+
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+}
+
+/* NAVBAR */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:rgba(255,255,255,.92);
+    backdrop-filter:blur(15px);
+    border-bottom:1px solid #e8eaf0;
+}
+
+.nav{
+    height:75px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    font-size:25px;
+    font-weight:800;
+    color:#111827;
+}
+
+.logo-icon{
+    width:43px;
+    height:43px;
+    border-radius:13px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:linear-gradient(135deg,#6d5dfc,#8b5cf6);
+    color:white;
+    font-size:22px;
+    font-weight:900;
+    box-shadow:0 8px 20px rgba(99,91,255,.3);
+}
+
+.nav-links{
+    display:flex;
+    gap:30px;
+}
+
+.nav-links a{
+    color:#4b5563;
+    font-weight:600;
+    transition:.2s;
+}
+
+.nav-links a:hover{
+    color:#635bff;
+}
+
+.nav-button{
+    background:#635bff;
+    color:white!important;
+    padding:10px 20px;
+    border-radius:10px;
+}
+
+/* HERO */
+
+.hero{
+    min-height:650px;
+    display:flex;
+    align-items:center;
+    position:relative;
+    overflow:hidden;
+    background:
+        radial-gradient(circle at 80% 20%,rgba(99,91,255,.18),transparent 35%),
+        radial-gradient(circle at 10% 80%,rgba(139,92,246,.12),transparent 30%),
+        #fff;
+}
+
+.hero-content{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:center;
+}
+
+.badge{
+    display:inline-block;
+    background:#f0efff;
+    color:#635bff;
+    padding:8px 15px;
+    border-radius:30px;
+    font-size:14px;
+    font-weight:700;
+    margin-bottom:20px;
+}
+
+.hero h1{
+    font-size:64px;
+    line-height:1.05;
+    letter-spacing:-2px;
+    margin-bottom:22px;
+}
+
+.hero h1 span{
+    background:linear-gradient(90deg,#635bff,#9b5cff);
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+.hero p{
+    font-size:19px;
+    color:#667085;
+    max-width:570px;
+    margin-bottom:30px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:15px;
+}
+
+.primary{
+    background:#635bff;
+    color:white;
+    padding:14px 24px;
+    border-radius:12px;
+    font-weight:700;
+    box-shadow:0 10px 25px rgba(99,91,255,.25);
+}
+
+.secondary{
+    background:white;
+    color:#111827;
+    padding:14px 24px;
+    border-radius:12px;
+    font-weight:700;
+    border:1px solid #dddfea;
+}
+
+/* HERO VISUAL */
+
+.hero-visual{
+    display:flex;
+    justify-content:center;
+}
+
+.logo-card{
+    width:390px;
+    height:390px;
+    border-radius:45px;
+    background:linear-gradient(145deg,#635bff,#8b5cf6);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+    box-shadow:0 35px 70px rgba(99,91,255,.25);
+    transform:rotate(3deg);
+}
+
+.logo-big{
+    width:170px;
+    height:170px;
+    border-radius:45px;
+    background:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:75px;
+    font-weight:900;
+    color:#635bff;
+    box-shadow:0 20px 50px rgba(0,0,0,.15);
+}
+
+.floating{
+    position:absolute;
+    background:white;
+    padding:15px 20px;
+    border-radius:15px;
+    box-shadow:0 15px 35px rgba(0,0,0,.12);
+    font-weight:700;
+}
+
+.float1{
+    top:35px;
+    left:-30px;
+}
+
+.float2{
+    bottom:45px;
+    right:-30px;
+}
+
+/* SECTION */
+
+section{
+    padding:90px 0;
+}
+
+.section-heading{
+    text-align:center;
+    margin-bottom:55px;
+}
+
+.section-heading span{
+    color:#635bff;
+    font-weight:800;
+    font-size:14px;
+    text-transform:uppercase;
+    letter-spacing:1px;
+}
+
+.section-heading h2{
+    font-size:42px;
+    margin-top:8px;
+}
+
+.section-heading p{
+    color:#667085;
+    max-width:650px;
+    margin:12px auto 0;
+}
+
+/* APPS */
+
+.apps{
+    background:#f7f8fc;
+}
+
+.app-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.app-card{
+    background:white;
+    border:1px solid #e8eaf0;
+    border-radius:22px;
+    overflow:hidden;
+    transition:.3s;
+}
+
+.app-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 20px 45px rgba(0,0,0,.09);
+}
+
+.app-image{
+    height:190px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:75px;
+    background:linear-gradient(135deg,#ecebff,#f8f7ff);
+}
+
+.app-image.blue{
+    background:linear-gradient(135deg,#e7f0ff,#f5f8ff);
+}
+
+.app-image.green{
+    background:linear-gradient(135deg,#e7fff4,#f6fffb);
+}
+
+.app-content{
+    padding:25px;
+}
+
+.app-content h3{
+    font-size:23px;
+    margin-bottom:8px;
+}
+
+.app-content p{
+    color:#667085;
+    margin-bottom:20px;
+}
+
+.app-link{
+    color:#635bff;
+    font-weight:800;
+}
+
+/* ABOUT */
+
+.about{
+    background:white;
+}
+
+.about-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:70px;
+    align-items:center;
+}
+
+.about-image{
+    height:430px;
+    border-radius:30px;
+    background:
+        radial-gradient(circle at 30% 30%,#a99cff,transparent 25%),
+        linear-gradient(135deg,#17152b,#635bff);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:white;
+    position:relative;
+    overflow:hidden;
+}
+
+.about-image h3{
+    font-size:55px;
+    letter-spacing:-2px;
+}
+
+.about-text span{
+    color:#635bff;
+    font-weight:800;
+}
+
+.about-text h2{
+    font-size:43px;
+    line-height:1.15;
+    margin:10px 0 20px;
+}
+
+.about-text p{
+    color:#667085;
+    margin-bottom:18px;
+}
+
+.about-list{
+    margin-top:25px;
+}
+
+.about-list div{
+    display:flex;
+    gap:12px;
+    margin:12px 0;
+    font-weight:600;
+}
+
+.check{
+    color:#635bff;
+}
+
+/* FEATURES */
+
+.features{
+    background:#111827;
+    color:white;
+}
+
+.features .section-heading p{
+    color:#aeb5c2;
+}
+
+.feature-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.feature{
+    background:#1b2333;
+    border:1px solid #2c3547;
+    border-radius:20px;
+    padding:30px;
+}
+
+.feature-icon{
+    width:55px;
+    height:55px;
+    border-radius:15px;
+    background:#635bff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:25px;
+    margin-bottom:20px;
+}
+
+.feature h3{
+    margin-bottom:10px;
+}
+
+.feature p{
+    color:#aeb5c2;
+}
+
+/* STATS */
+
+.stats{
+    background:white;
+}
+
+.stats-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    text-align:center;
+}
+
+.stat{
+    padding:20px;
+}
+
+.stat h3{
+    font-size:42px;
+    color:#635bff;
+}
+
+.stat p{
+    color:#667085;
+}
+
+/* CTA */
+
+.cta{
+    padding:90px 0;
+    background:#f7f8fc;
+}
+
+.cta-box{
+    background:linear-gradient(135deg,#635bff,#8b5cf6);
+    color:white;
+    border-radius:30px;
+    padding:65px 30px;
+    text-align:center;
+    box-shadow:0 25px 60px rgba(99,91,255,.25);
+}
+
+.cta-box h2{
+    font-size:42px;
+    margin-bottom:12px;
+}
+
+.cta-box p{
+    opacity:.9;
+    max-width:600px;
+    margin:0 auto 25px;
+}
+
+.cta-button{
+    display:inline-block;
+    background:white;
+    color:#635bff;
+    padding:13px 25px;
+    border-radius:12px;
+    font-weight:800;
+}
+
+/* FOOTER */
+
+footer{
+    background:#0b1020;
+    color:white;
+    padding:55px 0 25px;
+}
+
+.footer-grid{
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr 1fr;
+    gap:40px;
+    padding-bottom:40px;
+}
+
+.footer-brand p{
+    color:#9ca3af;
+    max-width:350px;
+    margin-top:15px;
+}
+
+footer h4{
+    margin-bottom:15px;
+}
+
+footer a{
+    display:block;
+    color:#9ca3af;
+    margin:9px 0;
+}
+
+.footer-bottom{
+    border-top:1px solid #20283a;
+    padding-top:22px;
+    text-align:center;
+    color:#737d91;
+    font-size:14px;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+    .hero-content,
+    .about-grid{
+        grid-template-columns:1fr;
+    }
+
+    .hero{
+        padding:70px 0;
+    }
+
+    .hero h1{
+        font-size:48px;
+    }
+
+    .hero-visual{
+        margin-top:20px;
+    }
+
+    .app-grid,
+    .feature-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .stats-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr 1fr;
+    }
+}
+
+@media(max-width:600px){
+
+    .nav-links{
+        display:none;
+    }
+
+    .hero h1{
+        font-size:42px;
+    }
+
+    .hero p{
+        font-size:17px;
+    }
+
+    .hero-buttons{
+        flex-direction:column;
+    }
+
+    .hero-buttons a{
+        text-align:center;
+    }
+
+    .logo-card{
+        width:290px;
+        height:290px;
+    }
+
+    .logo-big{
+        width:130px;
+        height:130px;
+        font-size:55px;
+    }
+
+    .float1{
+        left:-10px;
+    }
+
+    .float2{
+        right:-10px;
+    }
+
+    .app-grid,
+    .feature-grid,
+    .stats-grid,
+    .footer-grid{
+        grid-template-columns:1fr;
+    }
+
+    .section-heading h2,
+    .about-text h2,
+    .cta-box h2{
+        font-size:32px;
+    }
+
+    section{
+        padding:65px 0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+
+<header>
+<div class="container nav">
+
+<a href="#" class="logo">
+    <div class="logo-icon">K</div>
+    Kopersay
+</a>
+
+<div class="nav-links">
+    <a href="#apps">Apps</a>
+    <a href="#about">About</a>
+    <a href="#features">Why Kopersay</a>
+    <a href="#contact" class="nav-button">Contact</a>
+</div>
+
+</div>
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="container hero-content">
+
+<div>
+
+<div class="badge">KOPERSAY TECHNOLOGIES</div>
+
+<h1>
+Building the
+<span>Digital Future.</span>
+</h1>
+
+<p>
+Kopersay Technologies creates modern applications
+and software that make everyday digital experiences
+simple, useful and enjoyable.
+</p>
+
+<div class="hero-buttons">
+<a href="#apps" class="primary">Explore Our Apps →</a>
+<a href="#about" class="secondary">About Kopersay</a>
+</div>
+
+</div>
+
+
+<div class="hero-visual">
+
+<div class="logo-card">
+
+<div class="logo-big">K</div>
+
+<div class="floating float1">
+🚀 Innovation
+</div>
+
+<div class="floating float2">
+💡 Technology
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- APPS -->
+
+<section class="apps" id="apps">
+
+<div class="container">
+
+<div class="section-heading">
+<span>Our Products</span>
+<h2>Applications & Software</h2>
+<p>
+Explore products created by Kopersay Technologies.
+More exciting applications are coming soon.
+</p>
+</div>
+
+
+<div class="app-grid">
+
+<!-- COOKMITRA -->
+
+<div class="app-card">
+
+<div class="app-image">
+🍳
+</div>
+
+<div class="app-content">
+
+<h3>CookMitra</h3>
+
+<p>
+A smart food and cooking platform designed
+to make cooking and food experiences easier.
+</p>
+
+<a href="#" class="app-link">
+Explore CookMitra →
+</a>
+
+</div>
+
+</div>
+
+
+<!-- SNAP PUZZLE -->
+
+<div class="app-card">
+
+<div class="app-image blue">
+🧩
+</div>
+
+<div class="app-content">
+
+<h3>Snap Puzzle</h3>
+
+<p>
+Turn your favorite photos into exciting puzzles
+and challenge yourself with different levels.
+</p>
+
+<a href="#" class="app-link">
+Explore Snap Puzzle →
+</a>
+
+</div>
+
+</div>
+
+
+<!-- VIDEO EDITOR -->
+
+<div class="app-card">
+
+<div class="app-image green">
+🎬
+</div>
+
+<div class="app-content">
+
+<h3>Video Editor</h3>
+
+<p>
+A fast and simple video editing experience
+designed for everyday creators.
+</p>
+
+<a href="#" class="app-link">
+Coming Soon →
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section class="about" id="about">
+
+<div class="container about-grid">
+
+<div class="about-image">
+
+<h3>KOPERSAY</h3>
+
+</div>
+
+
+<div class="about-text">
+
+<span>ABOUT KOPERSAY</span>
+
+<h2>
+Technology built around people.
+</h2>
+
+<p>
+Kopersay Technologies is a technology company focused
+on creating applications and software that solve real
+problems and provide useful digital experiences.
+</p>
+
+<p>
+Our goal is to combine simple design, modern technology
+and innovative ideas to build products people actually
+enjoy using.
+</p>
+
+<div class="about-list">
+
+<div>
+<span class="check">✓</span>
+Simple & User Friendly
+</div>
+
+<div>
+<span class="check">✓</span>
+Modern Technology
+</div>
+
+<div>
+<span class="check">✓</span>
+Useful Digital Products
+</div>
+
+<div>
+<span class="check">✓</span>
+Continuous Innovation
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- FEATURES -->
+
+<section class="features" id="features">
+
+<div class="container">
+
+<div class="section-heading">
+
+<span>Why Kopersay</span>
+
+<h2>Our Approach</h2>
+
+<p>
+We believe great software should be simple,
+reliable and built with users in mind.
+</p>
+
+</div>
+
+
+<div class="feature-grid">
+
+<div class="feature">
+
+<div class="feature-icon">💡</div>
+
+<h3>Innovation</h3>
+
+<p>
+We explore new ideas and technologies
+to create better digital products.
+</p>
+
+</div>
+
+
+<div class="feature">
+
+<div class="feature-icon">⚡</div>
+
+<h3>Performance</h3>
+
+<p>
+Fast and responsive experiences are
+at the heart of everything we build.
+</p>
+
+</div>
+
+
+<div class="feature">
+
+<div class="feature-icon">🎯</div>
+
+<h3>User Focused</h3>
+
+<p>
+Our products are designed around
+real users and their everyday needs.
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- STATS -->
+
+<section class="stats">
+
+<div class="container">
+
+<div class="stats-grid">
+
+<div class="stat">
+<h3>01+</h3>
+<p>Products</p>
+</div>
+
+<div class="stat">
+<h3>∞</h3>
+<p>Ideas</p>
+</div>
+
+<div class="stat">
+<h3>24/7</h3>
+<p>Innovation</p>
+</div>
+
+<div class="stat">
+<h3>100%</h3>
+<p>Passion</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- CTA -->
+
+<section class="cta" id="contact">
+
+<div class="container">
+
+<div class="cta-box">
+
+<h2>Let's build something amazing.</h2>
+
+<p>
+Kopersay is continuously working on new applications
+and software. Stay connected for what's coming next.
+</p>
+
+<a href="mailto:contact@kopersay.in" class="cta-button">
+Contact Kopersay
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<div class="container">
+
+<div class="footer-grid">
+
+<div class="footer-brand">
+
+<div class="logo">
+<div class="logo-icon">K</div>
+Kopersay
+</div>
+
+<p>
+Kopersay Technologies — building modern
+applications and software for the digital world.
+</p>
+
+</div>
+
+
+<div>
+<h4>Products</h4>
+<a href="#apps">CookMitra</a>
+<a href="#apps">Snap Puzzle</a>
+<a href="#apps">Video Editor</a>
+</div>
+
+
+<div>
+<h4>Company</h4>
+<a href="#about">About Us</a>
+<a href="#features">Our Approach</a>
+<a href="#contact">Contact</a>
+</div>
+
+
+<div>
+<h4>Legal</h4>
+<a href="#">Privacy Policy</a>
+<a href="#">Terms & Conditions</a>
+</div>
+
+</div>
+
+
+<div class="footer-bottom">
+© 2026 Kopersay Technologies. All rights reserved.
+</div>
+
+</div>
+
+</footer>
+
+</body>
+  </html>
