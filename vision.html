@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Vision | Kopersay Technologies</title>
+
+<meta name="description"
+content="Discover the vision of Kopersay Technologies and our approach to building useful, simple and future-ready digital solutions.">
+
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://kopersay.in/vision.html">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#fff;
+    color:#151522;
+    line-height:1.6;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+.container{
+    width:min(1100px,90%);
+    margin:auto;
+}
+
+/* NAVBAR */
+
+.navbar{
+    height:68px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 7%;
+    border-bottom:1px solid #eeeeee;
+    background:#fff;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:19px;
+    font-weight:800;
+}
+
+.logo-box{
+    width:34px;
+    height:34px;
+    border-radius:10px;
+    display:grid;
+    place-items:center;
+    background:linear-gradient(135deg,#673de6,#3c9cff);
+    color:#fff;
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:25px;
+    font-size:13px;
+    color:#555;
+}
+
+.nav-links a:hover{
+    color:#673de6;
+}
+
+.contact-btn{
+    background:#673de6;
+    color:#fff!important;
+    padding:9px 16px;
+    border-radius:9px;
+}
+
+/* HERO */
+
+.hero{
+    text-align:center;
+    padding:90px 20px 80px;
+    background:
+        radial-gradient(circle at 50% 15%,rgba(103,61,230,.13),transparent 42%),
+        #fff;
+}
+
+.badge{
+    display:inline-block;
+    padding:6px 13px;
+    border:1px solid #d8ceff;
+    border-radius:30px;
+    color:#673de6;
+    font-size:10px;
+    font-weight:bold;
+    letter-spacing:2px;
+    margin-bottom:18px;
+}
+
+.hero h1{
+    font-size:clamp(42px,6vw,72px);
+    line-height:1.05;
+    margin-bottom:18px;
+}
+
+.gradient{
+    background:linear-gradient(90deg,#673de6,#209dff);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+}
+
+.hero p{
+    max-width:700px;
+    margin:auto;
+    color:#666;
+    font-size:16px;
+}
+
+/* VISION */
+
+.vision{
+    padding:80px 0;
+}
+
+.vision-grid{
+    display:grid;
+    grid-template-columns:1.1fr .9fr;
+    gap:60px;
+    align-items:center;
+}
+
+.small-title{
+    color:#673de6;
+    font-size:11px;
+    font-weight:bold;
+    letter-spacing:2px;
+    margin-bottom:12px;
+}
+
+h2{
+    font-size:38px;
+    line-height:1.2;
+    margin-bottom:18px;
+}
+
+.vision-text p{
+    color:#666;
+    font-size:15px;
+    margin-bottom:15px;
+}
+
+.vision-art{
+    min-height:350px;
+    border-radius:28px;
+    background:linear-gradient(135deg,#f0ebff,#eaf7ff);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+    overflow:hidden;
+}
+
+.vision-circle{
+    width:180px;
+    height:180px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#673de6,#209dff);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:white;
+    font-size:70px;
+    font-weight:900;
+    box-shadow:0 25px 60px rgba(103,61,230,.25);
+}
+
+/* FUTURE */
+
+.future{
+    padding:75px 0;
+    background:#fafafa;
+}
+
+.center{
+    text-align:center;
+    max-width:700px;
+    margin:auto;
+}
+
+.center p{
+    color:#666;
+}
+
+.cards{
+    margin-top:45px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.card{
+    background:#fff;
+    border:1px solid #e8e8e8;
+    border-radius:18px;
+    padding:28px;
+    transition:.25s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 12px 35px rgba(0,0,0,.07);
+}
+
+.icon{
+    width:48px;
+    height:48px;
+    border-radius:13px;
+    background:#f0ebff;
+    display:grid;
+    place-items:center;
+    font-size:22px;
+    margin-bottom:17px;
+}
+
+.card h3{
+    font-size:19px;
+    margin-bottom:8px;
+}
+
+.card p{
+    color:#666;
+    font-size:13px;
+}
+
+/* GOALS */
+
+.goals{
+    padding:80px 0;
+}
+
+.goal-list{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+    margin-top:35px;
+}
+
+.goal{
+    border:1px solid #e8e8e8;
+    border-radius:15px;
+    padding:23px;
+}
+
+.goal strong{
+    display:block;
+    font-size:17px;
+    margin-bottom:6px;
+}
+
+.goal span{
+    color:#666;
+    font-size:13px;
+}
+
+/* CTA */
+
+.cta{
+    width:min(1100px,90%);
+    margin:10px auto 75px;
+    padding:60px 25px;
+    text-align:center;
+    color:#fff;
+    border-radius:25px;
+    background:linear-gradient(135deg,#17142d,#292050);
+}
+
+.cta h2{
+    margin-bottom:10px;
+}
+
+.cta p{
+    color:#c9c5d8;
+    margin-bottom:24px;
+}
+
+.cta-btn{
+    display:inline-block;
+    background:#fff;
+    color:#673de6;
+    padding:11px 21px;
+    border-radius:9px;
+    font-weight:bold;
+}
+
+/* FOOTER */
+
+footer{
+    border-top:1px solid #eeeeee;
+    padding:40px 20px;
+    text-align:center;
+    background:#fafafa;
+}
+
+.footer-logo{
+    font-size:19px;
+    font-weight:bold;
+    margin-bottom:8px;
+}
+
+footer p{
+    color:#777;
+    font-size:12px;
+}
+
+.footer-links{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    margin:16px 0;
+    color:#673de6;
+    font-size:12px;
+}
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+    .navbar{
+        padding:0 18px;
+        height:60px;
+    }
+
+    .nav-links{
+        gap:10px;
+        font-size:10px;
+    }
+
+    .nav-links a:nth-child(3),
+    .nav-links a:nth-child(4){
+        display:none;
+    }
+
+    .hero{
+        padding:65px 18px 55px;
+    }
+
+    .hero h1{
+        font-size:43px;
+    }
+
+    .hero p{
+        font-size:14px;
+    }
+
+    .vision{
+        padding:60px 0;
+    }
+
+    .vision-grid{
+        grid-template-columns:1fr;
+        gap:35px;
+    }
+
+    h2{
+        font-size:30px;
+    }
+
+    .vision-art{
+        min-height:250px;
+    }
+
+    .cards{
+        grid-template-columns:1fr;
+    }
+
+    .goal-list{
+        grid-template-columns:1fr;
+    }
+
+    .future,
+    .goals{
+        padding:60px 0;
+    }
+
+    .cta{
+        padding:50px 20px;
+    }
+
+    .cta h2{
+        font-size:28px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav class="navbar">
+
+    <a href="index.html" class="logo">
+
+        <span class="logo-box">
+            K
+        </span>
+
+        Kopersay
+
+    </a>
+
+
+    <div class="nav-links">
+
+        <a href="index.html">Home</a>
+
+        <a href="products.html">Products</a>
+
+        <a href="about.html">About</a>
+
+        <a href="vision.html">Vision</a>
+
+        <a href="why-kopersay.html">Why Kopersay</a>
+
+        <a href="index.html#contact" class="contact-btn">
+            Contact
+        </a>
+
+    </div>
+
+</nav>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <span class="badge">
+        OUR VISION
+    </span>
+
+    <h1>
+        Building a
+        <span class="gradient">Better Digital Future.</span>
+    </h1>
+
+    <p>
+        Our vision is to create technology that is simple,
+        useful, reliable and ready for the future.
+    </p>
+
+</section>
+
+
+<!-- VISION -->
+
+<section class="vision">
+
+    <div class="container">
+
+        <div class="vision-grid">
+
+            <div class="vision-text">
+
+                <div class="small-title">
+                    THE KOPERSAY VISION
+                </div>
+
+                <h2>
+                    Technology That
+                    <span class="gradient">Makes a Difference.</span>
+                </h2>
+
+                <p>
+                    We believe technology should make people's
+                    lives and work easier, not more complicated.
+                </p>
+
+                <p>
+                    Kopersay aims to build digital products that
+                    solve practical problems and create meaningful
+                    experiences for users.
+                </p>
+
+                <p>
+                    From applications to business software,
+                    our focus is on creating products with a
+                    clear purpose and long-term value.
+                </p>
+
+            </div>
+
+
+            <div class="vision-art">
+
+                <div class="vision-circle">
+                    K
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FUTURE -->
+
+<section class="future">
+
+    <div class="container">
+
+        <div class="center">
+
+            <div class="small-title">
+                OUR FUTURE
+            </div>
+
+            <h2>
+                What We Are Building
+            </h2>
+
+            <p>
+                We are working toward a growing ecosystem of
+                applications and software designed around real needs.
+            </p>
+
+        </div>
+
+
+        <div class="cards">
+
+
+            <div class="card">
+
+                <div class="icon">
+                    📱
+                </div>
+
+                <h3>
+                    Better Applications
+                </h3>
+
+                <p>
+                    Creating simple and useful applications
+                    that people can use every day.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="icon">
+                    💻
+                </div>
+
+                <h3>
+                    Smart Software
+                </h3>
+
+                <p>
+                    Developing practical software solutions
+                    for modern businesses and users.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="icon">
+                    🚀
+                </div>
+
+                <h3>
+                    Future Technology
+                </h3>
+
+                <p>
+                    Exploring modern technologies and new ideas
+                    to build products for tomorrow.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- GOALS -->
+
+<section class="goals">
+
+    <div class="container">
+
+        <div class="small-title">
+            OUR GOALS
+        </div>
+
+        <h2>
+            The Road Ahead
+        </h2>
+
+
+        <div class="goal-list">
+
+
+            <div class="goal">
+
+                <strong>
+                    🌍 Reach More Users
+                </strong>
+
+                <span>
+                    Build products that can help people
+                    across different markets and communities.
+                </span>
+
+            </div>
+
+
+            <div class="goal">
+
+                <strong>
+                    ⚡ Keep Improving
+                </strong>
+
+                <span>
+                    Continuously improve our products,
+                    performance and user experience.
+                </span>
+
+            </div>
+
+
+            <div class="goal">
+
+                <strong>
+                    💡 Encourage Innovation
+                </strong>
+
+                <span>
+                    Turn useful ideas into practical
+                    digital products.
+                </span>
+
+            </div>
+
+
+            <div class="goal">
+
+                <strong>
+                    🔐 Build Trust
+                </strong>
+
+                <span>
+                    Create reliable experiences and
+                    respect the people who use our products.
+                </span>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CTA -->
+
+<section class="cta">
+
+    <h2>
+        Be Part of the Future.
+    </h2>
+
+    <p>
+        Explore what Kopersay Technologies is building.
+    </p>
+
+    <a href="products.html" class="cta-btn">
+        Explore Products →
+    </a>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div class="footer-logo">
+        Kopersay Technologies
+    </div>
+
+    <p>
+        Building smart applications, software and digital solutions.
+    </p>
+
+    <div class="footer-links">
+
+        <a href="index.html">Home</a>
+
+        <a href="products.html">Products</a>
+
+        <a href="about.html">About</a>
+
+        <a href="contact.html">Contact</a>
+
+    </div>
+
+    <p>
+        © 2026 Kopersay Technologies. All rights reserved.
+    </p>
+
+</footer>
+
+</body>
+</html>
