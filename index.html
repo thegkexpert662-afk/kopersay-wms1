@@ -569,7 +569,96 @@ footer{
     Products
 </a>
 
+/* ================= OUR PRODUCTS DROPDOWN ================= */
 
+.our-products-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.our-products-btn {
+    border: none;
+    outline: none;
+    cursor: pointer;
+
+    padding: 10px 16px;
+
+    border-radius: 10px;
+
+    color: #ffffff;
+
+    background: linear-gradient(
+        135deg,
+        #6539df,
+        #477ff5
+    );
+
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.our-products-menu {
+    position: absolute;
+
+    top: calc(100% + 10px);
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 230px;
+
+    padding: 8px;
+
+    background: #ffffff;
+
+    border: 1px solid #e7e8ef;
+
+    border-radius: 14px;
+
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+
+    opacity: 0;
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transition: all 0.2s ease;
+
+    z-index: 9999;
+}
+
+.our-products-menu a {
+    display: block;
+
+    padding: 11px 13px;
+
+    border-radius: 8px;
+
+    color: #555b6d;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    text-decoration: none;
+}
+
+.our-products-menu a:hover {
+    color: #633de3;
+
+    background: #f2efff;
+}
+
+
+/* DROPDOWN OPEN */
+
+.our-products-dropdown:hover .our-products-menu {
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+}
 
 
 /* ================= MOBILE ================= */
