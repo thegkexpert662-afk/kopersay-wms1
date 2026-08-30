@@ -3,794 +3,1037 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Kopersay Technologies - Apps, Software and Digital Solutions">
+
 <title>Kopersay Technologies</title>
+
+<meta name="description"
+content="Kopersay Technologies - Modern applications, software and digital solutions.">
 
 <style>
 *{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  scroll-behavior:smooth;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
 }
 
 body{
-  font-family:Arial,Helvetica,sans-serif;
-  background:#080914;
-  color:#fff;
+    font-family:Arial,Helvetica,sans-serif;
+    background:#070814;
+    color:#fff;
+    line-height:1.5;
 }
 
 a{
-  text-decoration:none;
-  color:inherit;
+    text-decoration:none;
+    color:inherit;
 }
 
-/* HEADER */
-header{
-  height:64px;
-  position:sticky;
-  top:0;
-  z-index:1000;
-  background:rgba(8,9,20,.94);
-  backdrop-filter:blur(14px);
-  border-bottom:1px solid #202337;
-}
-
-.nav{
-  max-width:1100px;
-  height:100%;
-  margin:auto;
-  padding:0 18px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
+/* NAVBAR */
+.navbar{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    height:58px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 18px;
+    background:rgba(7,8,20,.94);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid #20243a;
 }
 
 .logo{
-  display:flex;
-  align-items:center;
-  gap:9px;
-  font-size:20px;
-  font-weight:800;
+    display:flex;
+    align-items:center;
+    gap:9px;
+    font-size:17px;
+    font-weight:800;
 }
 
 .logo-box{
-  width:36px;
-  height:36px;
-  border-radius:10px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:linear-gradient(135deg,#7048ff,#00cfff);
-}
-
-.logo span{
-  color:#987aff;
+    width:32px;
+    height:32px;
+    border-radius:9px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:linear-gradient(135deg,#7045ff,#27b7ff);
+    color:#fff;
+    font-size:18px;
+    font-weight:900;
 }
 
 .nav-links{
-  display:flex;
-  align-items:center;
-  gap:20px;
-  font-size:14px;
-  color:#bfc3d4;
+    display:flex;
+    gap:22px;
+    align-items:center;
+}
+
+.nav-links a{
+    color:#aeb4c8;
+    font-size:13px;
+    transition:.2s;
 }
 
 .nav-links a:hover{
-  color:#fff;
+    color:#fff;
 }
 
-.contact-btn{
-  padding:9px 15px;
-  background:#7048ff;
-  border-radius:9px;
-  color:#fff!important;
-}
-
-.menu{
-  display:none;
-  font-size:25px;
+.nav-contact{
+    padding:8px 14px;
+    border-radius:8px;
+    background:linear-gradient(135deg,#713cff,#9a6cff);
+    color:#fff!important;
 }
 
 /* HERO */
 .hero{
-  min-height:420px;
-  padding:55px 20px 45px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  position:relative;
-  overflow:hidden;
-  background:
-    radial-gradient(circle at 50% 20%,rgba(105,65,255,.25),transparent 45%),
-    #080914;
+    min-height:420px;
+    padding:72px 18px 35px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+}
+
+.hero:before{
+    content:"";
+    position:absolute;
+    width:360px;
+    height:360px;
+    background:#633cff;
+    filter:blur(130px);
+    opacity:.18;
+    top:-130px;
+    left:50%;
+    transform:translateX(-50%);
 }
 
 .hero-content{
-  max-width:760px;
-  position:relative;
-  z-index:2;
+    max-width:850px;
+    position:relative;
+    z-index:2;
 }
 
 .badge{
-  display:inline-block;
-  padding:6px 12px;
-  border:1px solid #6750c9;
-  border-radius:20px;
-  color:#ae9bff;
-  font-size:11px;
-  letter-spacing:1.5px;
-  margin-bottom:14px;
+    display:inline-block;
+    padding:5px 12px;
+    border:1px solid #6551b7;
+    border-radius:30px;
+    color:#a995ff;
+    font-size:10px;
+    letter-spacing:2px;
+    margin-bottom:16px;
 }
 
 .hero h1{
-  font-size:clamp(40px,8vw,70px);
-  line-height:1;
-  margin-bottom:16px;
+    font-size:clamp(42px,8vw,72px);
+    line-height:1.02;
+    margin-bottom:14px;
 }
 
 .gradient{
-  background:linear-gradient(90deg,#8b68ff,#00d8ff);
-  -webkit-background-clip:text;
-  color:transparent;
+    background:linear-gradient(90deg,#956aff,#25b9ff);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
 }
 
 .hero p{
-  color:#aeb3c5;
-  max-width:620px;
-  margin:auto;
-  font-size:16px;
+    max-width:650px;
+    margin:auto;
+    color:#9da3b7;
+    font-size:14px;
 }
 
 .buttons{
-  margin-top:22px;
-  display:flex;
-  justify-content:center;
-  gap:10px;
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    margin-top:24px;
+    flex-wrap:wrap;
 }
 
 .btn{
-  padding:11px 18px;
-  border-radius:9px;
-  font-size:14px;
-  font-weight:bold;
+    display:inline-block;
+    padding:11px 18px;
+    border-radius:9px;
+    font-size:13px;
+    font-weight:700;
+    transition:.2s;
 }
 
-.primary{
-  background:#7048ff;
+.btn-primary{
+    background:linear-gradient(135deg,#713cff,#925cff);
 }
 
-.secondary{
-  border:1px solid #41465d;
+.btn-secondary{
+    border:1px solid #363b57;
+    color:#dce0ee;
+}
+
+.btn:hover{
+    transform:translateY(-2px);
 }
 
 /* SLIDER */
 .slider{
-  max-width:1100px;
-  margin:auto;
-  padding:20px 18px 35px;
+    width:calc(100% - 26px);
+    max-width:1100px;
+    margin:10px auto 55px;
+    position:relative;
+    overflow:hidden;
+    border:1px solid #242943;
+    border-radius:17px;
+    background:#101327;
 }
 
-.slider-box{
-  position:relative;
-  height:210px;
-  overflow:hidden;
-  border-radius:20px;
-  border:1px solid #252a42;
-  background:linear-gradient(135deg,#12162c,#0d1123);
+.slides{
+    display:flex;
+    transition:transform .5s ease;
 }
 
 .slide{
-  height:100%;
-  display:none;
-  align-items:center;
-  justify-content:space-between;
-  padding:30px 55px;
-}
-
-.slide.active{
-  display:flex;
-  animation:fade .5s ease;
+    min-width:100%;
+    min-height:145px;
+    padding:28px 45px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:25px;
 }
 
 .slide-text{
-  max-width:700px;
+    max-width:650px;
+}
+
+.slide-label{
+    color:#a68cff;
+    font-size:9px;
+    letter-spacing:2px;
+    border:1px solid #51418d;
+    padding:4px 9px;
+    border-radius:20px;
 }
 
 .slide h2{
-  font-size:28px;
-  margin-bottom:7px;
+    font-size:24px;
+    margin:12px 0 5px;
 }
 
 .slide p{
-  color:#9da4b8;
-  font-size:14px;
+    color:#8f96ab;
+    font-size:12px;
 }
 
 .slide-icon{
-  width:105px;
-  height:105px;
-  border-radius:25px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:48px;
-  font-weight:bold;
-  background:linear-gradient(145deg,#281d60,#111b39);
+    width:80px;
+    height:80px;
+    border-radius:20px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:linear-gradient(135deg,#25165e,#161b3b);
+    color:#a98cff;
+    font-size:38px;
+    font-weight:900;
+    flex-shrink:0;
 }
 
-.arrow{
-  position:absolute;
-  top:50%;
-  transform:translateY(-50%);
-  width:34px;
-  height:34px;
-  border:0;
-  border-radius:50%;
-  background:#272b42;
-  color:#fff;
-  font-size:24px;
-  cursor:pointer;
+.slider-btn{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    width:30px;
+    height:30px;
+    border:none;
+    border-radius:50%;
+    background:#20253d;
+    color:#fff;
+    cursor:pointer;
+    z-index:5;
 }
 
-.prev{left:12px}
-.next{right:12px}
+.prev{
+    left:8px;
+}
+
+.next{
+    right:8px;
+}
 
 .dots{
-  position:absolute;
-  bottom:10px;
-  left:50%;
-  transform:translateX(-50%);
-  display:flex;
-  gap:6px;
+    position:absolute;
+    bottom:8px;
+    left:50%;
+    transform:translateX(-50%);
+    display:flex;
+    gap:5px;
 }
 
 .dot{
-  width:7px;
-  height:7px;
-  border-radius:10px;
-  background:#5d6275;
+    width:6px;
+    height:6px;
+    border-radius:50%;
+    background:#555b72;
 }
 
 .dot.active{
-  width:20px;
-  background:#8765ff;
+    width:15px;
+    border-radius:10px;
+    background:#8a5cff;
 }
 
 /* COMMON */
+section{
+    scroll-margin-top:70px;
+}
+
 .section{
-  max-width:1100px;
-  margin:auto;
-  padding:45px 18px;
+    max-width:1100px;
+    margin:auto;
+    padding:35px 18px;
 }
 
-.title{
-  text-align:center;
-  font-size:32px;
-  margin-bottom:7px;
+.section-title{
+    text-align:center;
+    margin-bottom:25px;
 }
 
-.subtitle{
-  text-align:center;
-  color:#969caf;
-  font-size:14px;
-  margin-bottom:25px;
+.section-title h2{
+    font-size:27px;
+}
+
+.section-title p{
+    color:#858ca1;
+    font-size:12px;
+    margin-top:5px;
 }
 
 /* PRODUCTS */
 .products{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:14px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:12px;
 }
 
 .card{
-  padding:22px;
-  border-radius:17px;
-  background:#101326;
-  border:1px solid #20253a;
+    padding:20px;
+    min-height:165px;
+    border:1px solid #22273e;
+    border-radius:15px;
+    background:#101327;
+    transition:.25s;
 }
 
-.icon{
-  width:45px;
-  height:45px;
-  border-radius:12px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:#241b51;
-  font-size:22px;
-  margin-bottom:15px;
+.card:hover{
+    transform:translateY(-4px);
+    border-color:#55418c;
+}
+
+.card-icon{
+    width:38px;
+    height:38px;
+    border-radius:10px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#1c2140;
+    margin-bottom:12px;
+    font-size:19px;
 }
 
 .card h3{
-  font-size:18px;
-  margin-bottom:7px;
+    font-size:16px;
+    margin-bottom:5px;
 }
 
 .card p{
-  color:#9299ad;
-  font-size:13px;
-  margin-bottom:13px;
+    color:#858ca1;
+    font-size:11px;
 }
 
-.card a{
-  color:#9c82ff;
-  font-size:13px;
-  font-weight:bold;
+.card-link{
+    display:inline-block;
+    margin-top:12px;
+    color:#a58aff;
+    font-size:11px;
 }
 
 /* ABOUT */
 .about{
-  display:grid;
-  grid-template-columns:1.3fr .7fr;
-  gap:25px;
-  align-items:center;
+    display:grid;
+    grid-template-columns:1.4fr 1fr;
+    gap:25px;
+    align-items:center;
+}
+
+.about-label{
+    display:inline-block;
+    border:1px solid #51418d;
+    border-radius:20px;
+    padding:4px 10px;
+    color:#a58aff;
+    font-size:9px;
+    letter-spacing:2px;
+    margin-bottom:10px;
 }
 
 .about h2{
-  font-size:32px;
-  margin-bottom:12px;
+    font-size:29px;
+    margin-bottom:9px;
 }
 
 .about p{
-  color:#9da3b5;
-  font-size:14px;
-  margin-bottom:9px;
+    color:#8b92a7;
+    font-size:12px;
+    margin-bottom:8px;
 }
 
 .stats{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:10px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:9px;
 }
 
 .stat{
-  padding:18px 10px;
-  text-align:center;
-  border-radius:15px;
-  background:#101326;
-  border:1px solid #20253a;
+    text-align:center;
+    padding:18px 8px;
+    background:#101327;
+    border:1px solid #22273e;
+    border-radius:13px;
 }
 
 .stat strong{
-  display:block;
-  font-size:25px;
-  color:#9578ff;
+    display:block;
+    color:#a78cff;
+    font-size:19px;
 }
 
-.stat small{
-  color:#8e95a9;
+.stat span{
+    color:#777f96;
+    font-size:10px;
 }
 
 /* CONTACT */
-.contact{
-  text-align:center;
-  padding:40px 20px;
-  border-radius:20px;
-  background:linear-gradient(135deg,#151934,#101426);
-  border:1px solid #252a42;
+.contact-box{
+    margin-top:25px;
+    padding:38px 20px;
+    text-align:center;
+    border-radius:17px;
+    border:1px solid #252b46;
+    background:linear-gradient(135deg,#11162d,#0c1020);
 }
 
-.contact h2{
-  font-size:30px;
-  margin-bottom:8px;
+.contact-box h2{
+    font-size:26px;
+    margin:10px 0 5px;
 }
 
-.contact p{
-  color:#999fb2;
-  font-size:14px;
-  margin-bottom:20px;
+.contact-box p{
+    color:#8d94a8;
+    font-size:12px;
+    margin-bottom:18px;
 }
 
 .phone{
-  display:block;
-  color:#a78cff;
-  margin-top:12px;
-  font-size:15px;
-  font-weight:bold;
+    display:block;
+    color:#a98cff;
+    font-weight:700;
+    font-size:13px;
+    margin-top:7px;
 }
 
 /* FOOTER */
 footer{
-  padding:25px 15px;
-  text-align:center;
-  border-top:1px solid #202337;
-  color:#777e91;
-  font-size:12px;
+    margin-top:30px;
+    padding:38px 20px 28px;
+    text-align:center;
+    background:#0c0f1d;
+    border-top:1px solid #22273c;
 }
 
-.footer-name{
-  color:#fff;
-  font-size:17px;
-  font-weight:bold;
-  margin-bottom:5px;
+.footer-logo{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:8px;
+    font-size:19px;
+    font-weight:800;
 }
 
-@keyframes fade{
-  from{
-    opacity:0;
-    transform:translateX(15px);
-  }
-  to{
-    opacity:1;
-    transform:translateX(0);
-  }
+.footer-logo-box{
+    width:30px;
+    height:30px;
+    border-radius:8px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:linear-gradient(135deg,#713cff,#26b8ff);
+}
+
+.footer-text{
+    color:#858ca0;
+    font-size:12px;
+    margin:10px auto 17px;
+    max-width:450px;
+}
+
+.footer-links{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+    margin-bottom:20px;
+}
+
+.footer-links a{
+    color:#a78cff;
+    font-size:12px;
+}
+
+.footer-copy{
+    color:#5e6578;
+    font-size:10px;
 }
 
 /* MOBILE */
 @media(max-width:700px){
 
-  header{
-    height:58px;
-  }
+    .navbar{
+        height:54px;
+        padding:0 13px;
+    }
 
-  .logo{
-    font-size:18px;
-  }
+    .logo{
+        font-size:15px;
+    }
 
-  .logo-box{
-    width:32px;
-    height:32px;
-  }
+    .logo-box{
+        width:29px;
+        height:29px;
+    }
 
-  .menu{
-    display:block;
-  }
+    .nav-links{
+        gap:8px;
+    }
 
-  .nav-links{
-    display:none;
-    position:absolute;
-    top:58px;
-    left:0;
-    width:100%;
-    padding:15px;
-    background:#0c0e1b;
-    flex-direction:column;
-    gap:15px;
-    border-bottom:1px solid #24283b;
-  }
+    .nav-links a{
+        font-size:10px;
+    }
 
-  .nav-links.show{
-    display:flex;
-  }
+    .nav-contact{
+        padding:7px 9px!important;
+    }
 
-  .hero{
-    min-height:350px;
-    padding:45px 18px 35px;
-  }
+    .hero{
+        min-height:340px;
+        padding:55px 15px 25px;
+    }
 
-  .hero h1{
-    font-size:43px;
-  }
+    .hero h1{
+        font-size:42px;
+    }
 
-  .hero p{
-    font-size:14px;
-  }
+    .hero p{
+        font-size:12px;
+    }
 
-  .slider{
-    padding:15px 12px 25px;
-  }
+    .btn{
+        padding:10px 14px;
+        font-size:11px;
+    }
 
-  .slider-box{
-    height:205px;
-  }
+    .slider{
+        margin-bottom:38px;
+        border-radius:14px;
+    }
 
-  .slide{
-    padding:25px 38px;
-  }
+    .slide{
+        min-height:125px;
+        padding:23px 35px;
+    }
 
-  .slide h2{
-    font-size:22px;
-  }
+    .slide h2{
+        font-size:18px;
+    }
 
-  .slide p{
-    font-size:12px;
-  }
+    .slide p{
+        font-size:10px;
+    }
 
-  .slide-icon{
-    display:none;
-  }
+    .slide-icon{
+        width:55px;
+        height:55px;
+        border-radius:14px;
+        font-size:25px;
+    }
 
-  .products{
-    grid-template-columns:1fr;
-  }
+    .products{
+        grid-template-columns:1fr;
+        gap:10px;
+    }
 
-  .card{
-    padding:18px;
-  }
+    .card{
+        min-height:auto;
+        padding:17px;
+    }
 
-  .about{
-    grid-template-columns:1fr;
-  }
+    .about{
+        grid-template-columns:1fr;
+        gap:20px;
+    }
 
-  .about h2{
-    font-size:28px;
-  }
+    .about h2{
+        font-size:25px;
+    }
 
-  .section{
-    padding:35px 15px;
-  }
+    .stats{
+        grid-template-columns:1fr 1fr;
+    }
 
-  .title{
-    font-size:28px;
-  }
+    .section{
+        padding:25px 13px;
+    }
+
+    .section-title h2{
+        font-size:23px;
+    }
+
+    .contact-box{
+        padding:30px 15px;
+    }
 }
 </style>
 </head>
 
 <body>
 
-<header>
-  <div class="nav">
+<!-- NAVBAR -->
+<nav class="navbar">
 
     <a href="#home" class="logo">
-      <div class="logo-box">K</div>
-      <div>Koper<span>say</span></div>
+        <div class="logo-box">K</div>
+        Kopersay
     </a>
 
-    <div class="menu" onclick="toggleMenu()">☰</div>
-
-    <nav class="nav-links" id="navLinks">
-      <a href="#home">Home</a>
-      <a href="#products">Products</a>
-      <a href="#about">About</a>
-      <a href="#contact" class="contact-btn">Contact</a>
-    </nav>
-
-  </div>
-</header>
-
-<section class="hero" id="home">
-
-  <div class="hero-content">
-
-    <div class="badge">KOPERSAY TECHNOLOGIES</div>
-
-    <h1>
-      Build.
-      <span class="gradient">Innovate.</span>
-      Grow.
-    </h1>
-
-    <p>
-      Modern applications, software and digital
-      solutions built by Kopersay Technologies.
-    </p>
-
-    <div class="buttons">
-      <a href="#products" class="btn primary">
-        Explore Apps
-      </a>
-
-      <a href="#about" class="btn secondary">
-        About Us
-      </a>
+    <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#products">Products</a>
+        <a href="#about">About</a>
+        <a href="#contact" class="nav-contact">Contact</a>
     </div>
 
-  </div>
+</nav>
+
+
+<!-- HERO -->
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <span class="badge">KOPERSAY TECHNOLOGIES</span>
+
+        <h1>
+            Build.
+            <span class="gradient">Innovate.</span>
+            Grow.
+        </h1>
+
+        <p>
+            Modern applications, software and digital solutions
+            built by Kopersay Technologies.
+        </p>
+
+        <div class="buttons">
+            <a href="#products" class="btn btn-primary">
+                Explore Apps
+            </a>
+
+            <a href="#about" class="btn btn-secondary">
+                About Us
+            </a>
+        </div>
+
+    </div>
 
 </section>
 
-<!-- SLIDER -->
 
+<!-- SLIDER -->
 <div class="slider">
 
-  <div class="slider-box">
+    <div class="slides" id="slides">
 
-    <div class="slide active">
-      <div class="slide-text">
-        <div class="badge">INNOVATION</div>
-        <h2>Technology Made Simple.</h2>
-        <p>
-          Smart and useful digital products for modern users.
-        </p>
-      </div>
-      <div class="slide-icon">K</div>
+        <div class="slide">
+
+            <div class="slide-text">
+
+                <span class="slide-label">
+                    INNOVATION
+                </span>
+
+                <h2>
+                    Technology Made Simple.
+                </h2>
+
+                <p>
+                    Smart and useful digital products for modern users.
+                </p>
+
+            </div>
+
+            <div class="slide-icon">
+                K
+            </div>
+
+        </div>
+
+
+        <div class="slide">
+
+            <div class="slide-text">
+
+                <span class="slide-label">
+                    SMART SOFTWARE
+                </span>
+
+                <h2>
+                    Simple. Fast. Useful.
+                </h2>
+
+                <p>
+                    Discover applications designed for everyday digital needs.
+                </p>
+
+            </div>
+
+            <div class="slide-icon">
+                ⚡
+            </div>
+
+        </div>
+
+
+        <div class="slide">
+
+            <div class="slide-text">
+
+                <span class="slide-label">
+                    KOPERSAY
+                </span>
+
+                <h2>
+                    Your Digital Future.
+                </h2>
+
+                <p>
+                    One place for Kopersay applications and digital solutions.
+                </p>
+
+            </div>
+
+            <div class="slide-icon">
+                ◆
+            </div>
+
+        </div>
+
     </div>
 
-    <div class="slide">
-      <div class="slide-text">
-        <div class="badge">APPLICATIONS</div>
-        <h2>Powerful Apps.</h2>
-        <p>
-          Discover applications developed under Kopersay.
-        </p>
-      </div>
-      <div class="slide-icon">⚡</div>
-    </div>
 
-    <div class="slide">
-      <div class="slide-text">
-        <div class="badge">DIGITAL FUTURE</div>
-        <h2>Innovation Starts Here.</h2>
-        <p>
-          Building technology for today's digital world.
-        </p>
-      </div>
-      <div class="slide-icon">🚀</div>
-    </div>
+    <button class="slider-btn prev" onclick="previousSlide()">
+        ‹
+    </button>
 
-    <button class="arrow prev" onclick="changeSlide(-1)">‹</button>
-    <button class="arrow next" onclick="changeSlide(1)">›</button>
+    <button class="slider-btn next" onclick="nextSlide()">
+        ›
+    </button>
+
 
     <div class="dots">
-      <span class="dot active" onclick="goSlide(0)"></span>
-      <span class="dot" onclick="goSlide(1)"></span>
-      <span class="dot" onclick="goSlide(2)"></span>
-    </div>
 
-  </div>
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+
+    </div>
 
 </div>
 
-<!-- PRODUCTS -->
 
+<!-- PRODUCTS -->
 <section class="section" id="products">
 
-  <h2 class="title">Our Products</h2>
+    <div class="section-title">
 
-  <p class="subtitle">
-    Applications and software by Kopersay Technologies.
-  </p>
+        <h2>Our Products</h2>
 
-  <div class="products">
+        <p>
+            Applications and software by Kopersay Technologies.
+        </p>
 
-    <div class="card">
-      <div class="icon">📦</div>
-      <h3>Kopersay WMS</h3>
-      <p>
-        Smart warehouse management and inventory solution.
-      </p>
-      <a href="#">Coming Soon →</a>
     </div>
 
-    <div class="card">
-      <div class="icon">📱</div>
-      <h3>Mobile Apps</h3>
-      <p>
-        Modern applications for everyday digital needs.
-      </p>
-      <a href="#">Explore →</a>
-    </div>
 
-    <div class="card">
-      <div class="icon">💻</div>
-      <h3>Software</h3>
-      <p>
-        Practical digital solutions for businesses.
-      </p>
-      <a href="#">Learn More →</a>
-    </div>
+    <div class="products">
 
-  </div>
+        <div class="card">
+
+            <div class="card-icon">
+                📦
+            </div>
+
+            <h3>
+                Kopersay WMS
+            </h3>
+
+            <p>
+                Smart warehouse management and inventory solution.
+            </p>
+
+            <a href="#" class="card-link">
+                Coming Soon →
+            </a>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-icon">
+                📱
+            </div>
+
+            <h3>
+                Mobile Apps
+            </h3>
+
+            <p>
+                Modern applications designed for everyday digital needs.
+            </p>
+
+            <a href="#" class="card-link">
+                Explore →
+            </a>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-icon">
+                💻
+            </div>
+
+            <h3>
+                Software
+            </h3>
+
+            <p>
+                Practical digital solutions for businesses and users.
+            </p>
+
+            <a href="#" class="card-link">
+                Learn More →
+            </a>
+
+        </div>
+
+    </div>
 
 </section>
+
 
 <!-- ABOUT -->
-
 <section class="section" id="about">
 
-  <div class="about">
+    <div class="about">
 
-    <div>
-      <div class="badge">ABOUT KOPERSAY</div>
+        <div>
 
-      <h2>Creating Digital Solutions.</h2>
+            <span class="about-label">
+                ABOUT KOPERSAY
+            </span>
 
-      <p>
-        Kopersay Technologies focuses on building
-        applications, software and digital products.
-      </p>
+            <h2>
+                Creating Digital Solutions.
+            </h2>
 
-      <p>
-        Our goal is to make technology simple,
-        useful and accessible.
-      </p>
+            <p>
+                Kopersay Technologies focuses on building applications,
+                software and digital products.
+            </p>
+
+            <p>
+                Our goal is to make technology simple, useful and accessible.
+            </p>
+
+        </div>
+
+
+        <div class="stats">
+
+            <div class="stat">
+                <strong>01</strong>
+                <span>Technology</span>
+            </div>
+
+            <div class="stat">
+                <strong>∞</strong>
+                <span>Ideas</span>
+            </div>
+
+            <div class="stat">
+                <strong>K</strong>
+                <span>Kopersay</span>
+            </div>
+
+            <div class="stat">
+                <strong>24/7</strong>
+                <span>Digital</span>
+            </div>
+
+        </div>
+
     </div>
-
-    <div class="stats">
-
-      <div class="stat">
-        <strong>01</strong>
-        <small>Technology</small>
-      </div>
-
-      <div class="stat">
-        <strong>∞</strong>
-        <small>Ideas</small>
-      </div>
-
-      <div class="stat">
-        <strong>K</strong>
-        <small>Kopersay</small>
-      </div>
-
-      <div class="stat">
-        <strong>24/7</strong>
-        <small>Digital</small>
-      </div>
-
-    </div>
-
-  </div>
 
 </section>
+
 
 <!-- CONTACT -->
-
 <section class="section" id="contact">
 
-  <div class="contact">
+    <div class="contact-box">
 
-    <div class="badge">CONTACT</div>
+        <span class="about-label">
+            CONTACT
+        </span>
 
-    <h2>Let's Build Together.</h2>
+        <h2>
+            Let's Build Together.
+        </h2>
 
-    <p>
-      Have an idea or requirement?
-      Get in touch with Kopersay Technologies.
-    </p>
+        <p>
+            Have an idea or requirement?
+            Get in touch with Kopersay Technologies.
+        </p>
 
-    <a href="tel:+917319796868" class="btn primary">
-      📞 Call Now
-    </a>
+        <a href="tel:+917319796868" class="btn btn-primary">
+            📞 Call Now
+        </a>
 
-    <a href="tel:+917319796868" class="phone">
-      +91 73197 96868
-    </a>
+        <a href="tel:+917319796868" class="phone">
+            +91 73197 96868
+        </a>
 
-  </div>
+    </div>
 
 </section>
 
+
+<!-- FOOTER -->
 <footer>
 
-  <div class="footer-name">
-    Kopersay Technologies
-  </div>
+    <div class="footer-logo">
 
-  © 2026 Kopersay Technologies. All rights reserved.
+        <div class="footer-logo-box">
+            K
+        </div>
+
+        Kopersay Technologies
+
+    </div>
+
+
+    <div class="footer-text">
+        Building smart applications, software and digital
+        solutions for the future.
+    </div>
+
+
+    <div class="footer-links">
+
+        <a href="#home">
+            Home
+        </a>
+
+        <a href="#products">
+            Products
+        </a>
+
+        <a href="#about">
+            About
+        </a>
+
+        <a href="#contact">
+            Contact
+        </a>
+
+    </div>
+
+
+    <div class="footer-copy">
+        © 2026 Kopersay Technologies.
+        All rights reserved.
+    </div>
 
 </footer>
+
 
 <script>
 
 let currentSlide = 0;
 
-const slides = document.querySelectorAll(".slide");
+const slides = document.getElementById("slides");
 const dots = document.querySelectorAll(".dot");
 
 function showSlide(index){
 
-  slides.forEach(s => s.classList.remove("active"));
-  dots.forEach(d => d.classList.remove("active"));
+    if(index >= 3){
+        currentSlide = 0;
+    }
+    else if(index < 0){
+        currentSlide = 2;
+    }
+    else{
+        currentSlide = index;
+    }
 
-  currentSlide =
-    (index + slides.length) % slides.length;
+    slides.style.transform =
+        "translateX(-" + (currentSlide * 100) + "%)";
 
-  slides[currentSlide].classList.add("active");
-  dots[currentSlide].classList.add("active");
+    dots.forEach((dot,i)=>{
+
+        dot.classList.toggle(
+            "active",
+            i === currentSlide
+        );
+
+    });
+
 }
 
-function changeSlide(direction){
-  showSlide(currentSlide + direction);
+function nextSlide(){
+    showSlide(currentSlide + 1);
 }
 
-function goSlide(index){
-  showSlide(index);
+function previousSlide(){
+    showSlide(currentSlide - 1);
 }
 
-setInterval(() => {
-  changeSlide(1);
-}, 4500);
+/* AUTO SLIDER */
 
-function toggleMenu(){
-  document
-    .getElementById("navLinks")
-    .classList.toggle("show");
-}
+setInterval(function(){
+    nextSlide();
+},5000);
 
 </script>
 
