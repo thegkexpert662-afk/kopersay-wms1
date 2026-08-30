@@ -1,6 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+
+   <!-- HERO SLIDER -->
+<section class="hero-slider">
+
+  <div class="slide active">
+    <div class="slide-content">
+      <span class="badge">KOPERSAY TECHNOLOGIES</span>
+      <h1>Building The <span>Digital Future</span></h1>
+      <p>
+        Powerful applications and modern software designed
+        to make technology simple, smart and useful.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#products" class="btn primary">Explore Products</a>
+        <a href="#about" class="btn secondary">About Kopersay</a>
+      </div>
+    </div>
+
+    <div class="slide-icon">K</div>
+  </div>
+
+  <div class="slide">
+    <div class="slide-content">
+      <span class="badge">SMART SOFTWARE</span>
+      <h1>Technology Made <span>Simple</span></h1>
+      <p>
+        Discover Kopersay applications and software
+        built for everyday digital needs.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#products" class="btn primary">View Apps</a>
+      </div>
+    </div>
+
+    <div class="slide-icon">⚡</div>
+  </div>
+
+  <div class="slide">
+    <div class="slide-content">
+      <span class="badge">KOPERSAY</span>
+      <h1>Innovation Starts <span>Here</span></h1>
+      <p>
+        One platform for all Kopersay applications,
+        products and digital solutions.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#contact" class="btn primary">Contact Us</a>
+      </div>
+    </div>
+
+    <div class="slide-icon">🚀</div>
+  </div>
+
+  <!-- Arrows -->
+  <button class="slider-arrow prev" onclick="changeSlide(-1)">‹</button>
+  <button class="slider-arrow next" onclick="changeSlide(1)">›</button>
+
+  <!-- Dots -->
+  <div class="slider-dots">
+    <span class="dot active-dot" onclick="goToSlide(0)"></span>
+    <span class="dot" onclick="goToSlide(1)"></span>
+    <span class="dot" onclick="goToSlide(2)"></span>
+  </div>
+
+</section>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -24,6 +93,212 @@ content="Kopersay Technologies builds modern applications and software for the d
 html{
     scroll-behavior:smooth;
 }
+   <style>
+.hero-slider {
+  position: relative;
+  min-height: 560px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 80% 30%, rgba(90,60,255,.35), transparent 35%),
+    linear-gradient(135deg, #050816, #111936);
+  color: white;
+}
+
+.slide {
+  display: none;
+  min-height: 560px;
+  padding: 70px 8%;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.slide.active {
+  display: flex;
+  animation: slideIn .7s ease;
+}
+
+.slide-content {
+  max-width: 700px;
+}
+
+.badge {
+  display: inline-block;
+  padding: 8px 16px;
+  border: 1px solid #7c5cff;
+  border-radius: 30px;
+  font-size: 13px;
+  letter-spacing: 2px;
+  color: #bbaeff;
+  margin-bottom: 20px;
+}
+
+.slide h1 {
+  font-size: clamp(42px, 6vw, 78px);
+  line-height: 1.05;
+  margin: 0 0 22px;
+  font-weight: 800;
+}
+
+.slide h1 span {
+  background: linear-gradient(90deg, #7c5cff, #00d4ff);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.slide p {
+  font-size: 19px;
+  line-height: 1.7;
+  color: #cbd1e1;
+  max-width: 620px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 14px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 14px 25px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 700;
+  display: inline-block;
+}
+
+.btn.primary {
+  background: linear-gradient(90deg, #6d42ff, #9b5cff);
+  color: white;
+}
+
+.btn.secondary {
+  border: 1px solid #66708d;
+  color: white;
+}
+
+.slide-icon {
+  width: 260px;
+  height: 260px;
+  border-radius: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 130px;
+  font-weight: 900;
+  background: linear-gradient(145deg, #171d48, #30206b);
+  border: 1px solid rgba(255,255,255,.15);
+  box-shadow: 0 30px 80px rgba(80,60,255,.3);
+}
+
+.slider-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,.25);
+  background: rgba(255,255,255,.08);
+  color: white;
+  font-size: 35px;
+  cursor: pointer;
+}
+
+.prev { left: 20px; }
+.next { right: 20px; }
+
+.slider-dots {
+  position: absolute;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 9px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #70778d;
+  cursor: pointer;
+}
+
+.active-dot {
+  width: 28px;
+  border-radius: 20px;
+  background: #8b68ff;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(35px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@media (max-width: 700px) {
+  .slide {
+    min-height: 600px;
+    padding: 55px 25px 75px;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .slide-icon {
+    display: none;
+  }
+
+  .slide p {
+    font-size: 16px;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  .slider-arrow {
+    width: 40px;
+    height: 40px;
+    font-size: 28px;
+  }
+}
+</style>
+
+<script>
+let currentSlide = 0;
+const slides = document.querySelectorAll(".slide");
+const dots = document.querySelectorAll(".dot");
+
+function showSlide(index) {
+  slides.forEach(slide => slide.classList.remove("active"));
+  dots.forEach(dot => dot.classList.remove("active-dot"));
+
+  currentSlide = (index + slides.length) % slides.length;
+
+  slides[currentSlide].classList.add("active");
+  dots[currentSlide].classList.add("active-dot");
+}
+
+function changeSlide(direction) {
+  showSlide(currentSlide + direction);
+}
+
+function goToSlide(index) {
+  showSlide(index);
+}
+
+/* Auto Slider */
+setInterval(() => {
+  changeSlide(1);
+}, 5000);
+</script>
 
 body{
     font-family:
