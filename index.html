@@ -596,34 +596,67 @@ footer{
     font-weight: 700;
 }
 
+.our-products-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
 .our-products-menu {
     position: absolute;
 
-    top: calc(100% + 10px);
-    left: 50%;
-
-    transform: translateX(-50%);
+    top: 100%;
+    left: 0;
 
     width: 230px;
 
-    padding: 8px;
+    padding: 10px;
 
-    background: #ffffff;
+    background: #fff;
 
-    border: 1px solid #e7e8ef;
-
+    border: 1px solid #e5e5e5;
     border-radius: 14px;
 
-    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    box-shadow: 0 15px 40px rgba(0,0,0,.15);
 
     opacity: 0;
     visibility: hidden;
-
     pointer-events: none;
 
-    transition: all 0.2s ease;
+    transform: translateY(5px);
 
-    z-index: 9999;
+    transition: .2s ease;
+
+    z-index: 99999;
+}
+
+/* Mouse button OR dropdown पर हो तो खुला रहेगा */
+
+.our-products-dropdown:hover .our-products-menu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+
+    transform: translateY(0);
+}
+
+.our-products-menu a {
+    display: block;
+
+    padding: 11px 13px;
+
+    color: #555b6d;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    text-decoration: none;
+}
+
+.our-products-menu a:hover {
+    background: #f2efff;
+    color: #633de3;
 }
 
 .our-products-menu a {
