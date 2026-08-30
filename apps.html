@@ -1,0 +1,1200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Kopersay | Applications & Software</title>
+
+<meta name="description"
+      content="Explore applications and software developed by Kopersay Technologies.">
+
+<meta name="keywords"
+      content="Kopersay, Kopersay Technologies, CookMitra, SnapPazzel, VideoMitra, Kopersay QR, HRMS">
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f7f8fc;
+    color: #151827;
+}
+
+/* ================= HEADER ================= */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(255,255,255,0.96);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid #e9eaf2;
+}
+
+.navbar {
+    max-width: 1200px;
+    margin: auto;
+    min-height: 76px;
+    padding: 0 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: #151827;
+}
+
+.brand-logo {
+    width: 46px;
+    height: 46px;
+    border-radius: 14px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: white;
+    font-size: 25px;
+    font-weight: 900;
+
+    background: linear-gradient(
+        135deg,
+        #673de6,
+        #477ff5
+    );
+
+    box-shadow:
+        0 8px 22px rgba(93,67,230,.25);
+}
+
+.brand-name {
+    font-size: 24px;
+    font-weight: 800;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #555b6f;
+    font-size: 15px;
+    font-weight: 600;
+    transition: .25s;
+}
+
+.nav-links a:hover {
+    color: #633de4;
+}
+
+.nav-contact {
+    padding: 13px 22px;
+    border-radius: 13px;
+
+    background: linear-gradient(
+        135deg,
+        #6539df,
+        #514be8
+    ) !important;
+
+    color: white !important;
+
+    box-shadow:
+        0 8px 20px rgba(91,60,225,.25);
+}
+
+/* ================= HERO ================= */
+
+.hero {
+    max-width: 1200px;
+    margin: auto;
+    padding: 95px 24px 65px;
+    text-align: center;
+}
+
+.badge {
+    display: inline-block;
+
+    padding: 9px 16px;
+    border-radius: 50px;
+
+    background: #eeebff;
+    color: #6240d9;
+
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.hero h1 {
+    margin-top: 22px;
+
+    font-size: clamp(42px, 6vw, 72px);
+    line-height: 1.05;
+    font-weight: 900;
+}
+
+.hero h1 span {
+    background: linear-gradient(
+        90deg,
+        #633ce3,
+        #3d82f6
+    );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero p {
+    max-width: 680px;
+    margin: 24px auto 0;
+
+    color: #70758a;
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+/* ================= SECTION ================= */
+
+.products-section {
+    max-width: 1200px;
+    margin: auto;
+    padding: 55px 24px 100px;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.section-label {
+    color: #6541df;
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.section-heading h2 {
+    margin-top: 12px;
+
+    font-size: 42px;
+    font-weight: 900;
+}
+
+.section-heading p {
+    margin-top: 12px;
+    color: #777c8d;
+    font-size: 16px;
+}
+
+/* ================= GRID ================= */
+
+.apps-grid {
+    display: grid;
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 24px;
+}
+
+/* ================= CARD ================= */
+
+.app-card {
+    position: relative;
+
+    background: white;
+    border: 1px solid #e7e8ef;
+
+    border-radius: 24px;
+
+    padding: 28px;
+
+    min-height: 440px;
+
+    display: flex;
+    flex-direction: column;
+
+    box-shadow:
+        0 15px 45px rgba(28,31,55,.07);
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+}
+
+.app-card:hover {
+    transform: translateY(-8px);
+
+    box-shadow:
+        0 25px 55px rgba(28,31,55,.13);
+}
+
+/* ================= LOGO BOX ================= */
+
+.app-logo-box {
+    width: 100%;
+    height: 190px;
+
+    border-radius: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    margin-bottom: 25px;
+}
+
+/* ================= IMAGE LOGOS ================= */
+
+.real-logo {
+    width: 150px;
+    height: 150px;
+
+    object-fit: contain;
+
+    border-radius: 28px;
+
+    filter:
+        drop-shadow(
+            0 12px 20px rgba(0,0,0,.12)
+        );
+}
+
+/* ================= CODE LOGOS ================= */
+
+/* CookMitra */
+
+.cook-logo-box {
+    background:
+        linear-gradient(
+            135deg,
+            #fff2d9,
+            #ffe1a6
+        );
+}
+
+.cook-logo {
+    width: 135px;
+    height: 135px;
+
+    border-radius: 32px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffb52e,
+            #ff7043
+        );
+
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    box-shadow:
+        0 15px 30px rgba(255,125,45,.25);
+}
+
+.cook-icon {
+    font-size: 48px;
+    margin-bottom: 7px;
+}
+
+.cook-text {
+    font-size: 19px;
+    font-weight: 900;
+}
+
+.cook-text span {
+    color: #fff7d5;
+}
+
+/* SnapPazzel */
+
+.snap-logo-box {
+    background:
+        linear-gradient(
+            135deg,
+            #eee8ff,
+            #e4efff
+        );
+}
+
+.snap-logo {
+    width: 135px;
+    height: 135px;
+
+    border-radius: 32px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #6539e5,
+            #3e83f5
+        );
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 7px;
+
+    padding: 23px;
+
+    box-shadow:
+        0 15px 30px rgba(91,65,225,.25);
+}
+
+.puzzle {
+    border-radius: 9px;
+}
+
+.puzzle.one {
+    background: #ffca3a;
+}
+
+.puzzle.two {
+    background: #ff5c8a;
+}
+
+.puzzle.three {
+    background: #42d6b3;
+}
+
+.puzzle.four {
+    background: #ffffff;
+}
+
+.snap-name {
+    position: absolute;
+
+    font-size: 0;
+
+    pointer-events: none;
+}
+
+/* HRMS */
+
+.hrms-logo-box {
+    background:
+        linear-gradient(
+            135deg,
+            #dff8f5,
+            #e4f3ff
+        );
+}
+
+.hrms-logo {
+    width: 135px;
+    height: 135px;
+
+    border-radius: 32px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #087e8b,
+            #28b9a6
+        );
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+
+    box-shadow:
+        0 15px 30px rgba(20,145,140,.25);
+}
+
+.hrms-people {
+    display: flex;
+    align-items: center;
+}
+
+.person {
+    width: 38px;
+    height: 38px;
+
+    border-radius: 50%;
+
+    background: white;
+
+    margin: 0 -4px;
+
+    position: relative;
+}
+
+.person::after {
+    content: "";
+
+    position: absolute;
+
+    width: 48px;
+    height: 28px;
+
+    background: white;
+
+    border-radius: 50% 50% 15px 15px;
+
+    left: -5px;
+    top: 29px;
+}
+
+.hrms-text {
+    position: absolute;
+
+    bottom: 14px;
+
+    color: white;
+
+    font-size: 16px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+/* ================= CARD TEXT ================= */
+
+.status {
+    display: inline-block;
+
+    width: fit-content;
+
+    padding: 7px 11px;
+
+    border-radius: 50px;
+
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: .7px;
+
+    margin-bottom: 12px;
+}
+
+.status-live {
+    color: #087f55;
+    background: #e4faf1;
+}
+
+.status-development {
+    color: #7651d9;
+    background: #eeeaff;
+}
+
+.status-testing {
+    color: #b36b00;
+    background: #fff3d7;
+}
+
+.status-soon {
+    color: #5070b8;
+    background: #e8efff;
+}
+
+.app-card h3 {
+    font-size: 25px;
+    margin-bottom: 12px;
+}
+
+.app-card p {
+    color: #73788a;
+    line-height: 1.65;
+    font-size: 15px;
+}
+
+.app-button {
+    margin-top: auto;
+
+    width: fit-content;
+
+    padding: 13px 18px;
+
+    border-radius: 12px;
+
+    background: #f0edff;
+    color: #5d3bd6;
+
+    text-decoration: none;
+
+    font-weight: 800;
+    font-size: 14px;
+
+    transition: .25s;
+}
+
+.app-button:hover {
+    background: #633de3;
+    color: white;
+}
+
+/* ================= LIVE CARD ================= */
+
+.live-card {
+    border: 1px solid #d8cfff;
+}
+
+.live-dot {
+    width: 8px;
+    height: 8px;
+
+    background: #18b77b;
+
+    border-radius: 50%;
+
+    display: inline-block;
+
+    margin-right: 5px;
+}
+
+/* ================= FOOTER ================= */
+
+footer {
+    background: #101322;
+    color: white;
+
+    padding: 55px 24px 30px;
+}
+
+.footer-inner {
+    max-width: 1200px;
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        2fr 1fr 1fr;
+
+    gap: 50px;
+}
+
+.footer-brand {
+    font-size: 25px;
+    font-weight: 900;
+}
+
+.footer-text {
+    margin-top: 14px;
+
+    color: #9ba0b4;
+
+    max-width: 360px;
+
+    line-height: 1.7;
+}
+
+.footer-column h4 {
+    margin-bottom: 18px;
+}
+
+.footer-column a {
+    display: block;
+
+    text-decoration: none;
+
+    color: #9ba0b4;
+
+    margin-bottom: 12px;
+
+    font-size: 14px;
+}
+
+.footer-column a:hover {
+    color: white;
+}
+
+.copyright {
+    max-width: 1200px;
+
+    margin: 45px auto 0;
+
+    padding-top: 22px;
+
+    border-top: 1px solid #282c3c;
+
+    text-align: center;
+
+    color: #7f8498;
+
+    font-size: 13px;
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 900px) {
+
+    .apps-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .footer-inner {
+        grid-template-columns: 1fr 1fr;
+    }
+
+}
+
+@media (max-width: 650px) {
+
+    .navbar {
+        padding: 12px 18px;
+    }
+
+    .nav-links {
+        gap: 10px;
+    }
+
+    .nav-links a:not(.nav-contact) {
+        display: none;
+    }
+
+    .brand-name {
+        font-size: 21px;
+    }
+
+    .hero {
+        padding-top: 65px;
+    }
+
+    .hero h1 {
+        font-size: 43px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .section-heading h2 {
+        font-size: 34px;
+    }
+
+    .apps-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .app-card {
+        min-height: 420px;
+    }
+
+    .footer-inner {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header>
+
+<nav class="navbar">
+
+<a href="index.html" class="brand">
+
+<div class="brand-logo">
+K
+</div>
+
+<div class="brand-name">
+Kopersay
+</div>
+
+</a>
+
+
+<div class="nav-links">
+
+<a href="index.html">
+Home
+</a>
+
+<a href="products.html">
+Apps
+</a>
+
+<a href="about.html">
+About
+</a>
+
+<a href="vision.html">
+Vision
+</a>
+
+<a href="why-kopersay.html">
+Why Kopersay
+</a>
+
+<a
+href="contact.html"
+class="nav-contact">
+
+Contact
+
+</a>
+
+</div>
+
+</nav>
+
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+<div class="badge">
+KOPERSAY TECHNOLOGIES
+</div>
+
+<h1>
+Applications &
+<span>Software</span>
+</h1>
+
+<p>
+Explore applications and software created by Kopersay Technologies.
+Discover our current products, upcoming applications and technologies
+being developed for the digital future.
+</p>
+
+</section>
+
+
+<!-- ================= PRODUCTS ================= -->
+
+<section class="products-section">
+
+<div class="section-heading">
+
+<div class="section-label">
+OUR PRODUCTS
+</div>
+
+<h2>
+Digital Products
+</h2>
+
+<p>
+Explore products created by Kopersay Technologies.
+</p>
+
+</div>
+
+
+<div class="apps-grid">
+
+
+<!-- ================= KOPSAY QR ================= -->
+
+<article class="app-card live-card">
+
+<div class="app-logo-box"
+     style="
+     background:
+     linear-gradient(
+     135deg,
+     #e8f1ff,
+     #eef6ff
+     );">
+
+<img
+src="kopersay-qr.png"
+alt="Kopersay QR Logo"
+class="real-logo">
+
+</div>
+
+<div class="status status-live">
+
+<span class="live-dot"></span>
+LIVE • 1 SEPTEMBER 2026
+
+</div>
+
+<h3>
+Kopsay QR
+</h3>
+
+<p>
+A modern QR generator and scanner application
+designed for fast, simple and reliable QR
+code experiences.
+</p>
+
+<a
+href="#"
+class="app-button">
+
+View Application →
+
+</a>
+
+</article>
+
+
+<!-- ================= COOKMITRA ================= -->
+
+<article class="app-card">
+
+<div class="app-logo-box cook-logo-box">
+
+<div class="cook-logo">
+
+<div class="cook-icon">
+🍳
+</div>
+
+<div class="cook-text">
+Cook<span>Mitra</span>
+</div>
+
+</div>
+
+</div>
+
+<div class="status status-development">
+UNDER DEVELOPMENT
+</div>
+
+<h3>
+CookMitra
+</h3>
+
+<p>
+A smart food and cooking platform designed
+to make cooking and food experiences easier,
+useful and enjoyable.
+</p>
+
+<a
+href="#"
+class="app-button">
+
+Explore CookMitra →
+
+</a>
+
+</article>
+
+
+<!-- ================= SNAPPAZZEL ================= -->
+
+<article class="app-card">
+
+<div class="app-logo-box snap-logo-box">
+
+<div class="snap-logo">
+
+<div class="puzzle one"></div>
+<div class="puzzle two"></div>
+<div class="puzzle three"></div>
+<div class="puzzle four"></div>
+
+</div>
+
+</div>
+
+<div class="status status-testing">
+ON TESTING
+</div>
+
+<h3>
+SnapPazzel
+</h3>
+
+<p>
+Turn your favorite photos into exciting puzzles
+and challenge yourself with different levels
+and game experiences.
+</p>
+
+<a
+href="#"
+class="app-button">
+
+Explore SnapPazzel →
+
+</a>
+
+</article>
+
+
+<!-- ================= VIDEOMITRA ================= -->
+
+<article class="app-card">
+
+<div class="app-logo-box"
+     style="
+     background:
+     linear-gradient(
+     135deg,
+     #07152f,
+     #111b42
+     );">
+
+<img
+src="videomitra.png"
+alt="VideoMitra Logo"
+class="real-logo">
+
+</div>
+
+<div class="status status-development">
+UNDER DEVELOPMENT
+</div>
+
+<h3>
+VideoMitra
+</h3>
+
+<p>
+A fast and simple video editing experience
+designed for everyday creators to edit,
+create and share.
+</p>
+
+<a
+href="#"
+class="app-button">
+
+Explore VideoMitra →
+
+</a>
+
+</article>
+
+
+<!-- ================= HRMS ================= -->
+
+<article class="app-card">
+
+<div class="app-logo-box hrms-logo-box">
+
+<div class="hrms-logo">
+
+<div class="hrms-people">
+
+<div class="person"></div>
+<div class="person"></div>
+<div class="person"></div>
+
+</div>
+
+<div class="hrms-text">
+HRMS
+</div>
+
+</div>
+
+</div>
+
+<div class="status status-soon">
+COMING SOON
+</div>
+
+<h3>
+HRMS
+</h3>
+
+<p>
+Human Resource Management System designed
+to simplify employee, attendance and
+workforce management.
+</p>
+
+<a
+href="#"
+class="app-button">
+
+Coming Soon →
+
+</a>
+
+</article>
+
+
+<!-- ================= BUSINESS SOFTWARE ================= -->
+
+<article class="app-card">
+
+<div class="app-logo-box"
+     style="
+     background:
+     linear-gradient(
+     135deg,
+     #e5f8ee,
+     #e8f6ff
+     );">
+
+<div style="
+width:135px;
+height:135px;
+border-radius:32px;
+background:
+linear-gradient(
+145deg,
+#246bfe,
+#27b9a5
+);
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:58px;
+box-shadow:
+0 15px 30px rgba(30,120,180,.2);
+">
+💻
+</div>
+
+</div>
+
+<div class="status status-soon">
+SOFTWARE
+</div>
+
+<h3>
+Business Software
+</h3>
+
+<p>
+Practical software solutions designed to
+help businesses work smarter, faster and
+more efficiently.
+</p>
+
+<a
+href="#"
+class="app-button">
+
+Learn More →
+
+</a>
+
+</article>
+
+
+</div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+<div class="footer-inner">
+
+
+<div>
+
+<div class="footer-brand">
+Kopersay
+</div>
+
+<p class="footer-text">
+Kopersay Technologies — building modern
+applications and software for the digital world.
+</p>
+
+</div>
+
+
+<div class="footer-column">
+
+<h4>
+Products
+</h4>
+
+<a href="products.html">
+Kopsay QR
+</a>
+
+<a href="products.html">
+CookMitra
+</a>
+
+<a href="products.html">
+SnapPazzel
+</a>
+
+<a href="products.html">
+VideoMitra
+</a>
+
+<a href="products.html">
+HRMS
+</a>
+
+</div>
+
+
+<div class="footer-column">
+
+<h4>
+Company
+</h4>
+
+<a href="about.html">
+About Us
+</a>
+
+<a href="vision.html">
+Our Vision
+</a>
+
+<a href="why-kopersay.html">
+Why Kopersay
+</a>
+
+<a href="contact.html">
+Contact
+</a>
+
+</div>
+
+
+</div>
+
+
+<div class="copyright">
+
+© 2026 Kopersay Technologies.
+All rights reserved.
+
+</div>
+
+</footer>
+
+
+</body>
+</html>
