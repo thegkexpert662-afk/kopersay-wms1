@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>About Kopersay Technologies | Our Story</title>
+
+<meta name="description"
+content="Learn about Kopersay Technologies, our story, vision, mission and approach to building modern applications, software and digital solutions.">
+
+<meta name="keywords"
+content="Kopersay, Kopersay Technologies, about Kopersay, software company, applications, digital solutions">
+
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://kopersay.in/about.html">
+
+<meta property="og:title" content="About Kopersay Technologies">
+<meta property="og:description"
+content="Discover the story, vision and mission behind Kopersay Technologies.">
+<meta property="og:url" content="https://kopersay.in/about.html">
+<meta property="og:type" content="website">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#ffffff;
+    color:#151522;
+    line-height:1.6;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+/* NAVBAR */
+.navbar{
+    height:68px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 7%;
+    border-bottom:1px solid #eeeeee;
+    background:#ffffff;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:19px;
+    font-weight:700;
+}
+
+.logo-box{
+    width:34px;
+    height:34px;
+    border-radius:10px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:linear-gradient(135deg,#673de6,#3c9cff);
+    color:white;
+    font-weight:bold;
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:28px;
+    font-size:14px;
+    color:#555;
+}
+
+.nav-links a:hover{
+    color:#673de6;
+}
+
+.contact-btn{
+    background:#673de6;
+    color:#fff !important;
+    padding:10px 18px;
+    border-radius:9px;
+}
+
+/* HERO */
+.hero{
+    text-align:center;
+    padding:90px 20px 75px;
+    background:linear-gradient(180deg,#faf9ff,#ffffff);
+}
+
+.badge{
+    display:inline-block;
+    border:1px solid #d9d0ff;
+    color:#673de6;
+    border-radius:30px;
+    padding:6px 13px;
+    font-size:11px;
+    letter-spacing:2px;
+    margin-bottom:18px;
+}
+
+.hero h1{
+    font-size:clamp(40px,6vw,70px);
+    line-height:1.05;
+    margin-bottom:20px;
+}
+
+.gradient{
+    background:linear-gradient(90deg,#673de6,#279eff);
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+.hero p{
+    max-width:700px;
+    margin:auto;
+    color:#666;
+    font-size:17px;
+}
+
+/* MAIN */
+.container{
+    width:min(1100px,90%);
+    margin:auto;
+}
+
+/* STORY */
+.story{
+    padding:80px 0;
+}
+
+.section-grid{
+    display:grid;
+    grid-template-columns:1.1fr .9fr;
+    gap:60px;
+    align-items:center;
+}
+
+.small-title{
+    color:#673de6;
+    font-size:12px;
+    letter-spacing:2px;
+    font-weight:bold;
+    margin-bottom:12px;
+}
+
+h2{
+    font-size:38px;
+    line-height:1.2;
+    margin-bottom:20px;
+}
+
+.story p{
+    color:#666;
+    margin-bottom:16px;
+}
+
+.story-box{
+    min-height:330px;
+    border-radius:24px;
+    background:linear-gradient(135deg,#f1edff,#edf7ff);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+    overflow:hidden;
+}
+
+.big-k{
+    width:150px;
+    height:150px;
+    border-radius:40px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:75px;
+    font-weight:bold;
+    color:white;
+    background:linear-gradient(135deg,#673de6,#279eff);
+    box-shadow:0 25px 60px rgba(103,61,230,.25);
+}
+
+/* MISSION */
+.mission{
+    padding:75px 0;
+    background:#fafafa;
+}
+
+.center{
+    text-align:center;
+    max-width:700px;
+    margin:auto;
+}
+
+.cards{
+    margin-top:45px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.card{
+    background:white;
+    border:1px solid #eeeeee;
+    border-radius:18px;
+    padding:28px;
+}
+
+.icon{
+    width:46px;
+    height:46px;
+    border-radius:13px;
+    background:#f0ebff;
+    color:#673de6;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:22px;
+    margin-bottom:18px;
+}
+
+.card h3{
+    margin-bottom:10px;
+    font-size:19px;
+}
+
+.card p{
+    color:#666;
+    font-size:14px;
+}
+
+/* VALUES */
+.values{
+    padding:80px 0;
+}
+
+.value-list{
+    margin-top:40px;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+}
+
+.value{
+    border:1px solid #eeeeee;
+    border-radius:16px;
+    padding:25px;
+}
+
+.value strong{
+    display:block;
+    font-size:18px;
+    margin-bottom:7px;
+}
+
+.value span{
+    color:#666;
+    font-size:14px;
+}
+
+/* CTA */
+.cta{
+    width:min(1100px,90%);
+    margin:20px auto 80px;
+    padding:65px 25px;
+    border-radius:25px;
+    text-align:center;
+    color:white;
+    background:linear-gradient(135deg,#17142d,#292050);
+}
+
+.cta h2{
+    margin-bottom:12px;
+}
+
+.cta p{
+    color:#c9c5d8;
+    margin-bottom:25px;
+}
+
+.cta-btn{
+    display:inline-block;
+    background:#fff;
+    color:#673de6;
+    padding:12px 22px;
+    border-radius:10px;
+    font-weight:bold;
+}
+
+/* FOOTER */
+footer{
+    border-top:1px solid #eeeeee;
+    padding:45px 20px;
+    text-align:center;
+    background:#fafafa;
+}
+
+.footer-logo{
+    font-size:20px;
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+footer p{
+    color:#777;
+    font-size:13px;
+    margin-bottom:15px;
+}
+
+.footer-links{
+    display:flex;
+    justify-content:center;
+    gap:22px;
+    font-size:13px;
+    color:#673de6;
+    margin-bottom:18px;
+}
+
+.copy{
+    font-size:12px;
+    color:#999;
+}
+
+/* MOBILE */
+@media(max-width:700px){
+
+    .navbar{
+        padding:0 18px;
+        height:60px;
+    }
+
+    .nav-links{
+        gap:10px;
+        font-size:11px;
+    }
+
+    .nav-links a:nth-child(2),
+    .nav-links a:nth-child(3){
+        display:none;
+    }
+
+    .contact-btn{
+        padding:8px 12px;
+    }
+
+    .hero{
+        padding:65px 18px 55px;
+    }
+
+    .hero p{
+        font-size:14px;
+    }
+
+    .section-grid{
+        grid-template-columns:1fr;
+        gap:35px;
+    }
+
+    .story{
+        padding:60px 0;
+    }
+
+    h2{
+        font-size:30px;
+    }
+
+    .story-box{
+        min-height:250px;
+    }
+
+    .cards{
+        grid-template-columns:1fr;
+    }
+
+    .mission,
+    .values{
+        padding:60px 0;
+    }
+
+    .value-list{
+        grid-template-columns:1fr;
+    }
+
+    .cta{
+        padding:50px 20px;
+        margin-bottom:55px;
+    }
+
+    .cta h2{
+        font-size:28px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+
+    <a href="index.html" class="logo">
+        <span class="logo-box">K</span>
+        Kopersay
+    </a>
+
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="about.html">About</a>
+        <a href="index.html#contact" class="contact-btn">Contact</a>
+    </div>
+
+</nav>
+
+
+<!-- HERO -->
+<section class="hero">
+
+    <span class="badge">ABOUT KOPERSAY</span>
+
+    <h1>
+        Building the
+        <span class="gradient">Digital Future.</span>
+    </h1>
+
+    <p>
+        Kopersay Technologies focuses on creating modern applications,
+        software and digital solutions that are simple, useful and reliable.
+    </p>
+
+</section>
+
+
+<!-- STORY -->
+<section class="story">
+
+    <div class="container">
+
+        <div class="section-grid">
+
+            <div>
+
+                <div class="small-title">OUR STORY</div>
+
+                <h2>
+                    Technology Made
+                    <span class="gradient">Simple.</span>
+                </h2>
+
+                <p>
+                    Kopersay Technologies was created with a simple idea:
+                    technology should solve real problems without making
+                    things unnecessarily complicated.
+                </p>
+
+                <p>
+                    We work on applications, software and digital products
+                    designed for everyday users and modern businesses.
+                </p>
+
+                <p>
+                    Our focus is on useful products, clean experiences and
+                    technology that people can understand and use easily.
+                </p>
+
+            </div>
+
+            <div class="story-box">
+                <div class="big-k">K</div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- MISSION -->
+<section class="mission">
+
+    <div class="container">
+
+        <div class="center">
+
+            <div class="small-title">WHAT WE DO</div>
+
+            <h2>
+                Our Mission
+            </h2>
+
+            <p>
+                To build digital products that are practical, accessible
+                and designed around real-world needs.
+            </p>
+
+        </div>
+
+
+        <div class="cards">
+
+            <div class="card">
+
+                <div class="icon">💡</div>
+
+                <h3>Innovation</h3>
+
+                <p>
+                    We explore better ideas and modern technologies
+                    to create useful digital experiences.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="icon">⚙️</div>
+
+                <h3>Technology</h3>
+
+                <p>
+                    We build applications and software with a focus
+                    on reliability, simplicity and performance.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="icon">🚀</div>
+
+                <h3>Growth</h3>
+
+                <p>
+                    We continuously improve our products and create
+                    solutions ready for the future.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- VALUES -->
+<section class="values">
+
+    <div class="container">
+
+        <div class="small-title">OUR VALUES</div>
+
+        <h2>
+            What We Believe In
+        </h2>
+
+        <div class="value-list">
+
+            <div class="value">
+                <strong>Simple</strong>
+                <span>
+                    Technology should be easy to understand and use.
+                </span>
+            </div>
+
+            <div class="value">
+                <strong>Useful</strong>
+                <span>
+                    Every product should solve a real problem.
+                </span>
+            </div>
+
+            <div class="value">
+                <strong>Reliable</strong>
+                <span>
+                    We aim to create dependable digital experiences.
+                </span>
+            </div>
+
+            <div class="value">
+                <strong>Future Ready</strong>
+                <span>
+                    We build with modern technology and long-term thinking.
+                </span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CTA -->
+<section class="cta">
+
+    <h2>Let's Build Together.</h2>
+
+    <p>
+        Have an idea or requirement? Get in touch with Kopersay Technologies.
+    </p>
+
+    <a href="index.html#contact" class="cta-btn">
+        Contact Us
+    </a>
+
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+
+    <div class="footer-logo">
+        🅺 Kopersay Technologies
+    </div>
+
+    <p>
+        Building smart applications, software and digital solutions
+        for the future.
+    </p>
+
+    <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="about.html">About</a>
+        <a href="index.html#contact">Contact</a>
+    </div>
+
+    <div class="copy">
+        © 2026 Kopersay Technologies. All rights reserved.
+    </div>
+
+</footer>
+
+</body>
+</html>
