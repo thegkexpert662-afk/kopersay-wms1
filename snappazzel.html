@@ -1,0 +1,1243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SnapPazzel | Photo Puzzle Game | Kopersay Technologies</title>
+
+<meta name="description"
+content="SnapPazzel is a photo puzzle game by Kopersay Technologies, currently under testing.">
+
+<meta name="keywords"
+content="SnapPazzel, photo puzzle game, puzzle game, Kopersay Technologies">
+
+<meta name="author"
+content="Kopersay Technologies">
+
+<meta name="robots"
+content="index, follow">
+
+<link rel="canonical"
+href="https://kopersay.in/snappazzel.html">
+
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#fff;
+    color:#151827;
+    line-height:1.6;
+}
+
+a{
+    text-decoration:none;
+}
+
+
+/* ================= NAVBAR ================= */
+
+.navbar{
+    position:sticky;
+    top:0;
+    z-index:1000;
+
+    min-height:74px;
+    padding:0 7%;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    background:rgba(255,255,255,.97);
+    border-bottom:1px solid #e9eaf0;
+
+    backdrop-filter:blur(14px);
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:11px;
+
+    color:#151827;
+
+    font-size:22px;
+    font-weight:800;
+}
+
+.brand-logo{
+    width:42px;
+    height:42px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:12px;
+
+    color:#fff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #673de6,
+            #477ff5
+        );
+
+    font-size:21px;
+    font-weight:900;
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:25px;
+}
+
+.nav-links a{
+    color:#555b6d;
+    font-size:14px;
+    font-weight:600;
+}
+
+.nav-links a:hover{
+    color:#633de3;
+}
+
+.contact-btn{
+    padding:10px 17px;
+
+    border-radius:10px;
+
+    color:#fff !important;
+
+    background:
+        linear-gradient(
+            135deg,
+            #6539df,
+            #4f7bef
+        );
+}
+
+
+/* ================= HERO ================= */
+
+.hero{
+    padding:85px 7% 80px;
+
+    text-align:center;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(100,70,235,.16),
+            transparent 45%
+        ),
+        #fff;
+}
+
+
+/* CODE LOGO */
+
+.snap-logo{
+    width:155px;
+    height:155px;
+
+    margin:0 auto 25px;
+
+    position:relative;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:38px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #6237e5,
+            #477ff5
+        );
+
+    box-shadow:
+        0 22px 55px rgba(75,55,180,.25);
+
+    overflow:hidden;
+}
+
+.snap-logo::before{
+    content:"";
+
+    position:absolute;
+
+    width:95px;
+    height:95px;
+
+    border-radius:18px;
+
+    background:#fff;
+
+    transform:rotate(8deg);
+}
+
+.snap-logo::after{
+    content:"";
+
+    position:absolute;
+
+    width:58px;
+    height:58px;
+
+    border-radius:12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #673de6,
+            #477ff5
+        );
+
+    transform:rotate(8deg);
+}
+
+.snap-letter{
+    position:relative;
+    z-index:2;
+
+    color:#fff;
+
+    font-size:42px;
+    font-weight:900;
+}
+
+
+.status{
+    display:inline-block;
+
+    padding:8px 16px;
+
+    border-radius:50px;
+
+    color:#9b6500;
+
+    background:#fff4d9;
+
+    font-size:11px;
+    font-weight:900;
+
+    letter-spacing:.7px;
+}
+
+.hero h1{
+    margin-top:20px;
+
+    font-size:
+        clamp(45px,7vw,75px);
+
+    line-height:1.03;
+
+    font-weight:900;
+}
+
+.hero h1 span{
+    background:
+        linear-gradient(
+            90deg,
+            #633ce3,
+            #3f86f5
+        );
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.hero p{
+    max-width:720px;
+
+    margin:22px auto 0;
+
+    color:#707589;
+
+    font-size:18px;
+}
+
+.testing-date{
+    display:inline-block;
+
+    margin-top:24px;
+
+    padding:11px 17px;
+
+    border-radius:11px;
+
+    background:#f1edff;
+
+    color:#633bd5;
+
+    font-size:13px;
+
+    font-weight:800;
+}
+
+
+/* ================= BUTTONS ================= */
+
+.buttons{
+    margin-top:28px;
+
+    display:flex;
+    justify-content:center;
+
+    gap:12px;
+
+    flex-wrap:wrap;
+}
+
+.primary-btn{
+    display:inline-block;
+
+    padding:13px 22px;
+
+    border-radius:11px;
+
+    color:#fff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #6539df,
+            #477ff5
+        );
+
+    font-size:14px;
+    font-weight:800;
+
+    box-shadow:
+        0 9px 22px rgba(91,61,220,.20);
+
+    transition:.25s;
+}
+
+.primary-btn:hover{
+    transform:translateY(-2px);
+}
+
+.secondary-btn{
+    display:inline-block;
+
+    padding:13px 22px;
+
+    border-radius:11px;
+
+    color:#633bd5;
+
+    background:#f0edff;
+
+    font-size:14px;
+
+    font-weight:800;
+}
+
+
+/* ================= SECTION ================= */
+
+.section{
+    padding:80px 7%;
+}
+
+.section-title{
+    max-width:720px;
+
+    margin:0 auto 45px;
+
+    text-align:center;
+}
+
+.section-title h2{
+    font-size:39px;
+
+    margin-bottom:10px;
+}
+
+.section-title p{
+    color:#74798b;
+}
+
+
+/* ================= ABOUT ================= */
+
+.about{
+    background:#f8f8ff;
+}
+
+.about-grid{
+    max-width:1100px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:55px;
+
+    align-items:center;
+}
+
+.about h2{
+    font-size:39px;
+
+    margin-bottom:18px;
+}
+
+.about p{
+    color:#6e7385;
+
+    margin-bottom:15px;
+}
+
+.check-list{
+    list-style:none;
+
+    margin-top:22px;
+}
+
+.check-list li{
+    margin:12px 0;
+
+    font-weight:700;
+}
+
+.check-list li::before{
+    content:"✓";
+
+    color:#633bdc;
+
+    margin-right:10px;
+
+    font-weight:900;
+}
+
+
+/* ================= GAME VISUAL ================= */
+
+.game-visual{
+    min-height:380px;
+
+    padding:35px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:28px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #eeeaff,
+            #edf5ff
+        );
+
+    border:1px solid #dfdff0;
+}
+
+.puzzle-board{
+    width:270px;
+    height:270px;
+
+    padding:8px;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:7px;
+
+    border-radius:20px;
+
+    background:#fff;
+
+    box-shadow:
+        0 20px 45px rgba(50,45,100,.14);
+}
+
+.piece{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:10px;
+
+    font-size:30px;
+    font-weight:900;
+
+    color:#fff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #633ce3,
+            #4c83ef
+        );
+}
+
+.piece:nth-child(2){
+    background:
+        linear-gradient(
+            135deg,
+            #ff8a4c,
+            #ff5d70
+        );
+}
+
+.piece:nth-child(3){
+    background:
+        linear-gradient(
+            135deg,
+            #35b9a2,
+            #278ce0
+        );
+}
+
+.piece:nth-child(4){
+    background:
+        linear-gradient(
+            135deg,
+            #f5bb3f,
+            #e96d58
+        );
+}
+
+.piece:nth-child(5){
+    background:
+        linear-gradient(
+            135deg,
+            #7850df,
+            #d548c8
+        );
+}
+
+.piece:nth-child(6){
+    background:
+        linear-gradient(
+            135deg,
+            #39a7ed,
+            #4f5fe0
+        );
+}
+
+.piece:nth-child(7){
+    background:
+        linear-gradient(
+            135deg,
+            #ed6585,
+            #9e51df
+        );
+}
+
+.piece:nth-child(8){
+    background:
+        linear-gradient(
+            135deg,
+            #42b98a,
+            #3a8ce7
+        );
+}
+
+.piece:nth-child(9){
+    background:
+        linear-gradient(
+            135deg,
+            #f09c42,
+            #e84f9c
+        );
+}
+
+
+/* ================= FEATURES ================= */
+
+.features{
+    background:#fff;
+}
+
+.feature-grid{
+    max-width:1150px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:22px;
+}
+
+.feature-card{
+    padding:28px;
+
+    background:#fff;
+
+    border:1px solid #e7e8ef;
+
+    border-radius:20px;
+
+    box-shadow:
+        0 12px 35px rgba(20,20,50,.055);
+
+    transition:.25s;
+}
+
+.feature-card:hover{
+    transform:translateY(-5px);
+}
+
+.feature-icon{
+    width:55px;
+    height:55px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:15px;
+
+    background:#f0edff;
+
+    color:#633bdc;
+
+    font-size:25px;
+
+    margin-bottom:18px;
+}
+
+.feature-card h3{
+    font-size:20px;
+
+    margin-bottom:8px;
+}
+
+.feature-card p{
+    color:#727789;
+
+    font-size:14px;
+}
+
+
+/* ================= TESTING ================= */
+
+.testing-box{
+    max-width:950px;
+
+    margin:auto;
+
+    padding:35px;
+
+    text-align:center;
+
+    border-radius:22px;
+
+    border:1px solid #e4e0f2;
+
+    background:
+        linear-gradient(
+            135deg,
+            #faf9ff,
+            #fff
+        );
+}
+
+.testing-box h2{
+    font-size:31px;
+
+    margin-bottom:12px;
+}
+
+.testing-box p{
+    max-width:700px;
+
+    margin:auto;
+
+    color:#707589;
+}
+
+
+/* ================= CTA ================= */
+
+.cta{
+    padding:80px 7%;
+
+    text-align:center;
+
+    color:#fff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #21144e,
+            #5831c8
+        );
+}
+
+.cta h2{
+    font-size:40px;
+
+    margin-bottom:12px;
+}
+
+.cta p{
+    opacity:.86;
+
+    margin-bottom:25px;
+}
+
+.back-btn{
+    display:inline-block;
+
+    padding:13px 22px;
+
+    border-radius:10px;
+
+    color:#5330c9;
+
+    background:#fff;
+
+    font-weight:800;
+}
+
+
+/* ================= FOOTER ================= */
+
+footer{
+    padding:45px 7% 30px;
+
+    text-align:center;
+
+    background:#101322;
+
+    color:#fff;
+}
+
+.footer-logo{
+    font-size:21px;
+
+    font-weight:800;
+
+    margin-bottom:10px;
+}
+
+footer p{
+    color:#9298aa;
+
+    font-size:13px;
+}
+
+.footer-links{
+    margin:18px 0;
+}
+
+.footer-links a{
+    color:#b8aaff;
+
+    margin:0 9px;
+
+    font-size:13px;
+}
+
+
+/* ================= MOBILE ================= */
+
+@media(max-width:850px){
+
+    .navbar{
+        padding:12px 18px;
+    }
+
+    .nav-links{
+        gap:9px;
+    }
+
+    .nav-links a:not(.contact-btn){
+        display:none;
+    }
+
+    .hero{
+        padding:70px 5%;
+    }
+
+    .hero p{
+        font-size:16px;
+    }
+
+    .section{
+        padding:65px 5%;
+    }
+
+    .about-grid{
+        grid-template-columns:1fr;
+    }
+
+    .feature-grid{
+        grid-template-columns:1fr;
+    }
+
+    .section-title h2{
+        font-size:32px;
+    }
+
+    .about h2{
+        font-size:32px;
+    }
+
+    .cta h2{
+        font-size:32px;
+    }
+
+    .puzzle-board{
+        width:240px;
+        height:240px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- ================= NAVBAR ================= -->
+
+<nav class="navbar">
+
+<a href="index.html" class="brand">
+
+<div class="brand-logo">
+K
+</div>
+
+Kopersay
+
+</a>
+
+
+<div class="nav-links">
+
+<a href="index.html">
+Home
+</a>
+
+<a href="products.html">
+Products
+</a>
+
+<a href="apps.html">
+Apps
+</a>
+
+<a href="about.html">
+About
+</a>
+
+<a href="vision.html">
+Vision
+</a>
+
+<a href="contact.html" class="contact-btn">
+Contact
+</a>
+
+</div>
+
+</nav>
+
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+
+<div class="snap-logo">
+
+<div class="snap-letter">
+S
+</div>
+
+</div>
+
+
+<div class="status">
+
+ON TESTING
+
+</div>
+
+
+<h1>
+
+Snap
+<span>Pazzel</span>
+
+</h1>
+
+
+<p>
+
+A fun photo puzzle experience where
+players can turn images into puzzles,
+solve challenges and enjoy a simple
+interactive gaming experience.
+
+</p>
+
+
+<div class="testing-date">
+
+🧪 Currently On Testing
+
+</div>
+
+
+<div class="buttons">
+
+<a
+href="apps.html"
+class="secondary-btn">
+
+← Back to Apps
+
+</a>
+
+</div>
+
+</section>
+
+
+
+<!-- ================= ABOUT ================= -->
+
+<section class="section about">
+
+<div class="about-grid">
+
+
+<div>
+
+<h2>
+Turn photos into puzzles.
+</h2>
+
+<p>
+SnapPazzel is a photo puzzle game being
+developed by Kopersay Technologies.
+</p>
+
+<p>
+The game is designed to combine personal
+photos with puzzle-based gameplay and
+progression.
+</p>
+
+
+<ul class="check-list">
+
+<li>
+Photo-based puzzles
+</li>
+
+<li>
+Multiple puzzle sizes
+</li>
+
+<li>
+Progress-based gameplay
+</li>
+
+<li>
+Simple mobile controls
+</li>
+
+</ul>
+
+</div>
+
+
+<div class="game-visual">
+
+<div class="puzzle-board">
+
+<div class="piece">1</div>
+<div class="piece">2</div>
+<div class="piece">3</div>
+<div class="piece">4</div>
+<div class="piece">5</div>
+<div class="piece">6</div>
+<div class="piece">7</div>
+<div class="piece">8</div>
+<div class="piece">9</div>
+
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- ================= FEATURES ================= -->
+
+<section class="section features">
+
+
+<div class="section-title">
+
+<h2>
+Built for puzzle lovers.
+</h2>
+
+<p>
+SnapPazzel is being designed around
+simple gameplay and progressive challenges.
+</p>
+
+</div>
+
+
+<div class="feature-grid">
+
+
+<div class="feature-card">
+
+<div class="feature-icon">
+📸
+</div>
+
+<h3>
+Photo Puzzles
+</h3>
+
+<p>
+Transform images into interactive
+puzzle challenges.
+</p>
+
+</div>
+
+
+<div class="feature-card">
+
+<div class="feature-icon">
+🧩
+</div>
+
+<h3>
+Multiple Grids
+</h3>
+
+<p>
+Different puzzle grid sizes can provide
+increasing levels of challenge.
+</p>
+
+</div>
+
+
+<div class="feature-card">
+
+<div class="feature-icon">
+⭐
+</div>
+
+<h3>
+XP & Progress
+</h3>
+
+<p>
+Gameplay progression can reward players
+with experience and new challenges.
+</p>
+
+</div>
+
+
+<div class="feature-card">
+
+<div class="feature-icon">
+🏆
+</div>
+
+<h3>
+Victory Experience
+</h3>
+
+<p>
+A dedicated victory experience makes
+completed puzzles feel rewarding.
+</p>
+
+</div>
+
+
+<div class="feature-card">
+
+<div class="feature-icon">
+📱
+</div>
+
+<h3>
+Mobile Friendly
+</h3>
+
+<p>
+Designed around simple touch controls
+for mobile players.
+</p>
+
+</div>
+
+
+<div class="feature-card">
+
+<div class="feature-icon">
+⚡
+</div>
+
+<h3>
+Quick Gameplay
+</h3>
+
+<p>
+Designed for short puzzle sessions as
+well as longer gameplay.
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- ================= TESTING ================= -->
+
+<section class="section">
+
+
+<div class="testing-box">
+
+<h2>
+SnapPazzel is currently on testing.
+</h2>
+
+<p>
+The game is being tested and improved before
+its public release. Features, gameplay and
+overall experience may continue to change
+during testing.
+</p>
+
+</div>
+
+</section>
+
+
+
+<!-- ================= CTA ================= -->
+
+<section class="cta">
+
+<h2>
+Explore Kopersay Apps
+</h2>
+
+<p>
+Discover SnapPazzel and other applications
+being developed by Kopersay Technologies.
+</p>
+
+<a
+href="apps.html"
+class="back-btn">
+
+← Explore All Apps
+
+</a>
+
+</section>
+
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+<div class="footer-logo">
+Kopersay Technologies
+</div>
+
+<p>
+Building smart applications and digital solutions
+for the future.
+</p>
+
+
+<div class="footer-links">
+
+<a href="index.html">
+Home
+</a>
+
+<a href="products.html">
+Products
+</a>
+
+<a href="apps.html">
+Apps
+</a>
+
+<a href="about.html">
+About
+</a>
+
+<a href="contact.html">
+Contact
+</a>
+
+</div>
+
+
+<p>
+© 2026 Kopersay Technologies.
+All rights reserved.
+</p>
+
+</footer>
+
+
+</body>
+</html>
