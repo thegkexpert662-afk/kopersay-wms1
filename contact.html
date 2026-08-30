@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Contact Kopersay Technologies | Get in Touch</title>
+
+<meta name="description"
+content="Contact Kopersay Technologies for applications, software and digital solutions.">
+
+<meta name="robots" content="index, follow">
+
+<link rel="canonical"
+href="https://kopersay.in/contact.html">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#fff;
+    color:#151522;
+    line-height:1.6;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+.container{
+    width:min(1100px,90%);
+    margin:auto;
+}
+
+
+/* NAVBAR */
+
+.navbar{
+    height:68px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 7%;
+    border-bottom:1px solid #eee;
+    background:#fff;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:19px;
+    font-weight:800;
+}
+
+.logo-box{
+    width:34px;
+    height:34px;
+    border-radius:10px;
+    display:grid;
+    place-items:center;
+    color:#fff;
+    background:linear-gradient(135deg,#673de6,#3c9cff);
+}
+
+.nav-links{
+    display:flex;
+    gap:24px;
+    align-items:center;
+    font-size:13px;
+    color:#555;
+}
+
+.nav-links a:hover{
+    color:#673de6;
+}
+
+.contact-btn{
+    padding:9px 16px;
+    border-radius:9px;
+    background:#673de6;
+    color:#fff!important;
+}
+
+
+/* HERO */
+
+.hero{
+    text-align:center;
+    padding:85px 20px 70px;
+    background:
+        radial-gradient(circle at 50% 10%,rgba(103,61,230,.13),transparent 42%),
+        #fff;
+}
+
+.badge{
+    display:inline-block;
+    padding:6px 13px;
+    border:1px solid #d8ceff;
+    border-radius:30px;
+    color:#673de6;
+    font-size:10px;
+    font-weight:bold;
+    letter-spacing:2px;
+    margin-bottom:18px;
+}
+
+.hero h1{
+    font-size:clamp(42px,6vw,68px);
+    line-height:1.05;
+    margin-bottom:18px;
+}
+
+.gradient{
+    background:linear-gradient(90deg,#673de6,#209dff);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+}
+
+.hero p{
+    max-width:650px;
+    margin:auto;
+    color:#666;
+    font-size:16px;
+}
+
+
+/* CONTACT */
+
+.contact{
+    padding:70px 0 90px;
+}
+
+.contact-grid{
+    display:grid;
+    grid-template-columns:.8fr 1.2fr;
+    gap:25px;
+}
+
+
+/* INFO */
+
+.info{
+    padding:32px;
+    border-radius:20px;
+    background:#faf9ff;
+    border:1px solid #e7e1ff;
+}
+
+.info h2{
+    font-size:28px;
+    margin-bottom:12px;
+}
+
+.info > p{
+    color:#666;
+    font-size:14px;
+    margin-bottom:28px;
+}
+
+.info-item{
+    display:flex;
+    gap:14px;
+    align-items:flex-start;
+    margin:20px 0;
+}
+
+.info-icon{
+    width:42px;
+    height:42px;
+    flex-shrink:0;
+    border-radius:12px;
+    background:#eee9ff;
+    display:grid;
+    place-items:center;
+    font-size:19px;
+}
+
+.info-item strong{
+    display:block;
+    font-size:14px;
+    margin-bottom:3px;
+}
+
+.info-item span{
+    color:#666;
+    font-size:13px;
+}
+
+
+/* FORM */
+
+.form-box{
+    padding:32px;
+    border:1px solid #e7e7e7;
+    border-radius:20px;
+    background:#fff;
+    box-shadow:0 10px 35px rgba(0,0,0,.04);
+}
+
+.form-box h2{
+    font-size:28px;
+    margin-bottom:8px;
+}
+
+.form-box > p{
+    color:#777;
+    font-size:13px;
+    margin-bottom:25px;
+}
+
+.form-group{
+    margin-bottom:17px;
+}
+
+.form-group label{
+    display:block;
+    font-size:12px;
+    font-weight:bold;
+    margin-bottom:7px;
+}
+
+.form-group input,
+.form-group textarea{
+    width:100%;
+    border:1px solid #ddd;
+    border-radius:10px;
+    padding:12px 13px;
+    font-family:inherit;
+    font-size:13px;
+    outline:none;
+}
+
+.form-group input:focus,
+.form-group textarea:focus{
+    border-color:#673de6;
+}
+
+.form-group textarea{
+    min-height:120px;
+    resize:vertical;
+}
+
+.send-btn{
+    border:none;
+    cursor:pointer;
+    padding:12px 22px;
+    border-radius:10px;
+    color:#fff;
+    background:#673de6;
+    font-size:13px;
+    font-weight:bold;
+}
+
+
+/* DIRECT CONTACT */
+
+.direct{
+    padding:0 0 80px;
+}
+
+.direct-box{
+    padding:35px;
+    text-align:center;
+    border-radius:20px;
+    background:#f7f8fc;
+    border:1px solid #e5e6ed;
+}
+
+.direct-box h2{
+    margin-bottom:8px;
+}
+
+.direct-box p{
+    color:#666;
+    font-size:13px;
+    margin-bottom:20px;
+}
+
+.phone{
+    display:inline-block;
+    padding:12px 22px;
+    border-radius:10px;
+    background:#673de6;
+    color:white;
+    font-weight:bold;
+}
+
+
+/* FOOTER */
+
+footer{
+    padding:40px 20px;
+    text-align:center;
+    background:#fafafa;
+    border-top:1px solid #eee;
+}
+
+.footer-logo{
+    font-size:19px;
+    font-weight:bold;
+    margin-bottom:8px;
+}
+
+footer p{
+    color:#777;
+    font-size:12px;
+}
+
+.footer-links{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    margin:16px 0;
+    color:#673de6;
+    font-size:12px;
+}
+
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+    .navbar{
+        height:60px;
+        padding:0 18px;
+    }
+
+    .nav-links{
+        gap:10px;
+        font-size:10px;
+    }
+
+    .nav-links a:nth-child(3),
+    .nav-links a:nth-child(4),
+    .nav-links a:nth-child(5){
+        display:none;
+    }
+
+    .hero{
+        padding:65px 18px 55px;
+    }
+
+    .hero h1{
+        font-size:43px;
+    }
+
+    .hero p{
+        font-size:14px;
+    }
+
+    .contact{
+        padding:55px 0 65px;
+    }
+
+    .contact-grid{
+        grid-template-columns:1fr;
+    }
+
+    .info,
+    .form-box{
+        padding:25px;
+    }
+
+    .direct{
+        padding-bottom:60px;
+    }
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<!-- NAVBAR -->
+
+<nav class="navbar">
+
+    <a href="index.html" class="logo">
+
+        <span class="logo-box">
+            K
+        </span>
+
+        Kopersay
+
+    </a>
+
+
+    <div class="nav-links">
+
+        <a href="index.html">Home</a>
+
+        <a href="products.html">Products</a>
+
+        <a href="about.html">About</a>
+
+        <a href="vision.html">Vision</a>
+
+        <a href="why-kopersay.html">Why Kopersay</a>
+
+        <a href="contact.html" class="contact-btn">
+            Contact
+        </a>
+
+    </div>
+
+</nav>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <span class="badge">
+        CONTACT KOPERSAY
+    </span>
+
+    <h1>
+        Let's
+        <span class="gradient">
+            Connect.
+        </span>
+    </h1>
+
+    <p>
+        Have an idea, question or requirement?
+        We'd love to hear from you.
+    </p>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section class="contact">
+
+    <div class="container">
+
+        <div class="contact-grid">
+
+
+            <!-- INFO -->
+
+            <div class="info">
+
+                <h2>
+                    Get in Touch
+                </h2>
+
+                <p>
+                    Contact Kopersay Technologies for information
+                    about our applications, software and digital solutions.
+                </p>
+
+
+                <div class="info-item">
+
+                    <div class="info-icon">
+                        📞
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Phone
+                        </strong>
+
+                        <span>
+                            +91 73197 96868
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="info-item">
+
+                    <div class="info-icon">
+                        📧
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Email
+                        </strong>
+
+                        <span>
+                            Email coming soon
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="info-item">
+
+                    <div class="info-icon">
+                        🌐
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Website
+                        </strong>
+
+                        <span>
+                            kopersay.in
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- FORM -->
+
+            <div class="form-box">
+
+                <h2>
+                    Send a Message
+                </h2>
+
+                <p>
+                    Fill in your details and tell us how we can help.
+                </p>
+
+
+                <form
+                    action="mailto:"
+                    method="post"
+                    enctype="text/plain"
+                >
+
+                    <div class="form-group">
+
+                        <label>
+                            Your Name
+                        </label>
+
+                        <input
+                            type="text"
+                            name="Name"
+                            placeholder="Enter your name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Email
+                        </label>
+
+                        <input
+                            type="email"
+                            name="Email"
+                            placeholder="Enter your email"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Message
+                        </label>
+
+                        <textarea
+                            name="Message"
+                            placeholder="Write your message..."
+                            required
+                        ></textarea>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="send-btn"
+                    >
+                        Send Message →
+                    </button>
+
+                </form>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- DIRECT CONTACT -->
+
+<section class="direct">
+
+    <div class="container">
+
+        <div class="direct-box">
+
+            <h2>
+                Prefer to Call?
+            </h2>
+
+            <p>
+                You can contact Kopersay Technologies directly.
+            </p>
+
+            <a
+                href="tel:+917319796868"
+                class="phone"
+            >
+                📞 +91 73197 96868
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div class="footer-logo">
+        Kopersay Technologies
+    </div>
+
+    <p>
+        Building smart applications, software and digital solutions.
+    </p>
+
+
+    <div class="footer-links">
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="products.html">
+            Products
+        </a>
+
+        <a href="about.html">
+            About
+        </a>
+
+        <a href="vision.html">
+            Vision
+        </a>
+
+        <a href="why-kopersay.html">
+            Why Kopersay
+        </a>
+
+    </div>
+
+
+    <p>
+        © 2026 Kopersay Technologies. All rights reserved.
+    </p>
+
+</footer>
+
+
+</body>
+</html>
