@@ -1,0 +1,1326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Kopersay HRMS | Human Resource Management System</title>
+
+<meta name="description"
+content="Kopersay HRMS is a modern Human Resource Management System being developed by Kopersay Technologies. Coming soon.">
+
+<meta name="keywords"
+content="Kopersay HRMS, HRMS, Human Resource Management System, employee management, Kopersay Technologies">
+
+<meta name="author"
+content="Kopersay Technologies">
+
+<meta name="robots"
+content="index, follow">
+
+<link rel="canonical"
+href="https://kopersay.in/hrms.html">
+
+
+<style>
+
+/* ================= RESET ================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#ffffff;
+    color:#151827;
+    line-height:1.6;
+}
+
+a{
+    text-decoration:none;
+}
+
+
+/* ================= NAVBAR ================= */
+
+.navbar{
+    position:sticky;
+    top:0;
+    z-index:1000;
+
+    min-height:74px;
+    padding:0 7%;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    background:rgba(255,255,255,.97);
+
+    border-bottom:1px solid #e9eaf0;
+
+    backdrop-filter:blur(14px);
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:11px;
+
+    color:#151827;
+
+    font-size:22px;
+    font-weight:800;
+}
+
+.brand-logo{
+    width:42px;
+    height:42px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:12px;
+
+    color:#ffffff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #673de6,
+            #477ff5
+        );
+
+    font-size:21px;
+    font-weight:900;
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:25px;
+}
+
+.nav-links a{
+    color:#555b6d;
+
+    font-size:14px;
+    font-weight:600;
+}
+
+.nav-links a:hover{
+    color:#633de3;
+}
+
+.contact-btn{
+    padding:10px 17px;
+
+    border-radius:10px;
+
+    color:#ffffff !important;
+
+    background:
+        linear-gradient(
+            135deg,
+            #6539df,
+            #4f7bef
+        );
+}
+
+
+/* ================= HERO ================= */
+
+.hero{
+    padding:85px 7% 80px;
+
+    text-align:center;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(28,180,170,.15),
+            transparent 45%
+        ),
+        #ffffff;
+}
+
+
+/* ================= HRMS LOGO ================= */
+
+.hrms-logo{
+    width:160px;
+    height:160px;
+
+    margin:0 auto 27px;
+
+    position:relative;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:38px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #087f8b,
+            #29b8a5
+        );
+
+    box-shadow:
+        0 22px 55px rgba(15,130,125,.25);
+}
+
+.people{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    margin-top:-13px;
+}
+
+.person{
+    width:38px;
+    height:38px;
+
+    position:relative;
+
+    margin:0 -4px;
+
+    border-radius:50%;
+
+    background:#ffffff;
+}
+
+.person::after{
+    content:"";
+
+    position:absolute;
+
+    width:48px;
+    height:29px;
+
+    left:-5px;
+    top:30px;
+
+    border-radius:
+        50% 50% 15px 15px;
+
+    background:#ffffff;
+}
+
+.hrms-word{
+    position:absolute;
+
+    bottom:14px;
+
+    color:#ffffff;
+
+    font-size:17px;
+
+    font-weight:900;
+
+    letter-spacing:2px;
+}
+
+
+/* ================= STATUS ================= */
+
+.status{
+    display:inline-block;
+
+    padding:8px 16px;
+
+    border-radius:50px;
+
+    color:#4c6da8;
+
+    background:#eaf0ff;
+
+    font-size:11px;
+
+    font-weight:900;
+
+    letter-spacing:.8px;
+}
+
+.hero h1{
+    margin-top:20px;
+
+    font-size:
+        clamp(44px,7vw,75px);
+
+    line-height:1.03;
+
+    font-weight:900;
+}
+
+.hero h1 span{
+    background:
+        linear-gradient(
+            90deg,
+            #087f8b,
+            #29b8a5
+        );
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.hero p{
+    max-width:750px;
+
+    margin:22px auto 0;
+
+    color:#707589;
+
+    font-size:18px;
+}
+
+.coming-date{
+    display:inline-block;
+
+    margin-top:25px;
+
+    padding:11px 18px;
+
+    border-radius:11px;
+
+    color:#087f8b;
+
+    background:#e9f8f6;
+
+    font-size:13px;
+
+    font-weight:800;
+}
+
+
+/* ================= BUTTONS ================= */
+
+.buttons{
+    margin-top:28px;
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:12px;
+
+    flex-wrap:wrap;
+}
+
+.secondary-btn{
+    display:inline-block;
+
+    padding:13px 22px;
+
+    border-radius:11px;
+
+    color:#087f8b;
+
+    background:#e8f8f6;
+
+    font-size:14px;
+
+    font-weight:800;
+}
+
+
+/* ================= SECTION ================= */
+
+.section{
+    padding:80px 7%;
+}
+
+.section-title{
+    max-width:720px;
+
+    margin:0 auto 45px;
+
+    text-align:center;
+}
+
+.section-title h2{
+    font-size:39px;
+
+    margin-bottom:10px;
+}
+
+.section-title p{
+    color:#74798b;
+}
+
+
+/* ================= ABOUT ================= */
+
+.about{
+    background:#f7fbfb;
+}
+
+.about-grid{
+    max-width:1100px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:55px;
+
+    align-items:center;
+}
+
+.about h2{
+    font-size:39px;
+
+    margin-bottom:18px;
+}
+
+.about p{
+    color:#6e7385;
+
+    margin-bottom:15px;
+}
+
+.check-list{
+    list-style:none;
+
+    margin-top:22px;
+}
+
+.check-list li{
+    margin:12px 0;
+
+    font-weight:700;
+}
+
+.check-list li::before{
+    content:"✓";
+
+    color:#0b938a;
+
+    margin-right:10px;
+
+    font-weight:900;
+}
+
+
+/* ================= DASHBOARD VISUAL ================= */
+
+.dashboard{
+    min-height:360px;
+
+    padding:28px;
+
+    border-radius:28px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #e9f8f6,
+            #edf5ff
+        );
+
+    border:1px solid #dcebea;
+}
+
+.dashboard-window{
+    max-width:390px;
+
+    margin:auto;
+
+    overflow:hidden;
+
+    border-radius:20px;
+
+    background:#ffffff;
+
+    box-shadow:
+        0 22px 50px rgba(30,80,80,.14);
+}
+
+.dashboard-top{
+    height:55px;
+
+    padding:0 18px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    border-bottom:1px solid #eeeeF3;
+}
+
+.dashboard-title{
+    font-size:15px;
+
+    font-weight:800;
+}
+
+.dashboard-dot{
+    width:9px;
+    height:9px;
+
+    border-radius:50%;
+
+    background:#20ae96;
+}
+
+.dashboard-body{
+    padding:20px;
+}
+
+.stats{
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:12px;
+
+    margin-bottom:15px;
+}
+
+.stat{
+    padding:16px;
+
+    border-radius:14px;
+
+    background:#f5f8fa;
+}
+
+.stat strong{
+    display:block;
+
+    font-size:22px;
+
+    margin-bottom:3px;
+}
+
+.stat span{
+    color:#777d8e;
+
+    font-size:11px;
+}
+
+.chart{
+    height:100px;
+
+    padding:15px;
+
+    display:flex;
+
+    align-items:flex-end;
+
+    gap:10px;
+
+    border-radius:14px;
+
+    background:#f5f8fa;
+}
+
+.bar{
+    flex:1;
+
+    border-radius:7px 7px 2px 2px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #2ab6a5,
+            #087f8b
+        );
+}
+
+.bar:nth-child(1){
+    height:35%;
+}
+
+.bar:nth-child(2){
+    height:55%;
+}
+
+.bar:nth-child(3){
+    height:45%;
+}
+
+.bar:nth-child(4){
+    height:75%;
+}
+
+.bar:nth-child(5){
+    height:62%;
+}
+
+.bar:nth-child(6){
+    height:88%;
+}
+
+
+/* ================= FEATURES ================= */
+
+.features{
+    background:#ffffff;
+}
+
+.feature-grid{
+    max-width:1150px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:22px;
+}
+
+.feature-card{
+    padding:28px;
+
+    background:#ffffff;
+
+    border:1px solid #e7e8ef;
+
+    border-radius:20px;
+
+    box-shadow:
+        0 12px 35px rgba(20,20,50,.055);
+
+    transition:.25s;
+}
+
+.feature-card:hover{
+    transform:translateY(-5px);
+}
+
+.feature-icon{
+    width:55px;
+    height:55px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:15px;
+
+    color:#087f8b;
+
+    background:#e7f8f5;
+
+    font-size:25px;
+
+    margin-bottom:18px;
+}
+
+.feature-card h3{
+    font-size:20px;
+
+    margin-bottom:8px;
+}
+
+.feature-card p{
+    color:#727789;
+
+    font-size:14px;
+}
+
+
+/* ================= COMING SOON ================= */
+
+.coming-box{
+    max-width:950px;
+
+    margin:auto;
+
+    padding:40px;
+
+    text-align:center;
+
+    border-radius:23px;
+
+    border:1px solid #dcebea;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f5fbfa,
+            #f8fbff
+        );
+}
+
+.coming-box h2{
+    font-size:32px;
+
+    margin-bottom:12px;
+}
+
+.coming-box p{
+    max-width:700px;
+
+    margin:auto;
+
+    color:#707589;
+}
+
+
+/* ================= CTA ================= */
+
+.cta{
+    padding:80px 7%;
+
+    text-align:center;
+
+    color:#ffffff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #075e6a,
+            #168f86
+        );
+}
+
+.cta h2{
+    font-size:40px;
+
+    margin-bottom:12px;
+}
+
+.cta p{
+    opacity:.87;
+
+    margin-bottom:25px;
+}
+
+.back-btn{
+    display:inline-block;
+
+    padding:13px 22px;
+
+    border-radius:10px;
+
+    color:#087f8b;
+
+    background:#ffffff;
+
+    font-weight:800;
+}
+
+
+/* ================= FOOTER ================= */
+
+footer{
+    padding:45px 7% 30px;
+
+    text-align:center;
+
+    background:#101322;
+
+    color:#ffffff;
+}
+
+.footer-logo{
+    font-size:21px;
+
+    font-weight:800;
+
+    margin-bottom:10px;
+}
+
+footer p{
+    color:#9298aa;
+
+    font-size:13px;
+}
+
+.footer-links{
+    margin:18px 0;
+}
+
+.footer-links a{
+    color:#b8aaff;
+
+    margin:0 9px;
+
+    font-size:13px;
+}
+
+
+/* ================= MOBILE ================= */
+
+@media(max-width:850px){
+
+    .navbar{
+        padding:12px 18px;
+    }
+
+    .nav-links{
+        gap:9px;
+    }
+
+    .nav-links a:not(.contact-btn){
+        display:none;
+    }
+
+    .hero{
+        padding:65px 5%;
+    }
+
+    .hero p{
+        font-size:16px;
+    }
+
+    .section{
+        padding:65px 5%;
+    }
+
+    .about-grid{
+        grid-template-columns:1fr;
+    }
+
+    .feature-grid{
+        grid-template-columns:1fr;
+    }
+
+    .section-title h2{
+        font-size:32px;
+    }
+
+    .about h2{
+        font-size:32px;
+    }
+
+    .cta h2{
+        font-size:32px;
+    }
+
+    .dashboard{
+        padding:20px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- ================= NAVBAR ================= -->
+
+<nav class="navbar">
+
+<a href="index.html" class="brand">
+
+<div class="brand-logo">
+K
+</div>
+
+Kopersay
+
+</a>
+
+
+<div class="nav-links">
+
+<a href="index.html">
+Home
+</a>
+
+<a href="products.html">
+Products
+</a>
+
+<a href="apps.html">
+Apps
+</a>
+
+<a href="about.html">
+About
+</a>
+
+<a href="vision.html">
+Vision
+</a>
+
+<a href="contact.html" class="contact-btn">
+Contact
+</a>
+
+</div>
+
+</nav>
+
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+
+<!-- CODE GENERATED HRMS LOGO -->
+
+<div class="hrms-logo">
+
+<div class="people">
+
+<div class="person"></div>
+<div class="person"></div>
+<div class="person"></div>
+
+</div>
+
+<div class="hrms-word">
+HRMS
+</div>
+
+</div>
+
+
+<div class="status">
+COMING SOON
+</div>
+
+
+<h1>
+
+Kopersay
+<span>HRMS</span>
+
+</h1>
+
+
+<p>
+
+A modern Human Resource Management System
+being developed to simplify employee,
+attendance and workforce management.
+
+</p>
+
+
+<div class="coming-date">
+
+🚀 Coming Soon
+
+</div>
+
+
+<div class="buttons">
+
+<a
+href="apps.html"
+class="secondary-btn">
+
+← Back to Apps
+
+</a>
+
+</div>
+
+</section>
+
+
+
+<!-- ================= ABOUT ================= -->
+
+<section class="section about">
+
+<div class="about-grid">
+
+
+<div>
+
+<h2>
+Simplifying HR management.
+</h2>
+
+<p>
+Kopersay HRMS is being developed as a modern
+platform to help businesses manage everyday
+human resource workflows more efficiently.
+</p>
+
+<p>
+The system is planned around simple interfaces,
+useful information and organized employee
+management.
+</p>
+
+
+<ul class="check-list">
+
+<li>
+Employee Management
+</li>
+
+<li>
+Attendance Management
+</li>
+
+<li>
+Leave Management
+</li>
+
+<li>
+Workforce Information
+</li>
+
+</ul>
+
+</div>
+
+
+<div class="dashboard">
+
+<div class="dashboard-window">
+
+
+<div class="dashboard-top">
+
+<div class="dashboard-title">
+HRMS Dashboard
+</div>
+
+<div class="dashboard-dot">
+</div>
+
+</div>
+
+
+<div class="dashboard-body">
+
+
+<div class="stats">
+
+<div class="stat">
+
+<strong>
+128
+</strong>
+
+<span>
+Employees
+</span>
+
+</div>
+
+
+<div class="stat">
+
+<strong>
+96%
+</strong>
+
+<span>
+Attendance
+</span>
+
+</div>
+
+
+<div class="stat">
+
+<strong>
+12
+</strong>
+
+<span>
+Leave Requests
+</span>
+
+</div>
+
+
+<div class="stat">
+
+<strong>
+24
+</strong>
+
+<span>
+Departments
+</span>
+
+</div>
+
+</div>
+
+
+<div class="chart">
+
+<div class="bar"></div>
+<div class="bar"></div>
+<div class="bar"></div>
+<div class="bar"></div>
+<div class="bar"></div>
+<div class="bar"></div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- ================= FEATURES ================= -->
+
+<section class="section features">
+
+
+<div class="section-title">
+
+<h2>
+Built for modern HR teams.
+</h2>
+
+<p>
+Kopersay HRMS is being planned around
+important everyday HR operations.
+</p>
+
+</div>
+
+
+<div class="feature-grid">
+
+
+<div class="feature-card">
+
+<div class="feature-icon">
+👤
+</div>
+
+<h3>
+Employee Management
+</h3>
+
+<p>
+Organize employee information and
+manage workforce records efficiently.
+</p>
+
+</div>
+
+
+<div class="feature-card">
+
+<div class="feature-icon">
+🕒
+</div>
+
+<h3>
+Attendance
+</h3>
+
+<p>
+A planned system for tracking employee
+attendance and work information.
+</p>
+
+</div>
+
+
+<div class="feature-card">
+
+<div class="feature-icon">
+📅
+</div>
+
+<h3>
+Leave Management
+</h3>
+
+<p>
+Simplify leave requests and keep
+important leave information organized.
+</p>
+
+</div>
+
+
+<div class="feature-card">
+
+<div class="feature-icon">
+🏢
+</div>
+
+<h3>
+Departments
+</h3>
+
+<p>
+Organize employees and workforce
+information by departments.
+</p>
+
+</div>
+
+
+<div class="feature-card">
+
+<div class="feature-icon">
+📊
+</div>
+
+<h3>
+HR Insights
+</h3>
+
+<p>
+Useful dashboards and information
+to help teams understand workforce data.
+</p>
+
+</div>
+
+
+<div class="feature-card">
+
+<div class="feature-icon">
+🔐
+</div>
+
+<h3>
+Secure Access
+</h3>
+
+<p>
+Designed with controlled access and
+responsible handling of HR information.
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- ================= COMING SOON ================= -->
+
+<section class="section">
+
+
+<div class="coming-box">
+
+<h2>
+Kopersay HRMS is coming soon.
+</h2>
+
+<p>
+The platform is currently being planned and
+developed. More details, features and release
+information will be announced as development
+progresses.
+</p>
+
+</div>
+
+</section>
+
+
+
+<!-- ================= CTA ================= -->
+
+<section class="cta">
+
+<h2>
+Explore Kopersay Apps
+</h2>
+
+<p>
+Discover HRMS and other applications
+from Kopersay Technologies.
+</p>
+
+<a
+href="apps.html"
+class="back-btn">
+
+← Explore All Apps
+
+</a>
+
+</section>
+
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+<div class="footer-logo">
+Kopersay Technologies
+</div>
+
+<p>
+Building smart applications and digital solutions
+for the future.
+</p>
+
+
+<div class="footer-links">
+
+<a href="index.html">
+Home
+</a>
+
+<a href="products.html">
+Products
+</a>
+
+<a href="apps.html">
+Apps
+</a>
+
+<a href="about.html">
+About
+</a>
+
+<a href="contact.html">
+Contact
+</a>
+
+</div>
+
+
+<p>
+© 2026 Kopersay Technologies.
+All rights reserved.
+</p>
+
+</footer>
+
+
+</body>
+</html>
