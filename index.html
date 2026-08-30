@@ -1,2535 +1,854 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-
-   <!-- HERO SLIDER -->
-<section class="hero-slider">
-
-  <div class="slide active">
-    <div class="slide-content">
-      <span class="badge">KOPERSAY TECHNOLOGIES</span>
-      <h1>Building The <span>Digital Future</span></h1>
-      <p>
-        Powerful applications and modern software designed
-        to make technology simple, smart and useful.
-      </p>
-
-      <div class="hero-buttons">
-        <a href="#products" class="btn primary">Explore Products</a>
-        <a href="#about" class="btn secondary">About Kopersay</a>
-      </div>
-    </div>
-
-    <div class="slide-icon">K</div>
-  </div>
-
-  <div class="slide">
-    <div class="slide-content">
-      <span class="badge">SMART SOFTWARE</span>
-      <h1>Technology Made <span>Simple</span></h1>
-      <p>
-        Discover Kopersay applications and software
-        built for everyday digital needs.
-      </p>
-
-      <div class="hero-buttons">
-        <a href="#products" class="btn primary">View Apps</a>
-      </div>
-    </div>
-
-    <div class="slide-icon">⚡</div>
-  </div>
-
-  <div class="slide">
-    <div class="slide-content">
-      <span class="badge">KOPERSAY</span>
-      <h1>Innovation Starts <span>Here</span></h1>
-      <p>
-        One platform for all Kopersay applications,
-        products and digital solutions.
-      </p>
-
-      <div class="hero-buttons">
-        <a href="#contact" class="btn primary">Contact Us</a>
-      </div>
-    </div>
-
-    <div class="slide-icon">🚀</div>
-  </div>
-
-  <!-- Arrows -->
-  <button class="slider-arrow prev" onclick="changeSlide(-1)">‹</button>
-  <button class="slider-arrow next" onclick="changeSlide(1)">›</button>
-
-  <!-- Dots -->
-  <div class="slider-dots">
-    <span class="dot active-dot" onclick="goToSlide(0)"></span>
-    <span class="dot" onclick="goToSlide(1)"></span>
-    <span class="dot" onclick="goToSlide(2)"></span>
-  </div>
-
-</section>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Kopersay Technologies | Building the Digital Future</title>
-
-<meta name="description"
-content="Kopersay Technologies builds modern applications and software for the digital future.">
+<meta name="description" content="Kopersay Technologies - Applications, software and digital solutions.">
+<title>Kopersay Technologies</title>
 
 <style>
-
-/* =====================================================
-   RESET
-===================================================== */
-
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  scroll-behavior:smooth;
 }
-
-html{
-    scroll-behavior:smooth;
-}
-   <style>
-.hero-slider {
-  position: relative;
-  min-height: 560px;
-  overflow: hidden;
-  background:
-    radial-gradient(circle at 80% 30%, rgba(90,60,255,.35), transparent 35%),
-    linear-gradient(135deg, #050816, #111936);
-  color: white;
-}
-
-.slide {
-  display: none;
-  min-height: 560px;
-  padding: 70px 8%;
-  align-items: center;
-  justify-content: space-between;
-  gap: 40px;
-}
-
-.slide.active {
-  display: flex;
-  animation: slideIn .7s ease;
-}
-
-.slide-content {
-  max-width: 700px;
-}
-
-.badge {
-  display: inline-block;
-  padding: 8px 16px;
-  border: 1px solid #7c5cff;
-  border-radius: 30px;
-  font-size: 13px;
-  letter-spacing: 2px;
-  color: #bbaeff;
-  margin-bottom: 20px;
-}
-
-.slide h1 {
-  font-size: clamp(42px, 6vw, 78px);
-  line-height: 1.05;
-  margin: 0 0 22px;
-  font-weight: 800;
-}
-
-.slide h1 span {
-  background: linear-gradient(90deg, #7c5cff, #00d4ff);
-  -webkit-background-clip: text;
-  color: transparent;
-}
-
-.slide p {
-  font-size: 19px;
-  line-height: 1.7;
-  color: #cbd1e1;
-  max-width: 620px;
-}
-
-.hero-buttons {
-  display: flex;
-  gap: 14px;
-  margin-top: 30px;
-  flex-wrap: wrap;
-}
-
-.btn {
-  padding: 14px 25px;
-  border-radius: 12px;
-  text-decoration: none;
-  font-weight: 700;
-  display: inline-block;
-}
-
-.btn.primary {
-  background: linear-gradient(90deg, #6d42ff, #9b5cff);
-  color: white;
-}
-
-.btn.secondary {
-  border: 1px solid #66708d;
-  color: white;
-}
-
-.slide-icon {
-  width: 260px;
-  height: 260px;
-  border-radius: 55px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 130px;
-  font-weight: 900;
-  background: linear-gradient(145deg, #171d48, #30206b);
-  border: 1px solid rgba(255,255,255,.15);
-  box-shadow: 0 30px 80px rgba(80,60,255,.3);
-}
-
-.slider-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  border: 1px solid rgba(255,255,255,.25);
-  background: rgba(255,255,255,.08);
-  color: white;
-  font-size: 35px;
-  cursor: pointer;
-}
-
-.prev { left: 20px; }
-.next { right: 20px; }
-
-.slider-dots {
-  position: absolute;
-  bottom: 25px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 9px;
-}
-
-.dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: #70778d;
-  cursor: pointer;
-}
-
-.active-dot {
-  width: 28px;
-  border-radius: 20px;
-  background: #8b68ff;
-}
-
-@keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateX(35px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@media (max-width: 700px) {
-  .slide {
-    min-height: 600px;
-    padding: 55px 25px 75px;
-    text-align: center;
-    justify-content: center;
-  }
-
-  .slide-icon {
-    display: none;
-  }
-
-  .slide p {
-    font-size: 16px;
-  }
-
-  .hero-buttons {
-    justify-content: center;
-  }
-
-  .slider-arrow {
-    width: 40px;
-    height: 40px;
-    font-size: 28px;
-  }
-}
-</style>
-
-<script>
-let currentSlide = 0;
-const slides = document.querySelectorAll(".slide");
-const dots = document.querySelectorAll(".dot");
-
-function showSlide(index) {
-  slides.forEach(slide => slide.classList.remove("active"));
-  dots.forEach(dot => dot.classList.remove("active-dot"));
-
-  currentSlide = (index + slides.length) % slides.length;
-
-  slides[currentSlide].classList.add("active");
-  dots[currentSlide].classList.add("active-dot");
-}
-
-function changeSlide(direction) {
-  showSlide(currentSlide + direction);
-}
-
-function goToSlide(index) {
-  showSlide(index);
-}
-
-/* Auto Slider */
-setInterval(() => {
-  changeSlide(1);
-}, 5000);
-</script>
 
 body{
-    font-family:
-    Inter,
-    ui-sans-serif,
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    sans-serif;
-
-    background:#f7f8fc;
-    color:#111827;
-    line-height:1.6;
-    overflow-x:hidden;
+  font-family:Arial,Helvetica,sans-serif;
+  background:#070812;
+  color:#fff;
+  line-height:1.6;
 }
 
 a{
-    text-decoration:none;
-    color:inherit;
+  text-decoration:none;
+  color:inherit;
 }
-
-button{
-    font-family:inherit;
-}
-
-.container{
-    width:min(1180px,92%);
-    margin:auto;
-}
-
-
-/* =====================================================
-   HEADER
-===================================================== */
 
 header{
-    position:sticky;
-    top:0;
-    z-index:1000;
-
-    background:rgba(255,255,255,.88);
-    backdrop-filter:blur(20px);
-    -webkit-backdrop-filter:blur(20px);
-
-    border-bottom:1px solid rgba(17,24,39,.07);
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:75px;
+  z-index:1000;
+  background:rgba(7,8,18,.88);
+  backdrop-filter:blur(15px);
+  border-bottom:1px solid rgba(255,255,255,.08);
 }
 
 .nav{
-    height:76px;
-
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
+  max-width:1200px;
+  height:100%;
+  margin:auto;
+  padding:0 25px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
 }
 
 .logo{
-    display:flex;
-    align-items:center;
-    gap:12px;
-
-    font-size:25px;
-    font-weight:850;
-    letter-spacing:-.7px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  font-size:22px;
+  font-weight:800;
 }
 
-.logo-icon{
-    width:45px;
-    height:45px;
+.logo-mark{
+  width:42px;
+  height:42px;
+  border-radius:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:23px;
+  font-weight:900;
+  background:linear-gradient(135deg,#7048ff,#00cfff);
+  box-shadow:0 0 25px rgba(112,72,255,.35);
+}
 
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    border-radius:14px;
-
-    color:white;
-    font-size:25px;
-    font-weight:900;
-
-    background:
-    linear-gradient(135deg,#5b4bff,#8c5cf5);
-
-    box-shadow:
-    0 10px 25px rgba(91,75,255,.30);
+.logo span{
+  color:#9d82ff;
 }
 
 .nav-links{
-    display:flex;
-    align-items:center;
-    gap:30px;
+  display:flex;
+  gap:28px;
+  align-items:center;
 }
 
 .nav-links a{
-    color:#475467;
-    font-size:15px;
-    font-weight:650;
-
-    transition:.25s;
+  color:#c9ccda;
+  font-size:15px;
+  transition:.3s;
 }
 
 .nav-links a:hover{
-    color:#5b4bff;
+  color:#fff;
 }
 
-.nav-contact{
-    color:white!important;
-
-    padding:11px 20px;
-
-    border-radius:11px;
-
-    background:#5b4bff;
-
-    box-shadow:
-    0 8px 20px rgba(91,75,255,.22);
+.nav-btn{
+  padding:10px 18px;
+  border-radius:10px;
+  background:#7048ff;
+  color:#fff!important;
 }
 
-.menu-btn{
-    display:none;
-
-    border:0;
-    background:none;
-
-    font-size:29px;
-    cursor:pointer;
+.menu{
+  display:none;
+  font-size:28px;
+  cursor:pointer;
 }
 
-
-/* =====================================================
-   HERO
-===================================================== */
+/* HERO */
 
 .hero{
-    min-height:690px;
-
-    display:flex;
-    align-items:center;
-
-    position:relative;
-    overflow:hidden;
-
-    background:
-    radial-gradient(
-        circle at 82% 18%,
-        rgba(112,94,255,.20),
-        transparent 31%
-    ),
-
-    radial-gradient(
-        circle at 10% 90%,
-        rgba(139,92,246,.12),
-        transparent 28%
-    ),
-
-    linear-gradient(
-        135deg,
-        #ffffff,
-        #f5f3ff
-    );
+  min-height:100vh;
+  padding:140px 7% 80px;
+  position:relative;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  background:
+  radial-gradient(circle at 80% 25%,rgba(103,65,255,.30),transparent 32%),
+  radial-gradient(circle at 15% 80%,rgba(0,207,255,.13),transparent 28%),
+  #070812;
 }
 
-.hero::before{
-    content:"";
-
-    position:absolute;
-
-    width:500px;
-    height:500px;
-
-    right:-230px;
-    top:-230px;
-
-    border:1px solid rgba(91,75,255,.12);
-
-    border-radius:50%;
+.hero-content{
+  max-width:760px;
+  position:relative;
+  z-index:2;
 }
 
-.hero-grid{
-    display:grid;
-
-    grid-template-columns:
-    1.05fr
-    .95fr;
-
-    gap:70px;
-
-    align-items:center;
-}
-
-.badge{
-    display:inline-flex;
-
-    padding:8px 15px;
-
-    border-radius:40px;
-
-    background:#efedff;
-    color:#5b4bff;
-
-    font-size:12px;
-    font-weight:850;
-
-    letter-spacing:1.4px;
-
-    margin-bottom:22px;
+.tag{
+  display:inline-block;
+  padding:8px 15px;
+  border:1px solid rgba(140,110,255,.7);
+  border-radius:30px;
+  color:#b9a9ff;
+  font-size:12px;
+  letter-spacing:2px;
+  margin-bottom:22px;
 }
 
 .hero h1{
-    max-width:720px;
-
-    font-size:
-    clamp(48px,6vw,76px);
-
-    line-height:1.01;
-
-    letter-spacing:-3.5px;
-
-    margin-bottom:24px;
+  font-size:clamp(48px,7vw,88px);
+  line-height:1.02;
+  margin-bottom:25px;
 }
 
 .gradient{
-    background:
-    linear-gradient(
-        90deg,
-        #5747ff,
-        #8b5cf6,
-        #a855f7
-    );
-
-    -webkit-background-clip:text;
-    background-clip:text;
-
-    color:transparent;
+  background:linear-gradient(90deg,#8b67ff,#00d8ff);
+  -webkit-background-clip:text;
+  color:transparent;
 }
 
-.hero-description{
-    max-width:610px;
-
-    color:#667085;
-
-    font-size:19px;
-
-    line-height:1.75;
-
-    margin-bottom:32px;
+.hero p{
+  max-width:650px;
+  color:#b9bdcc;
+  font-size:19px;
 }
 
-.hero-buttons{
-    display:flex;
-    gap:14px;
-    flex-wrap:wrap;
+.buttons{
+  display:flex;
+  gap:15px;
+  margin-top:35px;
+  flex-wrap:wrap;
 }
 
 .btn{
-    display:inline-flex;
+  padding:14px 24px;
+  border-radius:12px;
+  font-weight:700;
+  border:1px solid transparent;
+  transition:.3s;
+}
 
-    align-items:center;
-    justify-content:center;
+.btn-primary{
+  background:linear-gradient(90deg,#7048ff,#925eff);
+}
 
-    padding:14px 23px;
-
-    border-radius:12px;
-
-    font-size:15px;
-    font-weight:750;
-
-    transition:
-    transform .25s,
-    box-shadow .25s;
+.btn-secondary{
+  border-color:#454b63;
+  color:#fff;
 }
 
 .btn:hover{
-    transform:translateY(-3px);
+  transform:translateY(-3px);
 }
 
-.primary-btn{
-    color:white;
-
-    background:
-    linear-gradient(
-        135deg,
-        #5b4bff,
-        #765df5
-    );
-
-    box-shadow:
-    0 12px 28px rgba(91,75,255,.25);
+.hero-orb{
+  position:absolute;
+  right:7%;
+  width:330px;
+  height:330px;
+  border-radius:50%;
+  background:linear-gradient(135deg,#7048ff,#00d8ff);
+  opacity:.13;
+  filter:blur(5px);
 }
 
-.secondary-btn{
-    background:white;
+/* SLIDER */
 
-    border:1px solid #dfe3ec;
-
-    color:#111827;
+.slider{
+  max-width:1200px;
+  margin:0 auto;
+  padding:80px 25px;
 }
 
-
-/* =====================================================
-   HERO VISUAL
-===================================================== */
-
-.hero-visual{
-    display:flex;
-    justify-content:center;
+.slider-box{
+  position:relative;
+  min-height:330px;
+  overflow:hidden;
+  border-radius:28px;
+  border:1px solid rgba(255,255,255,.1);
+  background:linear-gradient(135deg,#11152d,#0c1022);
 }
 
-.hero-card{
-    width:min(410px,100%);
-    aspect-ratio:1/1;
-
-    border-radius:48px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    position:relative;
-
-    transform:rotate(3deg);
-
-    background:
-    linear-gradient(
-        145deg,
-        #5545f5,
-        #8b5cf6
-    );
-
-    box-shadow:
-    0 35px 80px rgba(91,75,255,.28);
+.slide{
+  display:none;
+  min-height:330px;
+  padding:55px;
+  align-items:center;
+  justify-content:space-between;
+  gap:30px;
 }
 
-.hero-card::before{
-    content:"";
-
-    position:absolute;
-
-    inset:25px;
-
-    border-radius:35px;
-
-    border:1px solid rgba(255,255,255,.22);
+.slide.active{
+  display:flex;
+  animation:fade .7s ease;
 }
 
-.hero-k{
-    width:175px;
-    height:175px;
-
-    border-radius:45px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    background:white;
-
-    color:#5b4bff;
-
-    font-size:82px;
-    font-weight:950;
-
-    box-shadow:
-    0 25px 55px rgba(0,0,0,.16);
-
-    position:relative;
-    z-index:2;
+.slide h2{
+  font-size:42px;
+  margin-bottom:12px;
 }
 
-.floating{
-    position:absolute;
-
-    z-index:5;
-
-    padding:13px 18px;
-
-    border-radius:15px;
-
-    background:rgba(255,255,255,.96);
-
-    box-shadow:
-    0 15px 35px rgba(0,0,0,.13);
-
-    font-size:14px;
-    font-weight:800;
+.slide p{
+  color:#aeb3c5;
+  max-width:600px;
 }
 
-.float-one{
-    top:35px;
-    left:-35px;
+.slide-icon{
+  min-width:170px;
+  height:170px;
+  border-radius:40px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:80px;
+  font-weight:900;
+  background:linear-gradient(145deg,#241957,#111c3c);
+  border:1px solid rgba(255,255,255,.1);
 }
 
-.float-two{
-    right:-35px;
-    bottom:45px;
+.arrow{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  border:1px solid rgba(255,255,255,.2);
+  background:rgba(255,255,255,.08);
+  color:#fff;
+  font-size:30px;
+  cursor:pointer;
 }
 
+.prev{left:18px}
+.next{right:18px}
 
-/* =====================================================
-   COMMON
-===================================================== */
-
-section{
-    padding:100px 0;
+.dots{
+  position:absolute;
+  bottom:18px;
+  left:50%;
+  transform:translateX(-50%);
+  display:flex;
+  gap:8px;
 }
 
-.section-heading{
-    text-align:center;
-
-    max-width:720px;
-
-    margin:
-    0 auto
-    55px;
+.dot{
+  width:9px;
+  height:9px;
+  border-radius:20px;
+  background:#62677b;
+  cursor:pointer;
 }
 
-.section-heading small{
-    color:#5b4bff;
-
-    font-size:12px;
-    font-weight:850;
-
-    letter-spacing:1.7px;
+.dot.active{
+  width:25px;
+  background:#8a68ff;
 }
 
-.section-heading h2{
-    font-size:
-    clamp(32px,4vw,45px);
+/* SECTIONS */
 
-    line-height:1.15;
-
-    letter-spacing:-1.5px;
-
-    margin:
-    8px 0
-    14px;
+section:not(.hero){
+  scroll-margin-top:80px;
 }
 
-.section-heading p{
-    color:#667085;
-
-    font-size:17px;
+.section{
+  max-width:1200px;
+  margin:auto;
+  padding:90px 25px;
 }
 
+.section-title{
+  text-align:center;
+  font-size:42px;
+  margin-bottom:15px;
+}
 
-/* =====================================================
-   PRODUCTS
-===================================================== */
+.section-subtitle{
+  text-align:center;
+  color:#9da3b5;
+  max-width:650px;
+  margin:0 auto 50px;
+}
+
+/* PRODUCTS */
 
 .products{
-    background:#f7f8fc;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:22px;
 }
 
-.product-grid{
-    display:grid;
-
-    grid-template-columns:
-    repeat(3,1fr);
-
-    gap:26px;
+.card{
+  padding:30px;
+  border-radius:22px;
+  background:linear-gradient(145deg,#11152b,#0c1020);
+  border:1px solid rgba(255,255,255,.08);
+  transition:.3s;
 }
 
-.product-card{
-    background:white;
-
-    border:
-    1px solid
-    #e5e7eb;
-
-    border-radius:25px;
-
-    overflow:hidden;
-
-    box-shadow:
-    0 8px 30px rgba(16,24,40,.04);
-
-    transition:
-    transform .3s,
-    box-shadow .3s;
+.card:hover{
+  transform:translateY(-7px);
+  border-color:#684cff;
 }
 
-.product-card:hover{
-    transform:translateY(-9px);
-
-    box-shadow:
-    0 25px 55px rgba(16,24,40,.11);
+.card-icon{
+  width:58px;
+  height:58px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:16px;
+  background:#211950;
+  font-size:27px;
+  margin-bottom:22px;
 }
 
-.product-visual{
-    height:205px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    font-size:82px;
-
-    background:
-    linear-gradient(
-        135deg,
-        #fff0ce,
-        #fffaf0
-    );
+.card h3{
+  font-size:22px;
+  margin-bottom:10px;
 }
 
-.product-visual.puzzle{
-    background:
-    linear-gradient(
-        135deg,
-        #e9e5ff,
-        #f8f7ff
-    );
+.card p{
+  color:#999fb1;
+  margin-bottom:22px;
 }
 
-.product-visual.video{
-    background:
-    linear-gradient(
-        135deg,
-        #defbed,
-        #f5fffa
-    );
+.card-btn{
+  color:#9b80ff;
+  font-weight:700;
 }
 
-.product-body{
-    padding:27px;
-}
-
-.product-body h3{
-    font-size:24px;
-
-    letter-spacing:-.5px;
-
-    margin-bottom:8px;
-}
-
-.product-body p{
-    color:#667085;
-
-    margin-bottom:20px;
-}
-
-.product-link{
-    color:#5b4bff;
-
-    font-weight:800;
-}
-
-
-/* =====================================================
-   ABOUT
-===================================================== */
+/* ABOUT */
 
 .about{
-    background:white;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:60px;
+  align-items:center;
 }
 
-.about-grid{
-    display:grid;
-
-    grid-template-columns:
-    1fr
-    1fr;
-
-    gap:75px;
-
-    align-items:center;
+.about h2{
+  font-size:45px;
+  margin-bottom:20px;
 }
 
-.about-visual{
-    min-height:430px;
-
-    border-radius:32px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    position:relative;
-    overflow:hidden;
-
-    color:white;
-
-    background:
-    radial-gradient(
-        circle at 25% 25%,
-        #a398ff,
-        transparent 18%
-    ),
-
-    linear-gradient(
-        135deg,
-        #11162d,
-        #5b4bff
-    );
-
-    box-shadow:
-    0 25px 60px rgba(91,75,255,.18);
+.about p{
+  color:#aeb3c3;
+  margin-bottom:15px;
 }
-
-.about-visual::before,
-.about-visual::after{
-    content:"";
-
-    position:absolute;
-
-    border:
-    1px solid
-    rgba(255,255,255,.16);
-
-    border-radius:50%;
-}
-
-.about-visual::before{
-    width:350px;
-    height:350px;
-}
-
-.about-visual::after{
-    width:500px;
-    height:500px;
-}
-
-.about-logo-text{
-    z-index:2;
-
-    text-align:center;
-
-    font-size:42px;
-    font-weight:900;
-
-    letter-spacing:4px;
-}
-
-.about-logo-text span{
-    display:block;
-
-    font-size:12px;
-
-    letter-spacing:4px;
-
-    opacity:.75;
-
-    margin-top:5px;
-}
-
-.about-text small{
-    color:#5b4bff;
-
-    font-size:12px;
-    font-weight:850;
-
-    letter-spacing:1.5px;
-}
-
-.about-text h2{
-    font-size:44px;
-
-    line-height:1.12;
-
-    letter-spacing:-1.5px;
-
-    margin:
-    10px 0
-    22px;
-}
-
-.about-text p{
-    color:#667085;
-
-    margin-bottom:17px;
-}
-
-.check-grid{
-    display:grid;
-
-    grid-template-columns:
-    1fr 1fr;
-
-    gap:13px;
-
-    margin-top:25px;
-}
-
-.check{
-    font-weight:700;
-}
-
-.check b{
-    color:#5b4bff;
-
-    margin-right:7px;
-}
-
-
-/* =====================================================
-   VISION
-===================================================== */
-
-.vision{
-    background:#f7f8fc;
-}
-
-.info-grid{
-    display:grid;
-
-    grid-template-columns:
-    repeat(3,1fr);
-
-    gap:25px;
-}
-
-.info-card{
-    padding:32px;
-
-    background:white;
-
-    border:
-    1px solid
-    #e5e7eb;
-
-    border-radius:23px;
-
-    text-align:center;
-
-    transition:.25s;
-}
-
-.info-card:hover{
-    transform:translateY(-6px);
-
-    box-shadow:
-    0 18px 40px rgba(0,0,0,.07);
-}
-
-.info-icon{
-    width:64px;
-    height:64px;
-
-    margin:
-    0 auto
-    20px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    border-radius:18px;
-
-    background:#efedff;
-
-    font-size:29px;
-}
-
-.info-card h3{
-    font-size:22px;
-
-    margin-bottom:9px;
-}
-
-.info-card p{
-    color:#667085;
-}
-
-
-/* =====================================================
-   FEATURES
-===================================================== */
-
-.features{
-    background:#0d1524;
-
-    color:white;
-}
-
-.features .section-heading p{
-    color:#aeb8c8;
-}
-
-.feature-grid{
-    display:grid;
-
-    grid-template-columns:
-    repeat(3,1fr);
-
-    gap:25px;
-}
-
-.feature-card{
-    padding:31px;
-
-    border-radius:23px;
-
-    background:#172235;
-
-    border:
-    1px solid
-    #29364c;
-
-    transition:.25s;
-}
-
-.feature-card:hover{
-    transform:translateY(-6px);
-
-    border-color:#465273;
-}
-
-.feature-icon{
-    width:58px;
-    height:58px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    background:#5b4bff;
-
-    border-radius:16px;
-
-    font-size:27px;
-
-    margin-bottom:19px;
-}
-
-.feature-card h3{
-    font-size:21px;
-
-    margin-bottom:7px;
-}
-
-.feature-card p{
-    color:#aeb8c8;
-}
-
-
-/* =====================================================
-   STATS
-===================================================== */
 
 .stats{
-    background:white;
-}
-
-.stats-grid{
-    display:grid;
-
-    grid-template-columns:
-    repeat(4,1fr);
-
-    text-align:center;
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:15px;
 }
 
 .stat{
-    padding:22px;
-
-    border-right:
-    1px solid
-    #e5e7eb;
+  padding:28px;
+  border-radius:20px;
+  background:#101426;
+  border:1px solid rgba(255,255,255,.08);
+  text-align:center;
 }
 
-.stat:last-child{
-    border-right:0;
+.stat strong{
+  display:block;
+  font-size:35px;
+  color:#9a7cff;
 }
 
-.stat h3{
-    font-size:43px;
-
-    color:#5b4bff;
-
-    letter-spacing:-1px;
+.stat span{
+  color:#9298aa;
 }
 
-.stat p{
-    color:#667085;
-
-    font-size:14px;
-}
-
-
-/* =====================================================
-   CONTACT
-===================================================== */
-
-.contact{
-    background:#f7f8fc;
-}
+/* CONTACT */
 
 .contact-box{
-    position:relative;
-
-    overflow:hidden;
-
-    padding:70px 30px;
-
-    border-radius:32px;
-
-    text-align:center;
-
-    color:white;
-
-    background:
-    linear-gradient(
-        135deg,
-        #5645f5,
-        #8b5cf6
-    );
-
-    box-shadow:
-    0 30px 70px rgba(91,75,255,.23);
-}
-
-.contact-box::before{
-    content:"";
-
-    position:absolute;
-
-    width:350px;
-    height:350px;
-
-    border:
-    1px solid
-    rgba(255,255,255,.16);
-
-    border-radius:50%;
-
-    top:-230px;
-    right:-80px;
+  text-align:center;
+  padding:65px 25px;
+  border-radius:28px;
+  background:
+  radial-gradient(circle at center,rgba(100,65,255,.22),transparent 55%),
+  #101426;
+  border:1px solid rgba(255,255,255,.08);
 }
 
 .contact-box h2{
-    position:relative;
-
-    font-size:42px;
-
-    letter-spacing:-1px;
+  font-size:42px;
+  margin-bottom:15px;
 }
 
 .contact-box p{
-    position:relative;
-
-    max-width:650px;
-
-    margin:
-    10px auto
-    27px;
-
-    opacity:.9;
+  color:#a5aabc;
+  margin-bottom:28px;
 }
 
-.contact-buttons{
-    position:relative;
-
-    display:flex;
-
-    justify-content:center;
-
-    gap:13px;
-
-    flex-wrap:wrap;
+.phone{
+  display:inline-block;
+  margin-top:18px;
+  color:#b09aff;
+  font-size:18px;
+  font-weight:bold;
 }
 
-.contact-btn{
-    background:white;
-
-    color:#5b4bff;
-}
-
-.whatsapp-btn{
-    background:#0b8f55;
-
-    color:white;
-}
-
-.phone-number{
-    font-weight:800;
-
-    letter-spacing:.3px;
-}
-
-
-/* =====================================================
-   LEGAL
-===================================================== */
-
-.legal{
-    background:white;
-}
-
-.legal-grid{
-    display:grid;
-
-    grid-template-columns:
-    1fr
-    1fr;
-
-    gap:25px;
-}
-
-.legal-card{
-    padding:30px;
-
-    border:
-    1px solid
-    #e5e7eb;
-
-    border-radius:21px;
-}
-
-.legal-card h3{
-    margin-bottom:10px;
-}
-
-.legal-card p{
-    color:#667085;
-}
-
-
-/* =====================================================
-   FOOTER
-===================================================== */
+/* FOOTER */
 
 footer{
-    background:#080f1d;
-
-    color:white;
-
-    padding:
-    58px
-    0
-    25px;
+  border-top:1px solid rgba(255,255,255,.08);
+  padding:40px 25px;
+  text-align:center;
+  color:#777d90;
 }
 
-.footer-grid{
-    display:grid;
-
-    grid-template-columns:
-    2fr
-    1fr
-    1fr
-    1fr;
-
-    gap:45px;
-
-    padding-bottom:42px;
+.footer-logo{
+  color:#fff;
+  font-weight:800;
+  font-size:20px;
+  margin-bottom:10px;
 }
 
-.footer-brand p{
-    max-width:380px;
-
-    color:#98a2b3;
-
-    margin-top:16px;
+@keyframes fade{
+  from{
+    opacity:0;
+    transform:translateX(25px);
+  }
+  to{
+    opacity:1;
+    transform:translateX(0);
+  }
 }
 
-.footer-title{
-    font-weight:800;
+/* MOBILE */
 
-    margin-bottom:16px;
-}
+@media(max-width:800px){
 
-footer a{
+  .nav-links{
+    display:none;
+    position:absolute;
+    top:75px;
+    left:0;
+    width:100%;
+    padding:25px;
+    background:#0b0d19;
+    flex-direction:column;
+  }
+
+  .nav-links.show{
+    display:flex;
+  }
+
+  .menu{
     display:block;
+  }
 
-    color:#98a2b3;
-
-    margin:9px 0;
-
-    transition:.2s;
-}
-
-footer a:hover{
-    color:white;
-}
-
-.footer-phone{
-    color:white!important;
-
-    font-weight:800;
-}
-
-.footer-bottom{
-    border-top:
-    1px solid
-    #202c40;
-
-    padding-top:22px;
-
+  .hero{
     text-align:center;
+    justify-content:center;
+    padding-left:25px;
+    padding-right:25px;
+  }
 
-    color:#727f93;
+  .hero p{
+    font-size:16px;
+  }
 
-    font-size:13px;
+  .buttons{
+    justify-content:center;
+  }
+
+  .hero-orb{
+    display:none;
+  }
+
+  .slide{
+    text-align:center;
+    padding:45px 30px 65px;
+    justify-content:center;
+  }
+
+  .slide-icon{
+    display:none;
+  }
+
+  .slide h2{
+    font-size:32px;
+  }
+
+  .products{
+    grid-template-columns:1fr;
+  }
+
+  .about{
+    grid-template-columns:1fr;
+    gap:35px;
+  }
+
+  .about h2{
+    font-size:36px;
+  }
+
+  .section-title{
+    font-size:34px;
+  }
+
+  .contact-box h2{
+    font-size:32px;
+  }
 }
-
-
-/* =====================================================
-   ANIMATIONS
-===================================================== */
-
-@keyframes float{
-    0%,100%{
-        transform:translateY(0);
-    }
-
-    50%{
-        transform:translateY(-10px);
-    }
-}
-
-.float-one{
-    animation:float 4s ease-in-out infinite;
-}
-
-.float-two{
-    animation:float 4s ease-in-out infinite 1s;
-}
-
-
-/* =====================================================
-   MOBILE
-===================================================== */
-
-@media(max-width:900px){
-
-    .nav-links{
-        display:none;
-
-        position:absolute;
-
-        top:76px;
-        left:0;
-        right:0;
-
-        padding:22px;
-
-        background:white;
-
-        border-bottom:
-        1px solid
-        #e5e7eb;
-
-        flex-direction:column;
-
-        gap:18px;
-    }
-
-    .nav-links.active{
-        display:flex;
-    }
-
-    .menu-btn{
-        display:block;
-    }
-
-    .hero{
-        padding:75px 0;
-    }
-
-    .hero-grid,
-    .about-grid{
-        grid-template-columns:1fr;
-    }
-
-    .hero h1{
-        font-size:52px;
-    }
-
-    .hero-visual{
-        margin-top:25px;
-    }
-
-    .product-grid,
-    .info-grid,
-    .feature-grid{
-        grid-template-columns:1fr 1fr;
-    }
-
-    .stats-grid{
-        grid-template-columns:1fr 1fr;
-    }
-
-    .stat{
-        border-right:0;
-
-        border-bottom:
-        1px solid
-        #e5e7eb;
-    }
-
-    .footer-grid{
-        grid-template-columns:1fr 1fr;
-    }
-}
-
-
-@media(max-width:600px){
-
-    .container{
-        width:92%;
-    }
-
-    section{
-        padding:70px 0;
-    }
-
-    .hero h1{
-        font-size:43px;
-
-        letter-spacing:-2px;
-    }
-
-    .hero-description{
-        font-size:17px;
-    }
-
-    .hero-buttons{
-        flex-direction:column;
-    }
-
-    .hero-buttons .btn{
-        width:100%;
-    }
-
-    .hero-card{
-        width:290px;
-    }
-
-    .hero-k{
-        width:130px;
-        height:130px;
-
-        font-size:58px;
-    }
-
-    .float-one{
-        left:-12px;
-    }
-
-    .float-two{
-        right:-12px;
-    }
-
-    .product-grid,
-    .info-grid,
-    .feature-grid,
-    .legal-grid,
-    .footer-grid{
-        grid-template-columns:1fr;
-    }
-
-    .about-text h2{
-        font-size:34px;
-    }
-
-    .about-visual{
-        min-height:300px;
-    }
-
-    .about-logo-text{
-        font-size:31px;
-    }
-
-    .check-grid{
-        grid-template-columns:1fr;
-    }
-
-    .contact-box{
-        padding:50px 20px;
-    }
-
-    .contact-box h2{
-        font-size:31px;
-    }
-}
-
 </style>
 </head>
 
-
 <body>
 
-
-<!-- =====================================================
-     HEADER
-===================================================== -->
-
 <header>
+  <div class="nav">
 
-<div class="container nav">
+    <a href="#home" class="logo">
+      <div class="logo-mark">K</div>
+      <div>Koper<span>say</span></div>
+    </a>
 
-<a href="#home" class="logo">
+    <div class="menu" onclick="toggleMenu()">☰</div>
 
-<div class="logo-icon">
-K
-</div>
+    <nav class="nav-links" id="navLinks">
+      <a href="#home">Home</a>
+      <a href="#products">Products</a>
+      <a href="#about">About</a>
+      <a href="#contact" class="nav-btn">Contact</a>
+    </nav>
 
-Kopersay
-
-</a>
-
-
-<button
-class="menu-btn"
-onclick="toggleMenu()"
-aria-label="Open menu">
-
-☰
-
-</button>
-
-
-<nav class="nav-links" id="navLinks">
-
-<a href="#home" onclick="closeMenu()">
-Home
-</a>
-
-<a href="#apps" onclick="closeMenu()">
-Apps
-</a>
-
-<a href="#about" onclick="closeMenu()">
-About
-</a>
-
-<a href="#vision" onclick="closeMenu()">
-Vision
-</a>
-
-<a href="#features" onclick="closeMenu()">
-Why Kopersay
-</a>
-
-<a
-href="#contact"
-class="nav-contact"
-onclick="closeMenu()">
-
-Contact
-
-</a>
-
-</nav>
-
-</div>
-
+  </div>
 </header>
 
-
-
-<!-- =====================================================
-     HERO
-===================================================== -->
+<!-- HERO -->
 
 <section class="hero" id="home">
 
-<div class="container hero-grid">
+  <div class="hero-content">
 
+    <div class="tag">KOPERSAY TECHNOLOGIES</div>
 
-<div>
+    <h1>
+      Building The
+      <span class="gradient">Digital Future.</span>
+    </h1>
 
-<span class="badge">
+    <p>
+      Kopersay Technologies creates modern applications,
+      software and digital solutions designed to make
+      technology simple, useful and powerful.
+    </p>
 
-KOPERSAY TECHNOLOGIES
+    <div class="buttons">
+      <a href="#products" class="btn btn-primary">
+        Explore Products
+      </a>
 
-</span>
+      <a href="#about" class="btn btn-secondary">
+        About Kopersay
+      </a>
+    </div>
 
+  </div>
 
-<h1>
-
-Building the
-
-<span class="gradient">
-
-Digital Future.
-
-</span>
-
-</h1>
-
-
-<p class="hero-description">
-
-Kopersay Technologies creates modern applications
-and software designed to make digital experiences
-simple, useful, fast and enjoyable.
-
-</p>
-
-
-<div class="hero-buttons">
-
-<a
-href="#apps"
-class="btn primary-btn">
-
-Explore Our Apps →
-
-</a>
-
-
-<a
-href="#about"
-class="btn secondary-btn">
-
-About Kopersay
-
-</a>
-
-</div>
-
-</div>
-
-
-
-<div class="hero-visual">
-
-<div class="hero-card">
-
-<div class="hero-k">
-K
-</div>
-
-
-<div class="floating float-one">
-
-🚀 Innovation
-
-</div>
-
-
-<div class="floating float-two">
-
-💡 Technology
-
-</div>
-
-</div>
-
-</div>
-
-
-</div>
+  <div class="hero-orb"></div>
 
 </section>
 
+<!-- SLIDER -->
 
+<div class="slider">
 
-<!-- =====================================================
-     PRODUCTS
-===================================================== -->
+  <div class="slider-box">
 
-<section
-class="products"
-id="apps">
+    <div class="slide active">
 
-<div class="container">
+      <div>
+        <div class="tag">INNOVATION</div>
+        <h2>Technology Made Simple.</h2>
+        <p>
+          Discover smart applications and software
+          built for modern digital needs.
+        </p>
+      </div>
 
+      <div class="slide-icon">K</div>
 
-<div class="section-heading">
+    </div>
 
-<small>
-OUR PRODUCTS
-</small>
+    <div class="slide">
 
-<h2>
-Applications & Software
-</h2>
+      <div>
+        <div class="tag">APPLICATIONS</div>
+        <h2>Powerful Apps. One Place.</h2>
+        <p>
+          Explore the growing collection of Kopersay
+          applications and digital products.
+        </p>
+      </div>
 
-<p>
-Explore products created by Kopersay Technologies.
-New products will be added as they launch.
-</p>
+      <div class="slide-icon">⚡</div>
 
-</div>
+    </div>
 
+    <div class="slide">
 
+      <div>
+        <div class="tag">KOPERSAY</div>
+        <h2>Innovation Starts Here.</h2>
+        <p>
+          We are building useful digital experiences
+          for the future.
+        </p>
+      </div>
 
-<div class="product-grid">
+      <div class="slide-icon">🚀</div>
 
+    </div>
 
-<!-- COOKMITRA -->
+    <button class="arrow prev" onclick="changeSlide(-1)">‹</button>
+    <button class="arrow next" onclick="changeSlide(1)">›</button>
 
-<article class="product-card">
+    <div class="dots">
+      <span class="dot active" onclick="goSlide(0)"></span>
+      <span class="dot" onclick="goSlide(1)"></span>
+      <span class="dot" onclick="goSlide(2)"></span>
+    </div>
 
-<div class="product-visual">
-
-🍳
-
-</div>
-
-<div class="product-body">
-
-<h3>
-CookMitra
-</h3>
-
-<p>
-A smart food and cooking platform designed
-to make cooking and food experiences easier.
-</p>
-
-<a
-href="#contact"
-class="product-link">
-
-Explore CookMitra →
-
-</a>
+  </div>
 
 </div>
 
-</article>
+<!-- PRODUCTS -->
 
+<section class="section" id="products">
 
+  <h2 class="section-title">Our Products</h2>
 
-<!-- SNAP PUZZLE -->
+  <p class="section-subtitle">
+    Explore applications and software developed
+    under Kopersay Technologies.
+  </p>
 
-<article class="product-card">
+  <div class="products">
 
-<div class="product-visual puzzle">
+    <div class="card">
+      <div class="card-icon">📦</div>
+      <h3>Kopersay WMS</h3>
+      <p>
+        Warehouse management solution for
+        smarter inventory and operations.
+      </p>
+      <a href="#" class="card-btn">Coming Soon →</a>
+    </div>
 
-🧩
+    <div class="card">
+      <div class="card-icon">📱</div>
+      <h3>Mobile Applications</h3>
+      <p>
+        Modern mobile applications created
+        for useful everyday digital experiences.
+      </p>
+      <a href="#" class="card-btn">Explore →</a>
+    </div>
 
-</div>
+    <div class="card">
+      <div class="card-icon">💻</div>
+      <h3>Software Solutions</h3>
+      <p>
+        Practical software solutions designed
+        for businesses and digital users.
+      </p>
+      <a href="#" class="card-btn">Learn More →</a>
+    </div>
 
-<div class="product-body">
-
-<h3>
-Snap Puzzle
-</h3>
-
-<p>
-Turn your favorite photos into exciting puzzles
-and challenge yourself with different levels.
-</p>
-
-<a
-href="#contact"
-class="product-link">
-
-Explore Snap Puzzle →
-
-</a>
-
-</div>
-
-</article>
-
-
-
-<!-- VIDEO EDITOR -->
-
-<article class="product-card">
-
-<div class="product-visual video">
-
-🎬
-
-</div>
-
-<div class="product-body">
-
-<h3>
-Video Editor
-</h3>
-
-<p>
-A fast and simple video editing experience
-designed for everyday creators.
-</p>
-
-<a
-href="#contact"
-class="product-link">
-
-Coming Soon →
-
-</a>
-
-</div>
-
-</article>
-
-
-</div>
-
-</div>
+  </div>
 
 </section>
 
+<!-- ABOUT -->
 
+<section class="section" id="about">
 
-<!-- =====================================================
-     ABOUT
-===================================================== -->
+  <div class="about">
 
-<section
-class="about"
-id="about">
+    <div>
+      <div class="tag">ABOUT KOPERSAY</div>
 
-<div class="container about-grid">
+      <h2>Creating Digital Solutions For Tomorrow.</h2>
 
+      <p>
+        Kopersay Technologies is a technology-focused
+        initiative building applications, software and
+        digital products.
+      </p>
 
-<div class="about-visual">
+      <p>
+        Our goal is to create simple, reliable and
+        useful technology that can solve real-world
+        problems.
+      </p>
 
-<div class="about-logo-text">
+      <div class="buttons">
+        <a href="#contact" class="btn btn-primary">
+          Get In Touch
+        </a>
+      </div>
+    </div>
 
-KOPERSAY
+    <div class="stats">
 
-<span>
-TECHNOLOGIES
-</span>
+      <div class="stat">
+        <strong>01</strong>
+        <span>Technology</span>
+      </div>
 
-</div>
+      <div class="stat">
+        <strong>∞</strong>
+        <span>Ideas</span>
+      </div>
 
-</div>
+      <div class="stat">
+        <strong>24/7</strong>
+        <span>Digital Future</span>
+      </div>
 
+      <div class="stat">
+        <strong>K</strong>
+        <span>Kopersay</span>
+      </div>
 
+    </div>
 
-<div class="about-text">
-
-<small>
-ABOUT KOPERSAY
-</small>
-
-
-<h2>
-
-Technology built around people.
-
-</h2>
-
-
-<p>
-
-Kopersay Technologies is a technology company
-focused on creating applications and software
-that solve real problems and provide useful
-digital experiences.
-
-</p>
-
-
-<p>
-
-Our goal is to combine simple design, modern
-technology and innovative ideas to build products
-people actually enjoy using.
-
-</p>
-
-
-<div class="check-grid">
-
-<div class="check">
-<b>✓</b>
-Simple & User Friendly
-</div>
-
-<div class="check">
-<b>✓</b>
-Useful Digital Products
-</div>
-
-<div class="check">
-<b>✓</b>
-Modern Technology
-</div>
-
-<div class="check">
-<b>✓</b>
-Continuous Innovation
-</div>
-
-</div>
-
-</div>
-
-</div>
+  </div>
 
 </section>
 
+<!-- CONTACT -->
 
+<section class="section" id="contact">
 
-<!-- =====================================================
-     VISION / MISSION
-===================================================== -->
+  <div class="contact-box">
 
-<section
-class="vision"
-id="vision">
+    <div class="tag">CONTACT KOPERSAY</div>
 
-<div class="container">
+    <h2>Let's Build Something Great.</h2>
 
+    <p>
+      Have an idea, question or business requirement?
+      Get in touch with Kopersay Technologies.
+    </p>
 
-<div class="section-heading">
+    <a href="tel:+917319796868" class="btn btn-primary">
+      📞 Call Kopersay
+    </a>
 
-<small>
-OUR DIRECTION
-</small>
+    <br>
 
-<h2>
-Vision, Mission & Values
-</h2>
+    <a href="tel:+917319796868" class="phone">
+      +91 73197 96868
+    </a>
 
-<p>
-Our focus is to build technology that is useful,
-accessible and ready for the future.
-</p>
-
-</div>
-
-
-
-<div class="info-grid">
-
-
-<div class="info-card">
-
-<div class="info-icon">
-🌎
-</div>
-
-<h3>
-Our Vision
-</h3>
-
-<p>
-To build a trusted technology ecosystem
-that makes digital life simpler for everyone.
-</p>
-
-</div>
-
-
-
-<div class="info-card">
-
-<div class="info-icon">
-🎯
-</div>
-
-<h3>
-Our Mission
-</h3>
-
-<p>
-To create innovative applications and software
-that solve real-world problems.
-</p>
-
-</div>
-
-
-
-<div class="info-card">
-
-<div class="info-icon">
-⭐
-</div>
-
-<h3>
-Our Values
-</h3>
-
-<p>
-Innovation, simplicity, reliability and
-user-focused design guide our products.
-</p>
-
-</div>
-
-
-</div>
-
-</div>
+  </div>
 
 </section>
 
-
-
-<!-- =====================================================
-     FEATURES
-===================================================== -->
-
-<section
-class="features"
-id="features">
-
-<div class="container">
-
-
-<div class="section-heading">
-
-<small>
-WHY KOPERSAY
-</small>
-
-<h2>
-What We Believe
-</h2>
-
-<p>
-Great software should be simple, reliable,
-fast and built around the people who use it.
-</p>
-
-</div>
-
-
-
-<div class="feature-grid">
-
-
-<div class="feature-card">
-
-<div class="feature-icon">
-💡
-</div>
-
-<h3>
-Innovation
-</h3>
-
-<p>
-We explore new ideas and technologies
-to create better digital products.
-</p>
-
-</div>
-
-
-
-<div class="feature-card">
-
-<div class="feature-icon">
-⚡
-</div>
-
-<h3>
-Performance
-</h3>
-
-<p>
-Fast and responsive experiences are
-at the heart of everything we build.
-</p>
-
-</div>
-
-
-
-<div class="feature-card">
-
-<div class="feature-icon">
-🎯
-</div>
-
-<h3>
-User Focused
-</h3>
-
-<p>
-Our products are designed around real
-users and their everyday needs.
-</p>
-
-</div>
-
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- =====================================================
-     STATS
-===================================================== -->
-
-<section class="stats">
-
-<div class="container stats-grid">
-
-
-<div class="stat">
-
-<h3>
-03+
-</h3>
-
-<p>
-Products in Development
-</p>
-
-</div>
-
-
-<div class="stat">
-
-<h3>
-∞
-</h3>
-
-<p>
-Ideas
-</p>
-
-</div>
-
-
-<div class="stat">
-
-<h3>
-24/7
-</h3>
-
-<p>
-Innovation
-</p>
-
-</div>
-
-
-<div class="stat">
-
-<h3>
-100%
-</h3>
-
-<p>
-Passion
-</p>
-
-</div>
-
-
-</div>
-
-</section>
-
-
-
-<!-- =====================================================
-     CONTACT
-===================================================== -->
-
-<section
-class="contact"
-id="contact">
-
-<div class="container">
-
-<div class="contact-box">
-
-<h2>
-Let's build something amazing.
-</h2>
-
-<p>
-Have a question about Kopersay or our products?
-Get in touch with us.
-</p>
-
-
-<div class="contact-buttons">
-
-
-<a
-href="tel:+917319796868"
-class="btn contact-btn">
-
-📞 Call Kopersay
-
-</a>
-
-
-<a
-href="https://wa.me/917319796868"
-target="_blank"
-rel="noopener"
-class="btn whatsapp-btn">
-
-💬 WhatsApp
-
-</a>
-
-
-</div>
-
-
-<p class="phone-number">
-
-+91 7319796868
-
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- =====================================================
-     LEGAL
-===================================================== -->
-
-<section class="legal">
-
-<div class="container">
-
-
-<div class="section-heading">
-
-<small>
-INFORMATION
-</small>
-
-<h2>
-Legal
-</h2>
-
-</div>
-
-
-<div class="legal-grid">
-
-
-<div
-class="legal-card"
-id="privacy">
-
-<h3>
-Privacy Policy
-</h3>
-
-<p>
-Kopersay Technologies respects your privacy.
-We aim to collect and use information only when
-necessary to provide our services and improve
-our products. We do not sell personal information.
-</p>
-
-</div>
-
-
-<div
-class="legal-card"
-id="terms">
-
-<h3>
-Terms & Conditions
-</h3>
-
-<p>
-By using Kopersay websites and applications,
-you agree to use our services responsibly and
-in accordance with applicable laws. Product-specific
-terms may apply when individual applications launch.
-</p>
-
-</div>
-
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- =====================================================
-     FOOTER
-===================================================== -->
+<!-- FOOTER -->
 
 <footer>
 
-<div class="container">
+  <div class="footer-logo">
+    Kopersay Technologies
+  </div>
 
-
-<div class="footer-grid">
-
-
-<div class="footer-brand">
-
-<div class="logo">
-
-<div class="logo-icon">
-K
-</div>
-
-Kopersay
-
-</div>
-
-
-<p>
-
-Kopersay Technologies — building modern
-applications and software for the digital world.
-
-</p>
-
-
-<p style="margin-top:16px">
-
-<a
-href="tel:+917319796868"
-class="footer-phone">
-
-📞 +91 7319796868
-
-</a>
-
-</p>
-
-</div>
-
-
-
-<div>
-
-<div class="footer-title">
-Products
-</div>
-
-<a href="#apps">
-CookMitra
-</a>
-
-<a href="#apps">
-Snap Puzzle
-</a>
-
-<a href="#apps">
-Video Editor
-</a>
-
-</div>
-
-
-
-<div>
-
-<div class="footer-title">
-Company
-</div>
-
-<a href="#about">
-About Us
-</a>
-
-<a href="#vision">
-Vision & Mission
-</a>
-
-<a href="#features">
-Why Kopersay
-</a>
-
-<a href="#contact">
-Contact
-</a>
-
-</div>
-
-
-
-<div>
-
-<div class="footer-title">
-Legal
-</div>
-
-<a href="#privacy">
-Privacy Policy
-</a>
-
-<a href="#terms">
-Terms & Conditions
-</a>
-
-</div>
-
-
-</div>
-
-
-<div class="footer-bottom">
-
-© 2026 Kopersay Technologies.
-All rights reserved.
-
-</div>
-
-
-</div>
+  <p>
+    © 2026 Kopersay Technologies. All rights reserved.
+  </p>
 
 </footer>
 
-
-
 <script>
 
-function toggleMenu(){
+let currentSlide = 0;
 
-    document
-    .getElementById("navLinks")
-    .classList
-    .toggle("active");
+const slides = document.querySelectorAll(".slide");
+const dots = document.querySelectorAll(".dot");
 
+function showSlide(index){
+
+  slides.forEach(slide =>
+    slide.classList.remove("active")
+  );
+
+  dots.forEach(dot =>
+    dot.classList.remove("active")
+  );
+
+  currentSlide =
+    (index + slides.length) % slides.length;
+
+  slides[currentSlide].classList.add("active");
+  dots[currentSlide].classList.add("active");
 }
 
+function changeSlide(direction){
+  showSlide(currentSlide + direction);
+}
 
-function closeMenu(){
+function goSlide(index){
+  showSlide(index);
+}
 
-    document
+setInterval(function(){
+  changeSlide(1);
+},5000);
+
+function toggleMenu(){
+  document
     .getElementById("navLinks")
-    .classList
-    .remove("active");
-
+    .classList.toggle("show");
 }
 
 </script>
-
 
 </body>
 </html>
