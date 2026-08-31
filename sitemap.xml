@@ -9,95 +9,100 @@
         <priority>1.0</priority>
     </url>
 
-    <!-- PRODUCTS -->
+    <!-- MAIN PAGES -->
+
     <url>
         <loc>https://kopersay.in/products.html</loc>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
 
-    <!-- APPS -->
     <url>
         <loc>https://kopersay.in/apps.html</loc>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
 
-    <!-- ABOUT -->
     <url>
         <loc>https://kopersay.in/about.html</loc>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
 
-    <!-- VISION -->
     <url>
         <loc>https://kopersay.in/vision.html</loc>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
 
-    <!-- WHY KOPERSAY -->
     <url>
         <loc>https://kopersay.in/why-kopersay.html</loc>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
 
-    <!-- CONTACT -->
     <url>
         <loc>https://kopersay.in/contact.html</loc>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
 
-    <!-- KOPSAY QR -->
+    <!-- PRODUCTS -->
+
     <url>
         <loc>https://kopersay.in/kopsay-qr.html</loc>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
 
-    <!-- COOKMITRA -->
     <url>
         <loc>https://kopersay.in/cookmitra.html</loc>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
 
-    <!-- SNAPPazzel -->
     <url>
         <loc>https://kopersay.in/snappazzel.html</loc>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
 
-    <!-- VIDEOMITRA -->
     <url>
         <loc>https://kopersay.in/videomitra.html</loc>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
 
-    <!-- HRMS -->
     <url>
         <loc>https://kopersay.in/hrms.html</loc>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
 
-    <!-- BUSINESS SOFTWARE -->
     <url>
         <loc>https://kopersay.in/business-software.html</loc>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
 
-    <!-- WMS -->
     <url>
         <loc>https://kopersay.in/wms.html</loc>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
+    </url>
+
+    <!-- LEGAL PAGES -->
+
+    <url>
+        <loc>https://kopersay.in/terms.html</loc>
+        <changefreq>yearly</changefreq>
+        <priority>0.5</priority>
+    </url>
+
+    <url>
+        <loc>https://kopersay.in/privacy.html</loc>
+        <changefreq>yearly</changefreq>
+        <priority>0.5</priority>
     </url>
 
 </urlset>
