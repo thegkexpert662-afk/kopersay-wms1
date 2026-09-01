@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>WMS Dashboard | Kopersay Technologies</title>
+
+    <meta name="description"
+          content="Kopersay WMS Dashboard provides a centralized view of warehouse inventory, operations, stock and key warehouse activities.">
+
+    <link rel="icon" type="image/png" href="assets/kopersay2.png">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f7f8fc;
+            color: #1f2937;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* NAVBAR */
+        .navbar {
+            background: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 16px 7%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo img {
+            height: 48px;
+            width: auto;
+            display: block;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        .nav-links a {
+            color: #374151;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .nav-links a:hover {
+            color: #673de6;
+        }
+
+        /* HERO */
+        .hero {
+            background: linear-gradient(135deg, #f3efff, #ffffff);
+            padding: 90px 7% 80px;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .module-label {
+            display: inline-block;
+            color: #673de6;
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            line-height: 1.15;
+            color: #111827;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #673de6;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #6b7280;
+            max-width: 570px;
+            margin-bottom: 30px;
+        }
+
+        .hero-image {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 18px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+        }
+
+        .hero-image img {
+            width: 100%;
+            display: block;
+            border-radius: 12px;
+        }
+
+        /* BUTTONS */
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 13px 22px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background: #673de6;
+            color: #ffffff;
+        }
+
+        .btn-primary:hover {
+            background: #5428c7;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: #ffffff;
+            color: #673de6;
+            border: 1px solid #673de6;
+        }
+
+        .btn-secondary:hover {
+            background: #f3efff;
+        }
+
+        /* SECTION */
+        .section {
+            padding: 85px 7%;
+        }
+
+        .section-container {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 55px;
+        }
+
+        .section-heading h2 {
+            font-size: 36px;
+            color: #111827;
+            margin-bottom: 12px;
+        }
+
+        .section-heading p {
+            color: #6b7280;
+            max-width: 700px;
+            margin: auto;
+        }
+
+        /* DASHBOARD FEATURES */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .feature-card {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 14px;
+            padding: 28px;
+            transition: 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.07);
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 10px;
+            background: #f0ebff;
+            color: #673de6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 15px;
+            font-weight: 800;
+            margin-bottom: 18px;
+        }
+
+        .feature-card h3 {
+            font-size: 19px;
+            color: #111827;
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            font-size: 14px;
+            color: #6b7280;
+        }
+
+        /* OVERVIEW */
+        .overview {
+            background: #ffffff;
+        }
+
+        .overview-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .overview-image img {
+            width: 100%;
+            border-radius: 16px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .overview-content h2 {
+            font-size: 34px;
+            color: #111827;
+            margin-bottom: 18px;
+        }
+
+        .overview-content > p {
+            color: #6b7280;
+            margin-bottom: 25px;
+        }
+
+        .overview-list {
+            list-style: none;
+        }
+
+        .overview-list li {
+            margin-bottom: 14px;
+            padding-left: 28px;
+            position: relative;
+            font-size: 15px;
+        }
+
+        .overview-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #673de6;
+            font-weight: 800;
+        }
+
+        /* METRICS */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .metric-card {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 14px;
+            padding: 28px 20px;
+            text-align: center;
+        }
+
+        .metric-value {
+            font-size: 32px;
+            font-weight: 800;
+            color: #673de6;
+            margin-bottom: 5px;
+        }
+
+        .metric-card h3 {
+            font-size: 16px;
+            color: #111827;
+            margin-bottom: 5px;
+        }
+
+        .metric-card p {
+            font-size: 13px;
+            color: #6b7280;
+        }
+
+        /* WORKFLOW */
+        .workflow {
+            background: #ffffff;
+        }
+
+        .workflow-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .workflow-card {
+            text-align: center;
+            padding: 25px 18px;
+        }
+
+        .workflow-number {
+            width: 45px;
+            height: 45px;
+            margin: 0 auto 18px;
+            border-radius: 50%;
+            background: #673de6;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+        }
+
+        .workflow-card h3 {
+            font-size: 17px;
+            margin-bottom: 8px;
+        }
+
+        .workflow-card p {
+            font-size: 13px;
+            color: #6b7280;
+        }
+
+        /* CTA */
+        .cta {
+            padding: 80px 7%;
+        }
+
+        .cta-box {
+            max-width: 1100px;
+            margin: auto;
+            background: #673de6;
+            color: #ffffff;
+            border-radius: 20px;
+            padding: 55px;
+            text-align: center;
+        }
+
+        .cta-box h2 {
+            font-size: 34px;
+            margin-bottom: 15px;
+        }
+
+        .cta-box p {
+            max-width: 650px;
+            margin: 0 auto 25px;
+            opacity: 0.9;
+        }
+
+        .cta-box .btn-secondary {
+            border: none;
+            color: #673de6;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #111827;
+            color: #ffffff;
+            padding: 55px 7% 25px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr;
+            gap: 50px;
+        }
+
+        .footer-logo img {
+            height: 45px;
+            width: auto;
+            margin-bottom: 15px;
+            background: #ffffff;
+            padding: 5px;
+            border-radius: 6px;
+        }
+
+        .footer-column h3 {
+            font-size: 16px;
+            margin-bottom: 18px;
+        }
+
+        .footer-column a {
+            display: block;
+            color: #d1d5db;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .footer-column a:hover {
+            color: #ffffff;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 40px auto 0;
+            padding-top: 20px;
+            border-top: 1px solid #374151;
+            color: #9ca3af;
+            font-size: 13px;
+            text-align: center;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+
+            .hero-container,
+            .overview-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .features {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .metrics-grid,
+            .workflow-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .navbar {
+                padding: 12px 5%;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero,
+            .section,
+            .cta {
+                padding-left: 5%;
+                padding-right: 5%;
+            }
+
+            .hero {
+                padding-top: 60px;
+            }
+
+            .hero h1 {
+                font-size: 34px;
+            }
+
+            .features,
+            .metrics-grid,
+            .workflow-grid,
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-box {
+                padding: 35px 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+
+        <a href="index.html" class="logo">
+            <img src="assets/kopersay2.png"
+                 alt="Kopersay Technologies Logo">
+        </a>
+
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="wmsdetails.html">WMS</a>
+            <a href="products.html">Products</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </div>
+
+    </nav>
+
+
+    <!-- HERO -->
+    <section class="hero">
+
+        <div class="hero-container">
+
+            <div>
+
+                <span class="module-label">
+                    MODULE 01
+                </span>
+
+                <h1>
+                    WMS <span>Dashboard</span>
+                </h1>
+
+                <p>
+                    Get a centralized overview of warehouse operations,
+                    inventory information and important operational
+                    activities from a single dashboard.
+                </p>
+
+                <div class="btn-group">
+
+                    <a href="wmsdetails.html"
+                       class="btn btn-primary">
+                        Back to WMS
+                    </a>
+
+                    <a href="contact.html"
+                       class="btn btn-secondary">
+                        Contact Us
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="hero-image">
+
+                <img src="assets/wms-dashboard.png"
+                     alt="Kopersay WMS Dashboard">
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FEATURES -->
+    <section class="section">
+
+        <div class="section-container">
+
+            <div class="section-heading">
+
+                <h2>
+                    Dashboard Features
+                </h2>
+
+                <p>
+                    A centralized view designed to help teams understand
+                    warehouse operations at a glance.
+                </p>
+
+            </div>
+
+
+            <div class="features">
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+                        01
+                    </div>
+
+                    <h3>
+                        Inventory Overview
+                    </h3>
+
+                    <p>
+                        View important inventory information and stock
+                        status from a centralized dashboard.
+                    </p>
+
+                </div>
+
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+                        02
+                    </div>
+
+                    <h3>
+                        Warehouse Overview
+                    </h3>
+
+                    <p>
+                        Get a quick overview of warehouse-related
+                        operational information.
+                    </p>
+
+                </div>
+
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+                        03
+                    </div>
+
+                    <h3>
+                        Inward Activity
+                    </h3>
+
+                    <p>
+                        Review important incoming inventory and receiving
+                        activity information.
+                    </p>
+
+                </div>
+
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+                        04
+                    </div>
+
+                    <h3>
+                        Outward Activity
+                    </h3>
+
+                    <p>
+                        Keep track of outbound and dispatch-related
+                        operational information.
+                    </p>
+
+                </div>
+
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+                        05
+                    </div>
+
+                    <h3>
+                        Employee Overview
+                    </h3>
+
+                    <p>
+                        Access an organized overview of employee-related
+                        warehouse information.
+                    </p>
+
+                </div>
+
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+                        06
+                    </div>
+
+                    <h3>
+                        Quick Insights
+                    </h3>
+
+                    <p>
+                        Bring important warehouse information together
+                        for faster operational review.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- OVERVIEW -->
+    <section class="section overview">
+
+        <div class="section-container">
+
+            <div class="overview-grid">
+
+                <div class="overview-image">
+
+                    <img src="assets/wms-dashboard.png"
+                         alt="Kopersay WMS Dashboard Interface">
+
+                </div>
+
+
+                <div class="overview-content">
+
+                    <h2>
+                        One View for Warehouse Operations
+                    </h2>
+
+                    <p>
+                        The Kopersay WMS Dashboard brings key warehouse
+                        information together in a structured interface,
+                        helping teams quickly review operational activity.
+                    </p>
+
+                    <ul class="overview-list">
+
+                        <li>
+                            Centralized warehouse overview
+                        </li>
+
+                        <li>
+                            Inventory status visibility
+                        </li>
+
+                        <li>
+                            Inward and outward activity
+                        </li>
+
+                        <li>
+                            Employee and warehouse information
+                        </li>
+
+                        <li>
+                            Quick access to operational insights
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- METRICS -->
+    <section class="section">
+
+        <div class="section-container">
+
+            <div class="section-heading">
+
+                <h2>
+                    Dashboard Overview
+                </h2>
+
+                <p>
+                    Key operational areas that can be presented through
+                    the WMS dashboard.
+                </p>
+
+            </div>
+
+
+            <div class="metrics-grid">
+
+                <div class="metric-card">
+
+                    <div class="metric-value">
+                        01
+                    </div>
+
+                    <h3>
+                        Inventory
+                    </h3>
+
+                    <p>
+                        Stock information
+                    </p>
+
+                </div>
+
+
+                <div class="metric-card">
+
+                    <div class="metric-value">
+                        02
+                    </div>
+
+                    <h3>
+                        Warehouses
+                    </h3>
+
+                    <p>
+                        Warehouse information
+                    </p>
+
+                </div>
+
+
+                <div class="metric-card">
+
+                    <div class="metric-value">
+                        03
+                    </div>
+
+                    <h3>
+                        Inward
+                    </h3>
+
+                    <p>
+                        Receiving activity
+                    </p>
+
+                </div>
+
+
+                <div class="metric-card">
+
+                    <div class="metric-value">
+                        04
+                    </div>
+
+                    <h3>
+                        Outward
+                    </h3>
+
+                    <p>
+                        Dispatch activity
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- WORKFLOW -->
+    <section class="section workflow">
+
+        <div class="section-container">
+
+            <div class="section-heading">
+
+                <h2>
+                    Dashboard Workflow
+                </h2>
+
+                <p>
+                    A simple way to review warehouse information from
+                    one centralized interface.
+                </p>
+
+            </div>
+
+
+            <div class="workflow-grid">
+
+                <div class="workflow-card">
+
+                    <div class="workflow-number">
+                        1
+                    </div>
+
+                    <h3>
+                        Collect
+                    </h3>
+
+                    <p>
+                        Gather warehouse operational information.
+                    </p>
+
+                </div>
+
+
+                <div class="workflow-card">
+
+                    <div class="workflow-number">
+                        2
+                    </div>
+
+                    <h3>
+                        Organize
+                    </h3>
+
+                    <p>
+                        Present information in a structured dashboard.
+                    </p>
+
+                </div>
+
+
+                <div class="workflow-card">
+
+                    <div class="workflow-number">
+                        3
+                    </div>
+
+                    <h3>
+                        Review
+                    </h3>
+
+                    <p>
+                        Quickly review important operational activity.
+                    </p>
+
+                </div>
+
+
+                <div class="workflow-card">
+
+                    <div class="workflow-number">
+                        4
+                    </div>
+
+                    <h3>
+                        Act
+                    </h3>
+
+                    <p>
+                        Use the available information for operations.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CTA -->
+    <section class="cta">
+
+        <div class="cta-box">
+
+            <h2>
+                Explore the Complete WMS
+            </h2>
+
+            <p>
+                Discover all Kopersay WMS modules designed to organize
+                modern warehouse operations.
+            </p>
+
+            <a href="wmsdetails.html"
+               class="btn btn-secondary">
+                Explore WMS →
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <div class="footer-container">
+
+            <div class="footer-column footer-logo">
+
+                <img src="assets/kopersay2.png"
+                     alt="Kopersay Technologies Logo">
+
+                <p>
+                    Smart software solutions for modern businesses.
+                </p>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>
+                    WMS
+                </h3>
+
+                <a href="wmsdetails.html">
+                    WMS Overview
+                </a>
+
+                <a href="wms-dashboard.html">
+                    Dashboard
+                </a>
+
+                <a href="wms-inventory.html">
+                    Inventory Management
+                </a>
+
+                <a href="wms-warehouse.html">
+                    Warehouse Management
+                </a>
+
+                <a href="wms-employees.html">
+                    Employee Management
+                </a>
+
+                <a href="wms-inward.html">
+                    Inward & GRN
+                </a>
+
+                <a href="wms-outward.html">
+                    Outward & Dispatch
+                </a>
+
+                <a href="wms-reports.html">
+                    Reports & Analytics
+                </a>
+
+                <a href="wms-login.html">
+                    Login & Access
+                </a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>
+                    Company
+                </h3>
+
+                <a href="about.html">
+                    About Us
+                </a>
+
+                <a href="contact.html">
+                    Contact
+                </a>
+
+                <a href="terms.html">
+                    Terms & Conditions
+                </a>
+
+                <a href="privacy.html">
+                    Privacy Policy
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            © 2026 Kopersay Technologies. All rights reserved.
+
+        </div>
+
+    </footer>
+
+</body>
+</html>
