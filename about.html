@@ -66,6 +66,12 @@ a{
     font-weight:700;
 }
 
+    .logo img{
+    height:48px;
+    width:auto;
+    display:block;
+}
+
 .logo-box{
     width:34px;
     height:34px;
@@ -182,18 +188,10 @@ h2{
     overflow:hidden;
 }
 
-.big-k{
-    width:150px;
-    height:150px;
-    border-radius:40px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:75px;
-    font-weight:bold;
-    color:white;
-    background:linear-gradient(135deg,#673de6,#279eff);
-    box-shadow:0 25px 60px rgba(103,61,230,.25);
+.story-logo{
+    width:180px;
+    height:auto;
+    display:block;
 }
 
 /* MISSION */
@@ -316,6 +314,12 @@ footer{
     font-weight:bold;
     margin-bottom:10px;
 }
+    .footer-logo img{
+    height:45px;
+    width:auto;
+    display:block;
+    margin:0 auto;
+}
 
 footer p{
     color:#777;
@@ -344,6 +348,9 @@ footer p{
         padding:0 18px;
         height:60px;
     }
+    .logo img{
+    height:40px;
+}
 
     .nav-links{
         gap:10px;
@@ -415,9 +422,9 @@ footer p{
 <nav class="navbar">
 
     <a href="index.html" class="logo">
-        <span class="logo-box">K</span>
-        Kopersay
-    </a>
+    <img src="assets/kopersay2.png"
+         alt="Kopersay Technologies Logo">
+</a>
 
     <div class="nav-links">
         <a href="index.html">Home</a>
@@ -481,9 +488,11 @@ footer p{
 
             </div>
 
-            <div class="story-box">
-                <div class="big-k">K</div>
-            </div>
+           <div class="story-box">
+    <img src="assets/kopersay2.png"
+         alt="Kopersay Technologies Logo"
+         class="story-logo">
+</div>
 
         </div>
 
@@ -630,9 +639,10 @@ footer p{
 <!-- FOOTER -->
 <footer>
 
-    <div class="footer-logo">
-        🅺 Kopersay Technologies
-    </div>
+   <div class="footer-logo">
+    <img src="assets/kopersay2.png"
+         alt="Kopersay Technologies Logo">
+</div>
 
     <p>
         Building smart applications, software and digital solutions
