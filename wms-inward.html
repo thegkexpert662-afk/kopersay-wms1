@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Inward & GRN Management | Kopersay WMS</title>
+
+    <meta name="description"
+          content="Kopersay WMS Inward and GRN Management module for receiving goods, recording deliveries and managing warehouse inward operations.">
+
+    <link rel="icon" type="image/png" href="assets/kopersay2.png">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f7f8fc;
+            color: #1f2937;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* NAVBAR */
+        .navbar {
+            background: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 16px 7%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo img {
+            height: 48px;
+            width: auto;
+            display: block;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        .nav-links a {
+            color: #374151;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .nav-links a:hover {
+            color: #673de6;
+        }
+
+        /* HERO */
+        .hero {
+            background: linear-gradient(135deg, #f3efff, #ffffff);
+            padding: 90px 7% 80px;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .module-label {
+            display: inline-block;
+            color: #673de6;
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            line-height: 1.15;
+            color: #111827;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #673de6;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #6b7280;
+            max-width: 570px;
+            margin-bottom: 30px;
+        }
+
+        .hero-image {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 18px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+        }
+
+        .hero-image img {
+            width: 100%;
+            display: block;
+            border-radius: 12px;
+        }
+
+        /* BUTTONS */
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 13px 22px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background: #673de6;
+            color: #ffffff;
+        }
+
+        .btn-primary:hover {
+            background: #5428c7;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: #ffffff;
+            color: #673de6;
+            border: 1px solid #673de6;
+        }
+
+        .btn-secondary:hover {
+            background: #f3efff;
+        }
+
+        /* SECTION */
+        .section {
+            padding: 85px 7%;
+        }
+
+        .section-container {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 55px;
+        }
+
+        .section-heading h2 {
+            font-size: 36px;
+            color: #111827;
+            margin-bottom: 12px;
+        }
+
+        .section-heading p {
+            color: #6b7280;
+            max-width: 700px;
+            margin: auto;
+        }
+
+        /* FEATURES */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .feature-card {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 14px;
+            padding: 28px;
+            transition: 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.07);
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 10px;
+            background: #f0ebff;
+            color: #673de6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: 800;
+            margin-bottom: 18px;
+        }
+
+        .feature-card h3 {
+            font-size: 19px;
+            color: #111827;
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            font-size: 14px;
+            color: #6b7280;
+        }
+
+        /* PROCESS */
+        .process {
+            background: #ffffff;
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .process-card {
+            text-align: center;
+            padding: 25px 18px;
+        }
+
+        .process-number {
+            width: 45px;
+            height: 45px;
+            margin: 0 auto 18px;
+            border-radius: 50%;
+            background: #673de6;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+        }
+
+        .process-card h3 {
+            font-size: 17px;
+            margin-bottom: 8px;
+        }
+
+        .process-card p {
+            font-size: 13px;
+            color: #6b7280;
+        }
+
+        /* BENEFITS */
+        .benefits {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .benefits-image img {
+            width: 100%;
+            border-radius: 16px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .benefits-content h2 {
+            font-size: 34px;
+            margin-bottom: 20px;
+            color: #111827;
+        }
+
+        .benefits-content > p {
+            color: #6b7280;
+            margin-bottom: 25px;
+        }
+
+        .benefit-list {
+            list-style: none;
+        }
+
+        .benefit-list li {
+            margin-bottom: 14px;
+            padding-left: 28px;
+            position: relative;
+            font-size: 15px;
+            color: #374151;
+        }
+
+        .benefit-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #673de6;
+            font-weight: 800;
+        }
+
+        /* CTA */
+        .cta {
+            padding: 80px 7%;
+        }
+
+        .cta-box {
+            max-width: 1100px;
+            margin: auto;
+            background: #673de6;
+            color: #ffffff;
+            border-radius: 20px;
+            padding: 55px;
+            text-align: center;
+        }
+
+        .cta-box h2 {
+            font-size: 34px;
+            margin-bottom: 15px;
+        }
+
+        .cta-box p {
+            max-width: 650px;
+            margin: 0 auto 25px;
+            opacity: 0.9;
+        }
+
+        .cta-box .btn-secondary {
+            border: none;
+            color: #673de6;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #111827;
+            color: #ffffff;
+            padding: 55px 7% 25px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr;
+            gap: 50px;
+        }
+
+        .footer-logo img {
+            height: 45px;
+            width: auto;
+            margin-bottom: 15px;
+            background: #ffffff;
+            padding: 5px;
+            border-radius: 6px;
+        }
+
+        .footer-column h3 {
+            font-size: 16px;
+            margin-bottom: 18px;
+        }
+
+        .footer-column a {
+            display: block;
+            color: #d1d5db;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .footer-column a:hover {
+            color: #ffffff;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 40px auto 0;
+            padding-top: 20px;
+            border-top: 1px solid #374151;
+            color: #9ca3af;
+            font-size: 13px;
+            text-align: center;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+            .hero-container,
+            .benefits {
+                grid-template-columns: 1fr;
+            }
+
+            .features {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .process-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .navbar {
+                padding: 12px 5%;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero,
+            .section,
+            .cta {
+                padding-left: 5%;
+                padding-right: 5%;
+            }
+
+            .hero {
+                padding-top: 60px;
+            }
+
+            .hero h1 {
+                font-size: 34px;
+            }
+
+            .features,
+            .process-grid,
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-box {
+                padding: 35px 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+
+        <a href="index.html" class="logo">
+            <img src="assets/kopersay2.png"
+                 alt="Kopersay Technologies Logo">
+        </a>
+
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="wmsdetails.html">WMS</a>
+            <a href="products.html">Products</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </div>
+
+    </nav>
+
+
+    <!-- HERO -->
+    <section class="hero">
+
+        <div class="hero-container">
+
+            <div>
+
+                <span class="module-label">
+                    MODULE 05
+                </span>
+
+                <h1>
+                    Inward & <span>GRN Management</span>
+                </h1>
+
+                <p>
+                    Manage incoming goods, receiving operations and
+                    Goods Receipt Notes with a structured warehouse
+                    workflow.
+                </p>
+
+                <div class="btn-group">
+
+                    <a href="wmsdetails.html"
+                       class="btn btn-primary">
+                        Back to WMS
+                    </a>
+
+                    <a href="contact.html"
+                       class="btn btn-secondary">
+                        Contact Us
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="hero-image">
+
+                <img src="assets/wms-inward-grn.png"
+                     alt="Kopersay WMS Inward and GRN Management">
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FEATURES -->
+    <section class="section">
+
+        <div class="section-container">
+
+            <div class="section-heading">
+
+                <h2>
+                    Inward Management Features
+                </h2>
+
+                <p>
+                    A structured process for recording and monitoring
+                    warehouse receiving activities.
+                </p>
+
+            </div>
+
+
+            <div class="features">
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+                        01
+                    </div>
+
+                    <h3>
+                        Goods Receiving
+                    </h3>
+
+                    <p>
+                        Record incoming goods and maintain receiving
+                        information for warehouse operations.
+                    </p>
+
+                </div>
+
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+                        02
+                    </div>
+
+                    <h3>
+                        GRN Creation
+                    </h3>
+
+                    <p>
+                        Create Goods Receipt Notes to document received
+                        inventory and delivery information.
+                    </p>
+
+                </div>
+
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+                        03
+                    </div>
+
+                    <h3>
+                        Supplier Details
+                    </h3>
+
+                    <p>
+                        Maintain supplier and delivery information
+                        associated with incoming goods.
+                    </p>
+
+                </div>
+
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+                        04
+                    </div>
+
+                    <h3>
+                        Item Verification
+                    </h3>
+
+                    <p>
+                        Review received items and quantities before
+                        completing the inward process.
+                    </p>
+
+                </div>
+
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+                        05
+                    </div>
+
+                    <h3>
+                        Warehouse Allocation
+                    </h3>
+
+                    <p>
+                        Associate received inventory with the
+                        appropriate warehouse location.
+                    </p>
+
+                </div>
+
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+                        06
+                    </div>
+
+                    <h3>
+                        Inward Tracking
+                    </h3>
+
+                    <p>
+                        Track inward transactions and maintain a clear
+                        record of receiving activities.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PROCESS -->
+    <section class="section process">
+
+        <div class="section-container">
+
+            <div class="section-heading">
+
+                <h2>
+                    Inward Workflow
+                </h2>
+
+                <p>
+                    A simple workflow for managing incoming inventory.
+                </p>
+
+            </div>
+
+
+            <div class="process-grid">
+
+                <div class="process-card">
+
+                    <div class="process-number">
+                        1
+                    </div>
+
+                    <h3>
+                        Receive
+                    </h3>
+
+                    <p>
+                        Record the incoming delivery.
+                    </p>
+
+                </div>
+
+
+                <div class="process-card">
+
+                    <div class="process-number">
+                        2
+                    </div>
+
+                    <h3>
+                        Verify
+                    </h3>
+
+                    <p>
+                        Check items and received quantities.
+                    </p>
+
+                </div>
+
+
+                <div class="process-card">
+
+                    <div class="process-number">
+                        3
+                    </div>
+
+                    <h3>
+                        Create GRN
+                    </h3>
+
+                    <p>
+                        Document the goods receipt.
+                    </p>
+
+                </div>
+
+
+                <div class="process-card">
+
+                    <div class="process-number">
+                        4
+                    </div>
+
+                    <h3>
+                        Store
+                    </h3>
+
+                    <p>
+                        Allocate inventory to the warehouse.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- BENEFITS -->
+    <section class="section">
+
+        <div class="section-container">
+
+            <div class="benefits">
+
+                <div class="benefits-image">
+
+                    <img src="assets/wms-inward-grn.png"
+                         alt="Kopersay WMS GRN Interface">
+
+                </div>
+
+
+                <div class="benefits-content">
+
+                    <h2>
+                        Better Control Over Incoming Inventory
+                    </h2>
+
+                    <p>
+                        Kopersay WMS helps organize the inward process
+                        by keeping receiving and GRN information in a
+                        structured workflow.
+                    </p>
+
+                    <ul class="benefit-list">
+
+                        <li>
+                            Organized goods receiving
+                        </li>
+
+                        <li>
+                            Structured GRN records
+                        </li>
+
+                        <li>
+                            Better visibility of incoming stock
+                        </li>
+
+                        <li>
+                            Supplier and delivery tracking
+                        </li>
+
+                        <li>
+                            Warehouse-wise inward management
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CTA -->
+    <section class="cta">
+
+        <div class="cta-box">
+
+            <h2>
+                Explore Kopersay WMS
+            </h2>
+
+            <p>
+                Discover how the complete WMS solution can help
+                organize warehouse operations.
+            </p>
+
+            <a href="wmsdetails.html"
+               class="btn btn-secondary">
+                Explore WMS →
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <div class="footer-container">
+
+            <div class="footer-column footer-logo">
+
+                <img src="assets/kopersay2.png"
+                     alt="Kopersay Technologies Logo">
+
+                <p>
+                    Smart software solutions for modern businesses.
+                </p>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>
+                    WMS
+                </h3>
+
+                <a href="wmsdetails.html">
+                    WMS Overview
+                </a>
+
+                <a href="wms-inventory.html">
+                    Inventory Management
+                </a>
+
+                <a href="wms-warehouse.html">
+                    Warehouse Management
+                </a>
+
+                <a href="wms-employees.html">
+                    Employee Management
+                </a>
+
+                <a href="wms-inward.html">
+                    Inward & GRN
+                </a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>
+                    Company
+                </h3>
+
+                <a href="about.html">
+                    About Us
+                </a>
+
+                <a href="contact.html">
+                    Contact
+                </a>
+
+                <a href="terms.html">
+                    Terms & Conditions
+                </a>
+
+                <a href="privacy.html">
+                    Privacy Policy
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            © 2026 Kopersay Technologies. All rights reserved.
+
+        </div>
+
+    </footer>
+
+</body>
+</html>
