@@ -48,46 +48,32 @@ a{
     text-decoration:none;
 }
 
-
 /* ================= NAVBAR ================= */
 
 .navbar{
     position:sticky;
     top:0;
     z-index:1000;
-
     min-height:74px;
-
     padding:0 7%;
-
     display:flex;
     align-items:center;
     justify-content:space-between;
-
     background:rgba(255,255,255,.97);
-
     border-bottom:1px solid #e9eaf0;
-
     backdrop-filter:blur(14px);
 }
 
 .brand{
     display:flex;
     align-items:center;
-    gap:11px;
-
     color:#151827;
-
-    font-size:22px;
-    font-weight:800;
 }
-    .brand img{
+
+.brand img{
     height:48px;
     width:auto;
     display:block;
-}
-    font-size:21px;
-    font-weight:900;
 }
 
 .nav-links{
@@ -100,6 +86,7 @@ a{
     color:#555b6d;
     font-size:14px;
     font-weight:600;
+    white-space:nowrap;
 }
 
 .nav-links a:hover{
@@ -108,17 +95,13 @@ a{
 
 .contact-btn{
     padding:10px 17px;
-
     border-radius:10px;
-
     color:#ffffff !important;
-
-    background:
-        linear-gradient(
-            135deg,
-            #6539df,
-            #4f7bef
-        );
+    background:linear-gradient(
+        135deg,
+        #6539df,
+        #4f7bef
+    );
 }
 
 
