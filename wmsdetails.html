@@ -11,16 +11,31 @@
 <title>Kopersay WMS | Warehouse Management System</title>
 
 <meta name="description"
-content="Kopersay WMS is a smart Warehouse Management System for inventory, inbound, outbound, orders, reports and warehouse operations. हिंदी और English दोनों में उपलब्ध।">
+content="Kopersay WMS is a modern Warehouse Management System for inventory, warehouses, employees, inward, outward, dispatch and business reports.">
 
 <meta name="keywords"
-content="Kopersay WMS, Warehouse Management System, WMS software, inventory management, warehouse software, warehouse management India">
+content="Kopersay WMS, Warehouse Management System, Warehouse Management Software, Inventory Management Software, Stock Management, GRN, Dispatch Management">
+
+<meta name="author" content="Kopersay Technologies">
 
 <meta name="robots" content="index, follow">
 
-<link rel="canonical" href="https://kopersay.in/wms.html">
+<link rel="canonical" href="https://kopersay.in/wmsdetails.html">
+
+<meta property="og:title"
+content="Kopersay WMS | Warehouse Management System">
+
+<meta property="og:description"
+content="Modern warehouse, inventory, inward, outward and reporting solution by Kopersay Technologies.">
+
+<meta property="og:url"
+content="https://kopersay.in/wmsdetails.html">
+
+<meta property="og:type" content="website">
 
 <style>
+
+/* ================= RESET ================= */
 
 *{
     margin:0;
@@ -33,15 +48,20 @@ html{
 }
 
 body{
-    font-family:Arial,Helvetica,sans-serif;
+    font-family:Arial, Helvetica, sans-serif;
     background:#ffffff;
-    color:#151827;
+    color:#111827;
     line-height:1.6;
 }
 
 a{
     text-decoration:none;
     color:inherit;
+}
+
+img{
+    max-width:100%;
+    display:block;
 }
 
 .container{
@@ -57,8 +77,8 @@ a{
     display:flex;
     align-items:center;
     justify-content:space-between;
-    padding:0 5%;
-    background:rgba(255,255,255,.97);
+    padding:0 6%;
+    background:rgba(255,255,255,.96);
     border-bottom:1px solid #eeeeee;
     position:sticky;
     top:0;
@@ -70,7 +90,7 @@ a{
     display:flex;
     align-items:center;
     gap:10px;
-    font-size:18px;
+    font-size:19px;
     font-weight:800;
 }
 
@@ -84,7 +104,7 @@ a{
 .nav-links{
     display:flex;
     align-items:center;
-    gap:22px;
+    gap:23px;
     font-size:13px;
     color:#555b68;
 }
@@ -93,10 +113,10 @@ a{
     color:#673de6;
 }
 
-.nav-contact{
-    background:#673de6;
+.contact-nav{
     color:#ffffff !important;
-    padding:9px 15px;
+    background:#673de6;
+    padding:9px 16px;
     border-radius:9px;
 }
 
@@ -105,59 +125,58 @@ a{
 
 .hero{
     padding:90px 20px 80px;
+    text-align:center;
+
     background:
-        radial-gradient(circle at 10% 10%,rgba(103,61,230,.16),transparent 35%),
-        radial-gradient(circle at 90% 30%,rgba(22,143,255,.14),transparent 35%),
-        #071225;
-    color:white;
+        radial-gradient(circle at 50% 0%,
+        rgba(103,61,230,.14),
+        transparent 43%),
+        #ffffff;
 }
 
-.hero-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:50px;
-    align-items:center;
+.hero-logo{
+    width:82px;
+    height:82px;
+    object-fit:contain;
+    margin:0 auto 22px;
 }
 
 .badge{
     display:inline-block;
-    padding:7px 14px;
-    border:1px solid rgba(255,255,255,.25);
+    padding:7px 15px;
+    border:1px solid #d8ceff;
     border-radius:30px;
-    font-size:11px;
+    color:#673de6;
+    font-size:10px;
     font-weight:800;
-    letter-spacing:1.5px;
-    margin-bottom:20px;
+    letter-spacing:2px;
+    margin-bottom:18px;
 }
 
 .hero h1{
-    font-size:clamp(45px,6vw,72px);
-    line-height:1.02;
+    font-size:clamp(40px,7vw,72px);
+    line-height:1.05;
     margin-bottom:20px;
 }
 
 .gradient{
-    background:linear-gradient(90deg,#7d61ff,#32a7ff);
+    background:linear-gradient(90deg,#673de6,#168fff);
     -webkit-background-clip:text;
     background-clip:text;
     color:transparent;
 }
 
-.hero h2{
-    font-size:23px;
-    margin-bottom:15px;
-    font-weight:600;
-}
-
 .hero p{
-    color:#c7d0df;
-    max-width:600px;
-    font-size:15px;
-    margin-bottom:25px;
+    max-width:730px;
+    margin:auto;
+    color:#687080;
+    font-size:16px;
 }
 
 .hero-buttons{
+    margin-top:30px;
     display:flex;
+    justify-content:center;
     gap:12px;
     flex-wrap:wrap;
 }
@@ -165,6 +184,8 @@ a{
 .primary-btn,
 .secondary-btn{
     display:inline-flex;
+    align-items:center;
+    justify-content:center;
     padding:12px 20px;
     border-radius:10px;
     font-size:13px;
@@ -172,269 +193,337 @@ a{
 }
 
 .primary-btn{
-    background:#673de6;
     color:white;
+    background:linear-gradient(135deg,#673de6,#8054ed);
 }
 
 .secondary-btn{
-    border:1px solid rgba(255,255,255,.35);
-    color:white;
-}
-
-.primary-btn:hover,
-.secondary-btn:hover{
-    transform:translateY(-2px);
-}
-
-
-/* ================= DASHBOARD PREVIEW ================= */
-
-.dashboard-preview{
-    background:#ffffff;
-    padding:13px;
-    border-radius:18px;
-    box-shadow:0 25px 60px rgba(0,0,0,.3);
-}
-
-.dashboard-preview img{
-    width:100%;
-    display:block;
-    border-radius:11px;
-}
-
-
-/* ================= SECTION ================= */
-
-.section{
-    padding:80px 0;
-}
-
-.section-title{
-    text-align:center;
-    margin-bottom:45px;
-}
-
-.section-title span{
     color:#673de6;
-    font-size:11px;
+    border:1px solid #dcd4ff;
+    background:#ffffff;
+}
+
+
+/* ================= INTRO ================= */
+
+.intro{
+    padding:70px 0 40px;
+}
+
+.section-heading{
+    text-align:center;
+    margin-bottom:35px;
+}
+
+.section-heading span{
+    color:#673de6;
+    font-size:10px;
     font-weight:800;
     letter-spacing:2px;
 }
 
-.section-title h2{
+.section-heading h2{
     font-size:34px;
-    margin:8px 0;
+    margin:7px 0;
 }
 
-.section-title p{
-    color:#72798a;
+.section-heading p{
+    color:#737b8b;
     font-size:14px;
+    max-width:700px;
+    margin:auto;
+}
+
+.intro-card{
+    padding:35px;
+    border:1px solid #e5e3ef;
+    border-radius:22px;
+    background:linear-gradient(145deg,#faf9ff,#f7fbff);
+}
+
+.intro-card h3{
+    font-size:24px;
+    margin-bottom:12px;
+}
+
+.intro-card p{
+    color:#687080;
+    font-size:14px;
+    margin-bottom:18px;
+}
+
+.language-box{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+    margin-top:25px;
+}
+
+.language{
+    background:#ffffff;
+    border:1px solid #e8e6ef;
+    border-radius:16px;
+    padding:22px;
+}
+
+.language strong{
+    display:block;
+    color:#673de6;
+    margin-bottom:8px;
+}
+
+.language p{
+    margin:0;
 }
 
 
-/* ================= FEATURES ================= */
+/* ================= FEATURE CARDS ================= */
 
 .features{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:18px;
+    padding:70px 0;
 }
 
-.feature{
-    padding:25px;
-    border:1px solid #e5e4ed;
-    border-radius:17px;
+.feature-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:16px;
+}
+
+.feature-card{
+    padding:24px;
+    border:1px solid #e5e5eb;
+    border-radius:18px;
     background:#ffffff;
     transition:.2s;
 }
 
-.feature:hover{
-    transform:translateY(-5px);
-    box-shadow:0 15px 35px rgba(30,30,70,.08);
+.feature-card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 12px 30px rgba(20,20,50,.07);
 }
 
-.icon{
-    width:45px;
-    height:45px;
+.feature-icon{
+    width:44px;
+    height:44px;
     display:grid;
     place-items:center;
     border-radius:13px;
-    background:#eeeaff;
-    font-size:21px;
+    background:#eee9ff;
+    font-size:20px;
     margin-bottom:15px;
 }
 
-.feature h3{
+.feature-card h3{
     font-size:17px;
-    margin-bottom:7px;
-}
-
-.feature p{
-    color:#707789;
-    font-size:12px;
-}
-
-.hindi{
-    color:#673de6;
-    font-size:12px;
-    font-weight:700;
-    display:block;
-    margin-bottom:4px;
-}
-
-
-/* ================= DEMO ================= */
-
-.demo-section{
-    background:#f6f7fb;
-}
-
-.demo-box{
-    border:1px solid #dedfea;
-    background:white;
-    padding:20px;
-    border-radius:20px;
-}
-
-.demo-box img{
-    width:100%;
-    display:block;
-    border-radius:12px;
-}
-
-.demo-caption{
-    text-align:center;
-    padding:18px 0 5px;
-    color:#697080;
-    font-size:13px;
-}
-
-
-/* ================= MODULES ================= */
-
-.modules{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:15px;
-}
-
-.module{
-    padding:22px;
-    border:1px solid #e4e4eb;
-    border-radius:16px;
-    background:#fafaff;
-}
-
-.module h3{
-    font-size:15px;
     margin-bottom:6px;
 }
 
-.module p{
-    color:#707789;
-    font-size:11px;
+.feature-card p{
+    color:#707888;
+    font-size:12px;
 }
 
 
-/* ================= WHY ================= */
+/* ================= PRODUCT MODULES ================= */
 
-.why{
+.modules{
+    padding:70px 0;
+    background:#fafaff;
+}
+
+.module-grid{
     display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:18px;
+    grid-template-columns:repeat(2,1fr);
+    gap:22px;
 }
 
-.why-card{
-    padding:25px;
-    text-align:center;
+.module-card{
+    overflow:hidden;
+    background:#ffffff;
     border:1px solid #e5e5eb;
-    border-radius:18px;
+    border-radius:20px;
+    transition:.2s;
 }
 
-.why-card .icon{
-    margin:0 auto 13px;
+.module-card:hover{
+    transform:translateY(-3px);
+    box-shadow:0 14px 35px rgba(20,20,50,.07);
 }
 
-.why-card h3{
-    font-size:15px;
-    margin-bottom:5px;
+.module-image{
+    padding:14px;
+    background:#f5f7fb;
 }
 
-.why-card p{
-    color:#73798a;
-    font-size:11px;
+.module-image img{
+    width:100%;
+    height:270px;
+    object-fit:cover;
+    object-position:top;
+    border-radius:12px;
+    border:1px solid #e4e6ed;
 }
 
-
-/* ================= TECHNOLOGY ================= */
-
-.tech-section{
-    background:#f7f8fc;
+.module-content{
+    padding:24px;
 }
 
-.tech-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:20px;
+.module-number{
+    color:#673de6;
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:2px;
 }
 
-.tech-card{
-    padding:30px;
-    background:white;
-    border:1px solid #e5e5eb;
-    border-radius:18px;
-}
-
-.tech-card h2{
+.module-content h3{
     font-size:22px;
-    margin-bottom:15px;
+    margin:5px 0 8px;
 }
 
-.tech-list{
-    display:flex;
-    flex-wrap:wrap;
-    gap:10px;
+.module-content p{
+    color:#697181;
+    font-size:13px;
 }
 
-.tech{
-    padding:9px 14px;
-    border-radius:9px;
-    background:#f0edff;
+.module-content ul{
+    margin:14px 0 0 18px;
+    color:#5f6775;
+    font-size:12px;
+}
+
+.module-content li{
+    margin:5px 0;
+}
+
+.module-btn{
+    display:inline-block;
+    margin-top:15px;
     color:#673de6;
     font-size:12px;
-    font-weight:700;
+    font-weight:800;
+}
+
+
+/* ================= FULL WIDTH FEATURE ================= */
+
+.full-module{
+    padding:80px 0;
+}
+
+.full-card{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:35px;
+    align-items:center;
+    padding:25px;
+    border:1px solid #e4e4ea;
+    border-radius:24px;
+    background:#ffffff;
+    box-shadow:0 12px 40px rgba(20,20,50,.04);
+}
+
+.full-card img{
+    width:100%;
+    height:350px;
+    object-fit:cover;
+    object-position:top;
+    border-radius:15px;
+    border:1px solid #e5e5eb;
+}
+
+.full-content{
+    padding:20px;
+}
+
+.full-content span{
+    color:#673de6;
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:2px;
+}
+
+.full-content h2{
+    font-size:34px;
+    margin:7px 0 12px;
+}
+
+.full-content p{
+    color:#687080;
+    font-size:14px;
+}
+
+.full-content ul{
+    margin:18px 0 0 18px;
+    color:#5e6674;
+    font-size:13px;
+}
+
+.full-content li{
+    margin:7px 0;
 }
 
 
 /* ================= CTA ================= */
 
 .cta{
-    padding:65px 20px;
-    background:linear-gradient(135deg,#101a46,#25206d);
-    color:white;
-    text-align:center;
+    padding:80px 0;
 }
 
-.cta h2{
+.cta-box{
+    text-align:center;
+    padding:55px 25px;
+    border-radius:25px;
+
+    background:
+        radial-gradient(circle at 50% 0%,
+        rgba(255,255,255,.2),
+        transparent 40%),
+        linear-gradient(135deg,#673de6,#168fff);
+
+    color:#ffffff;
+}
+
+.cta-box img{
+    width:58px;
+    height:58px;
+    object-fit:contain;
+    margin:0 auto 15px;
+    background:#ffffff;
+    border-radius:14px;
+    padding:5px;
+}
+
+.cta-box h2{
     font-size:34px;
     margin-bottom:10px;
 }
 
-.cta p{
-    color:#d4d7e8;
+.cta-box p{
     max-width:650px;
-    margin:0 auto 22px;
+    margin:auto;
+    opacity:.9;
     font-size:14px;
+}
+
+.cta-btn{
+    display:inline-block;
+    margin-top:23px;
+    background:#ffffff;
+    color:#673de6;
+    padding:12px 23px;
+    border-radius:10px;
+    font-size:13px;
+    font-weight:800;
 }
 
 
 /* ================= FOOTER ================= */
 
 footer{
-    background:#071225;
-    color:white;
+    padding:45px 20px 30px;
     text-align:center;
-    padding:40px 20px 25px;
+    background:#fafafa;
+    border-top:1px solid #eeeeee;
 }
 
 .footer-logo{
@@ -442,19 +531,20 @@ footer{
     justify-content:center;
     align-items:center;
     gap:9px;
-    font-size:18px;
+    font-size:19px;
     font-weight:800;
-    margin-bottom:10px;
+    margin-bottom:9px;
 }
 
 .footer-logo img{
     width:32px;
     height:32px;
     object-fit:contain;
+    border-radius:8px;
 }
 
 footer p{
-    color:#aeb6c8;
+    color:#777f8d;
     font-size:11px;
 }
 
@@ -463,19 +553,19 @@ footer p{
     justify-content:center;
     flex-wrap:wrap;
     gap:20px;
-    margin:18px 0;
+    margin:17px 0;
+    color:#673de6;
     font-size:12px;
-    color:#c8cce0;
 }
 
 .footer-links a:hover{
-    color:white;
+    text-decoration:underline;
 }
 
 
 /* ================= MOBILE ================= */
 
-@media(max-width:800px){
+@media(max-width:850px){
 
     .navbar{
         padding:0 16px;
@@ -492,54 +582,86 @@ footer p{
         display:none;
     }
 
-    .hero{
-        padding:65px 18px;
+    .feature-grid{
+        grid-template-columns:repeat(2,1fr);
     }
 
-    .hero-grid{
-        grid-template-columns:1fr;
-        gap:35px;
-    }
-
-    .hero h1{
-        font-size:47px;
-    }
-
-    .features{
+    .module-grid{
         grid-template-columns:1fr;
     }
 
-    .modules{
-        grid-template-columns:1fr 1fr;
-    }
-
-    .why{
+    .full-card{
         grid-template-columns:1fr;
-    }
-
-    .tech-grid{
-        grid-template-columns:1fr;
-    }
-
-    .section{
-        padding:60px 0;
     }
 
 }
 
-@media(max-width:500px){
+@media(max-width:600px){
 
-    .modules{
+    .navbar{
+        height:60px;
+    }
+
+    .logo{
+        font-size:16px;
+    }
+
+    .logo img{
+        width:32px;
+        height:32px;
+    }
+
+    .hero{
+        padding:65px 17px 55px;
+    }
+
+    .hero-logo{
+        width:65px;
+        height:65px;
+    }
+
+    .hero h1{
+        font-size:43px;
+    }
+
+    .hero p{
+        font-size:14px;
+    }
+
+    .language-box{
         grid-template-columns:1fr;
     }
 
-    .hero-buttons{
-        flex-direction:column;
+    .feature-grid{
+        grid-template-columns:1fr;
     }
 
-    .primary-btn,
-    .secondary-btn{
-        justify-content:center;
+    .intro-card{
+        padding:24px;
+    }
+
+    .module-image img{
+        height:210px;
+    }
+
+    .full-card{
+        padding:15px;
+    }
+
+    .full-card img{
+        height:230px;
+    }
+
+    .full-content{
+        padding:10px;
+    }
+
+    .full-content h2{
+        font-size:27px;
+    }
+
+    .cta-box h2{
+        font-size:27px;
     }
 
 }
@@ -558,29 +680,37 @@ footer p{
 
     <a href="index.html" class="logo">
 
-        <img
-            src="assets/kopersay2.png"
-            alt="Kopersay Technologies Logo"
-        >
+        <img src="assets/kopersay2.png"
+             alt="Kopersay Technologies Logo">
 
-        Kopersay Technologies
+        Kopersay
 
     </a>
 
 
     <div class="nav-links">
 
-        <a href="index.html">Home</a>
+        <a href="index.html">
+            Home
+        </a>
 
-        <a href="products.html">Products</a>
+        <a href="products.html">
+            Products
+        </a>
 
-        <a href="#features">Features</a>
+        <a href="about.html">
+            About
+        </a>
 
-        <a href="#demo">Demo</a>
+        <a href="vision.html">
+            Vision
+        </a>
 
-        <a href="#modules">Modules</a>
+        <a href="why-kopersay.html">
+            Why Kopersay
+        </a>
 
-        <a href="contact.html" class="nav-contact">
+        <a href="contact.html" class="contact-nav">
             Contact
         </a>
 
@@ -594,77 +724,118 @@ footer p{
 
 <section class="hero">
 
+    <img
+        src="assets/kopersay2.png"
+        alt="Kopersay Technologies Logo"
+        class="hero-logo"
+    >
+
+    <span class="badge">
+        KOPERSAY TECHNOLOGIES
+    </span>
+
+    <h1>
+        Kopersay
+        <span class="gradient">
+            WMS
+        </span>
+    </h1>
+
+    <p>
+        A modern Warehouse Management System designed to help
+        businesses manage warehouses, inventory, employees,
+        inward operations, outward dispatches and reports
+        from one centralized platform.
+    </p>
+
+
+    <div class="hero-buttons">
+
+        <a href="#modules" class="primary-btn">
+            Explore WMS
+        </a>
+
+        <a href="contact.html" class="secondary-btn">
+            Request a Demo
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= INTRO ================= -->
+
+<section class="intro">
+
     <div class="container">
 
-        <div class="hero-grid">
+        <div class="section-heading">
+
+            <span>ABOUT KOPERSAY WMS</span>
+
+            <h2>
+                Warehouse Operations, Simplified.
+            </h2>
+
+            <p>
+                Manage your warehouse operations through a
+                centralized and organized system.
+            </p>
+
+        </div>
 
 
-            <div>
+        <div class="intro-card">
 
-                <span class="badge">
-                    KOPERSAY TECHNOLOGIES
-                </span>
+            <h3>
+                What is Kopersay WMS?
+            </h3>
 
-                <h1>
-                    Kopersay
-                    <span class="gradient">
-                        WMS
-                    </span>
-                </h1>
+            <p>
+                Kopersay WMS is a Warehouse Management System
+                designed to provide businesses with a structured
+                platform for managing inventory, warehouses,
+                employees, inward receipts, outward dispatches
+                and operational reports.
+            </p>
 
-                <h2>
-                    Smart Warehouse Management System
-                </h2>
+            <div class="language-box">
 
-                <p>
+                <div class="language">
 
                     <strong>
-                        स्मार्ट वेयरहाउस मैनेजमेंट सिस्टम
+                        English
                     </strong>
-                    <br>
 
-                    Kopersay WMS आपके warehouse के
-                    inventory, inbound, outbound, orders
-                    और daily operations को एक ही platform
-                    से manage करने में मदद करता है।
+                    <p>
+                        Kopersay WMS helps businesses organize
+                        warehouse operations, track inventory,
+                        manage stock movements and monitor
+                        important warehouse activities from
+                        one platform.
+                    </p>
 
-                    <br><br>
-
-                    Kopersay WMS is designed to simplify
-                    warehouse operations, improve inventory
-                    visibility and make business processes
-                    faster and more organized.
-
-                </p>
+                </div>
 
 
-                <div class="hero-buttons">
+                <div class="language">
 
-                    <a href="#demo" class="primary-btn">
-                        ▶ Watch Demo
-                    </a>
+                    <strong>
+                        हिंदी
+                    </strong>
 
-                    <a href="contact.html" class="secondary-btn">
-                        Request Demo →
-                    </a>
+                    <p>
+                        Kopersay WMS एक आधुनिक Warehouse Management
+                        System है जो warehouse, inventory, employees,
+                        inward, outward और reports को एक ही platform
+                        से manage करने में मदद करता है।
+                    </p>
 
                 </div>
 
             </div>
-
-
-
-            <!-- DASHBOARD IMAGE -->
-
-            <div class="dashboard-preview">
-
-                <img
-                    src="assets/wms-demo.png"
-                    alt="Kopersay WMS Dashboard Demo"
-                >
-
-            </div>
-
 
         </div>
 
@@ -676,168 +847,167 @@ footer p{
 
 <!-- ================= FEATURES ================= -->
 
-<section class="section" id="features">
+<section class="features">
 
     <div class="container">
 
-        <div class="section-title">
+        <div class="section-heading">
 
-            <span>
-                FEATURES
-            </span>
+            <span>CORE FEATURES</span>
 
             <h2>
-                मुख्य विशेषताएँ / Key Features
+                Everything in One Platform
             </h2>
 
             <p>
-                Powerful features for modern warehouse operations.
+                Key capabilities of the Kopersay WMS platform.
             </p>
 
         </div>
 
 
-        <div class="features">
+        <div class="feature-grid">
 
 
-            <div class="feature">
+            <div class="feature-card">
 
-                <div class="icon">📦</div>
+                <div class="feature-icon">
+                    📦
+                </div>
 
                 <h3>
-                    Inventory Management
+                    Inventory
                 </h3>
 
-                <span class="hindi">
-                    इन्वेंटरी प्रबंधन
-                </span>
-
                 <p>
-                    Track stock, quantities, locations
-                    and inventory movement efficiently.
-                    <br><br>
-                    स्टॉक, quantity और warehouse location
-                    को आसानी से manage करें।
+                    Track stock quantities, item status,
+                    stock value and inventory movements.
                 </p>
 
             </div>
 
 
+            <div class="feature-card">
 
-            <div class="feature">
-
-                <div class="icon">🚚</div>
+                <div class="feature-icon">
+                    🏭
+                </div>
 
                 <h3>
-                    Inbound Management
+                    Warehouses
                 </h3>
 
-                <span class="hindi">
-                    इनबाउंड प्रबंधन
-                </span>
-
                 <p>
-                    Manage receiving and incoming goods
-                    with organized warehouse processes.
-                    <br><br>
-                    आने वाले सामान की receiving और entry
-                    को व्यवस्थित तरीके से manage करें।
+                    Manage multiple warehouses, locations,
+                    managers and warehouse status.
                 </p>
 
             </div>
 
 
+            <div class="feature-card">
 
-            <div class="feature">
-
-                <div class="icon">🚛</div>
+                <div class="feature-icon">
+                    🚚
+                </div>
 
                 <h3>
-                    Outbound Management
+                    Dispatch
                 </h3>
 
-                <span class="hindi">
-                    आउटबाउंड प्रबंधन
-                </span>
-
                 <p>
-                    Manage picking, packing, shipping
-                    and dispatch operations.
-                    <br><br>
-                    सामान की picking, packing और dispatch
-                    को आसानी से manage करें।
+                    Manage outward operations, dispatches,
+                    customers, vehicles and status.
                 </p>
 
             </div>
 
 
+            <div class="feature-card">
 
-            <div class="feature">
-
-                <div class="icon">▦</div>
+                <div class="feature-icon">
+                    📊
+                </div>
 
                 <h3>
-                    Barcode Support
+                    Reports
                 </h3>
 
-                <span class="hindi">
-                    बारकोड सपोर्ट
-                </span>
-
                 <p>
-                    Barcode-based workflows can make
-                    warehouse operations faster and accurate.
-                    <br><br>
-                    बारकोड के माध्यम से operations को
-                    तेज और व्यवस्थित किया जा सकता है।
+                    Analyze stock, inward, outward,
+                    warehouse activity and reports.
                 </p>
 
             </div>
 
 
+            <div class="feature-card">
 
-            <div class="feature">
-
-                <div class="icon">📊</div>
+                <div class="feature-icon">
+                    📥
+                </div>
 
                 <h3>
-                    Reports & Analytics
+                    Inward / GRN
                 </h3>
 
-                <span class="hindi">
-                    रिपोर्ट्स और एनालिटिक्स
-                </span>
-
                 <p>
-                    View useful reports and operational
-                    information for better decisions.
-                    <br><br>
-                    business decisions के लिए useful
-                    reports और analytics प्राप्त करें।
+                    Manage received goods, suppliers,
+                    invoices and GRN information.
                 </p>
 
             </div>
 
 
+            <div class="feature-card">
 
-            <div class="feature">
-
-                <div class="icon">👤</div>
+                <div class="feature-icon">
+                    👥
+                </div>
 
                 <h3>
-                    User Management
+                    Employees
                 </h3>
 
-                <span class="hindi">
-                    यूज़र प्रबंधन
-                </span>
+                <p>
+                    Organize employee information,
+                    roles, warehouses and status.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    🔔
+                </div>
+
+                <h3>
+                    Stock Alerts
+                </h3>
 
                 <p>
-                    Manage users, roles and permissions
-                    from a centralized system.
-                    <br><br>
-                    अलग-अलग users और उनके permissions
-                    को manage करें।
+                    Identify low-stock and out-of-stock
+                    inventory more easily.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    🔐
+                </div>
+
+                <h3>
+                    Secure Access
+                </h3>
+
+                <p>
+                    Provide structured access through
+                    administrative and staff login.
                 </p>
 
             </div>
@@ -851,363 +1021,475 @@ footer p{
 
 
 
-<!-- ================= DEMO ================= -->
+<!-- ================= MODULES ================= -->
 
-<section class="section demo-section" id="demo">
+<section class="modules" id="modules">
 
     <div class="container">
 
-        <div class="section-title">
+        <div class="section-heading">
 
-            <span>
-                FRONTEND DEMO
-            </span>
+            <span>WMS MODULES</span>
 
             <h2>
-                डेमो / WMS Frontend Preview
+                Explore Kopersay WMS
             </h2>
 
             <p>
-                A preview of the Kopersay WMS interface.
+                Preview the major modules and interfaces
+                included in the WMS product experience.
             </p>
 
         </div>
 
 
-        <div class="demo-box">
+        <div class="module-grid">
+
+
+            <!-- DASHBOARD -->
+
+            <div class="module-card">
+
+                <div class="module-image">
+
+                    <img
+                        src="assets/wms-dashboard.png"
+                        alt="Kopersay WMS Dashboard"
+                        loading="lazy"
+                    >
+
+                </div>
+
+                <div class="module-content">
+
+                    <span class="module-number">
+                        MODULE 01
+                    </span>
+
+                    <h3>
+                        Dashboard
+                    </h3>
+
+                    <p>
+                        A centralized overview of warehouse
+                        operations, inventory, orders and
+                        stock alerts.
+                    </p>
+
+                    <ul>
+                        <li>Total warehouses</li>
+                        <li>Total employees</li>
+                        <li>Total inventory</li>
+                        <li>Orders and dispatch</li>
+                        <li>Stock alerts</li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- INVENTORY -->
+
+            <div class="module-card">
+
+                <div class="module-image">
+
+                    <img
+                        src="assets/wms-inventory.png"
+                        alt="Kopersay WMS Inventory Management"
+                        loading="lazy"
+                    >
+
+                </div>
+
+                <div class="module-content">
+
+                    <span class="module-number">
+                        MODULE 02
+                    </span>
+
+                    <h3>
+                        Inventory Management
+                    </h3>
+
+                    <p>
+                        Organize inventory items and monitor
+                        stock quantities, status and value.
+                    </p>
+
+                    <ul>
+                        <li>Item management</li>
+                        <li>Stock quantity</li>
+                        <li>Low stock tracking</li>
+                        <li>Out-of-stock monitoring</li>
+                        <li>Warehouse-wise stock</li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- WAREHOUSE -->
+
+            <div class="module-card">
+
+                <div class="module-image">
+
+                    <img
+                        src="assets/wms-warehouse.png"
+                        alt="Kopersay WMS Warehouse Management"
+                        loading="lazy"
+                    >
+
+                </div>
+
+                <div class="module-content">
+
+                    <span class="module-number">
+                        MODULE 03
+                    </span>
+
+                    <h3>
+                        Warehouse Management
+                    </h3>
+
+                    <p>
+                        Manage warehouses, locations,
+                        managers and operational status.
+                    </p>
+
+                    <ul>
+                        <li>Warehouse list</li>
+                        <li>Warehouse code</li>
+                        <li>Location management</li>
+                        <li>Manager assignment</li>
+                        <li>Active / inactive status</li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- EMPLOYEES -->
+
+            <div class="module-card">
+
+                <div class="module-image">
+
+                    <img
+                        src="assets/wms-employees.png"
+                        alt="Kopersay WMS Employee Management"
+                        loading="lazy"
+                    >
+
+                </div>
+
+                <div class="module-content">
+
+                    <span class="module-number">
+                        MODULE 04
+                    </span>
+
+                    <h3>
+                        Employee Management
+                    </h3>
+
+                    <p>
+                        Organize employees, roles,
+                        warehouse assignments and status.
+                    </p>
+
+                    <ul>
+                        <li>Employee records</li>
+                        <li>Employee codes</li>
+                        <li>Roles</li>
+                        <li>Warehouse assignment</li>
+                        <li>Active / inactive status</li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- INWARD -->
+
+            <div class="module-card">
+
+                <div class="module-image">
+
+                    <img
+                        src="assets/wms-inward-grn.png"
+                        alt="Kopersay WMS Inward GRN"
+                        loading="lazy"
+                    >
+
+                </div>
+
+                <div class="module-content">
+
+                    <span class="module-number">
+                        MODULE 05
+                    </span>
+
+                    <h3>
+                        Inward / GRN
+                    </h3>
+
+                    <p>
+                        Manage incoming goods, supplier
+                        information, invoices and GRNs.
+                    </p>
+
+                    <ul>
+                        <li>Create GRN</li>
+                        <li>Supplier details</li>
+                        <li>Invoice information</li>
+                        <li>Received quantity</li>
+                        <li>GRN status</li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- OUTWARD -->
+
+            <div class="module-card">
+
+                <div class="module-image">
+
+                    <img
+                        src="assets/wms-outward-dispatch.png"
+                        alt="Kopersay WMS Outward Dispatch"
+                        loading="lazy"
+                    >
+
+                </div>
+
+                <div class="module-content">
+
+                    <span class="module-number">
+                        MODULE 06
+                    </span>
+
+                    <h3>
+                        Outward / Dispatch
+                    </h3>
+
+                    <p>
+                        Manage dispatch operations,
+                        customers, vehicles and deliveries.
+                    </p>
+
+                    <ul>
+                        <li>Create dispatch</li>
+                        <li>Customer details</li>
+                        <li>Vehicle information</li>
+                        <li>Dispatch quantity</li>
+                        <li>Dispatch status</li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- REPORTS -->
+
+            <div class="module-card">
+
+                <div class="module-image">
+
+                    <img
+                        src="assets/wms-reports.png"
+                        alt="Kopersay WMS Reports and Analytics"
+                        loading="lazy"
+                    >
+
+                </div>
+
+                <div class="module-content">
+
+                    <span class="module-number">
+                        MODULE 07
+                    </span>
+
+                    <h3>
+                        Reports & Analytics
+                    </h3>
+
+                    <p>
+                        Analyze warehouse activity,
+                        inventory trends and stock values.
+                    </p>
+
+                    <ul>
+                        <li>Inward vs outward</li>
+                        <li>Stock value trend</li>
+                        <li>Category analysis</li>
+                        <li>Warehouse summary</li>
+                        <li>Low stock alerts</li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- LOGIN -->
+
+            <div class="module-card">
+
+                <div class="module-image">
+
+                    <img
+                        src="assets/wms-login.png"
+                        alt="Kopersay WMS Login Screen"
+                        loading="lazy"
+                    >
+
+                </div>
+
+                <div class="module-content">
+
+                    <span class="module-number">
+                        MODULE 08
+                    </span>
+
+                    <h3>
+                        Login & Access
+                    </h3>
+
+                    <p>
+                        A structured login interface for
+                        accessing the WMS platform.
+                    </p>
+
+                    <ul>
+                        <li>Username login</li>
+                        <li>Password access</li>
+                        <li>Remember me</li>
+                        <li>Forgot password</li>
+                        <li>Admin / Staff access</li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= INVENTORY DETAILS ================= -->
+
+<section class="full-module">
+
+    <div class="container">
+
+        <div class="full-card">
 
             <img
-                src="assets/wms-demo.png"
-                alt="Kopersay WMS Frontend Preview"
+                src="assets/wms-inventory-details.png"
+                alt="Kopersay WMS Inventory Item Details"
+                loading="lazy"
             >
 
-            <div class="demo-caption">
 
-                Kopersay WMS Dashboard —
-                Inventory, Inbound, Outbound & Reports
+            <div class="full-content">
 
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- ================= MODULES ================= -->
-
-<section class="section" id="modules">
-
-    <div class="container">
-
-        <div class="section-title">
-
-            <span>
-                MODULES
-            </span>
-
-            <h2>
-                प्रमुख मॉड्यूल / Key Modules
-            </h2>
-
-            <p>
-                Core modules designed for warehouse operations.
-            </p>
-
-        </div>
-
-
-        <div class="modules">
-
-
-            <div class="module">
-                <h3>📊 Dashboard</h3>
-                <p>
-                    मुख्य warehouse information और
-                    important metrics एक जगह देखें।
-                </p>
-            </div>
-
-
-            <div class="module">
-                <h3>📦 Inventory</h3>
-                <p>
-                    Stock quantity, location और inventory
-                    movement manage करें।
-                </p>
-            </div>
-
-
-            <div class="module">
-                <h3>🚚 Inbound</h3>
-                <p>
-                    Receiving और incoming goods
-                    को manage करें।
-                </p>
-            </div>
-
-
-            <div class="module">
-                <h3>🚛 Outbound</h3>
-                <p>
-                    Picking, packing और dispatch
-                    operations manage करें।
-                </p>
-            </div>
-
-
-            <div class="module">
-                <h3>📋 Orders</h3>
-                <p>
-                    Warehouse orders को track और
-                    manage करने में सहायता।
-                </p>
-            </div>
-
-
-            <div class="module">
-                <h3>📈 Reports</h3>
-                <p>
-                    Stock और operational reports
-                    generate करें।
-                </p>
-            </div>
-
-
-            <div class="module">
-                <h3>👥 Users</h3>
-                <p>
-                    Users, roles और permissions
-                    manage करें।
-                </p>
-            </div>
-
-
-            <div class="module">
-                <h3>⚙️ Settings</h3>
-                <p>
-                    System configuration और
-                    operational settings।
-                </p>
-            </div>
-
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- ================= WHY WMS ================= -->
-
-<section class="section">
-
-    <div class="container">
-
-        <div class="section-title">
-
-            <span>
-                WHY KOPERSAY WMS
-            </span>
-
-            <h2>
-                हमारे साथ क्यों? / Why Choose Us?
-            </h2>
-
-            <p>
-                Built with simplicity, scalability and usability in mind.
-            </p>
-
-        </div>
-
-
-        <div class="why">
-
-
-            <div class="why-card">
-
-                <div class="icon">
-                    ⚡
-                </div>
-
-                <h3>
-                    Fast & Reliable
-                </h3>
-
-                <p>
-                    तेज और reliable warehouse workflows.
-                    <br>
-                    Fast and organized operations.
-                </p>
-
-            </div>
-
-
-            <div class="why-card">
-
-                <div class="icon">
-                    📈
-                </div>
-
-                <h3>
-                    Scalable
-                </h3>
-
-                <p>
-                    Business के बढ़ने के साथ system
-                    को scale किया जा सकता है।
-                </p>
-
-            </div>
-
-
-            <div class="why-card">
-
-                <div class="icon">
-                    🔒
-                </div>
-
-                <h3>
-                    Secure
-                </h3>
-
-                <p>
-                    User access और system controls
-                    को ध्यान में रखकर बनाया गया।
-                </p>
-
-            </div>
-
-
-            <div class="why-card">
-
-                <div class="icon">
-                    👍
-                </div>
-
-                <h3>
-                    Easy to Use
-                </h3>
-
-                <p>
-                    Simple और user-friendly interface
-                    के साथ।
-                </p>
-
-            </div>
-
-
-            <div class="why-card">
-
-                <div class="icon">
-                    ⚙️
-                </div>
-
-                <h3>
-                    Customizable
-                </h3>
-
-                <p>
-                    Business requirements के अनुसार
-                    customization possible।
-                </p>
-
-            </div>
-
-
-            <div class="why-card">
-
-                <div class="icon">
-                    💬
-                </div>
-
-                <h3>
-                    Support
-                </h3>
-
-                <p>
-                    Product और implementation support
-                    available।
-                </p>
-
-            </div>
-
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- ================= TECHNOLOGY ================= -->
-
-<section class="section tech-section">
-
-    <div class="container">
-
-        <div class="section-title">
-
-            <span>
-                TECHNOLOGY
-            </span>
-
-            <h2>
-                तकनीक / Technology
-            </h2>
-
-        </div>
-
-
-        <div class="tech-grid">
-
-
-            <div class="tech-card">
+                <span>
+                    INVENTORY DETAILS
+                </span>
 
                 <h2>
-                    Web Technologies
+                    Detailed Stock Visibility
                 </h2>
 
-                <div class="tech-list">
-
-                    <span class="tech">HTML5</span>
-                    <span class="tech">CSS3</span>
-                    <span class="tech">JavaScript</span>
-                    <span class="tech">Bootstrap</span>
-                    <span class="tech">jQuery</span>
-                    <span class="tech">PHP</span>
-
-                </div>
-
-            </div>
-
-
-
-            <div class="tech-card">
-
-                <h2>
-                    Languages / भाषाएँ
-                </h2>
-
-                <p style="font-size:13px;color:#707789;">
-
-                    यह product information Hindi और
-                    English दोनों भाषाओं में उपलब्ध हो सकती है।
-
-                    <br><br>
-
-                    Product interface और final features
-                    implementation के अनुसार अलग हो सकते हैं।
-
+                <p>
+                    The inventory detail interface provides
+                    deeper visibility into individual items,
+                    stock levels, warehouse distribution
+                    and item information.
                 </p>
 
+                <ul>
+                    <li>Item details and SKU</li>
+                    <li>Category and unit</li>
+                    <li>Stock value</li>
+                    <li>Reorder level</li>
+                    <li>Warehouse-wise stock</li>
+                    <li>Stock history</li>
+                </ul>
+
             </div>
 
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= DASHBOARD OVERVIEW ================= -->
+
+<section class="full-module">
+
+    <div class="container">
+
+        <div class="full-card">
+
+            <div class="full-content">
+
+                <span>
+                    BUSINESS OVERVIEW
+                </span>
+
+                <h2>
+                    Monitor Operations at a Glance
+                </h2>
+
+                <p>
+                    The WMS dashboard brings important
+                    warehouse information together so
+                    administrators can quickly understand
+                    current operations.
+                </p>
+
+                <ul>
+                    <li>Inventory summary</li>
+                    <li>Inventory trends</li>
+                    <li>Recent activities</li>
+                    <li>Stock alerts</li>
+                    <li>System status</li>
+                </ul>
+
+            </div>
+
+
+            <img
+                src="assets/wms-dashboard-overview.png"
+                alt="Kopersay WMS Business Dashboard Overview"
+                loading="lazy"
+            >
 
         </div>
 
@@ -1223,24 +1505,31 @@ footer p{
 
     <div class="container">
 
-        <h2>
-            Ready to Improve Your Warehouse?
-        </h2>
+        <div class="cta-box">
 
-        <p>
-            अपने warehouse operations को ज्यादा
-            organized और efficient बनाने के लिए
-            Kopersay WMS के बारे में जानें।
-            <br>
-            Explore Kopersay WMS and discuss your requirements with us.
-        </p>
+            <img
+                src="assets/kopersay2.png"
+                alt="Kopersay Technologies"
+            >
 
-        <a
-            href="contact.html"
-            class="primary-btn"
-        >
-            Request a Demo →
-        </a>
+            <h2>
+                Interested in Kopersay WMS?
+            </h2>
+
+            <p>
+                Get in touch with Kopersay Technologies
+                to learn more about the WMS solution,
+                product capabilities and demo options.
+            </p>
+
+            <a
+                href="contact.html"
+                class="cta-btn"
+            >
+                Contact Kopersay
+            </a>
+
+        </div>
 
     </div>
 
@@ -1279,24 +1568,20 @@ footer p{
             Products
         </a>
 
-        <a href="apps.html">
-            Apps
+        <a href="wmsdetails.html">
+            Kopersay WMS
         </a>
 
         <a href="about.html">
             About
         </a>
 
+        <a href="vision.html">
+            Vision
+        </a>
+
         <a href="contact.html">
             Contact
-        </a>
-
-        <a href="terms.html">
-            Terms & Conditions
-        </a>
-
-        <a href="privacy.html">
-            Privacy Policy
         </a>
 
     </div>
