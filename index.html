@@ -370,86 +370,6 @@ section{
     margin-top:5px;
 }
 
-      <!-- ================= KOPERSAY WMS ================= -->
-
-<section class="wms-special">
-
-    <div class="wms-special-box">
-
-        <div class="wms-special-content">
-
-            <span class="wms-special-badge">
-                SPECIALIZED SOFTWARE
-            </span>
-
-            <h2>
-                Kopersay
-                <span>WMS</span>
-            </h2>
-
-            <div class="wms-special-subtitle">
-                Warehouse Management System
-            </div>
-
-            <p>
-
-                <strong>
-                    स्मार्ट वेयरहाउस मैनेजमेंट सिस्टम
-                </strong>
-
-                <br><br>
-
-                Kopersay WMS एक dedicated warehouse
-                management software है जो Inventory,
-                Inbound, Outbound, Orders और Reports
-                को एक ही platform पर manage करने में
-                मदद करता है।
-
-                <br><br>
-
-                A specialized software solution developed
-                by Kopersay Technologies for modern
-                warehouse operations.
-
-            </p>
-
-            <div class="wms-special-buttons">
-
-                <a
-                    href="wmsdetails.html"
-                    class="wms-view-btn"
-                >
-                    Explore Kopersay WMS →
-                </a>
-
-                <a
-                    href="contact.html"
-                    class="wms-contact-btn"
-                >
-                    Request Demo
-                </a>
-
-            </div>
-
-        </div>
-
-
-        <div class="wms-preview">
-
-            <img
-                src="assets/wms-demo.png"
-                alt="Kopersay WMS Warehouse Management Software Dashboard"
-            >
-
-        </div>
-
-    </div>
-
-    <div class="wms-special-note">
-        Kopersay WMS — Specialized Software by Kopersay Technologies
-    </div>
-
-</section>
 
 
 /* ================= PRODUCTS ================= */
@@ -1099,6 +1019,138 @@ footer{
         padding:35px 15px 25px;
     }
 }
+      /* ================= WMS SPECIAL SOFTWARE ================= */
+
+.wms-special{
+    max-width:1100px;
+    margin:15px auto 35px;
+    padding:0 18px;
+}
+
+.wms-special-box{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+    align-items:center;
+    padding:35px;
+    border-radius:22px;
+    background:
+        radial-gradient(
+            circle at 90% 20%,
+            rgba(32,169,255,.18),
+            transparent 35%
+        ),
+        linear-gradient(135deg,#080f2b,#181451);
+    color:white;
+    box-shadow:0 15px 45px rgba(30,25,90,.16);
+}
+
+.wms-special-content{
+    position:relative;
+    z-index:2;
+}
+
+.wms-special-badge{
+    display:inline-block;
+    padding:5px 11px;
+    border:1px solid rgba(255,255,255,.3);
+    border-radius:30px;
+    color:white;
+    font-size:9px;
+    font-weight:800;
+    letter-spacing:2px;
+    margin-bottom:12px;
+}
+
+.wms-special h2{
+    font-size:34px;
+    line-height:1.1;
+    margin-bottom:8px;
+}
+
+.wms-special h2 span{
+    background:linear-gradient(90deg,#8b6cff,#26b7ff);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+}
+
+.wms-special-subtitle{
+    font-size:16px;
+    font-weight:700;
+    margin-bottom:10px;
+}
+
+.wms-special p{
+    color:#c9d0df;
+    font-size:12px;
+    max-width:500px;
+    margin-bottom:18px;
+}
+
+.wms-special-buttons{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+}
+
+.wms-view-btn{
+    display:inline-block;
+    padding:10px 17px;
+    border-radius:9px;
+    background:linear-gradient(135deg,#7045ff,#299cff);
+    color:white;
+    font-size:12px;
+    font-weight:800;
+}
+
+.wms-contact-btn{
+    display:inline-block;
+    padding:10px 17px;
+    border-radius:9px;
+    border:1px solid rgba(255,255,255,.3);
+    color:white;
+    font-size:12px;
+    font-weight:700;
+}
+
+.wms-preview{
+    padding:9px;
+    border-radius:15px;
+    background:white;
+    box-shadow:0 15px 35px rgba(0,0,0,.25);
+}
+
+.wms-preview img{
+    width:100%;
+    display:block;
+    border-radius:9px;
+}
+
+.wms-special-note{
+    margin-top:9px;
+    text-align:center;
+    color:#72798a;
+    font-size:10px;
+}
+
+@media(max-width:700px){
+
+    .wms-special{
+        padding:0 13px;
+    }
+
+    .wms-special-box{
+        grid-template-columns:1fr;
+        padding:25px 20px;
+        gap:22px;
+    }
+
+    .wms-special h2{
+        font-size:29px;
+    }
+
+}
 
 </style>
 </head>
@@ -1325,6 +1377,67 @@ footer{
     </div>
 
 </div>
+
+      <!-- ================= KOPERSAY WMS SPECIAL SOFTWARE ================= -->
+
+<section class="wms-special">
+
+    <div class="wms-special-box">
+
+        <div class="wms-special-content">
+
+            <span class="wms-special-badge">
+                SPECIALIZED SOFTWARE
+            </span>
+
+            <h2>
+                Kopersay <span>WMS</span>
+            </h2>
+
+            <div class="wms-special-subtitle">
+                Warehouse Management System
+            </div>
+
+            <p>
+                स्मार्ट वेयरहाउस मैनेजमेंट सिस्टम — Inventory,
+                Inbound, Outbound, Orders और Reports को एक ही
+                platform पर manage करने के लिए बनाया गया
+                dedicated software.
+                <br><br>
+                A specialized warehouse management solution
+                developed by Kopersay Technologies.
+            </p>
+
+            <div class="wms-special-buttons">
+
+                <a href="wmsdetails.html" class="wms-view-btn">
+                    Explore Kopersay WMS →
+                </a>
+
+                <a href="contact.html" class="wms-contact-btn">
+                    Request Demo
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="wms-preview">
+
+            <img
+                src="assets/wms-demo.png"
+                alt="Kopersay WMS Software Dashboard"
+            >
+
+        </div>
+
+    </div>
+
+    <div class="wms-special-note">
+        Kopersay WMS — Specialized Software by Kopersay Technologies
+    </div>
+
+</section>
 
 
 
