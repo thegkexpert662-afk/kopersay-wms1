@@ -92,14 +92,19 @@ a{
 .nav-links{
     display:flex;
     align-items:center;
-    gap:35px;
+    gap:0;
 }
 
 .nav-links a{
     color:#555b6d;
-
     font-size:14px;
     font-weight:600;
+    margin-right:28px;
+    white-space:nowrap;
+}
+
+.nav-links a:last-child{
+    margin-right:0;
 }
 
 .nav-links a:hover{
