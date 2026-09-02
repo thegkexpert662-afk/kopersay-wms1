@@ -21,46 +21,49 @@ jobs:
       - name: Run SEO audit
         shell: bash
         run: |
-          set -e
+          set -euo pipefail
           python3 <<'PY'
           from pathlib import Path
           import re
           from datetime import datetime, timezone
 
-          root = Path('.')
-          pages = sorted(root.glob('*.html'))
-          lines = []
-          issues = []
-          lines.append('# Kopersay Technologies SEO Audit')
-          lines.append('')
-          lines.append(f'Generated: {datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")}')
-          lines.append('')
-          lines.append('| Page | Title | Description | Canonical | H1 | Images with ALT | Issues |')
-          lines.append('|---|---:|---:|---:|---:|---:|---|')
+          pages = sorted(Path('.').glob('*.html'))
+          lines = [
+              '# Kopersay Technologies SEO Audit', '',
+              f'Generated: {datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")}', '',
+              '| Page | Title | Description | Canonical | H1 | Images with ALT | Issues |',
+              '|---|---:|---:|---:|---:|---:|---|'
+          ]
+          total_issues = 0
 
           for p in pages:
               s = p.read_text(encoding='utf-8', errors='ignore')
-              title_count = len(re.findall(r'<title\\b[^>]*>.*?</title>', s, re.I|re.S))
-              desc_count = len(re.findall(r'<meta\\b[^>]*name=["\\\']description["\\\'][^>]*>', s, re.I))
-              canonical_count = len(re.findall(r'<link\\b[^>]*rel=["\\\']canonical["\\\'][^>]*>', s, re.I))
-              h1_count = len(re.findall(r'<h1\\b[^>]*>', s, re.I))
-              imgs = re.findall(r'<img\\b[^>]*>', s, re.I)
-              missing_alt = sum(1 for img in imgs if not re.search(r'\\balt=["\\\'][^"\\\']*["\\\']', img, re.I))
+              title_count = len(re.findall(r'<title\b[^>]*>.*?</title>', s, re.I | re.S))
+              desc_count = len(re.findall(r'<meta\b[^>]*name=["\']description["\'][^>]*>', s, re.I))
+              canonical_count = len(re.findall(r'<link\b[^>]*rel=["\']canonical["\'][^>]*>', s, re.I))
+              h1_count = len(re.findall(r'<h1\b[^>]*>', s, re.I))
+              imgs = re.findall(r'<img\b[^>]*>', s, re.I)
+              missing_alt = sum(1 for img in imgs if not re.search(r'\balt=["\'][^"\']*["\']', img, re.I))
+
               page_issues = []
               if title_count != 1: page_issues.append(f'title x{title_count}')
               if desc_count != 1: page_issues.append(f'description x{desc_count}')
               if canonical_count != 1: page_issues.append(f'canonical x{canonical_count}')
               if h1_count == 0: page_issues.append('missing H1')
               if missing_alt: page_issues.append(f'{missing_alt} image(s) missing ALT')
-              issues.extend((p.name, x) for x in page_issues)
-              lines.append(f'| `{p.name}` | {"OK" if title_count==1 else "FIX"} | {"OK" if desc_count==1 else "FIX"} | {"OK" if canonical_count==1 else "FIX"} | {h1_count} | {len(imgs)-missing_alt}/{len(imgs)} | {"; ".join(page_issues) if page_issues else "OK"} |')
+              total_issues += len(page_issues)
 
-          lines.append('')
-          lines.append(f'**Pages checked:** {len(pages)}')
-          lines.append(f'**Issues found:** {len(issues)}')
-          lines.append('')
-          lines.append('This workflow audits repository HTML every 10 minutes and commits a new report only when the report changes.')
-          Path('seo-report.md').write_text('\\n'.join(lines) + '\\n', encoding='utf-8')
+              lines.append(
+                  f'| `{p.name}` | {"OK" if title_count == 1 else "FIX"} | '
+                  f'{"OK" if desc_count == 1 else "FIX"} | '
+                  f'{"OK" if canonical_count == 1 else "FIX"} | {h1_count} | '
+                  f'{len(imgs)-missing_alt}/{len(imgs)} | '
+                  f'{"; ".join(page_issues) if page_issues else "OK"} |'
+              )
+
+          lines += ['', f'**Pages checked:** {len(pages)}', f'**Issues found:** {total_issues}', '',
+                    'This workflow audits repository HTML every 10 minutes and updates this report when needed.']
+          Path('seo-report.md').write_text('\n'.join(lines) + '\n', encoding='utf-8')
           PY
 
       - name: Commit SEO report if changed
