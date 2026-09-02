@@ -817,6 +817,18 @@ footer p{
 
 }
 
+
+/* KOPERSAY SHARED BRANDING */
+.brand img, .logo img { height:48px; width:auto; display:block; }
+.footer-logo img, .footer-brand img { height:45px; width:auto; display:block; margin:0 auto 10px; }
+.nav-links { gap:0 !important; }
+.nav-links > a { margin-right:28px; white-space:nowrap; }
+.nav-links > a:last-child { margin-right:0; }
+@media (max-width:850px) {
+  .brand img, .logo img { height:40px; }
+  .nav-links { gap:0 !important; }
+  .nav-links > a { margin-right:0; }
+}
 </style>
 
 </head>
@@ -829,15 +841,7 @@ footer p{
 
 <nav class="navbar">
 
-<a href="index.html" class="brand">
-
-<div class="brand-logo">
-K
-</div>
-
-Kopersay
-
-</a>
+<a href="index.html" class="brand"><img src="assets/kopersay2.png" alt="Kopersay Technologies Logo"></a>
 
 
 <div class="nav-links">
@@ -1196,9 +1200,7 @@ class="back-btn">
 
 <footer>
 
-<div class="footer-logo">
-Kopersay Technologies
-</div>
+<div class="footer-logo"><img src="assets/kopersay2.png" alt="Kopersay Technologies Logo"></div>
 
 <p>
 Building smart applications and digital solutions
