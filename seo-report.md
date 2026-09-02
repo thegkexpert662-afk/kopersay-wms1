@@ -1,1 +1,40 @@
-# Kopersay Technologies SEO Audit\n\nGenerated: 2026-09-02 07:02 UTC\n\n| Page | Title | Description | Canonical | H1 | Images with ALT | Issues |\n|---|---:|---:|---:|---:|---:|---|\n| `about.html` | FIX | FIX | FIX | 0 | 0/0 | title x0; description x0; canonical x0; missing H1 |\n| `app-development.html` | FIX | FIX | FIX | 0 | 0/0 | title x0; description x0; canonical x0; missing H1 |\n| `application-development.html` | FIX | FIX | FIX | 0 | 0/0 | title x0; description x0; canonical x0; missing H1 |\n| `apps.html` | FIX | FIX | FIX | 0 | 0/0 | title x0; description x0; canonical x0; missing H1 |\n| `business-software.html` | FIX | FIX | FIX | 0 | 0/0 | title x0; description x0; canonical x0; missing H1 |\n| `contact.html` | FIX | FIX | FIX | 0 | 0/0 | title x0; description x0; canonical x0; missing H1 |\n| `cookmitra.html` | FIX | FIX | FIX | 0 | 0/0 | title x0; description x0; canonical x0; missing H1 |\n| `hrms.html` | FIX | FIX | FIX | 0 | 0/0 | title x0; description x0; canonical x0; missing H1 |\n| `index.html` | FIX | FIX | FIX | 0 | 0/0 | title x0; description x0; canonical x0; missing H1 |\n| `kopsay-qr.html` | FIX | FIX | FIX | 0 | 0/0 | title x0; description x0; canonical x0; missing H1 |\n| `navnita_slider_snippet.html` | FIX | FIX | FIX | 0 | 0/0 | title x0; description x0; canonical x0; missing H1 |\n| `privacy.html` | FIX | FIX | FIX | 0 | 0/0 | title x0; description x0; canonical x0; missing H1 |\n| `products.html` | FIX | FIX | FIX | 0 | 0/0 | title x0; description x0; canonical x0; missing H1 |\n| `services.html` | FIX | FIX | FIX | 0 | 0/0 | title x0; description x0; canonical x0; missing H1 |\n| `snappazzel.html` | FIX | FIX | FIX | 0 | 0/0 | title x0; description x0; canonical x0; missing H1 |\n| `software-development.html` | FIX | FIX | FIX | 0 | 0/0 | title x0; description x0; canonical x0; missing H1 |\n| `terms.html` | FIX | FIX | FIX | 0 | 0/0 | title x0; description x0; canonical x0; missing H1 |\n| `videomitra.html` | FIX | FIX | FIX | 0 | 0/0 | title x0; description x0; canonical x0; missing H1 |\n| `vision.html` | FIX | FIX | FIX | 0 | 0/0 | title x0; description x0; canonical x0; missing H1 |\n| `why-kopersay.html` | FIX | FIX | FIX | 0 | 0/0 | title x0; description x0; canonical x0; missing H1 |\n| `wms-dashboard.html` | FIX | FIX | FIX | 0 | 0/0 | title x0; description x0; canonical x0; missing H1 |\n| `wms-employees.html` | FIX | FIX | FIX | 0 | 0/0 | title x0; description x0; canonical x0; missing H1 |\n| `wms-inventory.html` | FIX | FIX | FIX | 0 | 0/0 | title x0; description x0; canonical x0; missing H1 |\n| `wms-inward.html` | FIX | FIX | FIX | 0 | 0/0 | title x0; description x0; canonical x0; missing H1 |\n| `wms-login.html` | FIX | FIX | FIX | 0 | 0/0 | title x0; description x0; canonical x0; missing H1 |\n| `wms-reports.html` | FIX | FIX | FIX | 0 | 0/0 | title x0; description x0; canonical x0; missing H1 |\n| `wms-warehouse.html` | FIX | FIX | FIX | 0 | 0/0 | title x0; description x0; canonical x0; missing H1 |\n| `wms.html` | FIX | FIX | FIX | 0 | 0/0 | title x0; description x0; canonical x0; missing H1 |\n| `wmsdetails.html` | FIX | FIX | FIX | 0 | 0/0 | title x0; description x0; canonical x0; missing H1 |\n\n**Pages checked:** 29\n**Issues found:** 116\n\nThis workflow audits repository HTML every 10 minutes and commits a new report only when the report changes.\n
+# Kopersay Technologies SEO Audit
+
+Generated: 2026-09-02 07:03 UTC
+
+| Page | Title | Description | Canonical | H1 | Images with ALT | Issues |
+|---|---:|---:|---:|---:|---:|---|
+| `about.html` | OK | OK | OK | 1 | 3/3 | OK |
+| `app-development.html` | OK | OK | OK | 1 | 1/1 | OK |
+| `application-development.html` | OK | OK | OK | 1 | 1/1 | OK |
+| `apps.html` | OK | OK | FIX | 1 | 5/5 | canonical x0 |
+| `business-software.html` | OK | OK | OK | 1 | 2/2 | OK |
+| `contact.html` | OK | OK | OK | 1 | 2/2 | OK |
+| `cookmitra.html` | OK | OK | OK | 1 | 3/3 | OK |
+| `hrms.html` | OK | OK | OK | 1 | 2/2 | OK |
+| `index.html` | OK | OK | OK | 1 | 5/5 | OK |
+| `kopsay-qr.html` | OK | OK | OK | 1 | 3/3 | OK |
+| `navnita_slider_snippet.html` | FIX | FIX | FIX | 0 | 1/1 | title x0; description x0; canonical x0; missing H1 |
+| `privacy.html` | OK | OK | OK | 1 | 2/2 | OK |
+| `products.html` | OK | OK | FIX | 1 | 1/1 | canonical x0 |
+| `services.html` | OK | OK | OK | 1 | 1/1 | OK |
+| `snappazzel.html` | OK | OK | OK | 1 | 2/2 | OK |
+| `software-development.html` | OK | OK | OK | 1 | 1/1 | OK |
+| `terms.html` | OK | OK | OK | 1 | 2/2 | OK |
+| `videomitra.html` | OK | OK | OK | 1 | 3/3 | OK |
+| `vision.html` | OK | OK | OK | 1 | 3/3 | OK |
+| `why-kopersay.html` | OK | OK | OK | 1 | 2/2 | OK |
+| `wms-dashboard.html` | OK | OK | FIX | 1 | 4/4 | canonical x0 |
+| `wms-employees.html` | OK | OK | OK | 1 | 5/5 | OK |
+| `wms-inventory.html` | OK | OK | OK | 1 | 6/6 | OK |
+| `wms-inward.html` | OK | OK | FIX | 1 | 4/4 | canonical x0 |
+| `wms-login.html` | OK | OK | FIX | 1 | 4/4 | canonical x0 |
+| `wms-reports.html` | OK | OK | FIX | 1 | 4/4 | canonical x0 |
+| `wms-warehouse.html` | OK | OK | OK | 1 | 4/4 | OK |
+| `wms.html` | OK | OK | FIX | 1 | 2/2 | canonical x0 |
+| `wmsdetails.html` | OK | OK | OK | 1 | 14/14 | OK |
+
+**Pages checked:** 29
+**Issues found:** 11
+
+This workflow audits repository HTML every 10 minutes and updates this report when needed.
