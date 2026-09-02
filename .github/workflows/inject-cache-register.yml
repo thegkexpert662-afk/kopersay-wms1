@@ -10,38 +10,48 @@ permissions:
 
 jobs:
   inject-cache:
+    if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Add cache registration to every HTML page
         shell: bash
         run: |
-          set -e
+          set -euo pipefail
           changed=0
           while IFS= read -r -d '' file; do
             if ! grep -q 'cache-register.js' "$file"; then
               python3 - "$file" <<'PY'
-import sys
-from pathlib import Path
+          import sys
+          from pathlib import Path
 
-p = Path(sys.argv[1])
-s = p.read_text(encoding='utf-8')
-marker = '</head>'
-script = '    <script src="cache-register.js"></script>\n'
-if marker in s:
-    s = s.replace(marker, script + marker, 1)
-    p.write_text(s, encoding='utf-8')
-PY
+          p = Path(sys.argv[1])
+          s = p.read_text(encoding='utf-8')
+          marker = '</head>'
+          script = '    <script src="cache-register.js"></script>\n'
+          if marker in s:
+              s = s.replace(marker, script + marker, 1)
+              p.write_text(s, encoding='utf-8')
+          PY
               changed=1
             fi
           done < <(find . -type f -name '*.html' -not -path './.git/*' -print0)
 
-          if [ "$changed" = "1" ]; then
-            git config user.name "github-actions[bot]"
-            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add '*.html'
-            git commit -m "Enable cache on all website pages" || true
-            git push
+          if [ "$changed" = "0" ]; then
+            echo "All HTML pages already have cache registration."
+            exit 0
           fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- '*.html'
+          if git diff --cached --quiet; then
+            echo "No cache changes to commit."
+            exit 0
+          fi
+          git commit -m "Enable cache on all website pages"
+          git push
