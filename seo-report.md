@@ -1,6 +1,6 @@
 # Kopersay Technologies SEO Audit
 
-Generated: 2026-09-02 19:29 UTC
+Generated: 2026-09-02 20:58 UTC
 
 | Page | Title | Description | Canonical | H1 | Images with ALT | Issues |
 |---|---:|---:|---:|---:|---:|---|
@@ -12,7 +12,7 @@ Generated: 2026-09-02 19:29 UTC
 | `contact.html` | OK | OK | OK | 1 | 2/2 | OK |
 | `cookmitra.html` | OK | OK | OK | 1 | 3/3 | OK |
 | `hrms.html` | OK | OK | OK | 1 | 2/2 | OK |
-| `index.html` | OK | OK | OK | 1 | 5/5 | OK |
+| `index.html` | OK | OK | OK | 1 | 4/4 | OK |
 | `kopsay-qr.html` | OK | OK | OK | 1 | 3/3 | OK |
 | `navnita_slider_snippet.html` | FIX | FIX | FIX | 0 | 1/1 | title x0; description x0; canonical x0; missing H1 |
 | `privacy.html` | OK | OK | OK | 1 | 2/2 | OK |
