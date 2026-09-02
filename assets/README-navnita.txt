@@ -1,0 +1,1 @@
+Add the approved portrait photo as assets/navnita-kumari.jpg before publishing the Navnita Kumari COO & MD slide.
