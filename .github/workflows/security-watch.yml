@@ -11,16 +11,20 @@ permissions:
   contents: read
   issues: write
 
+concurrency:
+  group: security-watch
+  cancel-in-progress: true
+
 jobs:
   security-audit:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
+      - name: Checkout full history
         uses: actions/checkout@v4
         with:
-          fetch-depth: 1
+          fetch-depth: 0
 
-      - name: Scan website for high-risk changes
+      - name: Run security audit
         id: scan
         shell: bash
         run: |
@@ -28,19 +32,24 @@ jobs:
           python3 <<'PY'
           from pathlib import Path
           import re
+          import subprocess
 
-          findings = []
           root = Path('.')
+          findings = []
 
+          def add(msg):
+              if msg not in findings:
+                  findings.append(msg)
+
+          # 1) Domain integrity
           cname = root / 'CNAME'
-          if cname.exists():
-              value = cname.read_text(encoding='utf-8', errors='ignore').strip().lower()
-              if value != 'kopersay.in':
-                  findings.append(f'CNAME changed unexpectedly: {value!r}')
-          else:
-              findings.append('CNAME file is missing')
+          if not cname.exists():
+              add('CNAME file is missing')
+          elif cname.read_text(encoding='utf-8', errors='ignore').strip().lower() != 'kopersay.in':
+              add('CNAME changed unexpectedly; expected kopersay.in')
 
-          text_ext = {'.html', '.htm', '.js', '.css', '.json', '.xml', '.txt', '.md', '.yml', '.yaml'}
+          # 2) Dangerous patterns / exposed credentials in text files
+          text_ext = {'.html', '.htm', '.js', '.css', '.json', '.xml', '.txt', '.md', '.yml', '.yaml', '.sh', '.py'}
           for p in root.rglob('*'):
               if not p.is_file() or '.git' in p.parts:
                   continue
@@ -49,23 +58,37 @@ jobs:
               s = p.read_text(encoding='utf-8', errors='ignore')
 
               if re.search(r'<script[^>]+src=["\']http://', s, re.I):
-                  findings.append(f'Insecure HTTP script source: {p}')
+                  add(f'Insecure HTTP script source: {p}')
               if re.search(r'<meta[^>]+http-equiv=["\']refresh["\']', s, re.I):
-                  findings.append(f'Unexpected meta refresh: {p}')
+                  add(f'Unexpected meta refresh: {p}')
               if re.search(r'javascript\s*:', s, re.I):
-                  findings.append(f'javascript: URL found: {p}')
+                  add(f'javascript: URL found: {p}')
               if re.search(r'\b(?:eval|new\s+Function)\s*\(', s, re.I):
-                  findings.append(f'Code execution pattern found: {p}')
+                  add(f'Dangerous code-execution pattern found: {p}')
               if re.search(r'(?:curl|wget)\s+[^\n]*(?:\||;\s*)(?:sh|bash)', s, re.I):
-                  findings.append(f'Remote shell execution pattern: {p}')
+                  add(f'Remote shell execution pattern found: {p}')
               if re.search(r'-----BEGIN (?:RSA |EC |OPENSSH |DSA )?PRIVATE KEY-----', s, re.I):
-                  findings.append(f'Private key material found: {p}')
+                  add(f'Private key material found: {p}')
               if re.search(r'gh[pousr]_[A-Za-z0-9_\-]{20,}', s):
-                  findings.append(f'Possible GitHub token found: {p}')
+                  add(f'Possible GitHub token found: {p}')
               if re.search(r'AKIA[0-9A-Z]{16}', s):
-                  findings.append(f'Possible AWS access key found: {p}')
+                  add(f'Possible AWS access key found: {p}')
+              if re.search(r'(?i)(api[_-]?key|secret|password|token)\s*[:=]\s*["\'][^"\']{12,}["\']', s):
+                  add(f'Possible hard-coded credential found: {p}')
 
-          findings = list(dict.fromkeys(findings))
+          # 3) Check recent repository changes (last 15 minutes)
+          try:
+              log = subprocess.check_output(
+                  ['git', 'log', '--since=15 minutes ago', '--name-only', '--pretty=format:%H %an %s'],
+                  text=True, stderr=subprocess.DEVNULL
+              )
+              suspicious_paths = re.compile(r'(^|/)(\.github/workflows/|CNAME$|\.env|.*\.pem$|.*\.key$)', re.I)
+              for line in log.splitlines():
+                  if suspicious_paths.search(line):
+                      add(f'Recent sensitive-path change: {line[:240]}')
+          except Exception:
+              pass
+
           Path('/tmp/security_findings.txt').write_text('\n'.join(findings), encoding='utf-8')
           print(f'Security findings: {len(findings)}')
           for item in findings:
@@ -81,9 +104,28 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          body="$(printf 'Automated security watch detected a potentially unsafe repository change.\n\nRun: %s\nCommit: %s\n\nFindings:\n\n%s\n\nReview the change before publishing further updates.' "${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}" "${GITHUB_SHA}" "$(cat /tmp/security_findings.txt)")"
-          if ! gh issue list --state open --search 'Security alert in:title' --json title --jq '.[].title' | grep -q '^Security alert'; then
+          body="$(printf 'Automated security audit detected a potentially unsafe website/repository condition.\n\nRun: %s\nCommit: %s\n\nFindings:\n\n%s\n\nReview the affected change before publishing further updates.' "${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}" "${GITHUB_SHA}" "$(cat /tmp/security_findings.txt)")"
+          if ! gh issue list --state open --search 'Security alert detected in:title' --json title --jq '.[].title' | grep -q '^Security alert detected'; then
             gh issue create --title "Security alert detected" --body "$body"
           else
-            echo "An open security alert already exists."
+            echo "An open security alert already exists; no duplicate issue created."
           fi
+
+      - name: Write audit summary
+        if: always()
+        shell: bash
+        run: |
+          {
+            echo '## Kopersay Security Audit'
+            echo ''
+            echo "- Repository: ${GITHUB_REPOSITORY}"
+            echo "- Commit: ${GITHUB_SHA}"
+            echo "- Result: ${{ steps.scan.outcome }}"
+            echo ''
+            if [ -s /tmp/security_findings.txt ]; then
+              echo '### Findings'
+              sed 's/^/- /' /tmp/security_findings.txt
+            else
+              echo 'No high-risk findings detected.'
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
