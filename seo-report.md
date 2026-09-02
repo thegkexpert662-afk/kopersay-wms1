@@ -1,6 +1,6 @@
 # Kopersay Technologies SEO Audit
 
-Generated: 2026-09-02 07:25 UTC
+Generated: 2026-09-02 07:26 UTC
 
 | Page | Title | Description | Canonical | H1 | Images with ALT | Issues |
 |---|---:|---:|---:|---:|---:|---|
@@ -31,10 +31,10 @@ Generated: 2026-09-02 07:25 UTC
 | `wms-login.html` | OK | OK | FIX | 1 | 4/4 | canonical x0 |
 | `wms-reports.html` | OK | OK | FIX | 1 | 4/4 | canonical x0 |
 | `wms-warehouse.html` | OK | OK | OK | 1 | 4/4 | OK |
-| `wms.html` | OK | OK | FIX | 1 | 2/2 | canonical x0 |
+| `wms.html` | OK | OK | OK | 1 | 13/13 | OK |
 | `wmsdetails.html` | OK | OK | OK | 1 | 14/14 | OK |
 
 **Pages checked:** 29
-**Issues found:** 11
+**Issues found:** 10
 
 This workflow audits repository HTML every 10 minutes and updates this report when needed.
