@@ -42,3 +42,6 @@ footer{background:rgba(15,30,52,.78)!important;backdrop-filter:blur(22px)!import
 .wms-special-box .wms-special-badge{display:inline-block!important;color:#fff!important;background:rgba(255,255,255,.12)!important;border:1px solid rgba(255,255,255,.45)!important;opacity:1!important;visibility:visible!important}
 .wms-special-box h2,.wms-special-box .wms-special-subtitle{color:#fff!important}
 .wms-special-box p{color:#d4def0!important}
+/* PRODUCTS PAGE — replace the placeholder giant K with the real Kopersay logo */
+.feature-box .visual{font-size:0!important;background-image:url('assets/kopersay2.png')!important;background-size:120px auto!important;background-position:center!important;background-repeat:no-repeat!important;background-color:#673cff!important;border-radius:22px!important;min-height:220px!important;display:grid!important;place-items:center!important;box-shadow:0 20px 50px rgba(103,60,255,.25)!important}
+@media(max-width:800px){.feature-box .visual{min-height:180px!important;background-size:105px auto!important}}
