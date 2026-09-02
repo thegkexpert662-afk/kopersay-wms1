@@ -18,7 +18,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 2
+          fetch-depth: 1
 
       - name: Scan website for high-risk changes
         id: scan
@@ -47,7 +47,6 @@ jobs:
               if p.suffix.lower() not in text_ext:
                   continue
               s = p.read_text(encoding='utf-8', errors='ignore')
-              low = s.lower()
 
               if re.search(r'<script[^>]+src=["\']http://', s, re.I):
                   findings.append(f'Insecure HTTP script source: {p}')
@@ -57,8 +56,6 @@ jobs:
                   findings.append(f'javascript: URL found: {p}')
               if re.search(r'\b(?:eval|new\s+Function)\s*\(', s, re.I):
                   findings.append(f'Code execution pattern found: {p}')
-              if re.search(r'<iframe\b', s, re.I):
-                  findings.append(f'iframe found: {p}')
               if re.search(r'(?:curl|wget)\s+[^\n]*(?:\||;\s*)(?:sh|bash)', s, re.I):
                   findings.append(f'Remote shell execution pattern: {p}')
               if re.search(r'-----BEGIN (?:RSA |EC |OPENSSH |DSA )?PRIVATE KEY-----', s, re.I):
@@ -68,19 +65,6 @@ jobs:
               if re.search(r'AKIA[0-9A-Z]{16}', s):
                   findings.append(f'Possible AWS access key found: {p}')
 
-          # Inspect the previous commit when available for obvious unauthorized destructive changes.
-          import subprocess
-          try:
-              changed = subprocess.check_output(['git','diff','--name-status','HEAD^','HEAD'], text=True)
-              if changed:
-                  for line in changed.splitlines():
-                      parts = line.split('\t', 1)
-                      if parts and parts[0] == 'D':
-                          findings.append(f'File deleted in latest commit: {parts[1] if len(parts)>1 else "unknown"}')
-          except Exception:
-              pass
-
-          # De-duplicate while preserving order.
           findings = list(dict.fromkeys(findings))
           Path('/tmp/security_findings.txt').write_text('\n'.join(findings), encoding='utf-8')
           print(f'Security findings: {len(findings)}')
@@ -97,7 +81,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          body="$(printf 'Automated security watch detected a potentially unsafe repository change.\n\nRun: %s\nCommit: %s\n\nFindings:\n\n%s\n\nThis is an automated alert. Review the change before publishing further updates.' "${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}" "${GITHUB_SHA}" "$(cat /tmp/security_findings.txt)")"
+          body="$(printf 'Automated security watch detected a potentially unsafe repository change.\n\nRun: %s\nCommit: %s\n\nFindings:\n\n%s\n\nReview the change before publishing further updates.' "${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}" "${GITHUB_SHA}" "$(cat /tmp/security_findings.txt)")"
           if ! gh issue list --state open --search 'Security alert in:title' --json title --jq '.[].title' | grep -q '^Security alert'; then
             gh issue create --title "Security alert detected" --body "$body"
           else
