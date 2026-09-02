@@ -1,0 +1,29 @@
+/* KOPERSAY — SHARED WATER GLASS THEME */
+:root{--water-blue:#35c9ff;--water-cyan:#67e8ff;--water-violet:#8b7cff;--glass:rgba(255,255,255,.48);--glass-strong:rgba(255,255,255,.68);--ink:#17304d}
+html{scroll-behavior:smooth}
+body{background:radial-gradient(circle at 8% 5%,rgba(77,214,255,.38),transparent 28%),radial-gradient(circle at 92% 10%,rgba(133,111,255,.30),transparent 28%),radial-gradient(circle at 50% 90%,rgba(79,202,255,.25),transparent 32%),linear-gradient(135deg,#dff9ff 0%,#f5f2ff 48%,#e4faff 100%)!important;color:var(--ink)!important;background-attachment:fixed!important;position:relative}
+body:before,body:after{content:"";position:fixed;pointer-events:none;z-index:-1;border-radius:50%;filter:blur(35px)}
+body:before{width:260px;height:260px;left:-80px;top:30%;background:rgba(255,255,255,.7);box-shadow:0 0 90px 35px rgba(80,210,255,.18)}
+body:after{width:340px;height:340px;right:-110px;bottom:5%;background:rgba(80,205,255,.22);box-shadow:0 0 110px 45px rgba(112,120,255,.14)}
+header,.navbar{background:rgba(255,255,255,.42)!important;backdrop-filter:blur(25px) saturate(180%)!important;-webkit-backdrop-filter:blur(25px) saturate(180%)!important;border-bottom:2px solid rgba(255,255,255,.86)!important;box-shadow:0 10px 35px rgba(36,120,170,.12)!important}
+.hero,.section,.story,.values,.products-section,.features,.mission,.about{background:transparent!important}
+section,.container,.section-grid,.about-grid,.feature-grid,.apps-grid,.products{position:relative}
+.card,.app-card,.feature-card,.value,.stat,.story-box,.business-visual,.coming-box,.dashboard,.dashboard-card,.dashboard-list,.contact-box,.wms-special-box,.wms-preview,.slider,.founder-slider,.software-logo,.cta,.contact-form,.form-box,.info-box,.panel,.box,.table-wrap,.table-container,.modal,.modal-content{background:linear-gradient(135deg,rgba(255,255,255,.68),rgba(207,244,255,.34) 52%,rgba(228,222,255,.38))!important;backdrop-filter:blur(20px) saturate(165%)!important;-webkit-backdrop-filter:blur(20px) saturate(165%)!important;border:2px solid rgba(103,218,255,.48)!important;box-shadow:0 20px 55px rgba(37,115,155,.14),0 0 0 1px rgba(255,255,255,.55),inset 0 1px rgba(255,255,255,.98),inset 0 -1px rgba(64,184,225,.15)!important}
+.card,.app-card,.feature-card,.value,.stat,.story-box,.business-visual,.coming-box,.dashboard,.contact-box,.wms-special-box,.wms-preview,.slider,.founder-slider,.panel,.box{border-radius:24px!important}
+.card:hover,.app-card:hover,.feature-card:hover,.value:hover{border-color:rgba(53,201,255,.75)!important;box-shadow:0 25px 60px rgba(40,130,175,.2),0 0 25px rgba(53,201,255,.12)!important}
+.badge,.status,.section-label,.small-title,.slide-label,.about-label,.founder-label,.wms-special-badge,.coming-date{background:rgba(255,255,255,.42)!important;border:1px solid rgba(53,201,255,.55)!important;backdrop-filter:blur(12px)!important;box-shadow:inset 0 1px rgba(255,255,255,.95),0 7px 20px rgba(53,190,230,.1)!important}
+button,.btn,.app-button,.contact-btn,.nav-contact,.cta-btn,.back-btn,.secondary-btn{border:1px solid rgba(255,255,255,.82)!important;box-shadow:0 10px 28px rgba(43,130,185,.18),inset 0 1px rgba(255,255,255,.55)!important;transition:.25s ease!important}
+button:hover,.btn:hover,.app-button:hover,.contact-btn:hover,.nav-contact:hover,.cta-btn:hover,.back-btn:hover,.secondary-btn:hover{transform:translateY(-2px);filter:saturate(115%)}
+input,textarea,select{background:rgba(255,255,255,.5)!important;border:2px solid rgba(90,205,245,.38)!important;border-radius:15px!important;backdrop-filter:blur(14px)!important;box-shadow:inset 0 1px rgba(255,255,255,.9),0 8px 22px rgba(50,130,170,.08)!important}
+input:focus,textarea:focus,select:focus{outline:none!important;border-color:rgba(46,190,240,.8)!important;box-shadow:0 0 0 4px rgba(72,205,255,.12),inset 0 1px rgba(255,255,255,1)!important}
+table{border-collapse:separate!important;border-spacing:0!important;background:rgba(255,255,255,.38)!important;border:2px solid rgba(67,205,245,.42)!important;border-radius:20px!important;overflow:hidden!important;box-shadow:0 18px 45px rgba(35,110,150,.12)!important}
+th,td{border-color:rgba(75,180,220,.2)!important;background:rgba(255,255,255,.22)!important}
+th{background:rgba(88,199,235,.18)!important}
+img{max-width:100%}
+footer{background:rgba(15,30,52,.78)!important;backdrop-filter:blur(22px)!important;-webkit-backdrop-filter:blur(22px)!important;border-top:2px solid rgba(110,220,255,.4)!important;box-shadow:0 -15px 45px rgba(30,100,140,.15)!important}
+.announcement-bar{box-shadow:0 7px 25px rgba(35,100,170,.22)!important}
+.our-products-menu{background:rgba(255,255,255,.68)!important;backdrop-filter:blur(22px)!important;border:2px solid rgba(255,255,255,.82)!important;box-shadow:0 18px 45px rgba(30,100,150,.18)!important}
+.wms,.wms-section,.dark-section{position:relative}
+.wms:before,.wms-section:before,.dark-section:before{content:"";position:absolute;inset:12px;border:1px solid rgba(92,219,255,.2);border-radius:28px;pointer-events:none}
+@media(max-width:850px){.card,.app-card,.feature-card,.value,.stat,.story-box,.business-visual,.coming-box,.contact-box,.wms-special-box,.wms-preview,.slider,.founder-slider,.panel,.box{border-radius:20px!important}}
+@media(prefers-reduced-motion:no-preference){.card,.app-card,.feature-card,.value,.stat,.story-box,.business-visual,.coming-box,.contact-box,.wms-special-box,.wms-preview,.slider,.founder-slider{overflow:hidden}.card:after,.app-card:after,.feature-card:after,.value:after,.stat:after,.story-box:after,.business-visual:after,.coming-box:after,.contact-box:after,.wms-special-box:after,.wms-preview:after,.slider:after,.founder-slider:after{content:"";position:absolute;top:-80%;left:-40%;width:35%;height:260%;transform:rotate(25deg);background:linear-gradient(90deg,transparent,rgba(255,255,255,.3),transparent);animation:waterShine 7s linear infinite;pointer-events:none}@keyframes waterShine{0%{left:-45%}55%,100%{left:125%}}}
