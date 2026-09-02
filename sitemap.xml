@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url><loc>https://kopersay.in/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+<url><loc>https://kopersay.in/services.html</loc><changefreq>monthly</changefreq><priority>1.0</priority></url>
 <url><loc>https://kopersay.in/application-development.html</loc><changefreq>monthly</changefreq><priority>0.95</priority></url>
 <url><loc>https://kopersay.in/app-development.html</loc><changefreq>monthly</changefreq><priority>0.95</priority></url>
 <url><loc>https://kopersay.in/software-development.html</loc><changefreq>monthly</changefreq><priority>0.95</priority></url>
