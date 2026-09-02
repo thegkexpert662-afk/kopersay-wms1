@@ -1,571 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/png" href="assets/kopersay2.png">
-  <title>Kopersay Products | Applications & Software</title>
-  <meta name="description" content="Explore applications and software products developed by Kopersay Technologies.">
-  <meta name="keywords" content="Kopersay, Kopersay Technologies, applications, software, WMS, digital solutions">
-
-  <meta property="og:title" content="Kopersay Products">
-  <meta property="og:description" content="Explore applications and software by Kopersay Technologies.">
-  <meta property="og:url" content="https://kopersay.in/products.html">
-
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #ffffff;
-      color: #151515;
-      line-height: 1.6;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .container {
-      width: min(1120px, 92%);
-      margin: auto;
-    }
-
-    /* HEADER */
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(255,255,255,.96);
-      border-bottom: 1px solid #eeeeee;
-      backdrop-filter: blur(10px);
-    }
-
-    .nav {
-      min-height: 70px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 20px;
-      font-weight: 800;
-    }
-
-    .logo-icon {
-      width: 38px;
-      height: 38px;
-      border-radius: 11px;
-      display: grid;
-      place-items: center;
-      background: linear-gradient(135deg,#673cff,#3aa9ff);
-      color: white;
-      font-weight: 900;
-    }
-
-    nav {
-      display: flex;
-      gap: 24px;
-      align-items: center;
-      font-size: 14px;
-    }
-
-    nav a {
-      color: #555;
-    }
-
-    nav a:hover {
-      color: #633cff;
-    }
-
-    .contact-btn {
-      padding: 10px 18px;
-      border-radius: 10px;
-      background: #673cff;
-      color: white !important;
-      font-weight: 700;
-    }
-
-    /* HERO */
-    .hero {
-      padding: 90px 0 70px;
-      text-align: center;
-      background:
-        radial-gradient(circle at 50% 10%, rgba(103,60,255,.14), transparent 40%),
-        #ffffff;
-    }
-
-    .badge {
-      display: inline-block;
-      padding: 7px 14px;
-      border: 1px solid #d9ceff;
-      border-radius: 30px;
-      color: #673cff;
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: 2px;
-      margin-bottom: 20px;
-    }
-
-    .hero h1 {
-      font-size: clamp(40px, 7vw, 72px);
-      line-height: 1.05;
-      margin-bottom: 20px;
-    }
-
-    .gradient {
-      background: linear-gradient(90deg,#673cff,#168cff);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-
-    .hero p {
-      max-width: 680px;
-      margin: auto;
-      color: #666;
-      font-size: 17px;
-    }
-
-    /* PRODUCTS */
-    .products {
-      padding: 70px 0 90px;
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 45px;
-    }
-
-    .section-title h2 {
-      font-size: 36px;
-      margin-bottom: 10px;
-    }
-
-    .section-title p {
-      color: #777;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-    }
-
-    .card {
-      border: 1px solid #e7e7e7;
-      border-radius: 20px;
-      padding: 28px;
-      background: #fff;
-      box-shadow: 0 10px 35px rgba(0,0,0,.05);
-      transition: .25s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 18px 45px rgba(103,60,255,.12);
-      border-color: #d9ceff;
-    }
-
-    .app-icon {
-      width: 58px;
-      height: 58px;
-      border-radius: 16px;
-      display: grid;
-      place-items: center;
-      background: #f0ebff;
-      font-size: 27px;
-      margin-bottom: 22px;
-    }
-
-    .card h3 {
-      font-size: 23px;
-      margin-bottom: 10px;
-    }
-
-    .card p {
-      color: #666;
-      font-size: 14px;
-      margin-bottom: 22px;
-    }
-
-    .status {
-      display: inline-block;
-      font-size: 11px;
-      font-weight: 800;
-      color: #673cff;
-      background: #f2edff;
-      padding: 6px 10px;
-      border-radius: 20px;
-      margin-bottom: 20px;
-    }
-
-    .button {
-      display: inline-block;
-      padding: 11px 17px;
-      border-radius: 10px;
-      background: #673cff;
-      color: white;
-      font-size: 13px;
-      font-weight: 700;
-    }
-
-    .button.secondary {
-      background: #f5f5f5;
-      color: #333;
-    }
-
-    /* FEATURE */
-    .feature {
-      padding: 30px 0 90px;
-    }
-
-    .feature-box {
-      border-radius: 25px;
-      padding: 45px;
-      background: linear-gradient(135deg,#f7f4ff,#eef7ff);
-      border: 1px solid #e2dcff;
-      display: grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap: 35px;
-      align-items: center;
-    }
-
-    .feature-box h2 {
-      font-size: 34px;
-      margin-bottom: 14px;
-    }
-
-    .feature-box p {
-      color: #666;
-      margin-bottom: 22px;
-    }
-
-    .visual {
-      min-height: 220px;
-      border-radius: 22px;
-      background: linear-gradient(135deg,#673cff,#208fff);
-      display: grid;
-      place-items: center;
-      color: white;
-      font-size: 75px;
-      font-weight: 900;
-      box-shadow: 0 20px 50px rgba(103,60,255,.25);
-    }
-
-    /* CTA */
-    .cta {
-      padding: 20px 0 80px;
-    }
-
-    .cta-box {
-      text-align: center;
-      padding: 55px 25px;
-      border-radius: 25px;
-      background: #111327;
-      color: white;
-    }
-
-    .cta-box h2 {
-      font-size: 34px;
-      margin-bottom: 10px;
-    }
-
-    .cta-box p {
-      color: #b8b9c7;
-      margin-bottom: 25px;
-    }
-
-    /* FOOTER */
-    footer {
-      border-top: 1px solid #eeeeee;
-      padding: 35px 0;
-      text-align: center;
-      color: #777;
-      font-size: 13px;
-    }
-
-    .footer-logo {
-      font-size: 18px;
-      font-weight: 800;
-      color: #222;
-      margin-bottom: 8px;
-    }
-
-    .footer-links {
-      margin: 15px 0;
-      display: flex;
-      justify-content: center;
-      gap: 22px;
-    }
-
-    .footer-links a:hover {
-      color: #673cff;
-    }
-
-    /* MOBILE */
-    @media (max-width: 800px) {
-      nav {
-        gap: 10px;
-        font-size: 12px;
-      }
-
-      .contact-btn {
-        padding: 8px 12px;
-      }
-
-      .grid {
-        grid-template-columns: 1fr;
-      }
-
-      .feature-box {
-        grid-template-columns: 1fr;
-        padding: 28px;
-      }
-
-      .visual {
-        min-height: 180px;
-      }
-
-      .hero {
-        padding: 65px 0 50px;
-      }
-    }
-
-    @media (max-width: 520px) {
-      .nav {
-        min-height: 62px;
-      }
-
-      nav a:not(.contact-btn) {
-        display: none;
-      }
-
-      .hero h1 {
-        font-size: 43px;
-      }
-
-      .section-title h2,
-      .feature-box h2,
-      .cta-box h2 {
-        font-size: 29px;
-      }
-
-      .card {
-        padding: 23px;
-      }
-    }
-  
-/* KOPERSAY SHARED BRANDING */
-.brand img, .logo img { height:48px; width:auto; display:block; }
-.footer-logo img, .footer-brand img { height:45px; width:auto; display:block; margin:0 auto 10px; }
-.nav-links { gap:0 !important; }
-.nav-links > a { margin-right:28px; white-space:nowrap; }
-.nav-links > a:last-child { margin-right:0; }
-@media (max-width:850px) {
-  .brand img, .logo img { height:40px; }
-  .nav-links { gap:0 !important; }
-  .nav-links > a { margin-right:0; }
-}
-</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="assets/kopersay2.png">
+<title>Kopersay Products | Applications & Software</title>
+<meta name="description" content="Explore applications, warehouse software and digital products developed by Kopersay Technologies.">
+<meta name="keywords" content="Kopersay, Kopersay Technologies, WMS, applications, software, digital solutions">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://kopersay.in/products.html">
+<meta property="og:title" content="Kopersay Products | Applications & Software">
+<meta property="og:description" content="Explore applications, software and digital solutions by Kopersay Technologies.">
+<meta property="og:url" content="https://kopersay.in/products.html">
+<meta property="og:type" content="website">
 <link rel="stylesheet" href="water-glass.css">
-    <script src="cache-register.js"></script>
+<script src="cache-register.js"></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Arial,Helvetica,sans-serif;color:#17304d;line-height:1.6}
+a{text-decoration:none;color:inherit}
+.container{width:min(1160px,92%);margin:auto}
+header{position:sticky;top:0;z-index:1000}
+.nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{display:flex;align-items:center;flex:0 0 auto}
+.brand img{width:auto;height:46px;display:block;object-fit:contain}
+nav{display:flex;align-items:center;justify-content:flex-end;gap:24px;flex-wrap:wrap;font-size:14px;font-weight:700}
+nav a{white-space:nowrap;color:#17304d}
+nav a:hover{color:#2563eb}
+.contact-btn{padding:10px 17px;border-radius:12px;background:linear-gradient(135deg,#673cff,#208fff);color:#fff!important}
+.hero{text-align:center;padding:88px 0 65px}
+.badge{display:inline-block;padding:8px 15px;border-radius:999px;font-size:11px;font-weight:900;letter-spacing:2px;margin-bottom:18px}
+.hero h1{font-size:clamp(42px,7vw,76px);line-height:1.04;font-weight:900}
+.gradient{background:linear-gradient(90deg,#673cff,#168cff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{max-width:720px;margin:20px auto 0;font-size:18px;color:#53647a}
+.products{padding:30px 0 90px}
+.section-title{text-align:center;margin-bottom:42px}
+.section-title h2{font-size:38px;font-weight:900;margin-bottom:8px}
+.section-title p{color:#5f7186}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.card{padding:28px;min-height:390px;display:flex;flex-direction:column}
+.icon{width:76px;height:76px;border-radius:22px;display:grid;place-items:center;margin-bottom:22px;background:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.8);font-size:36px}
+.logo-icon{padding:12px}
+.logo-icon img{width:100%;height:100%;object-fit:contain}
+.card .status{width:max-content;margin-bottom:14px;padding:6px 11px;border-radius:999px;font-size:10px;font-weight:900;letter-spacing:1px}
+.card h3{font-size:25px;margin-bottom:10px;color:#17304d}
+.card p{font-size:15px;color:#5f7186;line-height:1.7;margin-bottom:22px}
+.card-btn{display:inline-block;width:max-content;margin-top:auto;padding:12px 17px;border-radius:12px;background:linear-gradient(135deg,#673cff,#208fff);color:#fff;font-weight:800;font-size:13px;box-shadow:0 10px 25px rgba(54,117,190,.2)}
+.feature{padding:10px 0 90px}
+.feature-box{padding:44px;display:grid;grid-template-columns:1.25fr .75fr;gap:40px;align-items:center}
+.feature-box h2{font-size:36px;line-height:1.15;margin:12px 0 14px}
+.feature-box p{max-width:650px;color:#53647a;margin-bottom:24px}
+.feature-btn{display:inline-block;padding:13px 19px;border-radius:12px;background:linear-gradient(135deg,#673cff,#208fff);color:#fff;font-weight:800}
+.visual{min-height:240px;border-radius:24px;display:grid;place-items:center;background:linear-gradient(135deg,rgba(103,60,255,.92),rgba(32,143,255,.92));box-shadow:0 22px 55px rgba(54,117,190,.24);overflow:hidden}
+.visual img{width:145px;height:145px;object-fit:contain;filter:drop-shadow(0 15px 22px rgba(0,0,0,.18))}
+.cta{padding:10px 0 85px}
+.cta-box{text-align:center;padding:55px 25px;color:#fff;background:linear-gradient(135deg,rgba(12,25,58,.96),rgba(38,25,93,.96))!important}
+.cta-box h2{font-size:35px;margin-bottom:8px}.cta-box p{color:#d2dced;margin-bottom:24px}.cta-box a{display:inline-block;padding:13px 20px;border-radius:12px;background:#fff;color:#24365a;font-weight:800}
+footer{padding:38px 0;text-align:center;color:#d2dced}
+.footer-logo img{height:44px;width:auto;margin:0 auto 12px;display:block}
+.footer-links{display:flex;justify-content:center;gap:24px;flex-wrap:wrap;margin:16px 0;font-size:14px;font-weight:700}
+@media(max-width:850px){.grid{grid-template-columns:1fr 1fr}.feature-box{grid-template-columns:1fr;padding:30px}.nav{padding:10px 0}nav{gap:12px}}
+@media(max-width:600px){.nav{flex-direction:column;align-items:flex-start;gap:10px}.brand img{height:38px}nav{width:100%;justify-content:flex-start;gap:9px 16px;font-size:12px}nav a:not(.contact-btn){display:none}.hero{padding:62px 0 48px}.hero h1{font-size:43px}.hero p{font-size:16px}.grid{grid-template-columns:1fr}.card{min-height:350px}.section-title h2{font-size:31px}.feature-box h2{font-size:30px}.visual{min-height:190px}.visual img{width:115px;height:115px}.cta-box h2{font-size:29px}}
+</style>
 </head>
-
 <body>
-
 <header>
-  <div class="container nav">
-
-    <a href="index.html" class="logo">
-      <span class="logo-icon">K</span>
-      Kopersay
-    </a>
-
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="products.html">Products</a>
-      <a href="about.html">About</a>
-      <a href="vision.html">Vision</a>
-      <a href="why-kopersay.html">Why Kopersay</a>
-      <a href="contact.html" class="contact-btn">Contact</a>
-    </nav>
-
-  </div>
+<div class="container nav">
+<a href="index.html" class="brand" aria-label="Kopersay Technologies Home"><img src="assets/kopersay2.png" alt="Kopersay Technologies Logo"></a>
+<nav aria-label="Main navigation">
+<a href="index.html">Home</a>
+<a href="products.html">Products</a>
+<a href="about.html">About</a>
+<a href="vision.html">Vision</a>
+<a href="why-kopersay.html">Why Kopersay</a>
+<a href="contact.html" class="contact-btn">Contact</a>
+</nav>
+</div>
 </header>
-
 <main>
-
-  <section class="hero">
-    <div class="container">
-
-      <span class="badge">KOPERSAY TECHNOLOGIES</span>
-
-      <h1>
-        Our <span class="gradient">Products.</span>
-      </h1>
-
-      <p>
-        Applications and software designed to make everyday work
-        simpler, smarter and more efficient.
-      </p>
-
-    </div>
-  </section>
-
-  <section class="products">
-    <div class="container">
-
-      <div class="section-title">
-        <h2>Applications & Software</h2>
-        <p>Explore products developed by Kopersay Technologies.</p>
-      </div>
-
-      <div class="grid">
-
-        <article class="card">
-          <div class="app-icon">📦</div>
-
-          <span class="status">COMING SOON</span>
-
-          <h3>Kopersay WMS</h3>
-
-          <p>
-            Smart warehouse management and inventory solution
-            designed to simplify warehouse operations.
-          </p>
-
-          <a href="wms.html" class="product-btn">Coming Soon →</a>
-        </article>
-
-
-        <article class="card">
-          <div class="app-icon">📱</div>
-
-          <span class="status">APPLICATION</span>
-
-          <h3>Mobile Apps</h3>
-
-          <p>
-            Modern mobile applications created for everyday
-            digital needs and simple user experiences.
-          </p>
-
-          <a href="apps.html" class="product-btn">Explore Apps →</a>
-        </article>
-
-
-        <article class="card">
-          <div class="app-icon">💻</div>
-
-          <span class="status">SOFTWARE</span>
-
-          <h3>Business Software</h3>
-
-          <p>
-            Practical software solutions designed to help
-            businesses work smarter and more efficiently.
-          </p>
-
-         <a href="software.html" class="product-btn">Learn More →</a>
-        </article>
-
-      </div>
-
-    </div>
-  </section>
-
-
-  <section class="feature">
-    <div class="container">
-
-      <div class="feature-box">
-
-        <div>
-          <span class="badge">FEATURED</span>
-
-          <h2>Technology Made Simple.</h2>
-
-          <p>
-            Kopersay focuses on building useful digital products
-            with clean interfaces, practical features and
-            technology that people can actually use.
-          </p>
-
-          <a href="contact.html" class="button">
-            Contact Kopersay →
-          </a>
-        </div>
-
-        <div class="visual">
-          K
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-
-  <section class="cta">
-    <div class="container">
-
-      <div class="cta-box">
-
-        <h2>Have an idea?</h2>
-
-        <p>
-          Let's build something useful together.
-        </p>
-
-        <a href="contact.html" class="button">
-          Get in Touch →
-        </a>
-
-      </div>
-
-    </div>
-  </section>
-
+<section class="hero">
+<div class="container">
+<span class="badge">KOPERSAY TECHNOLOGIES</span>
+<h1>Our <span class="gradient">Products.</span></h1>
+<p>Applications, business software and digital solutions designed to make work simpler, smarter and more efficient.</p>
+</div>
+</section>
+<section class="products">
+<div class="container">
+<div class="section-title"><h2>Applications &amp; Software</h2><p>Explore products developed by Kopersay Technologies.</p></div>
+<div class="grid">
+<article class="card">
+<div class="icon logo-icon"><img src="assets/kopersay2.png" alt="Kopersay WMS logo"></div>
+<span class="status">COMING SOON</span>
+<h3>Kopersay WMS</h3>
+<p>Smart warehouse management and inventory software designed to simplify warehouse operations, stock control and dispatch workflows.</p>
+<a href="wms.html" class="card-btn">Explore WMS →</a>
+</article>
+<article class="card">
+<div class="icon">📱</div>
+<span class="status">APPLICATIONS</span>
+<h3>Mobile Apps</h3>
+<p>Modern mobile applications created for everyday digital needs with simple interfaces and practical user experiences.</p>
+<a href="apps.html" class="card-btn">Explore Apps →</a>
+</article>
+<article class="card">
+<div class="icon">💻</div>
+<span class="status">SOFTWARE</span>
+<h3>Business Software</h3>
+<p>Practical software solutions designed to help businesses organize work, improve efficiency and grow with technology.</p>
+<a href="software.html" class="card-btn">Learn More →</a>
+</article>
+</div>
+</div>
+</section>
+<section class="feature">
+<div class="container">
+<div class="feature-box">
+<div>
+<span class="badge">FEATURED</span>
+<h2>Technology Made Simple.</h2>
+<p>Kopersay focuses on building useful digital products with clean interfaces, practical features and technology that people can actually use.</p>
+<a href="contact.html" class="feature-btn">Talk to Kopersay →</a>
+</div>
+<div class="visual" aria-label="Kopersay Technologies logo"><img src="assets/kopersay2.png" alt="Kopersay Technologies Logo"></div>
+</div>
+</div>
+</section>
+<section class="cta">
+<div class="container"><div class="cta-box"><h2>Have an idea?</h2><p>Let's build something useful together.</p><a href="contact.html">Get in Touch →</a></div></div>
+</section>
 </main>
-
-
 <footer>
-  <div class="container">
-
-    <div class="footer-logo"><img src="assets/kopersay2.png" alt="Kopersay Technologies Logo"></div>
-
-    <p>
-      Building smart applications, software and digital solutions.
-    </p>
-
-    <div class="footer-links">
-      <a href="index.html">Home</a>
-      <a href="products.html">Products</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-    </div>
-
-    <p>
-      © 2026 Kopersay Technologies. All rights reserved.
-    </p>
-
-  </div>
+<div class="container">
+<div class="footer-logo"><img src="assets/kopersay2.png" alt="Kopersay Technologies Logo"></div>
+<p>Building smart applications, software and digital solutions.</p>
+<div class="footer-links"><a href="index.html">Home</a><a href="products.html">Products</a><a href="about.html">About</a><a href="contact.html">Contact</a></div>
+<p>© 2026 Kopersay Technologies. All rights reserved.</p>
+</div>
 </footer>
-
 </body>
 </html>
