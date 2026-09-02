@@ -1,0 +1,79 @@
+name: Convert Website Images to PNG
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  convert-images:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Pillow
+        run: python3 -m pip install --quiet Pillow
+
+      - name: Convert raster images to PNG
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          from PIL import Image
+          import re
+
+          root = Path('.')
+          converted = []
+
+          extensions = {'.jpg', '.jpeg', '.webp'}
+          for src in root.rglob('*'):
+              if not src.is_file() or src.suffix.lower() not in extensions:
+                  continue
+              if '.git' in src.parts:
+                  continue
+
+              try:
+                  with Image.open(src) as im:
+                      out = src.with_suffix('.png')
+                      if im.mode not in ('RGB', 'RGBA'):
+                          im = im.convert('RGBA')
+                      im.save(out, 'PNG', optimize=True)
+                  src.unlink()
+                  converted.append((src.as_posix(), out.as_posix()))
+              except Exception as exc:
+                  print(f'Skipping invalid image {src}: {exc}')
+
+          # Update references in website source files.
+          text_exts = {'.html', '.css', '.js', '.json', '.xml', '.txt'}
+          for file in root.rglob('*'):
+              if not file.is_file() or '.git' in file.parts or file.suffix.lower() not in text_exts:
+                  continue
+              try:
+                  s = file.read_text(encoding='utf-8')
+                  original = s
+                  for old, new in converted:
+                      s = s.replace(old, new)
+                      s = s.replace(old.replace('/', '\\'), new.replace('/', '\\'))
+                  if s != original:
+                      file.write_text(s, encoding='utf-8')
+              except UnicodeDecodeError:
+                  pass
+
+          print('Converted:', converted)
+          PY
+
+      - name: Commit PNG conversion
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No image conversion changes needed"
+          else
+            git commit -m "Convert website images to PNG"
+            git push
+          fi
