@@ -3,691 +3,81 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#07152f">
 <link rel="icon" type="image/png" href="assets/kopersay2.png">
-<title>Kopersay WMS | Warehouse Management System</title>
-
-<meta name="description"
-content="Kopersay WMS is a smart warehouse management and inventory solution designed to simplify warehouse operations.">
-
-<meta name="keywords"
-content="Kopersay WMS, warehouse management system, inventory management, Kopersay Technologies">
-
+<title>Kopersay WMS | Warehouse Management Software</title>
+<meta name="description" content="Kopersay WMS is a modern Warehouse Management System for inventory, warehouse operations, inward, outward, employees, barcode and reports.">
+<meta name="keywords" content="Kopersay WMS, Warehouse Management System, warehouse software, inventory management, GRN, dispatch, warehouse operations">
 <meta name="author" content="Kopersay Technologies">
-
-<meta property="og:title" content="Kopersay WMS">
-<meta property="og:description"
-content="Smart warehouse management and inventory solution by Kopersay Technologies.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://kopersay.in/wms.html">
+<meta property="og:title" content="Kopersay WMS | Warehouse Management System">
+<meta property="og:description" content="Explore Kopersay WMS and its warehouse, inventory, inward, outward and reporting modules.">
 <meta property="og:url" content="https://kopersay.in/wms.html">
-
-<style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #ffffff;
-    color: #151526;
-    line-height: 1.6;
-}
-
-/* NAVBAR */
-
-.navbar {
-    width: 100%;
-    padding: 18px 7%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: 1px solid #eeeeF5;
-    background: #ffffff;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    text-decoration: none;
-    color: #151526;
-    font-size: 24px;
-    font-weight: 700;
-}
-
-.logo-box {
-    width: 42px;
-    height: 42px;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    background: linear-gradient(135deg, #6438e8, #477df5);
-    font-weight: 800;
-    font-size: 22px;
-}
-
-.nav-links {
-    display: flex;
-    gap: 28px;
-    align-items: center;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: #44445a;
-    font-size: 15px;
-    font-weight: 600;
-}
-
-.nav-links a:hover {
-    color: #6339e8;
-}
-
-.contact-btn {
-    padding: 12px 20px;
-    border-radius: 10px;
-    color: white !important;
-    background: linear-gradient(135deg, #6938e9, #4d78ef);
-}
-
-/* HERO */
-
-.hero {
-    padding: 100px 7% 90px;
-    text-align: center;
-    background:
-        radial-gradient(circle at top right, rgba(104,62,235,0.12), transparent 35%),
-        linear-gradient(180deg, #fafaff, #ffffff);
-}
-
-.badge {
-    display: inline-block;
-    padding: 8px 15px;
-    border-radius: 30px;
-    background: #f0ebff;
-    color: #6339e8;
-    font-size: 12px;
-    font-weight: 800;
-    letter-spacing: 1px;
-    margin-bottom: 20px;
-}
-
-.hero h1 {
-    font-size: clamp(40px, 6vw, 68px);
-    line-height: 1.1;
-    margin-bottom: 22px;
-}
-
-.hero h1 span {
-    color: #663be7;
-}
-
-.hero p {
-    max-width: 720px;
-    margin: auto;
-    color: #686879;
-    font-size: 18px;
-}
-
-/* MAIN */
-
-.section {
-    padding: 85px 7%;
-}
-
-.section-title {
-    text-align: center;
-    margin-bottom: 50px;
-}
-
-.section-title h2 {
-    font-size: 38px;
-    margin-bottom: 12px;
-}
-
-.section-title p {
-    color: #777789;
-}
-
-/* FEATURES */
-
-.features {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-    max-width: 1150px;
-    margin: auto;
-}
-
-.card {
-    padding: 32px;
-    border: 1px solid #e8e8f2;
-    border-radius: 20px;
-    background: #ffffff;
-    box-shadow: 0 12px 35px rgba(20,20,50,0.06);
-    transition: 0.3s ease;
-}
-
-.card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 18px 45px rgba(20,20,50,0.10);
-}
-
-.icon {
-    width: 55px;
-    height: 55px;
-    border-radius: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #f0ebff;
-    font-size: 26px;
-    margin-bottom: 20px;
-}
-
-.card h3 {
-    font-size: 21px;
-    margin-bottom: 10px;
-}
-
-.card p {
-    color: #707080;
-}
-
-/* ABOUT */
-
-.about {
-    background: #f7f7fc;
-}
-
-.about-box {
-    max-width: 1100px;
-    margin: auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 55px;
-    align-items: center;
-}
-
-.about h2 {
-    font-size: 40px;
-    margin-bottom: 20px;
-}
-
-.about p {
-    color: #666678;
-    margin-bottom: 16px;
-}
-
-.check-list {
-    list-style: none;
-    margin-top: 25px;
-}
-
-.check-list li {
-    margin: 13px 0;
-    font-weight: 600;
-}
-
-.check-list li::before {
-    content: "✓";
-    color: #663be7;
-    font-weight: 900;
-    margin-right: 10px;
-}
-
-.dashboard {
-    min-height: 330px;
-    border-radius: 25px;
-    padding: 25px;
-    background: linear-gradient(145deg, #21184b, #5434c8);
-    box-shadow: 0 25px 55px rgba(80,55,190,0.25);
-}
-
-.dashboard-top {
-    display: flex;
-    justify-content: space-between;
-    color: white;
-    margin-bottom: 25px;
-}
-
-.dashboard-title {
-    font-size: 20px;
-    font-weight: 700;
-}
-
-.dashboard-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
-}
-
-.stat {
-    background: rgba(255,255,255,0.12);
-    border: 1px solid rgba(255,255,255,0.15);
-    border-radius: 15px;
-    padding: 22px;
-    color: white;
-}
-
-.stat strong {
-    display: block;
-    font-size: 28px;
-}
-
-.stat span {
-    font-size: 13px;
-    opacity: 0.8;
-}
-
-/* CTA */
-
-.cta {
-    padding: 85px 7%;
-    text-align: center;
-    background: linear-gradient(135deg, #21144e, #4e2ac5);
-    color: white;
-}
-
-.cta h2 {
-    font-size: 40px;
-    margin-bottom: 15px;
-}
-
-.cta p {
-    opacity: 0.85;
-    margin-bottom: 28px;
-}
-
-.back-btn {
-    display: inline-block;
-    padding: 14px 25px;
-    border-radius: 10px;
-    background: white;
-    color: #5330c9;
-    text-decoration: none;
-    font-weight: 700;
-}
-
-/* FOOTER */
-
-footer {
-    padding: 45px 7%;
-    text-align: center;
-    background: #101020;
-    color: white;
-}
-
-footer .footer-logo {
-    font-size: 21px;
-    font-weight: 700;
-    margin-bottom: 10px;
-}
-
-footer p {
-    color: #9999aa;
-    font-size: 14px;
-}
-
-.footer-links {
-    margin: 18px 0;
-}
-
-.footer-links a {
-    color: #b7a9ff;
-    text-decoration: none;
-    margin: 0 10px;
-    font-size: 14px;
-}
-
-/* MOBILE */
-
-@media (max-width: 800px) {
-
-    .navbar {
-        padding: 15px 5%;
-    }
-
-    .nav-links {
-        gap: 12px;
-    }
-
-    .nav-links a {
-        font-size: 12px;
-    }
-
-    .contact-btn {
-        padding: 9px 12px;
-    }
-
-    .hero {
-        padding: 75px 5%;
-    }
-
-    .hero p {
-        font-size: 16px;
-    }
-
-    .section {
-        padding: 65px 5%;
-    }
-
-    .features {
-        grid-template-columns: 1fr;
-    }
-
-    .about-box {
-        grid-template-columns: 1fr;
-    }
-
-    .about h2 {
-        font-size: 32px;
-    }
-
-    .cta h2 {
-        font-size: 32px;
-    }
-}
-
-/* KOPERSAY SHARED BRANDING */
-.brand img, .logo img { height:48px; width:auto; display:block; }
-.footer-logo img, .footer-brand img { height:45px; width:auto; display:block; margin:0 auto 10px; }
-.nav-links { gap:0 !important; }
-.nav-links > a { margin-right:28px; white-space:nowrap; }
-.nav-links > a:last-child { margin-right:0; }
-@media (max-width:850px) {
-  .brand img, .logo img { height:40px; }
-  .nav-links { gap:0 !important; }
-  .nav-links > a { margin-right:0; }
-}
-</style>
+<meta property="og:type" content="website">
+<script src="cache-register.js"></script>
 <link rel="stylesheet" href="water-glass.css">
-    <script src="cache-register.js"></script>
+<style>
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Arial,Helvetica,sans-serif;color:#eef5ff;background:#07152f;overflow-x:hidden}.container{width:min(1180px,92%);margin:auto}a{text-decoration:none}.hero{min-height:650px;padding:110px 0 90px;display:flex;align-items:center;background:radial-gradient(circle at 80% 15%,rgba(58,198,255,.22),transparent 30%),radial-gradient(circle at 15% 50%,rgba(80,70,229,.24),transparent 34%),linear-gradient(135deg,#07152f,#0b2350 55%,#11104a)}.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:55px;align-items:center}.eyebrow{display:inline-block;padding:8px 14px;border:1px solid rgba(135,219,255,.35);border-radius:999px;color:#9de6ff;font-size:11px;font-weight:800;letter-spacing:2px;background:rgba(255,255,255,.06)}h1{font-size:clamp(45px,6vw,78px);line-height:1.02;margin:18px 0}.gradient{background:linear-gradient(90deg,#fff,#72ddff);-webkit-background-clip:text;background-clip:text;color:transparent}.hero p{font-size:17px;line-height:1.8;color:#c5d4ea;max-width:680px}.buttons{display:flex;gap:13px;flex-wrap:wrap;margin-top:30px}.btn{display:inline-flex;padding:13px 20px;border-radius:12px;font-size:13px;font-weight:800}.primary{background:#fff;color:#172ca0}.secondary{border:1px solid rgba(255,255,255,.25);color:#fff;background:rgba(255,255,255,.08)}.hero-card{padding:18px;border-radius:28px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);box-shadow:0 30px 80px rgba(0,0,0,.28);backdrop-filter:blur(20px)}.hero-card img{width:100%;height:420px;object-fit:cover;object-position:top;border-radius:18px;background:#0c1c3b}.hero-card .caption{padding:13px 4px 3px;color:#b9cce5;font-size:12px}.section{padding:85px 0}.light{background:#f4f9ff;color:#16223b}.section-head{text-align:center;margin-bottom:42px}.label{color:#4966e8;font-size:10px;font-weight:800;letter-spacing:2px}.section-head h2{font-size:clamp(32px,4vw,48px);margin:8px 0 10px}.section-head p{max-width:720px;margin:auto;color:#64738a;font-size:14px}.intro{display:grid;grid-template-columns:1fr 1fr;gap:22px}.panel{padding:30px;border-radius:24px;border:1px solid rgba(130,180,220,.25);background:rgba(255,255,255,.07);box-shadow:0 15px 45px rgba(0,0,0,.16)}.light .panel{background:#fff;border-color:#dce8f3;box-shadow:0 15px 40px rgba(30,75,105,.07)}.panel h3{font-size:22px;margin:0 0 10px}.panel p{color:#bfd0e6;font-size:14px;line-height:1.8}.light .panel p{color:#617087}.module-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.module{overflow:hidden;border-radius:22px;background:#fff;border:1px solid #dbe7f0;box-shadow:0 14px 35px rgba(20,70,100,.08);color:#16223b}.module img{width:100%;height:205px;object-fit:cover;object-position:top;display:block}.module-body{padding:20px}.module-no{font-size:10px;font-weight:800;letter-spacing:2px;color:#4b62e6}.module h3{font-size:19px;margin:6px 0}.module p{font-size:12px;color:#66758b;line-height:1.7}.module a{font-size:12px;color:#465de2;font-weight:800}.features{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.feature{padding:23px;border-radius:20px;background:rgba(255,255,255,.07);border:1px solid rgba(150,205,235,.18)}.feature-icon{font-size:25px;margin-bottom:12px}.feature h3{font-size:16px;margin:0 0 7px}.feature p{font-size:12px;color:#b7c9df;margin:0;line-height:1.7}.cta{padding:90px 0;background:linear-gradient(135deg,#0c1738,#2532a6)}.cta-box{text-align:center}.cta-box img{width:64px;height:64px;object-fit:contain;background:#fff;border-radius:16px;padding:6px;margin:0 auto 18px}.cta-box h2{font-size:clamp(32px,4vw,48px);margin:0 0 12px}.cta-box p{color:#d0ddf0;max-width:650px;margin:auto;font-size:14px}.cta-buttons{justify-content:center}.footer-brand img{height:44px;width:auto;margin:0 auto 12px}footer{background:#050d1f;text-align:center;padding:42px 20px;color:#a9bad0}.footer-links{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin:18px 0}.footer-links a{color:#8ddfff;font-size:12px}@media(max-width:900px){.hero-grid,.intro{grid-template-columns:1fr}.hero{padding:85px 0 70px}.hero-card img{height:330px}.module-grid{grid-template-columns:1fr 1fr}.features{grid-template-columns:1fr 1fr}}@media(max-width:600px){.section{padding:60px 0}.hero h1{font-size:44px}.hero p{font-size:14px}.hero-card img{height:240px}.module-grid,.features{grid-template-columns:1fr}.panel{padding:23px}.buttons .btn{width:100%;justify-content:center}}
+</style>
 </head>
-
 <body>
-
-<!-- NAVBAR -->
-
 <nav class="navbar">
-
 <a href="index.html" class="logo"><img src="assets/kopersay2.png" alt="Kopersay Technologies Logo"></a>
-
-<div class="nav-links">
-    <a href="index.html">Home</a>
-    <a href="products.html">Products</a>
-    <a href="about.html">About</a>
-    <a href="vision.html">Vision</a>
-    <a href="why-kopersay.html">Why Kopersay</a>
-    <a href="contact.html" class="contact-btn">Contact</a>
-</div>
-
+<div class="nav-links"><a href="index.html">Home</a><a href="products.html">Products</a><a href="about.html">About</a><a href="vision.html">Vision</a><a href="why-kopersay.html">Why Kopersay</a><a href="contact.html" class="contact-nav">Contact</a></div>
 </nav>
 
+<header class="hero">
+<div class="container hero-grid">
+<div>
+<span class="eyebrow">KOPERSAY TECHNOLOGIES • WMS</span>
+<h1>Warehouse<br><span class="gradient">Management System.</span></h1>
+<p>Kopersay WMS brings warehouse, inventory and operational information into a clear digital experience. Explore the product, modules and interface screens.</p>
+<div class="buttons"><a class="btn primary" href="wmsdetails.html">Explore Full WMS</a><a class="btn secondary" href="contact.html">Request a Demo</a></div>
+</div>
+<div class="hero-card"><img src="assets/wms-dashboard.png" alt="Kopersay WMS dashboard interface" loading="eager"><div class="caption">Kopersay WMS dashboard interface</div></div>
+</div>
+</header>
 
-<!-- HERO -->
-
-<section class="hero">
-
-<div class="badge">KOPERSAY TECHNOLOGIES</div>
-
-<h1>
-    Smart Warehouse<br>
-    <span>Management System.</span>
-</h1>
-
-<p>
-    Kopersay WMS is designed to simplify warehouse operations,
-    inventory management and everyday business workflows.
-</p>
-
+<section class="section light">
+<div class="container"><div class="section-head"><span class="label">WHY KOPERSAY WMS</span><h2>Built around warehouse operations.</h2><p>Organize the major activities that teams use to understand, receive, move, store and dispatch inventory.</p></div>
+<div class="intro">
+<div class="panel"><h3>English</h3><p>Kopersay WMS is designed to give businesses a structured way to view warehouse information, inventory movement, inward receipts, outward dispatches, employees and reports.</p></div>
+<div class="panel"><h3>हिंदी</h3><p>Kopersay WMS एक modern Warehouse Management System है जो warehouse, inventory, inward, outward, employees और reports की जानकारी को एक organized digital experience में दिखाने के लिए बनाया गया है।</p></div>
+</div></div>
 </section>
-
-
-<!-- FEATURES -->
 
 <section class="section">
-
-<div class="section-title">
-
-<h2>Powerful Warehouse Management</h2>
-
-<p>
-Everything you need to manage warehouse operations more efficiently.
-</p>
-
-</div>
-
-
+<div class="container"><div class="section-head"><span class="label">CORE CAPABILITIES</span><h2>One WMS. Multiple Operations.</h2><p>Key areas covered across the Kopersay WMS experience.</p></div>
 <div class="features">
-
-<div class="card">
-
-<div class="icon">📦</div>
-
-<h3>Inventory Management</h3>
-
-<p>
-Track products, stock levels and inventory movements
-with a simple and organized system.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<div class="icon">🏭</div>
-
-<h3>Warehouse Operations</h3>
-
-<p>
-Designed to make warehouse workflows easier,
-faster and more organized.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<div class="icon">📊</div>
-
-<h3>Smart Reporting</h3>
-
-<p>
-Get useful information about inventory and
-warehouse activities in one place.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<div class="icon">🔄</div>
-
-<h3>Stock Tracking</h3>
-
-<p>
-Keep track of stock movements and maintain
-better visibility across your warehouse.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<div class="icon">⚡</div>
-
-<h3>Simple Workflow</h3>
-
-<p>
-A clean and practical interface designed
-for everyday business use.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<div class="icon">🔐</div>
-
-<h3>Business Ready</h3>
-
-<p>
-Built with scalability, reliability and
-modern digital workflows in mind.
-</p>
-
-</div>
-
-</div>
-
+<div class="feature"><div class="feature-icon">📦</div><h3>Inventory</h3><p>Inventory visibility, stock information and movement tracking.</p></div>
+<div class="feature"><div class="feature-icon">🏭</div><h3>Warehouse</h3><p>Warehouse and location information in an organized structure.</p></div>
+<div class="feature"><div class="feature-icon">📥</div><h3>Inward / GRN</h3><p>Received goods, suppliers and GRN-related information.</p></div>
+<div class="feature"><div class="feature-icon">🚚</div><h3>Outward</h3><p>Dispatch and outward workflow information for operations.</p></div>
+<div class="feature"><div class="feature-icon">👥</div><h3>Employees</h3><p>Employee information, assignments and operational roles.</p></div>
+<div class="feature"><div class="feature-icon">🔎</div><h3>Barcode / QR</h3><p>Designed to support structured item identification workflows.</p></div>
+<div class="feature"><div class="feature-icon">📊</div><h3>Reports</h3><p>Business and warehouse information presented through reports.</p></div>
+<div class="feature"><div class="feature-icon">🔐</div><h3>Access Control</h3><p>Structured access for administrative and operational users.</p></div>
+</div></div>
 </section>
 
-
-<!-- ABOUT WMS -->
-
-<section class="section about">
-
-<div class="about-box">
-
-<div>
-
-<h2>
-Built to simplify warehouse operations.
-</h2>
-
-<p>
-Kopersay WMS brings important warehouse and
-inventory activities together in one modern
-digital solution.
-</p>
-
-<p>
-Our goal is to reduce unnecessary complexity
-and help businesses manage their operations
-with greater clarity.
-</p>
-
-<ul class="check-list">
-
-<li>Inventory visibility</li>
-<li>Organized warehouse workflows</li>
-<li>Simple and modern interface</li>
-<li>Scalable digital solution</li>
-
-</ul>
-
-</div>
-
-
-<div class="dashboard">
-
-<div class="dashboard-top">
-
-<div class="dashboard-title">
-WMS Dashboard
-</div>
-
-<div>● Live</div>
-
-</div>
-
-
-<div class="dashboard-grid">
-
-<div class="stat">
-
-<strong>1,248</strong>
-<span>Total Items</span>
-
-</div>
-
-<div class="stat">
-
-<strong>86</strong>
-<span>Products</span>
-
-</div>
-
-<div class="stat">
-
-<strong>32</strong>
-<span>Orders</span>
-
-</div>
-
-<div class="stat">
-
-<strong>94%</strong>
-<span>Stock Health</span>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
+<section class="section light" id="screens">
+<div class="container"><div class="section-head"><span class="label">WMS INTERFACE</span><h2>Explore the Modules</h2><p>Preview the major WMS screens and open the complete WMS details page for the full product overview.</p></div>
+<div class="module-grid">
+<div class="module"><img src="assets/wms-dashboard-overview.png" alt="Kopersay WMS dashboard overview" loading="lazy"><div class="module-body"><span class="module-no">01 • DASHBOARD</span><h3>Dashboard Overview</h3><p>Get a clear overview of important warehouse information.</p><a href="wms-dashboard.html">View Dashboard →</a></div></div>
+<div class="module"><img src="assets/wms-inventory.png" alt="Kopersay WMS inventory screen" loading="lazy"><div class="module-body"><span class="module-no">02 • INVENTORY</span><h3>Inventory Management</h3><p>Review inventory and stock-related information.</p><a href="wms-inventory.html">View Inventory →</a></div></div>
+<div class="module"><img src="assets/wms-warehouse.png" alt="Kopersay WMS warehouse screen" loading="lazy"><div class="module-body"><span class="module-no">03 • WAREHOUSE</span><h3>Warehouse Management</h3><p>Organize warehouse information and operations.</p><a href="wms-warehouse.html">View Warehouse →</a></div></div>
+<div class="module"><img src="assets/wms-employees.png" alt="Kopersay WMS employees screen" loading="lazy"><div class="module-body"><span class="module-no">04 • EMPLOYEES</span><h3>Employees</h3><p>View employee and operational information.</p><a href="wms-employees.html">View Employees →</a></div></div>
+<div class="module"><img src="assets/wms-inward-grn.png" alt="Kopersay WMS inward GRN screen" loading="lazy"><div class="module-body"><span class="module-no">05 • INWARD</span><h3>Inward / GRN</h3><p>Present received-goods and GRN information clearly.</p><a href="wms-inward.html">View Inward →</a></div></div>
+<div class="module"><img src="assets/wms-outward-dispatch.png" alt="Kopersay WMS outward dispatch screen" loading="lazy"><div class="module-body"><span class="module-no">06 • OUTWARD</span><h3>Outward / Dispatch</h3><p>Review outward and dispatch-related operations.</p><a href="wms-outward.html">View Outward →</a></div></div>
+<div class="module"><img src="assets/wms-reports.png" alt="Kopersay WMS reports screen" loading="lazy"><div class="module-body"><span class="module-no">07 • REPORTS</span><h3>Reports</h3><p>Explore reporting and warehouse information screens.</p><a href="wms-reports.html">View Reports →</a></div></div>
+<div class="module"><img src="assets/wms-login.png" alt="Kopersay WMS login screen" loading="lazy"><div class="module-body"><span class="module-no">08 • ACCESS</span><h3>WMS Login</h3><p>Entry screen for the WMS interface experience.</p><a href="wms-login.html">View Login →</a></div></div>
+<div class="module"><img src="assets/wms-inventory-details.png" alt="Kopersay WMS inventory details screen" loading="lazy"><div class="module-body"><span class="module-no">09 • DETAILS</span><h3>Inventory Details</h3><p>View detailed inventory information in the product interface.</p><a href="wmsdetails.html">Full WMS Details →</a></div></div>
+</div></div>
 </section>
 
+<section class="cta"><div class="container cta-box"><img src="assets/kopersay2.png" alt="Kopersay Technologies Logo"><h2>Explore Kopersay WMS</h2><p>See the complete WMS overview, modules, workflow information and bilingual product details.</p><div class="buttons cta-buttons"><a class="btn primary" href="wmsdetails.html">Open WMS Details</a><a class="btn secondary" href="contact.html">Contact Kopersay</a></div></div></section>
 
-<!-- CTA -->
-
-<section class="cta">
-
-<h2>Coming Soon</h2>
-
-<p>
-Kopersay WMS is currently under development.
-More information and features will be available soon.
-</p>
-
-<a href="products.html" class="back-btn">
-← Back to Products
-</a>
-
-</section>
-
-
-<!-- FOOTER -->
-
-<footer>
-
-<div class="footer-logo"><img src="assets/kopersay2.png" alt="Kopersay Technologies Logo"></div>
-
-<p>
-Building smart applications, software and digital solutions for the future.
-</p>
-
-<div class="footer-links">
-
-<a href="index.html">Home</a>
-<a href="products.html">Products</a>
-<a href="about.html">About</a>
-<a href="contact.html">Contact</a>
-
-</div>
-
-<p>
-© 2026 Kopersay Technologies. All rights reserved.
-</p>
-
-</footer>
-
+<footer><div class="footer-brand"><img src="assets/kopersay2.png" alt="Kopersay Technologies Logo"></div><p>Smart software, applications and digital solutions by Kopersay Technologies.</p><div class="footer-links"><a href="index.html">Home</a><a href="products.html">Products</a><a href="wmsdetails.html">WMS Details</a><a href="about.html">About</a><a href="contact.html">Contact</a></div><p>© 2026 Kopersay Technologies. All rights reserved.</p></footer>
 </body>
 </html>
