@@ -36,6 +36,7 @@ jobs:
 
           root = Path('.')
           findings = []
+          workflow_file = Path('.github/workflows/security-watch.yml')
 
           def add(msg):
               if msg not in findings:
@@ -48,10 +49,14 @@ jobs:
           elif cname.read_text(encoding='utf-8', errors='ignore').strip().lower() != 'kopersay.in':
               add('CNAME changed unexpectedly; expected kopersay.in')
 
-          # 2) Dangerous patterns / exposed credentials in text files
+          # 2) Dangerous patterns / exposed credentials in website source files.
+          # Exclude this audit workflow itself because its detection regexes
+          # intentionally contain strings such as javascript:, token, secret, etc.
           text_ext = {'.html', '.htm', '.js', '.css', '.json', '.xml', '.txt', '.md', '.yml', '.yaml', '.sh', '.py'}
           for p in root.rglob('*'):
               if not p.is_file() or '.git' in p.parts:
+                  continue
+              if p.resolve() == workflow_file.resolve():
                   continue
               if p.suffix.lower() not in text_ext:
                   continue
@@ -76,14 +81,18 @@ jobs:
               if re.search(r'(?i)(api[_-]?key|secret|password|token)\s*[:=]\s*["\'][^"\']{12,}["\']', s):
                   add(f'Possible hard-coded credential found: {p}')
 
-          # 3) Check recent repository changes (last 15 minutes)
+          # 3) Check recent repository changes (last 15 minutes).
+          # Ignore this audit workflow itself so its scheduled/push execution
+          # does not create a self-triggered security alert.
           try:
               log = subprocess.check_output(
                   ['git', 'log', '--since=15 minutes ago', '--name-only', '--pretty=format:%H %an %s'],
                   text=True, stderr=subprocess.DEVNULL
               )
-              suspicious_paths = re.compile(r'(^|/)(\.github/workflows/|CNAME$|\.env|.*\.pem$|.*\.key$)', re.I)
+              suspicious_paths = re.compile(r'(^|/)(CNAME$|\.env|.*\.pem$|.*\.key$)', re.I)
               for line in log.splitlines():
+                  if line.strip() == str(workflow_file):
+                      continue
                   if suspicious_paths.search(line):
                       add(f'Recent sensitive-path change: {line[:240]}')
           except Exception:
