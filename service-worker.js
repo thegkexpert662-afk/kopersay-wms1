@@ -1,4 +1,4 @@
-const CACHE_NAME = 'kopersay-site-v1';
+const CACHE_NAME = 'kopersay-site-v2';
 const CORE_FILES = [
   './',
   './index.html',
@@ -38,9 +38,14 @@ self.addEventListener('fetch', function (event) {
   const requestURL = new URL(event.request.url);
   if (requestURL.origin !== self.location.origin) return;
 
-  event.respondWith(
-    caches.match(event.request).then(function (cachedResponse) {
-      const networkFetch = fetch(event.request).then(function (response) {
+  const isPageOrStyle = event.request.mode === 'navigate' ||
+    requestURL.pathname.endsWith('.html') ||
+    requestURL.pathname.endsWith('.css') ||
+    requestURL.pathname.endsWith('.js');
+
+  if (isPageOrStyle) {
+    event.respondWith(
+      fetch(event.request).then(function (response) {
         if (response && response.ok) {
           const copy = response.clone();
           caches.open(CACHE_NAME).then(function (cache) {
@@ -49,10 +54,24 @@ self.addEventListener('fetch', function (event) {
         }
         return response;
       }).catch(function () {
-        return cachedResponse;
-      });
+        return caches.match(event.request);
+      })
+    );
+    return;
+  }
 
-      return cachedResponse || networkFetch;
+  event.respondWith(
+    caches.match(event.request).then(function (cachedResponse) {
+      if (cachedResponse) return cachedResponse;
+      return fetch(event.request).then(function (response) {
+        if (response && response.ok) {
+          const copy = response.clone();
+          caches.open(CACHE_NAME).then(function (cache) {
+            cache.put(event.request, copy);
+          });
+        }
+        return response;
+      });
     })
   );
 });
