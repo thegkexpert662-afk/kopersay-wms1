@@ -1,4 +1,4 @@
-const CACHE_NAME = 'kopersay-site-v2';
+const CACHE_NAME = 'kopersay-site-v3';
 const CORE_FILES = [
   './',
   './index.html',
