@@ -74,6 +74,48 @@ a{
 }
 
 
+/* ================= ANNOUNCEMENT ================= */
+
+.announcement-bar{
+    overflow:hidden;
+    background:linear-gradient(90deg,#4b2ea7,#7045ff,#159ee8);
+    color:#ffffff;
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:.15px;
+    line-height:1.35;
+    white-space:nowrap;
+}
+
+.announcement-track{
+    display:inline-block;
+    min-width:100%;
+    padding:9px 0;
+    animation:announcement-scroll 18s linear infinite;
+    will-change:transform;
+}
+
+.announcement-track span{
+    display:inline-block;
+    padding-left:100vw;
+    padding-right:48px;
+}
+
+@keyframes announcement-scroll{
+    from{ transform:translateX(0); }
+    to{ transform:translateX(-100%); }
+}
+
+@media (prefers-reduced-motion: reduce){
+    .announcement-track{
+        animation:none;
+    }
+
+    .announcement-track span{
+        padding-left:18px;
+    }
+}
+
 /* ================= NAVBAR ================= */
 
 .navbar{
@@ -1175,6 +1217,12 @@ footer{
 
 
 <body>
+
+<div class="announcement-bar" role="status" aria-label="Important announcement">
+    <div class="announcement-track">
+        <span>Mobile users: please turn on Desktop Mode before visiting the website.</span>
+    </div>
+</div>
 
 
 <!-- NAVBAR -->
