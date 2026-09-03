@@ -17,14 +17,17 @@
     });
   }
 
-  // Add Kopersay contact email below the phone number on the home page
+  // Keep Kopersay contact email directly below the phone number on the home page
   window.addEventListener('DOMContentLoaded', function () {
     if (window.location.pathname.endsWith('/index.html') || window.location.pathname === '/' || window.location.pathname === '') {
       var contact = document.getElementById('contact');
-      if (contact && !contact.querySelector('.kopersay-contact-email')) {
-        var email = document.createElement('p');
-        email.className = 'kopersay-contact-email';
-        email.innerHTML = 'Email: <a href="mailto:contact@kopersay.in">contact@kopersay.in</a>';
+      if (contact) {
+        var email = contact.querySelector('.kopersay-contact-email');
+        if (!email) {
+          email = document.createElement('p');
+          email.className = 'kopersay-contact-email';
+          email.innerHTML = 'Email: <a href="mailto:contact@kopersay.in">contact@kopersay.in</a>';
+        }
 
         var phone = contact.querySelector('.phone');
         if (phone) {
