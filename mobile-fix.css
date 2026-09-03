@@ -1,0 +1,86 @@
+/* KOPERSAY MOBILE LAYOUT FIX — shared across every page */
+@media (max-width: 600px){
+  html,body{width:100%;max-width:100%;overflow-x:hidden!important}
+  .navbar{
+    width:100%!important;
+    min-height:58px!important;
+    height:58px!important;
+    flex-direction:row!important;
+    align-items:center!important;
+    justify-content:space-between!important;
+    gap:8px!important;
+    padding:7px 12px!important;
+    overflow:hidden!important;
+  }
+  .navbar .logo{flex:0 0 auto!important;min-width:0!important}
+  .navbar .logo img{height:38px!important;max-height:38px!important;width:auto!important;object-fit:contain!important}
+  .nav-links{
+    flex:1 1 auto!important;
+    min-width:0!important;
+    width:auto!important;
+    max-width:none!important;
+    display:flex!important;
+    flex-direction:row!important;
+    align-items:center!important;
+    justify-content:flex-start!important;
+    flex-wrap:nowrap!important;
+    gap:12px!important;
+    overflow-x:auto!important;
+    overflow-y:hidden!important;
+    white-space:nowrap!important;
+    scrollbar-width:none!important;
+    -ms-overflow-style:none!important;
+    padding:2px 0!important;
+  }
+  .nav-links::-webkit-scrollbar{display:none!important}
+  .nav-links>a,.nav-links>div,.nav-links button{
+    flex:0 0 auto!important;
+    white-space:nowrap!important;
+  }
+  .nav-links>a{font-size:11px!important;margin:0!important}
+  .nav-links .nav-contact,.nav-links .contact-btn,.nav-links .cta-btn{padding:7px 10px!important;font-size:11px!important}
+  .our-products-dropdown{flex:0 0 auto!important}
+  .our-products-btn{padding:7px 10px!important;font-size:11px!important;white-space:nowrap!important}
+  .our-products-menu{right:0!important;max-width:calc(100vw - 24px)!important}
+
+  .hero{width:100%!important;max-width:100%!important;overflow:hidden!important}
+  .hero h1{max-width:100%!important;overflow-wrap:anywhere!important}
+  .hero p{max-width:92%!important}
+  .buttons,.hero-buttons{width:100%!important;max-width:100%!important}
+  .btn,.primary-btn,.secondary-btn{max-width:100%!important}
+
+  .container,.section,.section-grid,.about-grid,.feature-grid,.apps-grid,.products,
+  .founder-section,.wms-special,.features,.mission,.values,.story,.cta,.full-module{
+    max-width:100%!important;
+  }
+  .container{width:92%!important}
+  .section,.founder-section,.wms-special{padding-left:12px!important;padding-right:12px!important}
+
+  .section-grid,.about-grid,.feature-grid,.apps-grid{min-width:0!important}
+  .card,.app-card,.feature-card,.value,.stat,.story-box,.business-visual,.coming-box,
+  .dashboard,.dashboard-card,.dashboard-list,.contact-box,.wms-special-box,.wms-preview,
+  .slider,.founder-slider,.software-logo,.cta,.contact-form,.form-box,.info-box,.panel,.box,
+  .table-wrap,.table-container,.modal,.modal-content{max-width:100%!important;min-width:0!important}
+  img,video,iframe{max-width:100%!important;height:auto}
+  table{display:block!important;max-width:100%!important;overflow-x:auto!important}
+  pre,code{max-width:100%!important;overflow-x:auto!important}
+
+  /* Home slider: keep controls and content inside the phone viewport. */
+  .slider{width:calc(100% - 12px)!important;margin-left:auto!important;margin-right:auto!important}
+  .slide{padding:24px 34px!important;gap:12px!important;min-width:100%!important}
+  .slide-text{min-width:0!important;max-width:72%!important}
+  .slide h2{overflow-wrap:anywhere!important}
+  .slide-icon{flex:0 0 58px!important;width:58px!important;height:58px!important}
+
+  /* Common two-column desktop blocks become one clean column. */
+  .full-card,.wms-special-box,.about{grid-template-columns:1fr!important}
+  .products,.cards{grid-template-columns:1fr!important}
+  .value-list{grid-template-columns:1fr!important}
+  .language-box{grid-template-columns:1fr!important}
+}
+
+@media (min-width:601px) and (max-width:850px){
+  .navbar{padding:10px 3%!important;gap:12px!important}
+  .nav-links{gap:12px!important;flex-wrap:nowrap!important}
+  .nav-links>a{font-size:12px!important}
+}
