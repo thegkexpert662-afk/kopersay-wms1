@@ -23,10 +23,11 @@ body{font-family:Arial,Helvetica,sans-serif;color:#17304d;line-height:1.6}
 a{text-decoration:none;color:inherit}
 .container{width:min(1160px,92%);margin:auto}
 header{position:sticky;top:0;z-index:1000}
-.nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:24px}
-.brand{display:flex;align-items:center;flex:0 0 auto}.brand img{width:auto;height:46px;display:block;object-fit:contain}
-nav{display:flex;align-items:center;justify-content:flex-end;gap:24px;flex-wrap:wrap;font-size:14px;font-weight:700}nav a{white-space:nowrap;color:#17304d}nav a:hover{color:#2563eb}
-.contact-btn{padding:10px 17px;border-radius:12px;background:linear-gradient(135deg,#673cff,#208fff);color:#fff!important}
+/* HOME-STYLE NAVBAR: full-width alignment keeps the logo from sitting too far left/right */
+.nav{width:100%;max-width:none;min-height:62px;padding:0 22px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{display:flex;align-items:center;flex:0 0 auto}.brand img{width:auto;height:48px;display:block;object-fit:contain}
+.nav>nav{display:flex;align-items:center;justify-content:flex-end;gap:25px;flex-wrap:wrap;font-size:13px;font-weight:600}.nav>nav a{white-space:nowrap;color:#35445d}.nav>nav a:hover{color:#6545ef}
+.contact-btn{padding:9px 15px;border:1px solid rgba(255,255,255,.7);border-radius:16px;background:linear-gradient(135deg,#6545ef,#19aeea);color:#fff!important;box-shadow:0 8px 20px rgba(82,85,220,.25)}
 .hero{text-align:center;padding:88px 0 65px}.badge{display:inline-block;padding:8px 15px;border-radius:999px;font-size:11px;font-weight:900;letter-spacing:2px;margin-bottom:18px}
 .hero h1{font-size:clamp(42px,7vw,76px);line-height:1.04;font-weight:900}.gradient{background:linear-gradient(90deg,#673cff,#168cff);-webkit-background-clip:text;background-clip:text;color:transparent}
 .hero p{max-width:760px;margin:20px auto 0;font-size:18px;color:#53647a}
@@ -37,12 +38,12 @@ nav{display:flex;align-items:center;justify-content:flex-end;gap:24px;flex-wrap:
 .roadmap{padding:10px 0 90px}.roadmap-box{padding:36px}.timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:15px;margin-top:25px}.step{padding:20px;border-radius:18px;background:rgba(255,255,255,.5);border:1px solid rgba(255,255,255,.65)}.step strong{display:block;font-size:12px;letter-spacing:1px;margin-bottom:7px}.step h3{font-size:18px;margin-bottom:5px}.step p{font-size:13px;color:#5f7186}
 .cta{padding:10px 0 85px}.cta-box{text-align:center;padding:55px 25px;color:#fff;background:linear-gradient(135deg,rgba(12,25,58,.96),rgba(38,25,93,.96))!important}.cta-box h2{font-size:35px;margin-bottom:8px}.cta-box p{color:#d2dced;margin-bottom:24px}.cta-box a{display:inline-block;padding:13px 20px;border-radius:12px;background:#fff;color:#24365a;font-weight:800}
 footer{padding:38px 0;text-align:center;color:#d2dced}.footer-logo img{height:44px;width:auto;margin:0 auto 12px;display:block}.footer-links{display:flex;justify-content:center;gap:24px;flex-wrap:wrap;margin:16px 0;font-size:14px;font-weight:700}
-@media(max-width:850px){.feature-grid{grid-template-columns:1fr 1fr}.highlight-box{grid-template-columns:1fr;padding:30px}.timeline{grid-template-columns:1fr 1fr}.nav{padding:10px 0}nav{gap:12px}}
-@media(max-width:600px){.nav{flex-direction:column;align-items:flex-start;gap:10px}.brand img{height:38px}nav{width:100%;justify-content:flex-start;gap:9px 16px;font-size:12px}nav a:not(.contact-btn){display:none}.hero{padding:62px 0 48px}.hero h1{font-size:43px}.hero p{font-size:16px}.section-title h2{font-size:31px}.feature-grid,.timeline{grid-template-columns:1fr}.feature-card{min-height:0}.highlight-box{padding:24px}.highlight-box h2{font-size:30px}.ai-visual{min-height:210px}.cta-box h2{font-size:29px}}
+@media(max-width:850px){.feature-grid{grid-template-columns:1fr 1fr}.highlight-box{grid-template-columns:1fr;padding:30px}.timeline{grid-template-columns:1fr 1fr}.nav{padding:0 18px}.nav>nav{gap:12px}}
+@media(max-width:600px){.nav{flex-direction:column;align-items:flex-start;gap:10px;padding:10px 14px}.brand img{height:38px}.nav>nav{width:100%;justify-content:flex-start;gap:9px 16px;font-size:12px}.nav>nav a:not(.contact-btn){display:none}.hero{padding:62px 0 48px}.hero h1{font-size:43px}.hero p{font-size:16px}.section-title h2{font-size:31px}.feature-grid,.timeline{grid-template-columns:1fr}.feature-card{min-height:0}.highlight-box{padding:24px}.highlight-box h2{font-size:30px}.ai-visual{min-height:210px}.cta-box h2{font-size:29px}}
 </style>
 </head>
 <body>
-<header><div class="container nav"><a href="index.html" class="brand" aria-label="Kopersay Technologies Home"><img src="assets/kopersay2.png" alt="Kopersay Technologies Logo"></a><nav aria-label="Main navigation"><a href="index.html">Home</a><a href="products.html">Products</a><a href="about.html">About</a><a href="vision.html">Vision</a><a href="why-kopersay.html">Why Kopersay</a><a href="contact.html" class="contact-btn">Contact</a></nav></div></header>
+<header><div class="nav"><a href="index.html" class="brand" aria-label="Kopersay Technologies Home"><img src="assets/kopersay2.png" alt="Kopersay Technologies Logo"></a><nav aria-label="Main navigation"><a href="index.html">Home</a><a href="products.html">Products</a><a href="about.html">About</a><a href="vision.html">Vision</a><a href="why-kopersay.html">Why Kopersay</a><a href="apps.html">Apps</a><a href="contact.html" class="contact-btn">Contact</a></nav></div></header>
 <main>
 <section class="hero"><div class="container"><span class="badge">KOPERSAY BUSINESS SOFTWARE</span><h1>Kopersay <span class="gradient">AI Module.</span></h1><p>An upcoming intelligent business software module designed to help teams understand data, automate routine work, discover insights and make better decisions.</p><div class="release">TARGET RELEASE • 2028</div></div></section>
 <section class="section"><div class="container"><div class="section-title"><h2>Planned AI Features</h2><p>A future-focused module for smarter business operations.</p></div><div class="feature-grid">
