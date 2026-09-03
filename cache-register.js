@@ -12,46 +12,43 @@
     window.dataLayer = window.dataLayer || [];
     window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
     window.gtag('js', new Date());
-    window.gtag('config', 'G-JTSZSZ29VY', {
-      anonymize_ip: true
-    });
+    window.gtag('config', 'G-JTSZSZ29VY', { anonymize_ip: true });
   }
 
-  // Contact email: keep it inside the contact box, directly below the phone number.
-  window.addEventListener('DOMContentLoaded', function () {
-    if (window.location.pathname.endsWith('/index.html') || window.location.pathname === '/' || window.location.pathname === '') {
-      var contact = document.getElementById('contact');
-      if (contact) {
-        var contactBox = contact.querySelector('.contact-box');
-        var email = contact.querySelector('.kopersay-contact-email');
+  // Homepage contact email: keep it inside the glass contact card, directly below the phone number.
+  function setupKopersayContactEmail() {
+    if (!(window.location.pathname.endsWith('/index.html') || window.location.pathname === '/' || window.location.pathname === '')) return;
 
-        if (!email) {
-          email = document.createElement('p');
-          email.className = 'kopersay-contact-email';
-          email.innerHTML = '<span class="email-label">Email:</span> <a href="mailto:contact@kopersay.in">contact@kopersay.in</a>';
-        }
+    var contact = document.getElementById('contact');
+    var contactBox = contact && contact.querySelector('.contact-box');
+    var phone = contactBox && contactBox.querySelector('.phone');
+    if (!contactBox) return;
 
-        if (contactBox) {
-          var phone = contactBox.querySelector('.phone');
-          if (phone) {
-            phone.insertAdjacentElement('afterend', email);
-          } else {
-            contactBox.appendChild(email);
-          }
-        } else {
-          contact.appendChild(email);
-        }
-
-        // Dedicated email styling so it matches the glass Contact card.
-        if (!document.getElementById('kopersay-contact-email-style')) {
-          var style = document.createElement('style');
-          style.id = 'kopersay-contact-email-style';
-          style.textContent = '\n            .contact-box .kopersay-contact-email {\n              display: block !important;\n              width: 100%;\n              margin: 10px 0 0 !important;\n              padding: 0 !important;\n              text-align: center;\n              color: #60728a;\n              font-size: 13px;\n              line-height: 1.5;\n              font-weight: 600;\n              position: relative;\n              z-index: 2;\n            }\n            .contact-box .kopersay-contact-email .email-label {\n              color: #60728a;\n            }\n            .contact-box .kopersay-contact-email a {\n              color: #6545ed;\n              font-weight: 800;\n              text-decoration: none;\n            }\n            .contact-box .kopersay-contact-email a:hover {\n              color: #15afe9;\n              text-decoration: underline;\n            }\n            @media (max-width: 700px) {\n              .contact-box .kopersay-contact-email {\n                font-size: 12px;\n                margin-top: 9px !important;\n              }\n            }\n          ';
-          document.head.appendChild(style);
-        }
-      }
+    var email = contactBox.querySelector('.kopersay-contact-email') || document.querySelector('.kopersay-contact-email');
+    if (!email) {
+      email = document.createElement('p');
+      email.className = 'kopersay-contact-email';
+      email.innerHTML = '<span>Email:</span> <a href="mailto:contact@kopersay.in">contact@kopersay.in</a>';
     }
-  });
+
+    // Force the email into the contact card and place it immediately after the phone.
+    if (email.parentNode !== contactBox || (phone && email.previousElementSibling !== phone)) {
+      email.remove();
+      if (phone) phone.insertAdjacentElement('afterend', email);
+      else contactBox.appendChild(email);
+    }
+
+    if (!document.getElementById('kopersay-contact-email-css')) {
+      var style = document.createElement('style');
+      style.id = 'kopersay-contact-email-css';
+      style.textContent = '.contact-box .kopersay-contact-email{display:block!important;margin:10px 0 0!important;padding:0!important;color:#60728a!important;font-size:13px!important;font-weight:600!important;line-height:1.5!important;text-align:center!important}.contact-box .kopersay-contact-email span{color:#60728a!important}.contact-box .kopersay-contact-email a{color:#6545ed!important;font-weight:800!important;text-decoration:none!important}.contact-box .kopersay-contact-email a:hover{text-decoration:underline!important}@media(max-width:700px){.contact-box .kopersay-contact-email{font-size:12px!important;word-break:break-word!important}}';
+      document.head.appendChild(style);
+    }
+  }
+
+  window.addEventListener('DOMContentLoaded', setupKopersayContactEmail);
+  window.addEventListener('load', setupKopersayContactEmail);
+  setTimeout(setupKopersayContactEmail, 500);
 
   // Service worker cache
   if (!('serviceWorker' in navigator)) return;
@@ -59,6 +56,7 @@
   window.addEventListener('load', function () {
     navigator.serviceWorker.register('./service-worker.js', { scope: './' })
       .then(function (registration) {
+        registration.update();
         console.log('Kopersay cache enabled:', registration.scope);
       })
       .catch(function (error) {
