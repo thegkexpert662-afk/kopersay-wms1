@@ -17,6 +17,19 @@
     });
   }
 
+  // Add Kopersay contact email to the home page Contact section
+  window.addEventListener('DOMContentLoaded', function () {
+    if (window.location.pathname.endsWith('/index.html') || window.location.pathname === '/' || window.location.pathname === '') {
+      var contact = document.getElementById('contact');
+      if (contact && !contact.querySelector('.kopersay-contact-email')) {
+        var email = document.createElement('p');
+        email.className = 'kopersay-contact-email';
+        email.innerHTML = 'Email: <a href="mailto:contact@kopersay.in">contact@kopersay.in</a>';
+        contact.appendChild(email);
+      }
+    }
+  });
+
   // Service worker cache
   if (!('serviceWorker' in navigator)) return;
 
