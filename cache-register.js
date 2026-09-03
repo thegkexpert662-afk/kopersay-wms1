@@ -17,7 +17,7 @@
     });
   }
 
-  // Add Kopersay contact email to the home page Contact section
+  // Add Kopersay contact email below the phone number on the home page
   window.addEventListener('DOMContentLoaded', function () {
     if (window.location.pathname.endsWith('/index.html') || window.location.pathname === '/' || window.location.pathname === '') {
       var contact = document.getElementById('contact');
@@ -25,7 +25,18 @@
         var email = document.createElement('p');
         email.className = 'kopersay-contact-email';
         email.innerHTML = 'Email: <a href="mailto:contact@kopersay.in">contact@kopersay.in</a>';
-        contact.appendChild(email);
+
+        var phone = contact.querySelector('.phone');
+        if (phone) {
+          phone.insertAdjacentElement('afterend', email);
+        } else {
+          var callButton = contact.querySelector('a[href^="tel:"]');
+          if (callButton) {
+            callButton.insertAdjacentElement('afterend', email);
+          } else {
+            contact.appendChild(email);
+          }
+        }
       }
     }
   });
