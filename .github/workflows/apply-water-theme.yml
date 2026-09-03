@@ -9,31 +9,34 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Add shared water stylesheet
+      - name: Add shared responsive stylesheets
         run: |
           python3 - <<'PY'
           from pathlib import Path
           changed=[]
           for p in Path('.').glob('*.html'):
               s=p.read_text(encoding='utf-8')
-              link='<link rel="stylesheet" href="water-glass.css">'
-              if link not in s:
-                  if '</head>' in s:
-                      s=s.replace('</head>',link+'\n</head>',1)
-                  else:
-                      s=link+'\n'+s
-                  p.write_text(s,encoding='utf-8')
-                  changed.append(str(p))
-          print('Updated:', changed)
+              for link in [
+                  '<link rel="stylesheet" href="water-glass.css">',
+                  '<link rel="stylesheet" href="mobile-fix.css">'
+              ]:
+                  if link not in s:
+                      if '</head>' in s:
+                          s=s.replace('</head>',link+'\n</head>',1)
+                      else:
+                          s=link+'\n'+s
+                      changed.append(str(p))
+              p.write_text(s,encoding='utf-8')
+          print('Updated:', sorted(set(changed)))
           PY
-      - name: Commit theme links
+      - name: Commit stylesheet links
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add '*.html'
+          git add -- '*.html'
           if git diff --cached --quiet; then
-            echo "All HTML pages already themed"
+            echo "All HTML pages already have shared responsive styles"
           else
-            git commit -m "Apply water glass theme to all website pages"
+            git commit -m "Fix mobile layout across website [skip ci]"
             git push
           fi
