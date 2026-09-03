@@ -30,15 +30,14 @@
         }
 
         var phone = contact.querySelector('.phone');
-        if (phone) {
+        var contactBox = contact.querySelector('.contact-box');
+        if (phone && contactBox) {
+          // Always move the existing/new email into the contact box immediately after the number.
           phone.insertAdjacentElement('afterend', email);
+        } else if (contactBox) {
+          contactBox.appendChild(email);
         } else {
-          var callButton = contact.querySelector('a[href^="tel:"]');
-          if (callButton) {
-            callButton.insertAdjacentElement('afterend', email);
-          } else {
-            contact.appendChild(email);
-          }
+          contact.appendChild(email);
         }
       }
     }
