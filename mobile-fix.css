@@ -17,6 +17,9 @@
 .navbar .nav-links,
 .nav nav{margin-left:auto!important;flex:0 1 auto!important;justify-content:flex-end!important}
 
+/* Hide the temporary Countries section from the home page. */
+.countries-section{display:none!important}
+
 @media (max-width: 600px){
   html,body{width:100%;max-width:100%;overflow-x:hidden!important}
   .navbar,
