@@ -1,0 +1,98 @@
+name: Security & SEO Audit
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout site
+        uses: actions/checkout@v4
+
+      - name: Audit all HTML pages
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+          import re, sys
+
+          files = sorted(Path('.').rglob('*.html'))
+          files = [p for p in files if '.git' not in p.parts and 'node_modules' not in p.parts]
+          errors = []
+          warnings = []
+
+          if not files:
+              errors.append('No HTML pages found.')
+
+          for p in files:
+              text = p.read_text(encoding='utf-8', errors='replace')
+              low = text.lower()
+
+              # SEO checks
+              title = re.search(r'<title\\b[^>]*>(.*?)</title>', text, re.I | re.S)
+              desc = re.search(r'<meta\\s+[^>]*name=["\\\']description["\\\'][^>]*>', text, re.I)
+              canonical = re.search(r'<link\\s+[^>]*rel=["\\\']canonical["\\\'][^>]*>', text, re.I)
+              viewport = re.search(r'<meta\\s+[^>]*name=["\\\']viewport["\\\'][^>]*>', text, re.I)
+              h1s = re.findall(r'<h1\\b[^>]*>', text, re.I)
+
+              if not title or not title.group(1).strip():
+                  errors.append(f'{p}: missing/empty <title>')
+              elif not 20 <= len(re.sub(r'\\s+', ' ', title.group(1).strip())) <= 65:
+                  warnings.append(f'{p}: title length should usually be 20-65 characters')
+              if not desc:
+                  errors.append(f'{p}: missing meta description')
+              if not canonical:
+                  warnings.append(f'{p}: missing canonical link')
+              if not viewport:
+                  warnings.append(f'{p}: missing viewport meta')
+              if len(h1s) != 1:
+                  warnings.append(f'{p}: expected exactly 1 H1, found {len(h1s)}')
+
+              # Basic security/static checks
+              if re.search(r'<script[^>]+src=["\'][^"\']+["\'][^>]*>\\s*</script>', text, re.I):
+                  pass
+              if re.search(r'(eval\\s*\\(|document\\.write\\s*\\(|innerHTML\\s*=)', text, re.I):
+                  warnings.append(f'{p}: review dynamic HTML/script patterns for XSS risk')
+              if 'http://' in low and 'localhost' not in low:
+                  warnings.append(f'{p}: contains an insecure http:// reference')
+              if re.search(r'<img\\b(?![^>]*\\balt=)[^>]*>', text, re.I):
+                  warnings.append(f'{p}: image without alt attribute found')
+
+          print(f'HTML pages audited: {len(files)}')
+          print(f'Warnings: {len(warnings)}')
+          for w in warnings:
+              print('::warning::' + w)
+          if errors:
+              for e in errors:
+                  print('::error::' + e)
+              sys.exit(1)
+          print('Security/SEO audit completed successfully.')
+          PY
+
+      - name: Check live security headers
+        shell: bash
+        run: |
+          set +e
+          headers="$(curl -sSIL --max-time 20 https://kopersay.in/ || true)"
+          echo "$headers"
+          for h in "strict-transport-security" "content-security-policy" "x-content-type-options" "referrer-policy"; do
+            if ! printf '%s\n' "$headers" | grep -qi "^$h:"; then
+              echo "::warning::Live site is missing recommended security header: $h"
+            fi
+          done
+
+      - name: Check sitemap and robots
+        shell: bash
+        run: |
+          for f in sitemap.xml robots.txt; do
+            if [ ! -f "$f" ]; then
+              echo "::warning::Missing $f in repository root"
+            fi
+          done
