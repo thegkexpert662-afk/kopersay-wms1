@@ -1,0 +1,53 @@
+name: Add Instagram Links
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  add-instagram-links:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Add Instagram link to every website footer
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          instagram = 'https://www.instagram.com/kopersaytech?stkn=MXVxbXJsZ2hpeW1uYg=='
+          marker = 'data-kopersay-instagram="true"'
+          link = f'''<a href="{instagram}" target="_blank" rel="noopener noreferrer" aria-label="Kopersay Technologies on Instagram" {marker} style="display:inline-flex;align-items:center;gap:8px;margin:10px 0;padding:9px 14px;border-radius:12px;background:linear-gradient(135deg,#6b45ee,#15afe9);color:#fff!important;font-size:13px;font-weight:700;text-decoration:none;box-shadow:0 8px 20px rgba(82,85,220,.22);">Instagram</a>'''
+
+          changed = []
+          for path in sorted(Path('.').glob('*.html')):
+              if path.name == 'navnita_slider_snippet.html':
+                  continue
+              text = path.read_text(encoding='utf-8')
+              if '<footer' not in text or marker in text:
+                  continue
+              updated = text.replace('</footer>', link + '</footer>', 1)
+              if updated != text:
+                  path.write_text(updated, encoding='utf-8')
+                  changed.append(path.name)
+
+          print('Updated:', ', '.join(changed) if changed else 'none')
+          PY
+
+      - name: Commit website changes
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add '*.html'
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+          git commit -m "Add Kopersay Instagram link to website footers"
+          git push
