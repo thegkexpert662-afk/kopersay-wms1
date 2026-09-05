@@ -22,7 +22,7 @@ jobs:
           git fetch origin main
           git reset --hard origin/main
 
-      - name: Add small round Instagram button to every website footer
+      - name: Add small round Instagram button above All Rights Reserved
         shell: bash
         run: |
           python3 - <<'PY'
@@ -32,7 +32,7 @@ jobs:
           instagram = 'https://www.instagram.com/kopersaytech?stkn=MXVxbXJsZ2hpeW1uYg=='
           marker = 'data-kopersay-instagram="true"'
           icon = '''<svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="display:block"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/></svg>'''
-          link = f'''<a href="{instagram}" target="_blank" rel="noopener noreferrer" aria-label="Kopersay Technologies on Instagram" {marker} style="display:inline-flex;align-items:center;justify-content:center;gap:6px;margin:8px 0;padding:7px 11px;border-radius:999px;background:linear-gradient(135deg,#6b45ee,#15afe9);color:#fff!important;font-size:11px;font-weight:700;line-height:1;text-decoration:none;box-shadow:0 5px 14px rgba(82,85,220,.18);">{icon}<span>Instagram</span></a>'''
+          link = f'''<a href="{instagram}" target="_blank" rel="noopener noreferrer" aria-label="Kopersay Technologies on Instagram" {marker} style="display:inline-flex;align-items:center;justify-content:center;gap:6px;margin:7px 0;padding:7px 11px;border-radius:999px;background:linear-gradient(135deg,#6b45ee,#15afe9);color:#fff!important;font-size:11px;font-weight:700;line-height:1;text-decoration:none;box-shadow:0 5px 14px rgba(82,85,220,.18);">{icon}<span>Instagram</span></a>'''
 
           changed = []
           for path in sorted(Path('.').glob('*.html')):
@@ -40,18 +40,26 @@ jobs:
                   continue
               text = path.read_text(encoding='utf-8')
 
-              if marker in text:
-                  pattern = r'<a\b[^>]*' + re.escape(marker) + r'[^>]*>.*?</a>'
-                  updated, count = re.subn(pattern, link, text, count=1, flags=re.DOTALL)
-                  if count and updated != text:
+              # Remove the existing generated Instagram button first so it can be placed correctly.
+              pattern = r'<a\b[^>]*' + re.escape(marker) + r'[^>]*>.*?</a>'
+              cleaned, count = re.subn(pattern, '', text, count=1, flags=re.DOTALL)
+
+              # Put the button immediately before the All Rights Reserved text.
+              rights_pattern = re.compile(r'(?i)(All\s+Rights\s+Reserved\.?|All\s+rights\s+reserved\.?)')
+              match = rights_pattern.search(cleaned)
+              if match:
+                  updated = cleaned[:match.start()] + link + '\n' + cleaned[match.start():]
+                  if updated != text:
                       path.write_text(updated, encoding='utf-8')
                       changed.append(path.name)
                   continue
 
-              if '</footer>' in text:
-                  updated = text.replace('</footer>', link + '</footer>', 1)
-                  path.write_text(updated, encoding='utf-8')
-                  changed.append(path.name)
+              # Fallback for pages that use a copyright line without the phrase.
+              if '</footer>' in cleaned:
+                  updated = cleaned.replace('</footer>', link + '</footer>', 1)
+                  if updated != text:
+                      path.write_text(updated, encoding='utf-8')
+                      changed.append(path.name)
 
           print('Updated:', ', '.join(changed) if changed else 'none')
           PY
@@ -66,5 +74,5 @@ jobs:
             echo "No changes to commit."
             exit 0
           fi
-          git commit -m "Make Instagram button smaller and round"
+          git commit -m "Place Instagram button above All Rights Reserved"
           git push origin HEAD:main
