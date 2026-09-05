@@ -30,6 +30,7 @@ jobs:
           import re
 
           instagram = 'https://www.instagram.com/kopersaytech?stkn=MXVxbXJsZ2hpeW1uYg=='
+          youtube = 'https://youtube.com/@kopersaytech?si=9l9ObxGl1pVYXcCi'
           row_marker = 'data-kopersay-social-row="true"'
           old_marker = 'data-kopersay-instagram="true"'
 
@@ -43,7 +44,7 @@ jobs:
               extra = ' target="_blank" rel="noopener noreferrer"' if active else ' aria-disabled="true"'
               return f'<a href="{url}"{extra} aria-label="{label}" style="display:inline-flex;align-items:center;justify-content:center;gap:5px;margin:4px;padding:6px 9px;border-radius:999px;background:#f4f5f7;color:#333!important;font-size:10px;font-weight:700;line-height:1;text-decoration:none;opacity:{"1" if active else ".55"};">{icon}<span>{label}</span></a>'
 
-          row = f'<div {row_marker} style="text-align:center;margin:8px 0 5px;">{button(instagram,"Instagram",icons["instagram"],True)}{button("#","Facebook",icons["facebook"])}{button("#","YouTube",icons["youtube"])}</div>'
+          row = f'<div {row_marker} style="text-align:center;margin:8px 0 5px;">{button(instagram,"Instagram",icons["instagram"],True)}{button("#","Facebook",icons["facebook"])}{button(youtube,"YouTube",icons["youtube"],True)}</div>'
 
           changed = []
           for path in sorted(Path('.').glob('*.html')):
@@ -54,14 +55,11 @@ jobs:
               cleaned = re.sub(r'<a\b[^>]*' + re.escape(old_marker) + r'[^>]*>.*?</a>', '', text, flags=re.DOTALL)
               cleaned = re.sub(r'<div\b[^>]*' + re.escape(row_marker) + r'[^>]*>.*?</div>', '', cleaned, count=1, flags=re.DOTALL)
 
-              # Keep the copyright symbol directly before the 2026 year.
               if re.search(r'©\s*2026', cleaned):
                   cleaned = re.sub(r'©\s*2026', '© 2026', cleaned, count=1)
               elif re.search(r'&copy;\s*2026', cleaned, flags=re.I):
                   cleaned = re.sub(r'&copy;\s*2026', '© 2026', cleaned, count=1, flags=re.I)
               else:
-                  # Remove a standalone copyright symbol near the footer, then attach it to 2026.
-                  cleaned = re.sub(r'(</footer>|All\s+Rights\s+Reserved|2026)[\s\S]*', lambda m: m.group(0), cleaned, count=1)
                   standalone = re.search(r'(?:^|>)[\s\n]*©[\s\n]*(?=<|2026)', cleaned)
                   if standalone:
                       cleaned = cleaned[:standalone.start()] + cleaned[standalone.end():]
@@ -69,7 +67,6 @@ jobs:
                   if year:
                       cleaned = cleaned[:year.start()] + '© 2026' + cleaned[year.end():]
 
-              # Social row goes immediately above the copyright line.
               anchor = re.search(r'©\s*2026', cleaned)
               if not anchor:
                   anchor = re.search(r'2026', cleaned)
@@ -99,5 +96,5 @@ jobs:
             echo "No changes to commit."
             exit 0
           fi
-          git commit -m "Put copyright mark before 2026"
+          git commit -m "Add Kopersay YouTube link"
           git push origin HEAD:main
