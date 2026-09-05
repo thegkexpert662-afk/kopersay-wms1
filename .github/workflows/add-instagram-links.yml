@@ -11,8 +11,16 @@ jobs:
   add-instagram-links:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout latest main
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Sync with latest main
+        shell: bash
+        run: |
+          git fetch origin main
+          git reset --hard origin/main
 
       - name: Add Instagram link to every website footer
         shell: bash
@@ -29,10 +37,10 @@ jobs:
               if path.name == 'navnita_slider_snippet.html':
                   continue
               text = path.read_text(encoding='utf-8')
-              if '<footer' not in text or marker in text:
+              if marker in text:
                   continue
-              updated = text.replace('</footer>', link + '</footer>', 1)
-              if updated != text:
+              if '</footer>' in text:
+                  updated = text.replace('</footer>', link + '</footer>', 1)
                   path.write_text(updated, encoding='utf-8')
                   changed.append(path.name)
 
@@ -50,4 +58,4 @@ jobs:
             exit 0
           fi
           git commit -m "Add Kopersay Instagram link to website footers"
-          git push
+          git push origin HEAD:main
