@@ -22,7 +22,7 @@ jobs:
           git fetch origin main
           git reset --hard origin/main
 
-      - name: Place social row above footer year
+      - name: Place social row above footer copyright
         shell: bash
         run: |
           python3 - <<'PY'
@@ -50,11 +50,27 @@ jobs:
               if path.name == 'navnita_slider_snippet.html':
                   continue
               text = path.read_text(encoding='utf-8')
+
               cleaned = re.sub(r'<a\b[^>]*' + re.escape(old_marker) + r'[^>]*>.*?</a>', '', text, flags=re.DOTALL)
               cleaned = re.sub(r'<div\b[^>]*' + re.escape(row_marker) + r'[^>]*>.*?</div>', '', cleaned, count=1, flags=re.DOTALL)
 
-              # Find the copyright symbol first, so the social row stays above it.
-              anchor = re.search(r'&copy;|©', cleaned)
+              # Keep the copyright symbol directly before the 2026 year.
+              if re.search(r'©\s*2026', cleaned):
+                  cleaned = re.sub(r'©\s*2026', '© 2026', cleaned, count=1)
+              elif re.search(r'&copy;\s*2026', cleaned, flags=re.I):
+                  cleaned = re.sub(r'&copy;\s*2026', '© 2026', cleaned, count=1, flags=re.I)
+              else:
+                  # Remove a standalone copyright symbol near the footer, then attach it to 2026.
+                  cleaned = re.sub(r'(</footer>|All\s+Rights\s+Reserved|2026)[\s\S]*', lambda m: m.group(0), cleaned, count=1)
+                  standalone = re.search(r'(?:^|>)[\s\n]*©[\s\n]*(?=<|2026)', cleaned)
+                  if standalone:
+                      cleaned = cleaned[:standalone.start()] + cleaned[standalone.end():]
+                  year = re.search(r'2026', cleaned)
+                  if year:
+                      cleaned = cleaned[:year.start()] + '© 2026' + cleaned[year.end():]
+
+              # Social row goes immediately above the copyright line.
+              anchor = re.search(r'©\s*2026', cleaned)
               if not anchor:
                   anchor = re.search(r'2026', cleaned)
               if not anchor:
@@ -83,5 +99,5 @@ jobs:
             echo "No changes to commit."
             exit 0
           fi
-          git commit -m "Move social row above footer mark"
+          git commit -m "Put copyright mark before 2026"
           git push origin HEAD:main
