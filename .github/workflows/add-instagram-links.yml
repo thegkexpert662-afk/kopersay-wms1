@@ -1,4 +1,4 @@
-name: Add Instagram Links
+name: Add Social Media Links
 
 on:
   push:
@@ -8,7 +8,7 @@ permissions:
   contents: write
 
 jobs:
-  add-instagram-links:
+  add-social-links:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout latest main
@@ -22,7 +22,7 @@ jobs:
           git fetch origin main
           git reset --hard origin/main
 
-      - name: Add small round Instagram button above All Rights Reserved
+      - name: Add social media row above 2026 copyright
         shell: bash
         run: |
           python3 - <<'PY'
@@ -30,36 +30,46 @@ jobs:
           import re
 
           instagram = 'https://www.instagram.com/kopersaytech?stkn=MXVxbXJsZ2hpeW1uYg=='
-          marker = 'data-kopersay-instagram="true"'
-          icon = '''<svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="display:block"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/></svg>'''
-          link = f'''<a href="{instagram}" target="_blank" rel="noopener noreferrer" aria-label="Kopersay Technologies on Instagram" {marker} style="display:inline-flex;align-items:center;justify-content:center;gap:6px;margin:7px 0;padding:7px 11px;border-radius:999px;background:linear-gradient(135deg,#6b45ee,#15afe9);color:#fff!important;font-size:11px;font-weight:700;line-height:1;text-decoration:none;box-shadow:0 5px 14px rgba(82,85,220,.18);">{icon}<span>Instagram</span></a>'''
+          facebook = '#'
+          youtube = '#'
+          marker = 'data-kopersay-social-row="true"'
+
+          icons = {
+              'instagram': '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/></svg>',
+              'facebook': '<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 8h3V4h-3c-3.3 0-5 2-5 5v3H6v4h3v4h4v-4h3.2l.8-4H13V9c0-.7.3-1 1-1z"/></svg>',
+              'youtube': '<svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23 12s0-3.4-.4-5a2.8 2.8 0 0 0-2-2C18.9 4.5 12 4.5 12 4.5s-6.9 0-8.6.5a2.8 2.8 0 0 0-2 2C1 8.6 1 12 1 12s0 3.4.4 5a2.8 2.8 0 0 0 2 2c1.7.5 8.6.5 8.6.5s6.9 0 8.6-.5a2.8 2.8 0 0 0 2-2c.4-1.6.4-5 .4-5zM10 15.5v-7l6 3.5-6 3.5z"/></svg>'
+          }
+
+          def button(url, label, icon, disabled=False):
+              extra = ' aria-disabled="true" onclick="return false;"' if disabled else ' target="_blank" rel="noopener noreferrer"'
+              opacity = 'opacity:.55;cursor:default;' if disabled else 'cursor:pointer;'
+              return f'<a href="{url}"{extra} aria-label="{label}" style="display:inline-flex;align-items:center;justify-content:center;gap:5px;margin:4px;padding:6px 9px;border-radius:999px;background:#f4f5f7;color:#333!important;font-size:10px;font-weight:700;line-height:1;text-decoration:none;{opacity}">{icon}<span>{label}</span></a>'
+
+          row = f'<div {marker} style="text-align:center;margin:8px 0 5px;">{button(instagram,"Instagram",icons["instagram"])}{button(facebook,"Facebook",icons["facebook"],True)}{button(youtube,"YouTube",icons["youtube"],True)}</div>'
 
           changed = []
           for path in sorted(Path('.').glob('*.html')):
               if path.name == 'navnita_slider_snippet.html':
                   continue
               text = path.read_text(encoding='utf-8')
+              pattern = r'<div\b[^>]*' + re.escape(marker) + r'[^>]*>.*?</div>'
+              cleaned, _ = re.subn(pattern, '', text, count=1, flags=re.DOTALL)
 
-              # Remove the existing generated Instagram button first so it can be placed correctly.
-              pattern = r'<a\b[^>]*' + re.escape(marker) + r'[^>]*>.*?</a>'
-              cleaned, count = re.subn(pattern, '', text, count=1, flags=re.DOTALL)
+              year = re.search(r'2026', cleaned)
+              if year:
+                  updated = cleaned[:year.start()] + row + '\n' + cleaned[year.start():]
+              else:
+                  rights = re.search(r'(?i)All\s+Rights\s+Reserved\.?', cleaned)
+                  if rights:
+                      updated = cleaned[:rights.start()] + row + '\n' + cleaned[rights.start():]
+                  elif '</footer>' in cleaned:
+                      updated = cleaned.replace('</footer>', row + '</footer>', 1)
+                  else:
+                      continue
 
-              # Put the button immediately before the All Rights Reserved text.
-              rights_pattern = re.compile(r'(?i)(All\s+Rights\s+Reserved\.?|All\s+rights\s+reserved\.?)')
-              match = rights_pattern.search(cleaned)
-              if match:
-                  updated = cleaned[:match.start()] + link + '\n' + cleaned[match.start():]
-                  if updated != text:
-                      path.write_text(updated, encoding='utf-8')
-                      changed.append(path.name)
-                  continue
-
-              # Fallback for pages that use a copyright line without the phrase.
-              if '</footer>' in cleaned:
-                  updated = cleaned.replace('</footer>', link + '</footer>', 1)
-                  if updated != text:
-                      path.write_text(updated, encoding='utf-8')
-                      changed.append(path.name)
+              if updated != text:
+                  path.write_text(updated, encoding='utf-8')
+                  changed.append(path.name)
 
           print('Updated:', ', '.join(changed) if changed else 'none')
           PY
@@ -74,5 +84,5 @@ jobs:
             echo "No changes to commit."
             exit 0
           fi
-          git commit -m "Place Instagram button above All Rights Reserved"
+          git commit -m "Add social media row above 2026 copyright"
           git push origin HEAD:main
