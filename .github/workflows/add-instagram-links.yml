@@ -22,7 +22,7 @@ jobs:
           git fetch origin main
           git reset --hard origin/main
 
-      - name: Add social media row above 2026 copyright
+      - name: Place social row above footer year
         shell: bash
         run: |
           python3 - <<'PY'
@@ -30,8 +30,6 @@ jobs:
           import re
 
           instagram = 'https://www.instagram.com/kopersaytech?stkn=MXVxbXJsZ2hpeW1uYg=='
-          facebook = '#'
-          youtube = '#'
           row_marker = 'data-kopersay-social-row="true"'
           old_marker = 'data-kopersay-instagram="true"'
 
@@ -41,38 +39,32 @@ jobs:
               'youtube': '<svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23 12s0-3.4-.4-5a2.8 2.8 0 0 0-2-2C18.9 4.5 12 4.5 12 4.5s-6.9 0-8.6.5a2.8 2.8 0 0 0-2 2C1 8.6 1 12 1 12s0 3.4.4 5a2.8 2.8 0 0 0 2 2c1.7.5 8.6.5 8.6.5s6.9 0 8.6-.5a2.8 2.8 0 0 0 2-2c.4-1.6.4-5 .4-5zM10 15.5v-7l6 3.5-6 3.5z"/></svg>'
           }
 
-          def button(url, label, icon, disabled=False):
-              extra = ' aria-disabled="true" onclick="return false;"' if disabled else ' target="_blank" rel="noopener noreferrer"'
-              opacity = 'opacity:.55;cursor:default;' if disabled else 'cursor:pointer;'
-              return f'<a href="{url}"{extra} aria-label="{label}" style="display:inline-flex;align-items:center;justify-content:center;gap:5px;margin:4px;padding:6px 9px;border-radius:999px;background:#f4f5f7;color:#333!important;font-size:10px;font-weight:700;line-height:1;text-decoration:none;{opacity}">{icon}<span>{label}</span></a>'
+          def button(url, label, icon, active=False):
+              extra = ' target="_blank" rel="noopener noreferrer"' if active else ' aria-disabled="true"'
+              return f'<a href="{url}"{extra} aria-label="{label}" style="display:inline-flex;align-items:center;justify-content:center;gap:5px;margin:4px;padding:6px 9px;border-radius:999px;background:#f4f5f7;color:#333!important;font-size:10px;font-weight:700;line-height:1;text-decoration:none;opacity:{"1" if active else ".55"};">{icon}<span>{label}</span></a>'
 
-          row = f'<div {row_marker} style="text-align:center;margin:8px 0 5px;">{button(instagram,"Instagram",icons["instagram"])}{button(facebook,"Facebook",icons["facebook"],True)}{button(youtube,"YouTube",icons["youtube"],True)}</div>'
+          row = f'<div {row_marker} style="text-align:center;margin:8px 0 5px;">{button(instagram,"Instagram",icons["instagram"],True)}{button("#","Facebook",icons["facebook"])}{button("#","YouTube",icons["youtube"])}</div>'
 
           changed = []
           for path in sorted(Path('.').glob('*.html')):
               if path.name == 'navnita_slider_snippet.html':
                   continue
               text = path.read_text(encoding='utf-8')
+              cleaned = re.sub(r'<a\b[^>]*' + re.escape(old_marker) + r'[^>]*>.*?</a>', '', text, flags=re.DOTALL)
+              cleaned = re.sub(r'<div\b[^>]*' + re.escape(row_marker) + r'[^>]*>.*?</div>', '', cleaned, count=1, flags=re.DOTALL)
 
-              # Remove the previous standalone blue Instagram button.
-              old_pattern = r'<a\b[^>]*' + re.escape(old_marker) + r'[^>]*>.*?</a>'
-              cleaned, _ = re.subn(old_pattern, '', text, count=0, flags=re.DOTALL)
-
-              # Remove any previous social row before recreating it in the correct place.
-              row_pattern = r'<div\b[^>]*' + re.escape(row_marker) + r'[^>]*>.*?</div>'
-              cleaned, _ = re.subn(row_pattern, '', cleaned, count=1, flags=re.DOTALL)
-
-              year = re.search(r'2026', cleaned)
-              if year:
-                  updated = cleaned[:year.start()] + row + '\n' + cleaned[year.start():]
+              # Find the copyright symbol first, so the social row stays above it.
+              anchor = re.search(r'&copy;|©', cleaned)
+              if not anchor:
+                  anchor = re.search(r'2026', cleaned)
+              if not anchor:
+                  anchor = re.search(r'(?i)All\s+Rights\s+Reserved\.?', cleaned)
+              if anchor:
+                  updated = cleaned[:anchor.start()] + row + '\n' + cleaned[anchor.start():]
+              elif '</footer>' in cleaned:
+                  updated = cleaned.replace('</footer>', row + '</footer>', 1)
               else:
-                  rights = re.search(r'(?i)All\s+Rights\s+Reserved\.?', cleaned)
-                  if rights:
-                      updated = cleaned[:rights.start()] + row + '\n' + cleaned[rights.start():]
-                  elif '</footer>' in cleaned:
-                      updated = cleaned.replace('</footer>', row + '</footer>', 1)
-                  else:
-                      continue
+                  continue
 
               if updated != text:
                   path.write_text(updated, encoding='utf-8')
@@ -91,5 +83,5 @@ jobs:
             echo "No changes to commit."
             exit 0
           fi
-          git commit -m "Remove duplicate Instagram button"
+          git commit -m "Move social row above footer mark"
           git push origin HEAD:main
