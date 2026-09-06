@@ -30,6 +30,7 @@ jobs:
           import re
 
           instagram = 'https://www.instagram.com/kopersaytech?stkn=MXVxbXJsZ2hpeW1uYg=='
+          facebook = 'https://www.facebook.com/share/1DFtjNQct4/'
           youtube = 'https://youtube.com/@kopersaytech?si=9l9ObxGl1pVYXcCi'
           row_marker = 'data-kopersay-social-row="true"'
           old_marker = 'data-kopersay-instagram="true"'
@@ -44,7 +45,7 @@ jobs:
               extra = ' target="_blank" rel="noopener noreferrer"' if active else ' aria-disabled="true"'
               return f'<a href="{url}"{extra} aria-label="{label}" style="display:inline-flex;align-items:center;justify-content:center;gap:5px;margin:4px;padding:6px 9px;border-radius:999px;background:#f4f5f7;color:#333!important;font-size:10px;font-weight:700;line-height:1;text-decoration:none;opacity:{"1" if active else ".55"};">{icon}<span>{label}</span></a>'
 
-          row = f'<div {row_marker} style="text-align:center;margin:8px 0 5px;">{button(instagram,"Instagram",icons["instagram"],True)}{button("#","Facebook",icons["facebook"])}{button(youtube,"YouTube",icons["youtube"],True)}</div>'
+          row = f'<div {row_marker} style="text-align:center;margin:8px 0 5px;">{button(instagram,"Instagram",icons["instagram"],True)}{button(facebook,"Facebook",icons["facebook"],True)}{button(youtube,"YouTube",icons["youtube"],True)}</div>'
 
           changed = []
           for path in sorted(Path('.').glob('*.html')):
@@ -96,5 +97,5 @@ jobs:
             echo "No changes to commit."
             exit 0
           fi
-          git commit -m "Add Kopersay YouTube link"
+          git commit -m "Add Kopersay Facebook link"
           git push origin HEAD:main
