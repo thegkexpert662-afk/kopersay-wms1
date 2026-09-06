@@ -22,7 +22,7 @@ jobs:
           git fetch origin main
           git reset --hard origin/main
 
-      - name: Place social row above footer copyright
+      - name: Place social row above footer copyright on index
         shell: bash
         run: |
           python3 - <<'PY'
@@ -30,6 +30,7 @@ jobs:
           import re
 
           instagram = 'https://www.instagram.com/kopersaytech?stkn=MXVxbXJsZ2hpeW1uYg=='
+          facebook = 'https://www.facebook.com/share/1DFtjNQct4/'
           youtube = 'https://youtube.com/@kopersaytech?si=9l9ObxGl1pVYXcCi'
           row_marker = 'data-kopersay-social-row="true"'
           old_marker = 'data-kopersay-instagram="true"'
@@ -40,30 +41,27 @@ jobs:
               'youtube': '<svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23 12s0-3.4-.4-5a2.8 2.8 0 0 0-2-2C18.9 4.5 12 4.5 12 4.5s-6.9 0-8.6.5a2.8 2.8 0 0 0-2 2C1 8.6 1 12 1 12s0 3.4.4 5a2.8 2.8 0 0 0 2 2c1.7.5 8.6.5 8.6.5s6.9 0 8.6-.5a2.8 2.8 0 0 0 2-2c.4-1.6.4-5 .4-5zM10 15.5v-7l6 3.5-6 3.5z"/></svg>'
           }
 
-          def button(url, label, icon, active=False):
-              extra = ' target="_blank" rel="noopener noreferrer"' if active else ' aria-disabled="true"'
-              return f'<a href="{url}"{extra} aria-label="{label}" style="display:inline-flex;align-items:center;justify-content:center;gap:5px;margin:4px;padding:6px 9px;border-radius:999px;background:#f4f5f7;color:#333!important;font-size:10px;font-weight:700;line-height:1;text-decoration:none;opacity:{"1" if active else ".55"};">{icon}<span>{label}</span></a>'
+          def button(url, label, icon):
+              return f'<a href="{url}" target="_blank" rel="noopener noreferrer" aria-label="{label}" style="display:inline-flex;align-items:center;justify-content:center;gap:5px;margin:4px;padding:6px 9px;border-radius:999px;background:#f4f5f7;color:#333!important;font-size:10px;font-weight:700;line-height:1;text-decoration:none;opacity:1;">{icon}<span>{label}</span></a>'
 
-          row = f'<div {row_marker} style="text-align:center;margin:8px 0 5px;">{button(instagram,"Instagram",icons["instagram"],True)}{button("#","Facebook",icons["facebook"],False)}{button(youtube,"YouTube",icons["youtube"],True)}</div>'
+          row = f'<div {row_marker} style="text-align:center;margin:8px 0 5px;">{button(instagram,"Instagram",icons["instagram"])}{button(facebook,"Facebook",icons["facebook"])}{button(youtube,"YouTube",icons["youtube"])}</div>'
 
-          changed = []
-          for path in sorted(Path('.').glob('*.html')):
-              if path.name == 'navnita_slider_snippet.html':
-                  continue
-              text = path.read_text(encoding='utf-8')
-              cleaned = re.sub(r'<a\b[^>]*' + re.escape(old_marker) + r'[^>]*>.*?</a>', '', text, flags=re.DOTALL)
-              cleaned = re.sub(r'<div\b[^>]*' + re.escape(row_marker) + r'[^>]*>.*?</div>', '', cleaned, count=1, flags=re.DOTALL)
-              anchor = re.search(r'©\s*2026', cleaned) or re.search(r'2026', cleaned) or re.search(r'(?i)All\s+Rights\s+Reserved\.?', cleaned)
-              if anchor:
-                  updated = cleaned[:anchor.start()] + row + '\n' + cleaned[anchor.start():]
-              elif '</footer>' in cleaned:
-                  updated = cleaned.replace('</footer>', row + '</footer>', 1)
-              else:
-                  continue
-              if updated != text:
-                  path.write_text(updated, encoding='utf-8')
-                  changed.append(path.name)
-          print('Updated:', ', '.join(changed) if changed else 'none')
+          path = Path('index.html')
+          text = path.read_text(encoding='utf-8')
+          cleaned = re.sub(r'<a\b[^>]*' + re.escape(old_marker) + r'[^>]*>.*?</a>', '', text, flags=re.DOTALL)
+          cleaned = re.sub(r'<div\b[^>]*' + re.escape(row_marker) + r'[^>]*>.*?</div>', '', cleaned, count=1, flags=re.DOTALL)
+          anchor = re.search(r'©\s*2026', cleaned) or re.search(r'2026', cleaned) or re.search(r'(?i)All\s+Rights\s+Reserved\.?', cleaned)
+          if anchor:
+              updated = cleaned[:anchor.start()] + row + '\n' + cleaned[anchor.start():]
+          elif '</footer>' in cleaned:
+              updated = cleaned.replace('</footer>', row + '</footer>', 1)
+          else:
+              updated = cleaned
+          if updated != text:
+              path.write_text(updated, encoding='utf-8')
+              print('Updated: index.html')
+          else:
+              print('No changes needed.')
           PY
 
       - name: Commit website changes
@@ -71,10 +69,10 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add '*.html'
+          git add index.html
           if git diff --cached --quiet; then
             echo "No changes to commit."
             exit 0
           fi
-          git commit -m "Restore original social layout"
+          git commit -m "Link Facebook button on index page"
           git push origin HEAD:main
