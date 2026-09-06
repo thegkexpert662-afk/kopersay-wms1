@@ -30,7 +30,6 @@ jobs:
           import re
 
           instagram = 'https://www.instagram.com/kopersaytech?stkn=MXVxbXJsZ2hpeW1uYg=='
-          facebook = 'https://www.facebook.com/share/1DFtjNQct4/'
           youtube = 'https://youtube.com/@kopersaytech?si=9l9ObxGl1pVYXcCi'
           row_marker = 'data-kopersay-social-row="true"'
           old_marker = 'data-kopersay-instagram="true"'
@@ -45,45 +44,25 @@ jobs:
               extra = ' target="_blank" rel="noopener noreferrer"' if active else ' aria-disabled="true"'
               return f'<a href="{url}"{extra} aria-label="{label}" style="display:inline-flex;align-items:center;justify-content:center;gap:5px;margin:4px;padding:6px 9px;border-radius:999px;background:#f4f5f7;color:#333!important;font-size:10px;font-weight:700;line-height:1;text-decoration:none;opacity:{"1" if active else ".55"};">{icon}<span>{label}</span></a>'
 
-          row = f'<div {row_marker} style="text-align:center;margin:8px 0 5px;">{button(instagram,"Instagram",icons["instagram"],True)}{button(facebook,"Facebook",icons["facebook"],True)}{button(youtube,"YouTube",icons["youtube"],True)}</div>'
+          row = f'<div {row_marker} style="text-align:center;margin:8px 0 5px;">{button(instagram,"Instagram",icons["instagram"],True)}{button("#","Facebook",icons["facebook"],False)}{button(youtube,"YouTube",icons["youtube"],True)}</div>'
 
           changed = []
-          for path in sorted(Path('.').rglob('*.html')):
-              if '.git' in path.parts or path.name == 'navnita_slider_snippet.html':
+          for path in sorted(Path('.').glob('*.html')):
+              if path.name == 'navnita_slider_snippet.html':
                   continue
               text = path.read_text(encoding='utf-8')
-
               cleaned = re.sub(r'<a\b[^>]*' + re.escape(old_marker) + r'[^>]*>.*?</a>', '', text, flags=re.DOTALL)
               cleaned = re.sub(r'<div\b[^>]*' + re.escape(row_marker) + r'[^>]*>.*?</div>', '', cleaned, count=1, flags=re.DOTALL)
-
-              if re.search(r'©\s*2026', cleaned):
-                  cleaned = re.sub(r'©\s*2026', '© 2026', cleaned, count=1)
-              elif re.search(r'&copy;\s*2026', cleaned, flags=re.I):
-                  cleaned = re.sub(r'&copy;\s*2026', '© 2026', cleaned, count=1, flags=re.I)
-              else:
-                  standalone = re.search(r'(?:^|>)[\s\n]*©[\s\n]*(?=<|2026)', cleaned)
-                  if standalone:
-                      cleaned = cleaned[:standalone.start()] + cleaned[standalone.end():]
-                  year = re.search(r'2026', cleaned)
-                  if year:
-                      cleaned = cleaned[:year.start()] + '© 2026' + cleaned[year.end():]
-
-              anchor = re.search(r'©\s*2026', cleaned)
-              if not anchor:
-                  anchor = re.search(r'2026', cleaned)
-              if not anchor:
-                  anchor = re.search(r'(?i)All\s+Rights\s+Reserved\.?', cleaned)
+              anchor = re.search(r'©\s*2026', cleaned) or re.search(r'2026', cleaned) or re.search(r'(?i)All\s+Rights\s+Reserved\.?', cleaned)
               if anchor:
                   updated = cleaned[:anchor.start()] + row + '\n' + cleaned[anchor.start():]
               elif '</footer>' in cleaned:
                   updated = cleaned.replace('</footer>', row + '</footer>', 1)
               else:
                   continue
-
               if updated != text:
                   path.write_text(updated, encoding='utf-8')
-                  changed.append(str(path))
-
+                  changed.append(path.name)
           print('Updated:', ', '.join(changed) if changed else 'none')
           PY
 
@@ -91,11 +70,11 @@ jobs:
         shell: bash
         run: |
           git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot].users.noreply.github.com"
-          git add --all -- '*.html'
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add '*.html'
           if git diff --cached --quiet; then
             echo "No changes to commit."
             exit 0
           fi
-          git commit -m "Restore all pages social layout"
+          git commit -m "Restore original social layout"
           git push origin HEAD:main
