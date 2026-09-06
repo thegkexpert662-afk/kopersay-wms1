@@ -22,7 +22,7 @@ jobs:
           git fetch origin main
           git reset --hard origin/main
 
-      - name: Place social row above footer copyright on index
+      - name: Place social row on all HTML pages
         shell: bash
         run: |
           python3 - <<'PY'
@@ -46,22 +46,24 @@ jobs:
 
           row = f'<div {row_marker} style="text-align:center;margin:8px 0 5px;">{button(instagram,"Instagram",icons["instagram"])}{button(facebook,"Facebook",icons["facebook"])}{button(youtube,"YouTube",icons["youtube"])}</div>'
 
-          path = Path('index.html')
-          text = path.read_text(encoding='utf-8')
-          cleaned = re.sub(r'<a\b[^>]*' + re.escape(old_marker) + r'[^>]*>.*?</a>', '', text, flags=re.DOTALL)
-          cleaned = re.sub(r'<div\b[^>]*' + re.escape(row_marker) + r'[^>]*>.*?</div>', '', cleaned, count=1, flags=re.DOTALL)
-          anchor = re.search(r'©\s*2026', cleaned) or re.search(r'2026', cleaned) or re.search(r'(?i)All\s+Rights\s+Reserved\.?', cleaned)
-          if anchor:
-              updated = cleaned[:anchor.start()] + row + '\n' + cleaned[anchor.start():]
-          elif '</footer>' in cleaned:
-              updated = cleaned.replace('</footer>', row + '</footer>', 1)
-          else:
-              updated = cleaned
-          if updated != text:
-              path.write_text(updated, encoding='utf-8')
-              print('Updated: index.html')
-          else:
-              print('No changes needed.')
+          changed = []
+          for path in sorted(Path('.').rglob('*.html')):
+              if '.git' in path.parts or path.name == 'navnita_slider_snippet.html':
+                  continue
+              text = path.read_text(encoding='utf-8')
+              cleaned = re.sub(r'<a\b[^>]*' + re.escape(old_marker) + r'[^>]*>.*?</a>', '', text, flags=re.DOTALL)
+              cleaned = re.sub(r'<div\b[^>]*' + re.escape(row_marker) + r'[^>]*>.*?</div>', '', cleaned, count=1, flags=re.DOTALL)
+              anchor = re.search(r'©\s*2026', cleaned) or re.search(r'2026', cleaned) or re.search(r'(?i)All\s+Rights\s+Reserved\.?', cleaned)
+              if anchor:
+                  updated = cleaned[:anchor.start()] + row + '\n' + cleaned[anchor.start():]
+              elif '</footer>' in cleaned:
+                  updated = cleaned.replace('</footer>', row + '</footer>', 1)
+              else:
+                  continue
+              if updated != text:
+                  path.write_text(updated, encoding='utf-8')
+                  changed.append(str(path))
+          print('Updated:', ', '.join(changed) if changed else 'none')
           PY
 
       - name: Commit website changes
@@ -69,10 +71,10 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add index.html
+          git add -- '*.html'
           if git diff --cached --quiet; then
             echo "No changes to commit."
             exit 0
           fi
-          git commit -m "Link Facebook button on index page"
+          git commit -m "Add Facebook link to all website pages"
           git push origin HEAD:main
