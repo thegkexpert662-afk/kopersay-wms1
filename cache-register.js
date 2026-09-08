@@ -55,24 +55,23 @@
     document.head.appendChild(style);
   }
 
-  // Add the same Kopersay brand name to every existing navbar without replacing the navbar design.
+  // Add the Kopersay wordmark to every existing navbar. Only the A is blue.
   function setupKopersayNavbarBrand() {
     var candidates = document.querySelectorAll('.navbar .logo, .nav .brand, header .logo');
     candidates.forEach(function (brand) {
-      if (brand.querySelector('.kopersay-navbar-name')) return;
+      var old = brand.querySelector('.kopersay-navbar-name');
+      if (old) old.remove();
+      var oldSourceText = brand.querySelector('span');
+      if (brand.classList.contains('brand') && oldSourceText) oldSourceText.remove();
       var name = document.createElement('span');
       name.className = 'kopersay-navbar-name';
-      name.textContent = 'Kopersay';
-      name.style.cssText = 'margin-left:9px;font-weight:800;white-space:nowrap;vertical-align:middle;';
+      name.innerHTML = 'Kopers<span class="kopersay-blue-a">a</span>y';
+      name.style.cssText = 'margin-left:9px;font-weight:800;white-space:nowrap;vertical-align:middle;color:#111!important;';
+      name.querySelector('.kopersay-blue-a').style.cssText = 'color:#1677ff!important;';
       brand.style.display = 'inline-flex';
       brand.style.alignItems = 'center';
       brand.appendChild(name);
     });
-    var sourceBrand = document.querySelector('.nav .brand');
-    if (sourceBrand) {
-      var existing = sourceBrand.querySelector('span:not(.kopersay-navbar-name)');
-      if (existing) existing.remove();
-    }
   }
 
   window.addEventListener('DOMContentLoaded', setupKopersayContactEmail);
