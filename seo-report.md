@@ -1,6 +1,6 @@
 # Kopersay Technologies SEO Audit
 
-Generated: 2026-09-08 20:40 UTC
+Generated: 2026-09-08 20:55 UTC
 
 | Page | Title | Description | Canonical | H1 | Images with ALT | Issues |
 |---|---:|---:|---:|---:|---:|---|
@@ -21,6 +21,7 @@ Generated: 2026-09-08 20:40 UTC
 | `snappazzel.html` | OK | OK | OK | 1 | 2/2 | OK |
 | `software-development.html` | OK | OK | OK | 1 | 1/1 | OK |
 | `software.html` | OK | OK | OK | 1 | 2/2 | OK |
+| `source-code.html` | OK | OK | FIX | 1 | 1/1 | canonical x0 |
 | `terms.html` | OK | OK | OK | 1 | 2/2 | OK |
 | `usa-software.html` | OK | OK | OK | 1 | 2/2 | OK |
 | `videomitra.html` | OK | OK | OK | 1 | 3/3 | OK |
@@ -36,7 +37,7 @@ Generated: 2026-09-08 20:40 UTC
 | `wms.html` | OK | OK | OK | 1 | 13/13 | OK |
 | `wmsdetails.html` | OK | OK | OK | 1 | 14/14 | OK |
 
-**Pages checked:** 31
-**Issues found:** 9
+**Pages checked:** 32
+**Issues found:** 10
 
 This workflow audits repository HTML every 10 minutes and updates this report when needed.
