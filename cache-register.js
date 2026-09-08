@@ -38,9 +38,36 @@
     style.textContent = '.contact-box .kopersay-contact-email,.contact-box .kopersay-contact-email a{display:block!important;margin:8px 0 0!important;padding:0!important;color:#6545ed!important;font-size:13px!important;font-weight:800!important;line-height:1.5!important;text-align:center!important;text-decoration:none!important}.contact-box .kopersay-contact-email a:hover{text-decoration:underline!important}@media(max-width:700px){.contact-box .kopersay-contact-email,.contact-box .kopersay-contact-email a{font-size:12px!important;word-break:break-word!important}}';
   }
 
+  // Homepage Source Code / Marketplace navigation.
+  function setupSourceCodeMarketplaceLink() {
+    if (!(window.location.pathname.endsWith('/index.html') || window.location.pathname === '/' || window.location.pathname === '')) return;
+    var navLinks = document.querySelector('.nav-links');
+    if (!navLinks || navLinks.querySelector('.source-code-marketplace-link')) return;
+
+    var link = document.createElement('a');
+    link.className = 'source-code-marketplace-link';
+    link.href = 'source-code.html';
+    link.textContent = 'Source Code / Marketplace';
+    link.setAttribute('aria-label', 'Source Code / Marketplace');
+    link.style.order = '3';
+
+    var products = navLinks.querySelector('.our-products-dropdown');
+    if (products) navLinks.insertBefore(link, products);
+    else navLinks.appendChild(link);
+
+    var style = document.createElement('style');
+    style.id = 'source-code-marketplace-nav-css';
+    style.textContent = '.nav-links .source-code-marketplace-link{color:#35445d;font-size:13px;font-weight:600;white-space:nowrap}.nav-links .source-code-marketplace-link:hover{color:#6545ef}.nav-links .source-code-marketplace-link{padding:9px 15px;border:1px solid rgba(255,255,255,.7);border-radius:16px;background:linear-gradient(135deg,#6545ef,#19aeea);color:#fff!important;box-shadow:0 8px 20px rgba(82,85,220,.25)}@media(max-width:700px){.nav-links .source-code-marketplace-link{padding:8px 10px;font-size:11px}}';
+    document.head.appendChild(style);
+  }
+
   window.addEventListener('DOMContentLoaded', setupKopersayContactEmail);
   window.addEventListener('load', setupKopersayContactEmail);
   setTimeout(setupKopersayContactEmail, 500);
+
+  window.addEventListener('DOMContentLoaded', setupSourceCodeMarketplaceLink);
+  window.addEventListener('load', setupSourceCodeMarketplaceLink);
+  setTimeout(setupSourceCodeMarketplaceLink, 500);
 
   if (!('serviceWorker' in navigator)) return;
   window.addEventListener('load', function () {
