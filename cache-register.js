@@ -12,7 +12,6 @@
     window.gtag('config', 'G-JTSZSZ29VY', { anonymize_ip: true });
   }
 
-  // Homepage contact email: purple, matching the phone number.
   function setupKopersayContactEmail() {
     if (!(window.location.pathname.endsWith('/index.html') || window.location.pathname === '/' || window.location.pathname === '')) return;
     var contact = document.getElementById('contact');
@@ -28,7 +27,6 @@
     email.remove();
     if (phone) phone.insertAdjacentElement('afterend', email);
     else contactBox.appendChild(email);
-
     var style = document.getElementById('kopersay-contact-email-css');
     if (!style) {
       style = document.createElement('style');
@@ -38,63 +36,51 @@
     style.textContent = '.contact-box .kopersay-contact-email,.contact-box .kopersay-contact-email a{display:block!important;margin:8px 0 0!important;padding:0!important;color:#6545ed!important;font-size:13px!important;font-weight:800!important;line-height:1.5!important;text-align:center!important;text-decoration:none!important}.contact-box .kopersay-contact-email a:hover{text-decoration:underline!important}@media(max-width:700px){.contact-box .kopersay-contact-email,.contact-box .kopersay-contact-email a{font-size:12px!important;word-break:break-word!important}}';
   }
 
-  // Homepage Source Code / Marketplace navigation.
   function setupSourceCodeMarketplaceLink() {
     if (!(window.location.pathname.endsWith('/index.html') || window.location.pathname === '/' || window.location.pathname === '')) return;
     var navLinks = document.querySelector('.nav-links');
     if (!navLinks || navLinks.querySelector('.source-code-marketplace-link')) return;
-
     var link = document.createElement('a');
     link.className = 'source-code-marketplace-link';
     link.href = 'source-code.html';
     link.textContent = 'Source Code / Marketplace';
     link.setAttribute('aria-label', 'Source Code / Marketplace');
     link.style.order = '3';
-
     var products = navLinks.querySelector('.our-products-dropdown');
     if (products) navLinks.insertBefore(link, products);
     else navLinks.appendChild(link);
-
     var style = document.createElement('style');
     style.id = 'source-code-marketplace-nav-css';
     style.textContent = '.nav-links .source-code-marketplace-link{color:#35445d;font-size:13px;font-weight:600;white-space:nowrap}.nav-links .source-code-marketplace-link:hover{color:#6545ef}.nav-links .source-code-marketplace-link{padding:9px 15px;border:1px solid rgba(255,255,255,.7);border-radius:16px;background:linear-gradient(135deg,#6545ef,#19aeea);color:#fff!important;box-shadow:0 8px 20px rgba(82,85,220,.25)}@media(max-width:700px){.nav-links .source-code-marketplace-link{padding:8px 10px;font-size:11px}}';
     document.head.appendChild(style);
   }
 
-  // Add the Kopersay brand name beside the existing navbar logo on every page.
+  // Add the same Kopersay brand name to every existing navbar without replacing the navbar design.
   function setupKopersayNavbarBrand() {
-    var logo = document.querySelector('nav .logo');
-    if (!logo) logo = document.querySelector('nav .brand');
-    if (!logo || logo.querySelector('.kopersay-nav-name') || document.querySelector('.kopersay-nav-name')) return;
-
-    var name = document.createElement('span');
-    name.className = 'kopersay-nav-name';
-    name.textContent = 'Kopersay';
-    name.setAttribute('aria-label', 'Kopersay');
-
-    if (logo.classList.contains('brand')) {
-      logo.appendChild(name);
-    } else {
-      logo.insertAdjacentElement('afterend', name);
+    var candidates = document.querySelectorAll('.navbar .logo, .nav .brand, header .logo');
+    candidates.forEach(function (brand) {
+      if (brand.querySelector('.kopersay-navbar-name')) return;
+      var name = document.createElement('span');
+      name.className = 'kopersay-navbar-name';
+      name.textContent = 'Kopersay';
+      name.style.cssText = 'margin-left:9px;font-weight:800;white-space:nowrap;vertical-align:middle;';
+      brand.style.display = 'inline-flex';
+      brand.style.alignItems = 'center';
+      brand.appendChild(name);
+    });
+    var sourceBrand = document.querySelector('.nav .brand');
+    if (sourceBrand) {
+      var existing = sourceBrand.querySelector('span:not(.kopersay-navbar-name)');
+      if (existing) existing.remove();
     }
-
-    var style = document.getElementById('kopersay-navbar-brand-css');
-    if (!style) {
-      style = document.createElement('style');
-      style.id = 'kopersay-navbar-brand-css';
-      document.head.appendChild(style);
-    }
-    style.textContent = '.kopersay-nav-name{display:inline-flex!important;align-items:center!important;margin-left:9px!important;color:#10233f!important;font-size:20px!important;font-weight:800!important;line-height:1!important;text-decoration:none!important;white-space:nowrap!important}@media(max-width:700px){.kopersay-nav-name{font-size:17px!important;margin-left:7px!important}}';
   }
 
   window.addEventListener('DOMContentLoaded', setupKopersayContactEmail);
   window.addEventListener('load', setupKopersayContactEmail);
   setTimeout(setupKopersayContactEmail, 500);
-
   window.addEventListener('DOMContentLoaded', setupSourceCodeMarketplaceLink);
   window.addEventListener('load', setupSourceCodeMarketplaceLink);
   setTimeout(setupSourceCodeMarketplaceLink, 500);
-
   window.addEventListener('DOMContentLoaded', setupKopersayNavbarBrand);
   window.addEventListener('load', setupKopersayNavbarBrand);
   setTimeout(setupKopersayNavbarBrand, 500);
