@@ -1,0 +1,41 @@
+name: Deploy Firebase Marketplace Functions
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'functions/**'
+      - 'firebase.json'
+      - '.firebaserc'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: functions/package.json
+
+      - name: Install dependencies
+        working-directory: functions
+        run: npm install
+
+      - name: Deploy Firebase Functions
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        env:
+          FIREBASE_CLI_PREVIEWS: webframeworks
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+        with:
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+          projectId: kopersay-sorce-code
+          channelId: live
