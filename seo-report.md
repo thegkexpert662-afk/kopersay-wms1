@@ -1,10 +1,11 @@
 # Kopersay Technologies SEO Audit
 
-Generated: 2026-09-08 21:03 UTC
+Generated: 2026-09-08 21:16 UTC
 
 | Page | Title | Description | Canonical | H1 | Images with ALT | Issues |
 |---|---:|---:|---:|---:|---:|---|
 | `about.html` | OK | OK | OK | 1 | 3/3 | OK |
+| `admin-login.html` | OK | FIX | FIX | 0 | 1/1 | description x0; canonical x0; missing H1 |
 | `admin-source-code.html` | OK | FIX | FIX | 1 | 1/1 | description x0; canonical x0 |
 | `app-development.html` | OK | OK | OK | 1 | 1/1 | OK |
 | `application-development.html` | OK | OK | OK | 1 | 1/1 | OK |
@@ -38,7 +39,7 @@ Generated: 2026-09-08 21:03 UTC
 | `wms.html` | OK | OK | OK | 1 | 13/13 | OK |
 | `wmsdetails.html` | OK | OK | OK | 1 | 14/14 | OK |
 
-**Pages checked:** 33
-**Issues found:** 12
+**Pages checked:** 34
+**Issues found:** 15
 
 This workflow audits repository HTML every 10 minutes and updates this report when needed.
