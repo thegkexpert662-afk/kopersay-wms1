@@ -8,7 +8,7 @@
 <script type="module">
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js';
 import { getAuth, onAuthStateChanged, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js';
-const firebaseConfig={apiKey:'AIzaSyBSCSPWRpzwAicmZlW3KwEQmxTsUWmhBrI',authDomain:'kopersay-source-marketplace.firebaseapp.com',projectId:'kopersay-source-marketplace',storageBucket:'kopersay-source-marketplace.firebasestorage.app',messagingSenderId:'353556914299',appId:'1:353556914299:web:331230289d34360567c2de'};
+const firebaseConfig={apiKey:'AIzaSyBI1Sk_jmer1gPYlpFTN2X_POr8MToW1Us',authDomain:'kopersay-sorce-code.firebaseapp.com',projectId:'kopersay-sorce-code',storageBucket:'kopersay-sorce-code.firebasestorage.app',messagingSenderId:'593406715957',appId:'1:593406715957:web:a4bc4495fbf7c8182b697c'};
 const app=initializeApp(firebaseConfig);const auth=getAuth(app);const form=document.getElementById('login');const error=document.getElementById('error');const success=document.getElementById('success');const btn=document.getElementById('submitBtn');
 onAuthStateChanged(auth,user=>{if(user){window.location.replace('admin-source-code.html');}});
 form.addEventListener('submit',async e=>{e.preventDefault();error.style.display='none';success.style.display='none';btn.disabled=true;try{await signInWithEmailAndPassword(auth,document.getElementById('email').value.trim(),document.getElementById('password').value);success.style.display='block';}catch(err){error.textContent=err.code==='auth/invalid-credential'?'Email or password is incorrect.':err.code==='auth/too-many-requests'?'Too many attempts. Please try again later.':err.message;error.style.display='block';btn.disabled=false;}});
