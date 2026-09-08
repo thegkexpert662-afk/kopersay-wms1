@@ -61,11 +61,30 @@
     document.head.appendChild(style);
   }
 
-  // Source Code Marketplace navbar: keep the logo, remove the text label.
-  function cleanSourceCodeNavbarBrand() {
-    if (!window.location.pathname.endsWith('/source-code.html')) return;
-    var brandText = document.querySelector('.nav .brand span');
-    if (brandText) brandText.remove();
+  // Add the Kopersay brand name beside the existing navbar logo on every page.
+  function setupKopersayNavbarBrand() {
+    var logo = document.querySelector('nav .logo');
+    if (!logo) logo = document.querySelector('nav .brand');
+    if (!logo || logo.querySelector('.kopersay-nav-name') || document.querySelector('.kopersay-nav-name')) return;
+
+    var name = document.createElement('span');
+    name.className = 'kopersay-nav-name';
+    name.textContent = 'Kopersay';
+    name.setAttribute('aria-label', 'Kopersay');
+
+    if (logo.classList.contains('brand')) {
+      logo.appendChild(name);
+    } else {
+      logo.insertAdjacentElement('afterend', name);
+    }
+
+    var style = document.getElementById('kopersay-navbar-brand-css');
+    if (!style) {
+      style = document.createElement('style');
+      style.id = 'kopersay-navbar-brand-css';
+      document.head.appendChild(style);
+    }
+    style.textContent = '.kopersay-nav-name{display:inline-flex!important;align-items:center!important;margin-left:9px!important;color:#10233f!important;font-size:20px!important;font-weight:800!important;line-height:1!important;text-decoration:none!important;white-space:nowrap!important}@media(max-width:700px){.kopersay-nav-name{font-size:17px!important;margin-left:7px!important}}';
   }
 
   window.addEventListener('DOMContentLoaded', setupKopersayContactEmail);
@@ -76,9 +95,9 @@
   window.addEventListener('load', setupSourceCodeMarketplaceLink);
   setTimeout(setupSourceCodeMarketplaceLink, 500);
 
-  window.addEventListener('DOMContentLoaded', cleanSourceCodeNavbarBrand);
-  window.addEventListener('load', cleanSourceCodeNavbarBrand);
-  setTimeout(cleanSourceCodeNavbarBrand, 500);
+  window.addEventListener('DOMContentLoaded', setupKopersayNavbarBrand);
+  window.addEventListener('load', setupKopersayNavbarBrand);
+  setTimeout(setupKopersayNavbarBrand, 500);
 
   if (!('serviceWorker' in navigator)) return;
   window.addEventListener('load', function () {
