@@ -61,6 +61,13 @@
     document.head.appendChild(style);
   }
 
+  // Source Code Marketplace navbar: keep the logo, remove the text label.
+  function cleanSourceCodeNavbarBrand() {
+    if (!window.location.pathname.endsWith('/source-code.html')) return;
+    var brandText = document.querySelector('.nav .brand span');
+    if (brandText) brandText.remove();
+  }
+
   window.addEventListener('DOMContentLoaded', setupKopersayContactEmail);
   window.addEventListener('load', setupKopersayContactEmail);
   setTimeout(setupKopersayContactEmail, 500);
@@ -68,6 +75,10 @@
   window.addEventListener('DOMContentLoaded', setupSourceCodeMarketplaceLink);
   window.addEventListener('load', setupSourceCodeMarketplaceLink);
   setTimeout(setupSourceCodeMarketplaceLink, 500);
+
+  window.addEventListener('DOMContentLoaded', cleanSourceCodeNavbarBrand);
+  window.addEventListener('load', cleanSourceCodeNavbarBrand);
+  setTimeout(cleanSourceCodeNavbarBrand, 500);
 
   if (!('serviceWorker' in navigator)) return;
   window.addEventListener('load', function () {
