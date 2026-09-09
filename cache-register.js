@@ -39,20 +39,33 @@
   function setupSourceCodeMarketplaceLink() {
     if (!(window.location.pathname.endsWith('/index.html') || window.location.pathname === '/' || window.location.pathname === '')) return;
     var navLinks = document.querySelector('.nav-links');
-    if (!navLinks || navLinks.querySelector('.source-code-marketplace-link')) return;
-    var link = document.createElement('a');
-    link.className = 'source-code-marketplace-link';
-    link.href = 'source-code.html';
-    link.textContent = 'Source Code / Marketplace';
-    link.setAttribute('aria-label', 'Source Code / Marketplace');
-    link.style.order = '3';
-    var products = navLinks.querySelector('.our-products-dropdown');
-    if (products) navLinks.insertBefore(link, products);
-    else navLinks.appendChild(link);
-    var style = document.createElement('style');
-    style.id = 'source-code-marketplace-nav-css';
-    style.textContent = '.navbar{padding-left:16px;padding-right:16px}.nav-links{gap:10px}.nav-links>a{font-size:12px}.nav-links .source-code-marketplace-link{display:inline-flex;align-items:center;justify-content:center;color:#fff!important;font-size:10px;font-weight:700;line-height:1.1;white-space:nowrap;padding:6px 8px;border:1px solid rgba(255,255,255,.72);border-radius:10px;background:linear-gradient(135deg,#6545ef,#19aeea);box-shadow:0 5px 12px rgba(82,85,220,.18);max-width:145px}.nav-links .source-code-marketplace-link:hover{color:#fff!important;transform:translateY(-1px)}.nav-links .nav-contact{padding:7px 10px;font-size:11px;border-radius:11px}.nav-links .our-products-btn{padding:7px 10px;font-size:11px;border-radius:11px}@media(max-width:900px){.navbar{padding-left:12px;padding-right:12px}.nav-links{gap:7px}.nav-links>a{font-size:10px}.nav-links .source-code-marketplace-link{font-size:9px;padding:5px 6px;max-width:118px}.nav-links .nav-contact,.nav-links .our-products-btn{padding:6px 7px;font-size:10px}}@media(max-width:700px){.navbar{padding-left:8px;padding-right:8px}.nav-links{gap:5px}.nav-links .source-code-marketplace-link{font-size:8px;padding:4px 5px;max-width:105px}.nav-links .nav-contact,.nav-links .our-products-btn{padding:5px 6px;font-size:9px}}';
-    document.head.appendChild(style);
+    if (!navLinks) return;
+
+    // Keep Source Code / Marketplace inside the existing Our Products dropdown.
+    var standalone = navLinks.querySelector('.source-code-marketplace-link');
+    if (standalone) standalone.remove();
+
+    var dropdown = navLinks.querySelector('.our-products-dropdown');
+    var menu = dropdown && dropdown.querySelector('.our-products-menu');
+    if (!menu) return;
+
+    var link = menu.querySelector('.source-code-marketplace-link');
+    if (!link) {
+      link = document.createElement('a');
+      link.className = 'source-code-marketplace-link';
+      link.href = 'source-code.html';
+      link.textContent = 'Source Code / Marketplace';
+      link.setAttribute('aria-label', 'Source Code / Marketplace');
+      menu.appendChild(link);
+    }
+
+    var style = document.getElementById('source-code-marketplace-nav-css');
+    if (!style) {
+      style = document.createElement('style');
+      style.id = 'source-code-marketplace-nav-css';
+      document.head.appendChild(style);
+    }
+    style.textContent = '.nav-links{gap:10px}.nav-links>a{font-size:12px}.nav-links .nav-contact,.nav-links .our-products-btn{padding:7px 10px;font-size:11px;border-radius:11px}.our-products-menu .source-code-marketplace-link{display:block!important;width:100%;max-width:none!important;margin:2px 0 0!important;padding:11px 13px!important;border:0!important;border-radius:12px!important;background:transparent!important;box-shadow:none!important;color:#40516b!important;font-size:13px!important;font-weight:600!important;line-height:1.4!important;white-space:normal!important}.our-products-menu .source-code-marketplace-link:hover{background:rgba(110,195,255,.2)!important;color:#6044e9!important;transform:none!important}@media(max-width:900px){.nav-links{gap:7px}.nav-links>a{font-size:10px}.nav-links .nav-contact,.nav-links .our-products-btn{padding:6px 7px;font-size:10px}}@media(max-width:700px){.nav-links{gap:5px}.nav-links .nav-contact,.nav-links .our-products-btn{padding:5px 6px;font-size:9px}.our-products-menu .source-code-marketplace-link{padding:10px 11px!important;font-size:12px!important}}';
   }
 
   // Add the Kopersay wordmark to every existing navbar. Only the A is blue.
