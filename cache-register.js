@@ -51,7 +51,7 @@
     else navLinks.appendChild(link);
     var style = document.createElement('style');
     style.id = 'source-code-marketplace-nav-css';
-    style.textContent = '.nav-links .source-code-marketplace-link{color:#35445d;font-size:13px;font-weight:600;white-space:nowrap}.nav-links .source-code-marketplace-link:hover{color:#6545ef}.nav-links .source-code-marketplace-link{padding:9px 15px;border:1px solid rgba(255,255,255,.7);border-radius:16px;background:linear-gradient(135deg,#6545ef,#19aeea);color:#fff!important;box-shadow:0 8px 20px rgba(82,85,220,.25)}@media(max-width:700px){.nav-links .source-code-marketplace-link{padding:8px 10px;font-size:11px}}';
+    style.textContent = '.nav-links{gap:16px}.nav-links .source-code-marketplace-link{color:#35445d;font-size:11px;font-weight:700;white-space:nowrap;padding:7px 10px;border:1px solid rgba(255,255,255,.7);border-radius:12px;background:linear-gradient(135deg,#6545ef,#19aeea);color:#fff!important;box-shadow:0 6px 15px rgba(82,85,220,.2)}.nav-links .source-code-marketplace-link:hover{color:#fff!important;transform:translateY(-1px)}@media(max-width:900px){.nav-links{gap:11px}.nav-links .source-code-marketplace-link{font-size:10px;padding:6px 8px;border-radius:10px}}@media(max-width:700px){.nav-links{gap:7px}.nav-links .source-code-marketplace-link{font-size:9px;padding:5px 7px;border-radius:9px}}';
     document.head.appendChild(style);
   }
 
