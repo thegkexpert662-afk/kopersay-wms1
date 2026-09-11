@@ -10,6 +10,11 @@
     window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
     window.gtag('js', new Date());
     window.gtag('config', 'G-JTSZSZ29VY', { anonymize_ip: true });
+
+    // Google Analytics: treat visits to the Contact page as lead events.
+    if (window.location.pathname === '/contact.html' || window.location.pathname === '/contact') {
+      window.gtag('event', 'generate_lead');
+    }
   }
 
   function setupKopersayContactEmail() {
