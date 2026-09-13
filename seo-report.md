@@ -1,6 +1,6 @@
 # Kopersay Technologies SEO Audit
 
-Generated: 2026-09-13 18:49 UTC
+Generated: 2026-09-13 21:12 UTC
 
 | Page | Title | Description | Canonical | H1 | Images with ALT | Issues |
 |---|---:|---:|---:|---:|---:|---|
